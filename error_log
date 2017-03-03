@@ -1,0 +1,43 @@
+[29-Nov-2012 03:23:46] PHP Parse error:  syntax error, unexpected $end in /home/russell/public_html/portfolio-new/wp-content/themes/portfolio/basic-page.php on line 25
+[29-Nov-2012 03:25:10] PHP Parse error:  syntax error, unexpected '<' in /home/russell/public_html/portfolio-new/wp-content/themes/portfolio/basic-page.php on line 17
+[29-Nov-2012 03:30:42] PHP Warning:  filemtime() [<a href='function.filemtime'>function.filemtime</a>]: stat failed for /home/russell/public_html/portfolio-new/wp-content/themes/portfolio/style.css in /home/russell/public_html/portfolio-new/wp-content/themes/portfolio/header.php on line 51
+[29-Nov-2012 03:30:55] PHP Warning:  filemtime() [<a href='function.filemtime'>function.filemtime</a>]: stat failed for /home/russell/public_html/portfolio-new/wp-content/themes/portfolio/style.css in /home/russell/public_html/portfolio-new/wp-content/themes/portfolio/header.php on line 51
+[03-Dec-2012 16:52:21] PHP Warning:  Invalid argument supplied for foreach() in /home/russell/public_html/portfolio-new/wp-content/themes/portfolio/work.php on line 32
+[03-Dec-2012 16:52:21] PHP Warning:  Invalid argument supplied for foreach() in /home/russell/public_html/portfolio-new/wp-content/themes/portfolio/work.php on line 32
+[03-Dec-2012 16:52:21] PHP Warning:  Invalid argument supplied for foreach() in /home/russell/public_html/portfolio-new/wp-content/themes/portfolio/work.php on line 32
+[03-Dec-2012 16:52:21] PHP Warning:  Invalid argument supplied for foreach() in /home/russell/public_html/portfolio-new/wp-content/themes/portfolio/work.php on line 32
+[03-Dec-2012 16:52:21] PHP Warning:  Invalid argument supplied for foreach() in /home/russell/public_html/portfolio-new/wp-content/themes/portfolio/work.php on line 32
+[03-Dec-2012 16:52:21] PHP Warning:  Invalid argument supplied for foreach() in /home/russell/public_html/portfolio-new/wp-content/themes/portfolio/work.php on line 32
+[03-Dec-2012 16:52:21] PHP Warning:  Invalid argument supplied for foreach() in /home/russell/public_html/portfolio-new/wp-content/themes/portfolio/work.php on line 32
+[03-Dec-2012 16:52:21] PHP Warning:  Invalid argument supplied for foreach() in /home/russell/public_html/portfolio-new/wp-content/themes/portfolio/work.php on line 32
+[03-Dec-2012 16:52:21] PHP Warning:  Invalid argument supplied for foreach() in /home/russell/public_html/portfolio-new/wp-content/themes/portfolio/work.php on line 32
+[03-Dec-2012 17:00:30] PHP Parse error:  syntax error, unexpected '<' in /home/russell/public_html/portfolio-new/wp-content/themes/portfolio/work.php on line 30
+[03-Dec-2012 17:07:09] PHP Parse error:  syntax error, unexpected T_STRING in /home/russell/public_html/portfolio-new/wp-content/themes/portfolio/work.php on line 26
+[04-Dec-2012 00:03:35] PHP Parse error:  syntax error, unexpected $end in /home/russell/public_html/portfolio-new/wp-content/themes/portfolio/portfolio-category.php on line 43
+[04-Dec-2012 00:03:39] PHP Parse error:  syntax error, unexpected $end in /home/russell/public_html/portfolio-new/wp-content/themes/portfolio/portfolio-category.php on line 43
+[06-Dec-2012 04:16:58] PHP Fatal error:  Call to undefined function  get_the_permalink() in /home/russell/public_html/portfolio-new/wp-content/themes/portfolio/portfolio-category.php on line 34
+[06-Dec-2012 04:20:45] PHP Fatal error:  Call to undefined function  get_the_field() in /home/russell/public_html/portfolio-new/wp-content/themes/portfolio/portfolio-category.php on line 31
+[12-Dec-2012 04:34:14] PHP Warning:  Missing argument 1 for wp_get_attachment_image_src(), called in /home/russell/public_html/portfolio-new/wp-content/themes/portfolio/photography.php on line 30 and defined in /home/russell/public_html/portfolio-new/wp-includes/media.php on line 508
+[12-Dec-2012 04:34:14] PHP Warning:  Missing argument 1 for wp_get_attachment_image_src(), called in /home/russell/public_html/portfolio-new/wp-content/themes/portfolio/photography.php on line 30 and defined in /home/russell/public_html/portfolio-new/wp-includes/media.php on line 508
+[12-Dec-2012 04:38:11] PHP Parse error:  syntax error, unexpected '<' in /home/russell/public_html/portfolio-new/wp-content/themes/portfolio/photography.php on line 32
+[13-Dec-2012 17:24:07] PHP Parse error:  syntax error, unexpected T_ENDWHILE in /home/russell/public_html/portfolio-new/wp-content/themes/portfolio/portfolio-category.php on line 59
+[13-Dec-2012 18:01:34] PHP Parse error:  syntax error, unexpected ';', expecting ')' in /home/russell/public_html/portfolio-new/wp-content/themes/portfolio/portfolio-category.php on line 42
+[13-Dec-2012 18:24:14] PHP Parse error:  syntax error, unexpected T_STRING in /home/russell/public_html/portfolio-new/wp-content/themes/portfolio/portfolio-category.php on line 50
+[13-Dec-2012 21:00:18] PHP Parse error:  syntax error, unexpected T_ECHO in /home/russell/public_html/portfolio-new/wp-content/themes/portfolio/portfolio-category.php on line 59
+[13-Dec-2012 21:00:42] PHP Parse error:  syntax error, unexpected T_ECHO in /home/russell/public_html/portfolio-new/wp-content/themes/portfolio/portfolio-category.php on line 59
+[12-Feb-2013 01:03:38] PHP Parse error:  syntax error, unexpected T_DOUBLE_ARROW in /home/russell/public_html/portfolio/wp-content/themes/nerdy/header.php on line 91
+[12-Feb-2013 18:34:45] PHP Parse error:  syntax error, unexpected '{', expecting '(' in /home/russell/public_html/portfolio/wp-content/themes/original/portfolio-category.php on line 54
+[12-Feb-2013 18:36:17] PHP Parse error:  syntax error, unexpected '{', expecting '(' in /home/russell/public_html/portfolio/wp-content/themes/original/portfolio-category.php on line 54
+[12-Feb-2013 18:38:47] PHP Parse error:  syntax error, unexpected '{', expecting '(' in /home/russell/public_html/portfolio/wp-content/themes/original/portfolio-category.php on line 53
+[12-Feb-2013 18:38:57] PHP Parse error:  syntax error, unexpected '{', expecting '(' in /home/russell/public_html/portfolio/wp-content/themes/original/portfolio-category.php on line 53
+[12-Feb-2013 18:39:00] PHP Parse error:  syntax error, unexpected '{', expecting '(' in /home/russell/public_html/portfolio/wp-content/themes/original/portfolio-category.php on line 53
+[29-Apr-2013 05:38:58] PHP Parse error:  syntax error, unexpected T_STRING in /home/russell/public_html/portfolio/wp-content/themes/minimal/work.php on line 26
+[29-Apr-2013 05:40:15] PHP Parse error:  syntax error, unexpected T_STRING in /home/russell/public_html/portfolio/wp-content/themes/minimal/work.php on line 26
+[29-Apr-2013 05:40:18] PHP Parse error:  syntax error, unexpected T_STRING in /home/russell/public_html/portfolio/wp-content/themes/minimal/work.php on line 26
+[30-Apr-2013 02:20:58] PHP Parse error:  syntax error, unexpected T_INC in /home/russell/public_html/portfolio/wp-content/themes/minimal/photography.php on line 65
+[16-Jul-2013 15:33:56] PHP Warning:  urldecode() expects parameter 1 to be string, array given in /home/russell/public_html/portfolio/wp-includes/query.php on line 1735
+[16-Jul-2013 15:33:56] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/russell/public_html/portfolio/wp-includes/query.php:1735) in /home/russell/public_html/portfolio/wp-includes/pluggable.php on line 876
+[15-Oct-2015 02:30:18] PHP Warning:  require(ABSPATHwp-includes/load.php) [<a href='function.require'>function.require</a>]: failed to open stream: No such file or directory in /home2/russell/public_html/portfolio/wp-settings.php on line 21
+[15-Oct-2015 02:30:18] PHP Warning:  require(ABSPATHwp-includes/load.php) [<a href='function.require'>function.require</a>]: failed to open stream: No such file or directory in /home2/russell/public_html/portfolio/wp-settings.php on line 21
+[15-Oct-2015 02:30:18] PHP Warning:  require(ABSPATHwp-includes/load.php) [<a href='function.require'>function.require</a>]: failed to open stream: No such file or directory in /home2/russell/public_html/portfolio/wp-settings.php on line 21
+[15-Oct-2015 02:30:18] PHP Fatal error:  require() [<a href='function.require'>function.require</a>]: Failed opening required 'ABSPATHwp-includes/load.php' (include_path='.:/opt/php52/lib/php') in /home2/russell/public_html/portfolio/wp-settings.php on line 21

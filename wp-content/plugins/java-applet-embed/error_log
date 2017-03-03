@@ -1,0 +1,6 @@
+[30-Apr-2013 11:20:20] PHP Fatal error:  Call to undefined function  register_activation_hook() in /home/russell/public_html/portfolio/wp-content/plugins/java-applet-embed/java-applet-embed.php on line 373
+[30-Apr-2013 11:22:07] PHP Fatal error:  Call to undefined function  register_activation_hook() in /home/russell/public_html/portfolio/wp-content/plugins/java-applet-embed/java-applet-embed.php on line 373
+[17-Nov-2013 08:42:36] PHP Fatal error:  Call to undefined function  register_activation_hook() in /home2/russell/public_html/portfolio/wp-content/plugins/java-applet-embed/java-applet-embed.php on line 373
+[19-Jul-2014 20:15:42] PHP Fatal error:  Call to undefined function  register_activation_hook() in /home2/russell/public_html/portfolio/wp-content/plugins/java-applet-embed/java-applet-embed.php on line 373
+[22-Feb-2015 06:09:31] PHP Fatal error:  Call to undefined function  register_activation_hook() in /home2/russell/public_html/portfolio/wp-content/plugins/java-applet-embed/java-applet-embed.php on line 373
+[24-Jun-2015 15:03:27] PHP Fatal error:  Call to undefined function  register_activation_hook() in /home2/russell/public_html/portfolio/wp-content/plugins/java-applet-embed/java-applet-embed.php on line 373

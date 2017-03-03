@@ -1,0 +1,1 @@
+[30-Sep-2015 21:51:21] PHP Fatal error:  Call to undefined function  _deprecated_file() in /home2/russell/public_html/portfolio/wp-includes/rss-functions.php on line 8
