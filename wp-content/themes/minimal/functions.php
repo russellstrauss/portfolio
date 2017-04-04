@@ -1,4 +1,16 @@
 <?php
+
+//update_option( 'siteurl', 'http://portfolio.dev' );
+//update_option( 'home', 'http://portfolio.dev' );
+
+
+
+
+
+
+
+
+
 add_action('after_setup_theme', 'blankslate_setup');
 function blankslate_setup(){
 load_theme_textdomain('blankslate', get_template_directory() . '/languages');

@@ -1,0 +1,21 @@
+{
+	"name": "Portfolio",
+	"version": "4.0.1",
+	"description": "Personal portfolio of work and ideas.",
+	"main": "main.js",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/russellstrauss/portfolio"
+	},
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"browser-sync": "^2.12.5",
+		"gulp": "^3.9.1",
+		"gulp-sass": "^3.0.0",
+		"gulp-watch": "^4.3.5"
+	}
+}

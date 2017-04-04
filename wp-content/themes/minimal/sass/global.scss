@@ -1,0 +1,15 @@
+.clearfix {
+	float: none;
+	clear: both;
+}
+
+a {
+	color: black;
+	text-decoration: none;
+	cursor: pointer !important;
+	transition: color .75s ease;
+	
+	&:hover {
+		color: #8F9090;
+	}
+}
