@@ -8,6 +8,7 @@ var source = require('vinyl-source-stream'); // required to dest() for browserif
 var browserSync = require('browser-sync').create();
 var concat = require('gulp-concat');
 var gutil = require('gulp-util');
+var config = require('./gulp/localConfig.js');
 
 var minimal = './wp-content/themes/minimal/';
 var rework = './wp-content/themes/rework/';
@@ -26,7 +27,7 @@ gulp.task('sync', ['sass'], function() {
 	browserSync.init({
 		open: true,
 		proxy: {
-			target: 'portfolio.dev'
+			target: config.hostname
 		}
 	});
 });
