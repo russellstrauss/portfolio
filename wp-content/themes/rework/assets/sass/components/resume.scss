@@ -1,0 +1,121 @@
+.print-icon {
+	float: right;
+	cursor: pointer;
+}
+
+.resume-content {
+	font-size: .75em;
+	line-height: 16px;
+	
+	.section {
+		margin-bottom: 10px;
+		font-family: 'Merriweather Sans', sans-serif;
+		font-weight: 300;
+		
+		h1 {
+			font-family: 'Roboto', sans-serif;
+			font-weight: 100;
+			font-size: 3em;
+			margin-bottom: 10px;
+			line-height: normal;
+		}
+		
+		.plus {
+			li {
+				margin-bottom: 5px;
+				margin-left: 2em;
+	
+				&:before {
+					content: '+ ';
+					margin-left: -1em;
+				}
+			}
+		}
+		
+		.increased-line-height {
+			line-height: normal;
+		}
+		
+		.listed-item {
+			line-height: 1.4em;
+			
+			ul {
+				padding-left: 1em;
+				
+				li {
+					&:before {
+						content: '- ';
+						margin-left: -1em;
+					}
+				}
+			}
+		}
+		
+		.bulleted {
+			margin-bottom: 1em;
+		}
+		
+		.undergraduate {
+			.listed-item {
+				ul {
+					padding-left: 0;
+					
+					li {
+						&:before {
+							content: none;
+							margin-left: 0;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+#work-experience {
+	line-height: 1.2em;
+	
+	.job-title {
+		font-style: italic;
+		margin-bottom: .5em;
+	}
+	
+	.company-name {
+		font-size: 1.1em;
+		margin-bottom: .25em;
+	}
+}
+
+#references {
+	line-height: 1.2em;
+	
+	.reference-details {
+		line-height: 20px;
+	}
+}
+
+.decreased-line-height {
+	.span12 {
+		margin-bottom: -5px;
+	}
+}
+
+.employment-entry {
+	line-height: 20px;
+	margin-bottom: 1.5em;
+	clear: both;
+}
+
+.reference-entry {
+	margin-bottom: 0;
+	clear: both;
+}
+
+.employment-entry div, .reference-entry div {
+	padding-left: 0;
+}
+
+.item {
+	line-height: normal;
+}
+

@@ -1,21 +1,29 @@
 {
-	"name": "Portfolio",
-	"version": "4.0.1",
-	"description": "Personal portfolio of work and ideas.",
-	"main": "main.js",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/russellstrauss/portfolio"
-	},
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
-	},
-	"author": "",
-	"license": "ISC",
-	"devDependencies": {
-		"browser-sync": "^2.12.5",
-		"gulp": "^3.9.1",
-		"gulp-sass": "^3.0.0",
-		"gulp-watch": "^4.3.5"
-	}
+  "name": "Portfolio",
+  "version": "4.0.1",
+  "description": "Personal portfolio of work and ideas.",
+  "main": "main.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/russellstrauss/portfolio"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.18.13",
+    "browserify": "^14.4.0",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.0.0",
+    "gulp-sourcemaps": "^2.6.0",
+    "gulp-util": "^3.0.8",
+    "gulp-watch": "^4.3.5",
+    "gutil": "^1.6.4",
+    "jquery": "^3.2.1",
+    "vinyl-source-stream": "^1.1.0"
+  }
 }

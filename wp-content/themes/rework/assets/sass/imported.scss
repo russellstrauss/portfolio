@@ -1,0 +1,93 @@
+.portfolio-category, .error-message, .single-piece-content h1, .category-content h1 {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 100;
+	font-size: 3em;
+	min-height: 1.1em;
+}
+
+.single-piece-content h1 {
+	margin-bottom: 60px;
+}
+.category-content h1, .category-description {
+	margin-bottom: 30px;
+}
+
+#content {
+	padding-bottom: 100px;
+}
+
+.each-piece img {
+	border: 1px solid black;
+	float: left;
+	margin-right: 20px;
+	max-width: 25%;
+	height: auto;
+}
+.each-piece {
+	margin-bottom: 30px;
+}
+
+.piece-details {
+	float: left;
+	max-width: 80%;
+}
+.piece-details h2, .category-description h2 {
+	font-family: 'Roboto', sans-serif;
+	font-size: 1.75em;
+	font-weight: 100;
+	margin-bottom: 5px;
+}
+
+.view-narrative, .view-manual {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 100;
+	font-size: 2em;
+}
+
+.piece-details > a {
+	font-family: 'Merriweather Sans', sans-serif;
+	font-weight: 300;
+}
+.custom-row img {
+	float: left;
+	margin-right: 20px;
+	border: 1px solid black;
+}
+.each-piece-3d-models {
+	margin-bottom: 30px;
+}
+
+/* Shadowbox style customizations */
+
+#sb-overlay {
+	opacity: .7 !important;
+}
+
+/* Resizing text for longer captions on AT page */
+#sb-title, #sb-title-inner {
+	height: auto !important;
+	line-height: normal !important;
+	padding-bottom: 3px;
+}
+#sb-title-inner {
+	font-size: 12px !important;
+}
+.photo-thumb img {
+	float: left;
+	border: 1px solid black;
+	margin-right: -1px;
+	margin-bottom: -1px;
+}
+.photo-thumb br {
+	display: none;
+}
+.entry-content img {
+	border: 1px solid black;
+}
+.illustration {
+	border: 1px solid black;
+}
+
+#AT-photos {
+	margin-top: 40px;
+}

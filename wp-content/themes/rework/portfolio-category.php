@@ -11,9 +11,7 @@ get_header(); ?>
 
 		<div id="primary" class="full-width">
 			<div id="content">
-			
-				<div class="coming-soon">Coming soon!</div>
-				
+							
 				<div class="category-content">	
 					<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 						

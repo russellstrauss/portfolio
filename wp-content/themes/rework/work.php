@@ -9,16 +9,6 @@
 
 get_header(); ?>
 
-	<div class="work">
-		<div class="coming-soon">Coming soon!</div>
-	</div>
-	
-	<script type="text/javascript">
-		jQuery(document).ready(function() {
-			jQuery('#category-container').slideDown(1500, 'easeInOutExpo');
-		});
-		
-	</script>
 	<div id="category-container">
 		
 		<?php query_posts( 'post_type=portfolio-category&order=ASC&posts_per_page=100' ); ?>
