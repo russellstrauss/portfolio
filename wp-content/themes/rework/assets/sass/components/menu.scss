@@ -1,20 +1,17 @@
 .name {
 	font-family: 'Roboto', sans-serif;
 	font-weight: 100;
-	font-size: 3em;
-	min-height: 1.1em;
-	margin-top: 20px;
-	margin-bottom: 50px;
-	margin-left: 20px;
+	font-size: 42px;
+	margin: 20px 0 50px 20px;
+	
+	@include mobile-only {
+		font-size: 36px;
+		background-color: rgba(255, 255, 255, .6);
+		box-shadow: 0px 0px 76px 51px rgba(255, 255, 255, .6);
+	}
 	
 	&.trigger-animation {
 		a {
-			span {
-				display: inline-block;
-				transition: all 1200ms ease;
-				margin-left: 30px;
-				opacity: 0;
-				transform: rotate(50deg);
 			}
 		}
 	}
@@ -33,6 +30,7 @@ nav {
 			}
 		}
 	}
+	
 	.menu-main-container {
 		font-family: 'Roboto', sans-serif;
 		font-weight: 100;

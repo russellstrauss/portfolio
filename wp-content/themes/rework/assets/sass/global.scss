@@ -14,7 +14,7 @@ a {
 		color: #8F9090;
 		text-decoration: none; 
 	}
-	&:active {
+	&:active, &:focus {
 		text-decoration: none;
 	}
 }
