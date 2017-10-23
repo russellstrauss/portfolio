@@ -12,6 +12,12 @@
 	
 	&.trigger-animation {
 		a {
+			span {
+				display: inline-block;
+				transition: all 1200ms ease;
+				margin-left: 30px;
+				opacity: 0;
+				transform: rotate(50deg);
 			}
 		}
 	}

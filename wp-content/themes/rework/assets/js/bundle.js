@@ -353,10 +353,7 @@ module.exports = function() {
 		bindUI: function() {
 			
 			// Animate name in
-			var $name = $('.name a span span');
-			var $parent = $('.name');
-			//$parent.css('min-width', '1000px');
-			
+			var $name = $('.name a span');
 			$name.each(function(i) {
 				
 				var $letter = $(this);
@@ -367,7 +364,6 @@ module.exports = function() {
 				}, i*fadeInInterval);
 				
 				setTimeout(function() {
-					//$parent.css('min-width', '');
 					fadeInMenu();
 				}, ($name.length * fadeInInterval) + 800);
 				
@@ -388,7 +384,6 @@ module.exports = function() {
 					fadeInWireframe();
 				}, ($menu.length * fadeInInterval) + 800);
 			};
-			
 			fadeInWireframe = function() {
 				$('#sphereWireframe').css('opacity', '1');
 			};
