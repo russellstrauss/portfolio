@@ -1,0 +1,32 @@
+.portfolio-category { // TODO add bullets for mobile
+	@include Roboto;
+	font-size: 42px;
+	line-height: normal;
+	
+	@include mobile-only {
+		font-size: 36px;
+		position: relative;
+		margin-left: 20px;
+		
+		&:before {
+			content: '\25aa';
+			font-size: 22px;
+			position: absolute;
+			top: .5em;
+			transform: translateY(-2px);
+			margin-left: -20px;
+		}
+	}
+}
+
+.single-portfolio-piece {
+	
+	.content {
+		
+		.edit-post-link {
+			font-size: 10px;
+			text-align: right;
+			margin-top: 10px;
+		}	
+	}
+}

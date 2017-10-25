@@ -1,0 +1,46 @@
+.photography {
+	
+	.photo-thumbnails {
+		overflow: auto;
+		
+		.box {
+			float: left;
+			position: relative;
+			width: (100% / 7);
+			border: 1px solid black;
+			overflow: hidden;
+			
+			@include mobile-only {
+				width: (100% / 3);
+			}
+			@include tablet {
+				width: (100% / 5);
+			}
+			@include desktop {
+				width: (100% / 6);
+			}
+			@include desktop-large {
+				width: (100% / 7);
+			}
+			
+			&:before {
+				content: "";
+				display: block;
+				padding-top: 100%; 	/* initial ratio of 1:1*/
+			}
+		}
+		
+		.photo-thumb {
+			background-size: cover;
+			position:  absolute;
+			top: -1px; // -px prevents weird 1px lines showing up on edges
+			left: -1px;
+			bottom: -1px;
+			right: -1px;
+		}
+		
+		.photo-thumb br {
+			display: none;
+		}
+	}
+}

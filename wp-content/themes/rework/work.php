@@ -6,38 +6,48 @@
  * @package WordPress
  * @subpackage Portfolio
  */
+?>
 
-get_header(); ?>
+<!DOCTYPE html>
+<html <?php language_attributes(); ?>>
 
-	<div id="category-container">
+	<?php get_header(); ?>
+
+	<body <?php body_class(); ?>>
 		
-		<?php query_posts( 'post_type=portfolio-category&order=ASC&posts_per_page=100' ); ?>
-		<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-			<div class="portfolio-category">
-											
-				<?php $link = get_bloginfo('url') . '/work/' . str_replace(' ', '-', strtolower(get_the_title()) );?>
-				<?php if (get_the_title() == "Other") {?>
+		<div class="work container-fluid">
+
+			<?php get_sidebar('title'); ?>
+			
+			<div class="row">
+				<div class="col-sm-3">
+					<?php get_sidebar(); ?>
+				</div>
+				<div class="col-sm-8">
 					
-					<a class="unfinished">
-						<?php the_title(); ?>								
-					</a>
-				<?php
-				}
-				else { ?>
-					
-					<a href="<?php echo $link; ?>">
-						<?php the_title(); ?>								
-					</a>
-				<?php
-				} ?>
-				
-			 </div>
-		<?php endwhile; 
-		endif;?>
-		
-		<div style="clear: both;"></div>
+					<?php query_posts( 'post_type=portfolio-category&order=ASC&posts_per_page=100' ); ?>
+					<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+						<div class="portfolio-category">
+														
+							<?php $link = get_bloginfo('url') . '/work/' . str_replace(' ', '-', strtolower(get_the_title()) );?>
+
+							<a href="<?php echo $link; ?>">
+								<?php the_title(); ?>								
+							</a>
 							
-	</div>
+						 </div>
+					<?php endwhile; 
+					endif;?>
+					
+				</div>
+			</div>
+			
+		</div>
+
+		<?php get_footer(); ?>
+
+	</body>
+</html>
+							
 
 
-<?php get_footer(); ?>

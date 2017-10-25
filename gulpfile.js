@@ -15,10 +15,11 @@ var rework = './wp-content/themes/rework/';
 var theme = rework;
 
 gulp.task('sass', function () {
-	return gulp.src(theme + 'assets/sass/style.scss')
+	return gulp.src(theme + 'assets/sass/main.scss')
 	.pipe(sourcemaps.init())
 		.pipe(sass().on('error', sass.logError)) // .on('error', sass.logError) prevents gulp from crashing when saving a typo or syntax error
 	.pipe(sourcemaps.write())
+	.pipe(rename('style.css'))
 	.pipe(gulp.dest(theme))
 	.pipe(browserSync.stream()); // causes injection of styles on save
 });
@@ -30,6 +31,8 @@ gulp.task('sync', ['sass'], function() {
 			target: config.hostname
 		}
 	});
+	
+	gulp.watch(theme + '**/*.php').on("change", browserSync.reload); // Manual reload when php files are modified
 });
 
 var vendors = {

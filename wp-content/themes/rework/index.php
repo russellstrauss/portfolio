@@ -1,4 +1,5 @@
-<?php //get_header(); ?>
+<h1>index.php</h1>
+
 <div id="content">
 <?php get_template_part( 'nav', 'above' ); ?>
 <?php while ( have_posts() ) : the_post() ?>
@@ -7,5 +8,4 @@
 <?php endwhile; ?>
 <?php get_template_part( 'nav', 'below' ); ?>
 </div>
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>

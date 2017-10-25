@@ -20,7 +20,7 @@
 	<body <?php body_class(); ?>>
 				
 		<div class="error-message" style="display: block; margin: 200px auto; width: 80%;">
-			There is nothing at the URL you specified.<br/><br/><a href="<?php bloginfo('url');?>">&lt; back</a>
+			There is nothing at this URL.<br/><br/><a href="<?php bloginfo('url');?>">&lt; back</a>
 		</div>		
 		
 		<footer>

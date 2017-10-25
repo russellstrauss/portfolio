@@ -5,21 +5,19 @@
 	margin: auto;
 }
 
-div.quote {
-	/* border: 1px solid black; */
+.quote {
 	margin-bottom: 30px;
 	-webkit-border-radius: 4px;
 	border-radius: 4px;
-	/* padding: 20px; */
 	font-family: 'Merriweather Sans', sans-serif;
 	font-size: 75%;
-}
+	
+	p {
+		font-style: italic;
+	}
 
-div.quote p {
-	font-style: italic;
-
-}
-div.quote div.quote-author {
-	font-family: 'Merriweather Sans', sans-serif;
-	float: right;
+	.quote-author {
+		font-family: 'Merriweather Sans', sans-serif;
+		float: right;
+	}
 }
