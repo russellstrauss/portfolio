@@ -55,10 +55,10 @@
 		<div class="large-12 columns">
 			<div class="name">
 				<a href="<?php bloginfo('url'); ?>">John Russell Strauss</a>
-				<?php if (is_page('resume')) { ?>
+				<!--<?php if (is_page('resume')) { ?>
 					<a href="<?php bloginfo('template_directory'); ?>/print-resume.html"><img title="Click to print." class="print-icon hide-for-small" src="<?php bloginfo('template_directory');?>/images/printer.png" alt="" /></a>
 				<?php
-				} ?>
+				} ?>-->
 			</div>
 			
 		</div>
