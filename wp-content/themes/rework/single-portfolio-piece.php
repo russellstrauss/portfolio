@@ -3,31 +3,50 @@
  * @package WordPress
  * @subpackage Portfolio
  */
+?>
 
-get_header(); ?>
+<!DOCTYPE html>
+<html <?php language_attributes(); ?>>
 
-		<div id="primary" class="full-width">
-			<div id="content">
+	<?php get_header(); ?>
 
-				<div class="single-piece-content">	
-					<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-												
-						<h1><?php the_title(); ?></h1>
-						<div class="single-piece-description">
-							<?php the_content(); ?>
-						</div>
-						
-					
-					<?php endwhile; 
-					endif;?>
-					
-					<div style="font-size:10px; text-align:right; margin-top: 10px;">
-						<?php edit_post_link(); ?>
-					</div>
+	<body <?php body_class(); ?>>
+		
+		<div class="single-portfolio-piece container-fluid">
+
+			<?php get_sidebar('title'); ?>
+			
+			<div class="row">
+				<div class="col-sm-3">
+					<?php get_sidebar(); ?>
 				</div>
+				<div class="col-sm-8">
+					
+					<div class="content">	
+						<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+													
+							<h1><?php the_title(); ?></h1>
+							<div class="single-piece-description">
+								<?php the_content(); ?>
+							</div>
+							
+						
+						<?php endwhile; 
+						endif;?>
+						
+						<div class="edit-post-link">
+							<?php edit_post_link(); ?>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+			
+		</div>
 
+		<?php get_footer(); ?>
 
-			</div><!-- #content -->
-		</div><!-- #primary -->
+	</body>
+</html>
 
-<?php get_footer(); ?>
+				

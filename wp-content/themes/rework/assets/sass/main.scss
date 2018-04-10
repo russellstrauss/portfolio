@@ -1,0 +1,23 @@
+/*
+Theme Name: rework
+Description: Minimal theme redone in bootstrap.
+Author: Russell Strauss
+Author URI: http://jrstrauss.net
+*/
+
+@import 'assets/vendors/css/bootstrap.min.css';
+
+@import 'imported';
+
+// inverted triangle CSS - https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/
+@import 'vars'; // settings
+@import 'animations'; // tools
+@import 'responsive'; // tools
+@import 'mixins'; // tools
+@import 'global'; // elements and objects
+
+@import 'components/about';
+@import 'components/menu';
+@import 'components/photography';
+@import 'components/portfolio-pieces';
+@import 'components/resume';

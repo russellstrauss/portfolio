@@ -7,12 +7,28 @@
  * @subpackage Portfolio
  */
 
-get_header(); ?>
+?>
 
-		<div id="primary" class="full-width">
-			<div id="content">
-				<?php //wp_theme_switcher('dropdown'); ?>
-			</div><!-- #content -->
-		</div><!-- #primary -->
+<!DOCTYPE html>
+<html <?php language_attributes(); ?>>
 
-<?php get_footer(); ?>
+	<?php get_header(); ?>
+
+	<body <?php body_class(); ?>>
+		
+		<div class="homepage container-fluid">
+			
+			<?php get_sidebar('title'); ?>
+			
+			<div class="row">
+				<div class="col-sm-3">
+					<?php get_sidebar(); ?>
+				</div>
+			</div>
+			
+		</div>
+
+		<?php get_footer(); ?>
+
+	</body>
+</html>

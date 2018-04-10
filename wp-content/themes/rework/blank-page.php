@@ -6,24 +6,43 @@
  * @package WordPress
  * @subpackage Portfolio
  */
+?>
 
-get_header(); ?>
+<!DOCTYPE html>
+<html <?php language_attributes(); ?>>
 
-		<div id="primary" class="full-width">
-			<div id="content">
+	<?php get_header(); ?>
 
-				<header class="entry-header">
-					<h1 class="entry-title"><?php the_title(); ?></h1>
-				</header><!-- .entry-header -->
+	<body <?php body_class(); ?>>
+		
+		<div class="blank-page container-fluid">
 
-				<div class="entry-content">
-					<?php the_content(); ?>
-					<?php wp_link_pages( 'before=<div class="page-link">' . __( 'Pages:', 'themename' ) . '&after=</div>' ); ?>
-					<?php edit_post_link( __( 'Edit', 'themename' ), '<span class="edit-link">', '</span>' ); ?>
-				</div><!-- .entry-content -->
+			<?php get_sidebar('title'); ?>
+			
+			<div class="row">
+				<div class="col-sm-3">
+					<?php get_sidebar(); ?>
+				</div>
+				<div class="col-sm-8">
+					
+					<header class="entry-header">
+						<h1 class="entry-title"><?php the_title(); ?></h1>
+					</header>
 
+					<div class="entry-content">
+						<?php the_content(); ?>
+						<?php wp_link_pages( 'before=<div class="page-link">' . __( 'Pages:', 'themename' ) . '&after=</div>' ); ?>
+						<?php edit_post_link( __( 'Edit', 'themename' ), '<span class="edit-link">', '</span>' ); ?>
+					</div>
+					
+				</div>
+			</div>
+			
+		</div>
 
-			</div><!-- #content -->
-		</div><!-- #primary -->
+		<?php get_footer(); ?>
 
-<?php get_footer(); ?>
+	</body>
+</html>
+
+				

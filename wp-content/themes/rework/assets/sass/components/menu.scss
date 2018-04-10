@@ -2,7 +2,7 @@
 	font-family: 'Roboto', sans-serif;
 	font-weight: 100;
 	font-size: 42px;
-	margin: 20px 0 50px 20px;
+	margin-bottom: 20px;
 	
 	@include mobile-only {
 		font-size: 36px;
@@ -12,37 +12,43 @@
 	
 	&.trigger-animation {
 		a {
+			span {
+				display: inline-block;
+				transition: all 1200ms ease;
+				margin-left: 30px;
+				opacity: 0;
+				transform: rotate(50deg);
 			}
 		}
 	}
 }
 
-nav {
+.main-menu {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 100;
+	font-size: 42px;;
+	margin-bottom: 40px;
+	
+	@include mobile-only {
+		font-size: 36px;
+	}
+	
 	&.trigger-animation {
-		.menu-main-container {
-			ul {				
-				li {
-					margin-left: 100px;
-					opacity: 0;
-					transition: margin-left 700ms ease, opacity 1400ms ease;
-					line-height: normal;
-				}
+		ul {
+			li {
+				margin-left: 100px;
+				opacity: 0;
+				transition: margin-left 700ms ease, opacity 1400ms ease;
+				line-height: normal;
 			}
 		}
 	}
-	
-	.menu-main-container {
-		font-family: 'Roboto', sans-serif;
-		font-weight: 100;
-		font-size: 42px;;
-		margin-bottom: 75px;
-		
-		ul {
-			padding-left: 20px;
 			
-			li {
-				line-height: normal;
-			}
+	ul {
+		padding-left: 0;
+		
+		li {
+			line-height: normal;
 		}
 	}
 }
