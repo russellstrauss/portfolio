@@ -1,28 +1,11 @@
-			<div class="clear"></div>
+			<div class="clearfix"></div>
 		
-		</div> <!-- end small-8 columns -->
-	</div> <!-- end row -->
+		</div> <!-- .main-content -->
 
-<footer>
-
-</footer>
+	<?php wp_footer(); ?>
 	
-
-<?php wp_footer(); ?>
-
-<script src="<?php bloginfo('template_directory');?>/js/easing.js"></script>
-<script src="<?php bloginfo('template_directory');?>/js/ready.js"></script>
-
-  <!--<script>
-  document.write('<script src=' +
-  ('__proto__' in {} ? 'wp-content/themes/woodgrain/js/vendor/zepto' : 'wp-content/themes/woodgrain/js/vendor/jquery') +
-  '.js><\/script>')
-  </script>-->
-  
-  <script src="<?php bloginfo('template_directory');?>/foundation/js/foundation.min.js"></script>
-  <script>
-	jQuery(document).foundation();
-  </script>
+	<script src="<?php bloginfo('template_directory');?>/assets/vendors/js/vendors.js"></script>
+	<script src="<?php bloginfo('template_directory');?>/assets/js/bundle.js"></script>
 
 </body>
 </html>

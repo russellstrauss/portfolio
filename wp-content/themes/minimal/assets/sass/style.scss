@@ -1,13 +1,17 @@
 /* Imports */
 // This project uses inverted triangle CSS architecture (https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/)
 
-// Taken from WordPress theme and some random custom styles
-@import 'imported';
+@import 'theme-name';
+@import 'mixins';
 
 // global
 @import 'vars';
-@import 'mixins';
+@import 'reset';
 @import 'elements';
 @import 'global';
 
+@import 'components/about';
+@import 'components/layout';
 @import 'components/nav';
+@import 'components/portfolio-categories';
+@import 'components/resume';

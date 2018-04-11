@@ -1,11 +1,11 @@
-var Component = require('./components/component.js');
+var Global = require('./components/global.js');
 var Utilities = require('./utils.js');
 
 (function () {
 	
 	$(document).ready(function() {
 				
-		Component().init();
+		Global().init();
 		
 		$(window).trigger('resize');
 	

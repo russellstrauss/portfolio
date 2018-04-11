@@ -29,8 +29,6 @@
 		<?php wp_footer(); ?>
 		
 		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-		<script src="<?php bloginfo('template_directory');?>/bootstrap/js/bootstrap.min.js"></script>
-		<script src="<?php bloginfo('template_directory');?>/js/easing.js"></script>
 	
 	</body>
 </html>

@@ -12,8 +12,23 @@ var stylish = require('jshint-stylish');
 
 gulp.task('sass', function () {
 	return gulp.src('./assets/sass/style.scss')
-	.pipe(sass().on('error', sass.logError)) // .on('error', sass.logError) prevents gulp from crashing when saving a typo or syntax error
+	.pipe(sourcemaps.init())
+		.pipe(sass().on('error', sass.logError)) // .on('error', sass.logError) prevents gulp from crashing when saving a typo or syntax error
+	.pipe(sourcemaps.write())
 	.pipe(gulp.dest('./'));
+});
+
+var vendors = {
+	merge: [
+		'./assets/vendors/js/jquery-2.2.3.min.js'
+	]
+};
+
+gulp.task('vendors', function() {
+	return gulp.src(vendors.merge)
+		.pipe(concat('vendors.js'))
+		//.pipe(uglify())
+		.pipe(gulp.dest('./assets/vendors/js/'));
 });
 
 gulp.task('javascript', function() {
@@ -46,4 +61,4 @@ gulp.task('watch', function() {
 });
 
 // Default Task
-gulp.task('default', ['javascript', 'sass', 'watch']);
+gulp.task('default', ['vendors', 'javascript', 'sass', 'watch']);

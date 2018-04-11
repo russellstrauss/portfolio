@@ -18,29 +18,28 @@ module.exports = function() {
 		
 		bindUI: function() {
 			
-			$('.box').click(function() {
-				$(this).toggleClass('open');
-			});
-						
+			if (jQuery("p:first").text() == "Problem statement:") {
+				jQuery(".single-piece-description p:first").first().addClass('problem-statement');
+			}
 		}
 	}
 }
 },{}],2:[function(require,module,exports){
-var Component = require('./components/component.js');
+var Global = require('./components/global.js');
 var Utilities = require('./utils.js');
 
 (function () {
 	
 	$(document).ready(function() {
 				
-		Component().init();
+		Global().init();
 		
 		$(window).trigger('resize');
 	
 	});
 	
 })();
-},{"./components/component.js":1,"./utils.js":3}],3:[function(require,module,exports){
+},{"./components/global.js":1,"./utils.js":3}],3:[function(require,module,exports){
 (function () {
 	
 	var appSettings;

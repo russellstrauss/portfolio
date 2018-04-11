@@ -1,0 +1,15 @@
+nav.main {
+	
+	@include tablet {
+		float: left;
+		width: 30%;
+	}
+}
+
+.content {
+	
+	@include tablet {
+		float: left;
+		width: 70%;
+	}
+}

@@ -34,3 +34,9 @@ $desktop-large-width: 1200px;
 		@content;
 	}
 }
+
+@mixin headingFont {
+	font-family: 'IBM Plex Mono', monospace;
+	font-size: 22px;
+	color: #777;
+}

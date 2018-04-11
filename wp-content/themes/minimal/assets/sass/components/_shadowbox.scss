@@ -1,0 +1,13 @@
+#sb-overlay {
+	opacity: .7 !important;
+}
+
+/* Resizing text for longer captions on AT page */
+#sb-title, #sb-title-inner {
+	height: auto !important;
+	line-height: normal !important;
+	padding-bottom: 3px;
+}
+#sb-title-inner {
+	font-size: 12px !important;
+}
