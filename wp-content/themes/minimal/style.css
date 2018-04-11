@@ -361,23 +361,19 @@ div.quote div.quote-author {
   #work-experience .job-title {
     margin-bottom: 0; } }
 
-/* breakpoints */
-.clearfix {
-  float: none;
-  clear: both; }
-
 a {
   color: black;
   text-decoration: none;
   cursor: pointer !important;
   transition: color .75s ease; }
+  a:hover {
+    color: #8F9090; }
 
-a:hover {
-  color: #8F9090; }
+.clearfix {
+  float: none;
+  clear: both; }
 
-/* MOBILE FIRST! */
 .menu-main-container ul li a {
   transition: margin-left 0.3s cubic-bezier(0.075, 0.82, 0.165, 1); }
-
-.menu-main-container ul li a:hover {
-  margin-left: 1px; }
+  .menu-main-container ul li a:hover {
+    margin-left: 1px; }
