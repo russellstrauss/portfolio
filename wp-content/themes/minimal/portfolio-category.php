@@ -53,7 +53,6 @@ get_header(); ?>
 					
 					<?php if ($page_title_url == '3d-modeling') { ?>
 						
-						
 						<a id="thumbnail-link-<?php echo $thumbnail_count;?>">
 							<?php the_post_thumbnail( array(100, 100) ); ?>
 						</a>
@@ -117,12 +116,24 @@ get_header(); ?>
 						else { ?>
 							
 							<?php if ($page_title_url == 'web-development') { ?>
-								<a href="<?php echo $link; ?>">
+							
+								<?php if (get_field('external-link') != '') { ?>
+									<a href="<?php echo $link; ?>">
+										<?php the_post_thumbnail( array(100, 100) ); ?>
+									</a>
+								<? }
+								else { ?>
 									<?php the_post_thumbnail( array(100, 100) ); ?>
-								</a>
+								<?php } ?>
+							
 								<div class="piece-details">
 									
-									<h2><a href="<?php echo $link; ?>"><?php the_title(); ?> </a></h2>
+									<?php if (get_field('external-link') != '') { ?>
+										<h2><a href="<?php echo $link; ?>"><?php the_title(); ?> </a></h2>
+									<? }
+									else { ?>
+										<h2><?php the_title(); ?></h2>
+									<?php } ?>
 									<p><?php the_field('description'); ?></p>
 								</div>
 							<?php

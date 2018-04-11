@@ -28,3 +28,8 @@ nav.main {
 		}
 	}
 }
+
+.portfolio-category { // category menu
+	@include headingFont;
+	margin-bottom: 20px;
+}

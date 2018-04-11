@@ -9,9 +9,12 @@
 @import 'reset';
 @import 'elements';
 @import 'global';
+@import 'layout';
 
 @import 'components/about';
-@import 'components/layout';
 @import 'components/nav';
-@import 'components/portfolio-categories';
+@import 'components/photo-grid';
+@import 'components/portfolio-category';
 @import 'components/resume';
+@import 'components/shadowbox';
+@import 'components/single-post';

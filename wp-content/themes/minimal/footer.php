@@ -1,6 +1,8 @@
 			<div class="clearfix"></div>
 		
 		</div> <!-- .main-content -->
+		
+		<div class="clearfix"></div>
 
 	<?php wp_footer(); ?>
 	

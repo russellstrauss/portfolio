@@ -1,4 +1,6 @@
 var Global = require('./components/global.js');
+var PhotoGrid = require('./components/photo-grid.js');
+var Videos = require('./components/videos.js');
 var Utilities = require('./utils.js');
 
 (function () {
@@ -6,6 +8,8 @@ var Utilities = require('./utils.js');
 	$(document).ready(function() {
 				
 		Global().init();
+		PhotoGrid().init();
+		Videos().init();
 		
 		$(window).trigger('resize');
 	

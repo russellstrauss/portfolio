@@ -25,7 +25,87 @@ module.exports = function() {
 	}
 }
 },{}],2:[function(require,module,exports){
+module.exports = function() {
+	
+	var settings;
+	
+	return {
+		
+		settings: {
+			
+		},
+		
+		init: function() {
+			
+			settings = this.settings;
+			
+			this.bindUI();
+		},
+		
+		bindUI: function() {
+			
+			// Remove <br>'s and <p>'s from photo grid
+			jQuery('.photo-thumbnails .photo-thumb').find('br').remove()
+			jQuery('.photo-thumbnails').find('p').remove()
+		
+		}
+	}
+}
+},{}],3:[function(require,module,exports){
+module.exports = function() {
+	
+	var settings;
+	
+	return {
+		
+		settings: {
+			
+		},
+		
+		init: function() {
+			
+			// Find all YouTube videos
+			var $allVideos = jQuery("iframe[src^='http://player.vimeo.com'], iframe[src^='http://www.youtube.com']"),
+			
+			// The element that is fluid width
+			$fluidEl = jQuery(".single-piece-description");
+			
+			// Figure out and save aspect ratio for each video
+			$allVideos.each(function() {
+			
+			  jQuery(this)
+				.data('aspectRatio', this.height / this.width)
+			
+				// and remove the hard coded width/height
+				.removeAttr('height')
+				.removeAttr('width');
+			
+			});
+			
+			// When the window is resized
+			jQuery(window).resize(function() {
+			
+			  var newWidth = $fluidEl.width();
+			
+			  // Resize all videos according to their own aspect ratio
+			  $allVideos.each(function() {
+			
+				var $el = jQuery(this);
+				$el
+				  .width(newWidth)
+				  .height(newWidth * $el.data('aspectRatio'));
+			  });
+			
+			// Kick off one resize to fix all videos on page load
+			}).resize();
+			
+		}
+	}
+}
+},{}],4:[function(require,module,exports){
 var Global = require('./components/global.js');
+var PhotoGrid = require('./components/photo-grid.js');
+var Videos = require('./components/videos.js');
 var Utilities = require('./utils.js');
 
 (function () {
@@ -33,13 +113,15 @@ var Utilities = require('./utils.js');
 	$(document).ready(function() {
 				
 		Global().init();
+		PhotoGrid().init();
+		Videos().init();
 		
 		$(window).trigger('resize');
 	
 	});
 	
 })();
-},{"./components/global.js":1,"./utils.js":3}],3:[function(require,module,exports){
+},{"./components/global.js":1,"./components/photo-grid.js":2,"./components/videos.js":3,"./utils.js":5}],5:[function(require,module,exports){
 (function () {
 	
 	var appSettings;
@@ -144,4 +226,4 @@ var Utilities = require('./utils.js');
 	module.exports = window.utils;
 
 })();
-},{}]},{},[2]);
+},{}]},{},[4]);

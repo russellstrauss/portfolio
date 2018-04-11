@@ -39,4 +39,17 @@ $desktop-large-width: 1200px;
 	font-family: 'IBM Plex Mono', monospace;
 	font-size: 22px;
 	color: #777;
+	
+	@include mobile-only {
+		font-size: 32px;
+	}
+}
+
+@mixin portfolioPieceTitle {
+	@include headingFont;
+	
+	@include mobile-only {
+		font-size: 20px;
+		line-height: 1.5;
+	}
 }

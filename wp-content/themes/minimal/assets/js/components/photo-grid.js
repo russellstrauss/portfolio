@@ -18,7 +18,7 @@ module.exports = function() {
 		bindUI: function() {
 			
 			// Remove <br>'s and <p>'s from photo grid
-			jQuery('.photo-thumbnails').find('br').remove()
+			jQuery('.photo-thumbnails .photo-thumb').find('br').remove()
 			jQuery('.photo-thumbnails').find('p').remove()
 		
 		}
