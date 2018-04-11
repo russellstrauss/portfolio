@@ -1,0 +1,26 @@
+.portfolio-category { // category menu
+	margin-bottom: 10px;
+}
+
+.each-piece {
+	margin-bottom: 30px;
+	
+	img {
+		border: 1px solid black;
+		float: left;
+		margin-right: 20px;
+		width: 25%;
+		height: auto;
+	}
+}
+
+.each-piece-3d-models {
+	margin-bottom: 30px;
+}
+
+.category-content {
+	
+	.category-description {
+		margin-bottom: 50px;
+	}
+}
