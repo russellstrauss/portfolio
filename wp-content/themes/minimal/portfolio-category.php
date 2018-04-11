@@ -24,7 +24,7 @@ get_header(); ?>
 						
 						<?php $thumbnail_count = 1; ?>
 						<!-- Querying each work within the category -->
-						<?php $query_string = 'category_name='.$page_title_url.'&post_type=portfolio-piece&post_parent=0&order=ASC'; ?>
+						<?php $query_string = 'category_name='.$page_title_url.'&post_type=portfolio-piece&posts_per_page=-1&post_parent=0&order=ASC'; ?>
 						<?php $my_query2 = new WP_Query($query_string); ?>
 						<?php while ($my_query2->have_posts()) : $my_query2->the_post(); ?>
 							
