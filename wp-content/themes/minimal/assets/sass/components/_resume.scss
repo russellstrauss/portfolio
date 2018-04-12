@@ -6,20 +6,31 @@
 @mixin resumeHeading {
 	@include headingFont;
 	font-size: 32px;
+	margin-bottom: 20px;
+	line-height: normal;
+	
+	@include mobile-only {
+		margin-bottom: 10px;
+	}
 }
 
 .resume-content {
 	font-size: 14px;
 	line-height: 1.5;
-	
-	.left {
+		
+	> .left, > .right {
 		float: left;
 		width: 49%;
-	}
-	
-	.right {
-		float: right;
-		width: 49%;
+		
+		@include mobile-only {
+			display: block;
+			float: none;
+			width: 100%;
+		}
+		
+		&.right {
+			float: right;
+		}
 	}
 	
 	section {
@@ -27,19 +38,27 @@
 		font-family: 'Merriweather Sans', sans-serif;
 		font-weight: 300;
 		
+		@include mobile-only {
+			margin-bottom: 25px;
+		}
+		
 		&.contact {
-			
+				
 			.left {
+				float: left;
 				width: 30%;
 			}
 			
 			.right {
+				float: right;
 				width: 69%
 			}
 		}
 		
 		&.education {
-			margin-bottom: 0;
+			@include tablet {
+				margin-bottom: 0;
+			}
 			
 			ul {
 				margin-left: 3px;
@@ -56,6 +75,10 @@
 			}
 			.right {
 				width: 65%;
+				
+				@include mobile-only {
+					width: 100%;
+				}
 			}
 			
 			.employment {
@@ -69,12 +92,22 @@
 					
 					.company {
 						font-size: 20px;
-						margin-bottom: 5px;
+						
+						@include mobile-only {
+							font-size: 18px;
+						}
+						
+						@include tablet {
+							margin-bottom: 5px;
+						}
 					}
 					
 					.position {
 						font-style: italic;
-						margin-bottom: 10px;
+						
+						@include tablet {
+							margin-bottom: 10px;
+						}
 					}
 					
 					.job-description {
@@ -86,8 +119,6 @@
 		
 		h2 {
 			@include resumeHeading;
-			margin-bottom: 20px;
-			line-height: normal;
 		}
 		
 		ul {
@@ -99,11 +130,7 @@
 		
 		.plus {
 			padding-left: 20px;
-			
-			@include mobile-only {
-				display: none;
-			}
-			
+
 			li {
 				
 				&:before {
@@ -112,5 +139,19 @@
 				}
 			}
 		}
-	} 
+	}
+	
+	.desktop {
+		
+		@include mobile-only {
+			display: none;
+		}
+	}
+	
+	.mobile {
+		
+		@include tablet {
+			display: none;
+		}
+	}
 }

@@ -6,7 +6,8 @@
 
 
 
-
+// Disable auto-injection of p tags in content
+remove_filter('the_content', 'wpautop');
 
 
 
