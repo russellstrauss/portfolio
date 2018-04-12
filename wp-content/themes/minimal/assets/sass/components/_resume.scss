@@ -8,137 +8,109 @@
 	font-size: 32px;
 }
 
-.resume-content .section h1 {
-	@include resumeHeading;
-	margin-bottom: 10px;
-	line-height: normal;
-}
-
-.resume-content .section {
-	margin-bottom: 10px;
-	font-family: 'Merriweather Sans', sans-serif;
-	font-weight: 300;
-}
-
-.resume-content .section .increased-line-height {
-	line-height: normal;
-}
-
-.resume-content .section .listed-item {
-	line-height: 1.4em;
-}
-
-.resume-content .section .bulleted {
-	margin-bottom: 1em;
-}
-
-.resume-content .section .listed-item ul li:before {
-	content: '- ';
-	margin-left: -1em;
-}
-
-.resume-content .section .row.undergraduate .listed-item ul li:before {
-	content: none;
-	margin-left: 0;
-}
-
-.resume-content .section .row.undergraduate .listed-item ul {
-	padding-left: 0;
-}
-
-.resume-content .section .listed-item ul {
-	padding-left: 1em;
-}
-
-.decreased-line-height .span12 {
-	margin-bottom: -5px;
-}
-
-.resume-content .section ul.plus li:before {
-	content: '+ ';
-	margin-left: -1em;
-}
-
-.resume-content .section ul.plus li {
-	margin-bottom: 5px;
-	margin-left: 2em;
-}
-
-#work-experience, #references {
-	line-height: 1.2em;
-}
-
-#work-experience .job-title {
-	font-style: italic;
-	margin-bottom: .5em;
-}
-
-#work-experience .company-name {
-	font-size: 1.1em;
-	margin-bottom: .25em;
-}
-
-#references .reference-details {
-	line-height: 20px;
-}
-
-.employment-entry {
-	line-height: 20px;
-	margin-bottom: 1.5em;
-	clear: both;
-}
-
-.reference-entry {
-	margin-bottom: 0;
-	clear: both;
-}
-
-.employment-entry div, .reference-entry div {
-	padding-left: 0;
-}
-
-.item {
-	line-height: normal;
-}
-
-@include mobile-only {
+.resume-content {
+	font-size: 14px;
+	line-height: 1.5;
 	
-	span.plus {
-		display: none;
+	.left {
+		float: left;
+		width: 49%;
 	}
 	
-	.resume-content .section .row {
-		margin-bottom: 20px;
+	.right {
+		float: right;
+		width: 49%;
 	}
 	
-	.resume-content .section .item {
-		margin-bottom: 5px;
-	}
-	
-	.resume-content .section .subhead {
-		margin-bottom: 20px;
-	}
-	
-	.resume-content .section ul.plus li {
-		line-height: 1.2em;
-	}
-	
-	#work-experience .employment-duration {
-		margin-bottom: .5em;
-	}
-	
-	#work-experience .job-title {
-		margin-bottom: 0;
-	}
-}
+	section {
+		margin-bottom: 50px;
+		font-family: 'Merriweather Sans', sans-serif;
+		font-weight: 300;
+		
+		&.contact {
+			
+			.left {
+				width: 30%;
+			}
+			
+			.right {
+				width: 69%
+			}
+		}
+		
+		&.education {
+			margin-bottom: 0;
+			
+			ul {
+				margin-left: 3px;
+				li {
+					margin-bottom: 0;
+				}
+			}
+		}
 
-@include tablet-only {
-	
-	.resume-content .section {
-		font-size: .8em;
-	}
-	
-	.resume-content .section .span6 {
-		margin-bottom: -10px;
-	}
+		&.experience {
+			
+			.left {
+				width: 30%;
+			}
+			.right {
+				width: 65%;
+			}
+			
+			.employment {
+				margin-bottom: 30px;
+				
+				.duration {
+					margin-bottom: 10px;
+				}
+				
+				.summary {
+					
+					.company {
+						font-size: 18px;
+						margin-bottom: 5px;
+					}
+					
+					.position {
+						font-style: italic;
+						margin-bottom: 10px;
+					}
+					
+					.job-description {
+						
+					}
+				}
+			}
+		}
+		
+		h2 {
+			@include resumeHeading;
+			margin-bottom: 20px;
+			line-height: normal;
+		}
+		
+		ul {
+			
+			li {
+				margin-bottom: 10px;
+			}
+		}
+		
+		.plus {
+			padding-left: 20px;
+			
+			@include mobile-only {
+				display: none;
+			}
+			
+			li {
+				
+				&:before {
+					content: '+ ';
+					margin-left: -1em;
+				}
+			}
+		}
+	} 
 }

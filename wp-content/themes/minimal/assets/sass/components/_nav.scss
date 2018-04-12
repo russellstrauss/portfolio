@@ -123,7 +123,7 @@ nav.main {
 		ul {
 			margin-top: 10px;
 			opacity: 0;
-			transition: margin-top 600ms ease, opacity 400ms ease;
+			transition: margin-top 400ms $ease-out-sine, opacity 300ms ease;
 		}
 	}
 }
