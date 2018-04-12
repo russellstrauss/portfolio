@@ -16,7 +16,7 @@ get_header(); ?>
 			<?php $page_title_url = str_replace(' ', '-', strtolower(get_the_title()) );?>
 			
 			<h1><?php the_title(); ?></h1>
-			<div class="category-description"><?php the_content(); ?></div>
+			<div class="category-description"><p><?php the_content(); ?></p></div>
 			
 			<?php $thumbnail_count = 1; ?>
 			<!-- Querying each work within the category -->
