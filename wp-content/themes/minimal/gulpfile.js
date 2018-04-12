@@ -5,6 +5,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var browserify = require('browserify');
 var rename = require('gulp-rename');
 var source = require('vinyl-source-stream'); // required to dest() for browserify
+var browserSync = require('browser-sync').create();
 var concat = require('gulp-concat');
 var notifier = require('node-notifier');
 var jshint = require('gulp-jshint');
@@ -15,7 +16,17 @@ gulp.task('sass', function () {
 	.pipe(sourcemaps.init())
 		.pipe(sass().on('error', sass.logError)) // .on('error', sass.logError) prevents gulp from crashing when saving a typo or syntax error
 	.pipe(sourcemaps.write())
-	.pipe(gulp.dest('./'));
+	.pipe(gulp.dest('./'))
+	.pipe(browserSync.stream()); // causes injection of styles on save
+});
+
+gulp.task('sync', ['sass'], function() {
+	browserSync.init({
+		open: true,
+		proxy: {
+			target: "http://portfolio.local"
+		}
+	});
 });
 
 var vendors = {
@@ -46,7 +57,9 @@ gulp.task('javascript', function() {
 	return bundleStream
 		.pipe(source('main.js'))
 		.pipe(rename('bundle.js'))
-		.pipe(gulp.dest('./assets/js/'));
+		.pipe(gulp.dest('./assets/js/'))
+		//.pipe(gulp.dest(localSettings.publishFolder + '/assets/js/'))
+		.pipe(browserSync.stream());
 });
 
 gulp.task('validateJS', function() {
@@ -61,4 +74,4 @@ gulp.task('watch', function() {
 });
 
 // Default Task
-gulp.task('default', ['vendors', 'javascript', 'sass', 'watch']);
+gulp.task('default', ['vendors', 'javascript', 'sass', 'watch', 'sync']);

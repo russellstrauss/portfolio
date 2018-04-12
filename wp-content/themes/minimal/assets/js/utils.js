@@ -10,7 +10,9 @@
 				tabletMin: 768,
 				tabletMax: 991,
 				desktopMin: 992,
-				desktopLargeMin: 1200
+				desktopLargeMin: 1200,
+				titleFadeInLength: 1800,
+				menuFadeInDelay: 300
 			},
 			
 			mobile: function() {

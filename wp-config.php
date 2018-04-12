@@ -16,23 +16,15 @@
 
 //define('RELOCATE', true);
 
-// ** MySQL settings - You can get this info from your web host ** //
-/** The name of the database for WordPress */
 define('DB_NAME', 'russell_portfolio');
-
-/** MySQL database username */
 define('DB_USER', 'russell_admin');
-
-/** MySQL database password */
 define('DB_PASSWORD', 'admin');
-
-/** MySQL hostname */
 define('DB_HOST', 'localhost');
 
-/** Database Charset to use in creating database tables. */
-define('DB_CHARSET', 'utf8');
+// Go to Hostgator cpanel > Remote MySQL and add public IP from whatismyip.com
+//define('DB_HOST', '198.57.247.214:3306');
 
-/** The Database Collate type. Don't change this if in doubt. */
+define('DB_CHARSET', 'utf8');
 define('DB_COLLATE', '');
 
 /**#@+
