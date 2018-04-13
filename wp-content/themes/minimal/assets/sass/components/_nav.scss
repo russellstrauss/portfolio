@@ -8,6 +8,10 @@
 	@include mobile-only {
 		font-size: 24px;
 	}
+	
+	a {
+		text-decoration: none;
+	}
 }
 
 nav.main {
@@ -23,11 +27,8 @@ nav.main {
 				margin-bottom: 10px;
 				
 				a {
-					transition: margin-left .3s cubic-bezier(0.075, 0.82, 0.165, 1);
-					
-					&:hover {
-						margin-left: 1px;
-					}
+					display: inline-block;
+					text-decoration: none;
 				}
 			}
 		}
@@ -121,9 +122,11 @@ nav.main {
 	
 	nav.main {
 		ul {
-			margin-top: 10px;
-			opacity: 0;
-			transition: margin-top 400ms $ease-out-sine, opacity 300ms ease;
+			li {
+				margin-top: 20px;
+				opacity: 0;
+				transition: margin-top .5s ease, opacity .6s ease;
+			}
 		}
 	}
 }

@@ -28,12 +28,12 @@ module.exports = function() {
 			if ($('body').hasClass('front-page')) {
 				$('.name a').addClass('swipe active');
 				
-				$('nav.main ul').each(function(i) {
+				$('nav.main ul li').each(function(i) {
 					var $menuItem = $(this);
 					
 					setTimeout(function() {
 						$menuItem.css({'margin-top': 0, 'opacity': 1});
-					}, utils.appSettings.titleFadeInLength + utils.appSettings.menuFadeInDelay);
+					}, (i * 250) + (utils.appSettings.titleFadeInLength + utils.appSettings.menuFadeInDelay));
 				});
 			}
 		}

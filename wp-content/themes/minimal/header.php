@@ -37,6 +37,7 @@
 		
 	<link rel="stylesheet" type="text/css" href="<?php echo get_stylesheet_uri(); ?>" />
 	<link href='http://fonts.googleapis.com/css?family=Merriweather+Sans:300,400' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono" rel="stylesheet">
 		
 	<?php wp_head(); ?>

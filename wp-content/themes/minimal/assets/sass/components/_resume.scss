@@ -4,10 +4,10 @@
 }
 
 @mixin resumeHeading {
-	@include headingFont;
+	font-family: 'IBM Plex Mono', monospace;
+	color: $link-color;
 	font-size: 32px;
 	margin-bottom: 20px;
-	line-height: normal;
 	
 	@include mobile-only {
 		margin-bottom: 10px;
@@ -17,6 +17,10 @@
 .resume-content {
 	font-size: 14px;
 	line-height: 1.5;
+	
+	@include mobile-only {
+		margin-top: 50px;
+	}
 		
 	> .left, > .right {
 		float: left;
@@ -51,7 +55,11 @@
 			
 			.right {
 				float: right;
-				width: 69%
+				width: 69%;
+				
+				a {
+					text-decoration: underline;
+				}
 			}
 		}
 		
@@ -71,9 +79,11 @@
 		&.experience {
 			
 			.left {
+				float: left;
 				width: 30%;
 			}
 			.right {
+				float: right;
 				width: 65%;
 				
 				@include mobile-only {
@@ -108,10 +118,6 @@
 						@include tablet {
 							margin-bottom: 10px;
 						}
-					}
-					
-					.job-description {
-						
 					}
 				}
 			}
