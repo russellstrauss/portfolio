@@ -13,6 +13,10 @@ get_header(); ?>
 		.name, nav.main {
 			visibility: hidden;
 		}
+		
+		.name .print-icon {
+			visibility: visible;
+		}
 
 		@media (max-width: 767px) {
 			.name, nav.main {

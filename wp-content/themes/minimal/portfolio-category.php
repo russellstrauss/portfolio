@@ -17,7 +17,9 @@ get_header(); ?>
 		<?php $page_title_url = str_replace(' ', '-', strtolower(get_the_title()) );?>
 		
 		<h1><?php the_title(); ?></h1>
-		<div class="category-description"><?php the_content(); ?></div>
+		<div class="category-description">
+			<p><?php the_content(); ?></p>
+		</div>
 		
 		<?php $thumbnail_count = 1; ?>
 		<!-- Querying each work within the category -->
@@ -97,63 +99,54 @@ get_header(); ?>
 			else 
 			{ ?>
 				
-				<?php
-				if (get_field('unfinished')) 
+				<?php 
+				if ($page_title_url == 'web-development') 
 				{ ?>
-					<?php
-				} 
-				else 
-				{ ?>
-					
+				
 					<?php 
-					if ($page_title_url == 'web-development') 
-					{ ?>
-					
-						<?php 
-						if (get_field('external-link') != '') 
-						{ ?>
-							<a href="<?php echo $link; ?>">
-								<?php the_post_thumbnail( array(100, 100) ); ?>
-							</a>
-							<?php
-						}
-						else 
-						{ ?>
-							<?php the_post_thumbnail( array(100, 100) ); ?>
-							<?php 
-						} ?>
-					
-						<div class="piece-details">
-							
-							<?php 
-							if (get_field('external-link') != '') 
-							{ ?>
-								<h2><a href="<?php echo $link; ?>"><?php the_title(); ?> </a></h2>
-								<?php 
-							}
-							else 
-							{ ?>
-								<h2><?php the_title(); ?></h2>
-								<?php 
-							} ?>
-							<p><?php the_field('description'); ?></p>
-						</div>
-						<?php
-					}
-					else 
+					if (get_field('external-link') != '') 
 					{ ?>
 						<a href="<?php echo $link; ?>">
 							<?php the_post_thumbnail( array(100, 100) ); ?>
 						</a>
-						<div class="piece-details">
-							<h2><a href="<?php echo $link; ?>"><?php the_title(); ?> </a></h2>
-							<p><?php the_field('description'); ?></p>
-						</div>
 						<?php
-					} ?> 
+					}
+					else 
+					{ ?>
+						<?php the_post_thumbnail( array(100, 100) ); ?>
+						<?php 
+					} ?>
 				
+					<div class="piece-details">
+						
+						<?php 
+						if (get_field('external-link') != '') 
+						{ ?>
+							<h2><a href="<?php echo $link; ?>"><?php the_title(); ?> </a></h2>
+							<?php 
+						}
+						else 
+						{ ?>
+							<h2><?php the_title(); ?></h2>
+							<?php 
+						} ?>
+						<p><?php the_field('description'); ?></p>
+					</div>
 					<?php
 				}
+				else 
+				{ ?>
+					<a href="<?php echo $link; ?>">
+						<?php the_post_thumbnail( array(100, 100) ); ?>
+					</a>
+					<div class="piece-details">
+						<h2><a href="<?php echo $link; ?>"><?php the_title(); ?> </a></h2>
+						<p><?php the_field('description'); ?></p>
+					</div>
+					<?php
+				} ?> 
+
+				<?php
 			} ?>
 			<div style="clear: both;"></div>
 		</div>

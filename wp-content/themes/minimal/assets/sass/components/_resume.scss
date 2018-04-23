@@ -161,3 +161,67 @@
 		}
 	}
 }
+
+
+@media print {
+
+	$section-title-size: 18px;
+	$paragraph-size: 12px;
+	
+	body {
+		padding: 0;
+	}
+	
+	.name {
+		display: none;
+	}
+	
+	.resume-content {
+		font-size: $paragraph-size;
+		
+		section {
+			margin-bottom: 10px;
+			
+			
+			&.contact {
+				font-size: $paragraph-size;
+			}
+			
+			&.experience {
+				
+				.employment {
+					margin-bottom: 10px;
+					padding-left: 10px;
+					
+					.company {
+						font-size: 14px !important;
+					}
+				}
+			}
+			
+			&.education {
+				
+				ul {
+					padding-left: 5px;
+				}
+			}
+			
+			h2 {
+				font-size: $section-title-size;
+			}
+			
+			ul {
+				
+				li {
+					font-size: $paragraph-size;
+					margin-bottom: 0;
+				}
+			}
+			
+		}
+	}
+	
+	.edit-link {
+		display: none;
+	}
+}

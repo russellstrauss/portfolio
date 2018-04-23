@@ -385,6 +385,32 @@ module.exports = function() {
 		
 		init: function() {
 			
+			settings = this.settings;
+			
+			this.bindUI();
+		},
+		
+		bindUI: function() {
+						
+			$('.print-icon').click(function() {
+				window.print();
+			});
+		}
+	}
+}
+},{}],6:[function(require,module,exports){
+module.exports = function() {
+	
+	var settings;
+	
+	return {
+		
+		settings: {
+			
+		},
+		
+		init: function() {
+			
 			// Find all YouTube videos
 			var $allVideos = jQuery("iframe[src^='http://player.vimeo.com'], iframe[src^='http://www.youtube.com']"),
 			
@@ -423,11 +449,12 @@ module.exports = function() {
 		}
 	}
 }
-},{}],6:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 var Nav = require('./components/nav.js');
 var AnimatedSphereWireframe = require('./components/animated-sphere-wireframe.js');
 var PhotoGrid = require('./components/photo-grid.js');
 var Videos = require('./components/videos.js');
+var Resume = require('./components/resume.js');
 var Global = require('./components/global.js');
 var Utilities = require('./utils.js');
 
@@ -438,15 +465,14 @@ var Utilities = require('./utils.js');
 		PhotoGrid().init();
 		Nav().init();
 		Videos().init();
+		Resume().init();
 		Global().init();
 		AnimatedSphereWireframe().init();
-		
-		$(window).trigger('resize');
 	
 	});
 	
 })();
-},{"./components/animated-sphere-wireframe.js":1,"./components/global.js":2,"./components/nav.js":3,"./components/photo-grid.js":4,"./components/videos.js":5,"./utils.js":7}],7:[function(require,module,exports){
+},{"./components/animated-sphere-wireframe.js":1,"./components/global.js":2,"./components/nav.js":3,"./components/photo-grid.js":4,"./components/resume.js":5,"./components/videos.js":6,"./utils.js":8}],8:[function(require,module,exports){
 (function () {
 	
 	var appSettings;
@@ -553,4 +579,4 @@ var Utilities = require('./utils.js');
 	module.exports = window.utils;
 
 })();
-},{}]},{},[6]);
+},{}]},{},[7]);

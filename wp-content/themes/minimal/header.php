@@ -52,10 +52,11 @@
 		
 	<div class="name">
 		<a  class="swipe" href="<?php bloginfo('url'); ?>">John Russell Strauss</a>
-		<!-- <?php if (is_page('resume')) { ?>
-			<a href="<?php bloginfo('template_directory'); ?>/print-resume.html"><img title="Click to print." class="print-icon hide-for-small" src="<?php bloginfo('template_directory');?>/assets/img/printer.png" alt="" /></a>
+		
+		<?php if (is_page('resume')) { ?>
+			<img title="Click to print." class="print-icon hide-for-small" src="<?php bloginfo('template_directory');?>/assets/img/printer.png" alt="Print Resume" />
 		<?php
-		} ?> -->
+		} ?>
 	</div>
 
 	<nav class="main">

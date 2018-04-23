@@ -18,7 +18,9 @@ get_header(); ?>
 						<?php $page_title_url = str_replace(' ', '-', strtolower(get_the_title()) );?>
 						
 						<h1><?php the_title(); ?></h1>
-						<div class="category-description"><?php the_content(); ?></div>
+						<div class="category-description">
+							<p><?php the_content(); ?></p>
+						</div>
 						
 						<div class="photo-thumbnails">
 							<?php $count = 0; ?>
