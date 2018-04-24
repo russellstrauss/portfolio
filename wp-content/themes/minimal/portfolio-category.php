@@ -9,6 +9,11 @@
 
 get_header(); ?>
 
+<?php 
+// Custom function to check if page content is empty
+function empty_content($str) {
+	return trim(str_replace('&nbsp;','',strip_tags($str,'<img>'))) == '';
+} ?>
 
 <div class="category-content">	
 	<?php 
@@ -46,7 +51,10 @@ get_header(); ?>
 			<?php 
 			if (($page_title_url == 'web-development' || $page_title_url == 'computer-graphics' || $page_title_url == 'fragments') && get_field('external-link') != null) 
 			{
-				$link = get_field('external-link') . '" target=\"_blank\"';
+				$link = get_field('external-link') . '" target="_blank"';
+			}
+			else if (empty_content(get_the_content())) {
+				$link = null;
 			}
 			else 
 			{
@@ -102,33 +110,30 @@ get_header(); ?>
 				<?php 
 				if ($page_title_url == 'web-development') 
 				{ ?>
-				
-					<?php 
-					if (get_field('external-link') != '') 
+					
+					<?php
+					if ($link != null)
 					{ ?>
 						<a href="<?php echo $link; ?>">
 							<?php the_post_thumbnail( array(100, 100) ); ?>
 						</a>
 						<?php
 					}
-					else 
-					{ ?>
-						<?php the_post_thumbnail( array(100, 100) ); ?>
-						<?php 
+					else {
+						the_post_thumbnail( array(100, 100) );
 					} ?>
-				
+
 					<div class="piece-details">
 						
-						<?php 
-						if (get_field('external-link') != '') 
+						<?php
+						if ($link != null)
 						{ ?>
 							<h2><a href="<?php echo $link; ?>"><?php the_title(); ?> </a></h2>
 							<?php 
 						}
-						else 
-						{ ?>
+						else { ?>
 							<h2><?php the_title(); ?></h2>
-							<?php 
+							<?php
 						} ?>
 						<p><?php the_field('description'); ?></p>
 					</div>
