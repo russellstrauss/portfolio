@@ -15,7 +15,7 @@ module.exports = function() {
 			setTimeout(function() {
 				$('#sphereWireframe').addClass('active');
 				scope.triggerAnimation();
-			}, utils.appSettings.titleFadeInLength + utils.appSettings.menuFadeInDelay + 1000);	
+			}, utils.appSettings.titleFadeInLength + utils.appSettings.menuFadeInDelay + 1200);	
 		},
 		
 		triggerAnimation: function() {
@@ -338,7 +338,7 @@ module.exports = function() {
 					var $menuItem = $(this);
 					
 					setTimeout(function() {
-						$menuItem.css({'margin-top': 0, 'opacity': 1});
+						$menuItem.css({'margin-left': 0, 'opacity': 1});
 					}, (i * 250) + (utils.appSettings.titleFadeInLength + utils.appSettings.menuFadeInDelay));
 				});
 			}

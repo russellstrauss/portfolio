@@ -6,8 +6,9 @@
 }
 
 .center, .aligncenter {
-	margin: auto auto !important;
-	display: block !important;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
 }
 
 .edit-link {
@@ -18,6 +19,10 @@
 
 .error-message { //404
 	@include headingFont;
+}
+
+.caption {
+	font-size: 10px;
 }
 
 .coming-soon {

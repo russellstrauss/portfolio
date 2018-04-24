@@ -32,7 +32,7 @@ module.exports = function() {
 					var $menuItem = $(this);
 					
 					setTimeout(function() {
-						$menuItem.css({'margin-top': 0, 'opacity': 1});
+						$menuItem.css({'margin-left': 0, 'opacity': 1});
 					}, (i * 250) + (utils.appSettings.titleFadeInLength + utils.appSettings.menuFadeInDelay));
 				});
 			}

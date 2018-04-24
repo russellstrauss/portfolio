@@ -38,6 +38,7 @@ $desktop-large-width: 1200px;
 @mixin headingFont {
 	font-family: 'Open Sans', sans-serif;
 	color: $link-color;
+	font-size: 32px;
 	
 	@include mobile-only {
 		font-size: 24px;
