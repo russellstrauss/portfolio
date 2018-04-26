@@ -33,7 +33,7 @@ module.exports = function() {
 					
 					setTimeout(function() {
 						$menuItem.css({'margin-left': 0, 'opacity': 1});
-					}, (i * 250) + (utils.appSettings.titleFadeInLength + utils.appSettings.menuFadeInDelay));
+					}, (i * 150) + (utils.appSettings.titleFadeInLength + utils.appSettings.menuFadeInDelay));
 				});
 			}
 		}

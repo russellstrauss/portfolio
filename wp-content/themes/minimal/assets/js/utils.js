@@ -16,16 +16,16 @@
 			},
 			
 			mobile: function() {
-				return window.innerWidth < appSettings.tabletMin;
+				return window.innerWidth < this.appSettings.tabletMin;
 			},
 			
 			tablet: function() {
-				return (window.innerWidth > appSettings.mobileMax && window.innerWidth < appSettings.desktopMin);
+				return (window.innerWidth > this.appSettings.mobileMax && window.innerWidth < this.appSettings.desktopMin);
 			},
 			
 			getBreakpoint: function() {
-				if (window.innerWidth < appSettings.tabletMin) return 'mobile';
-				else if (window.innerWidth < appSettings.desktopMin) return 'tablet';
+				if (window.innerWidth < this.appSettings.tabletMin) return 'mobile';
+				else if (window.innerWidth < this.appSettings.desktopMin) return 'tablet';
 				else return 'desktop';
 			},
 			

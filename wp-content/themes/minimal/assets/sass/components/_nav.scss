@@ -2,7 +2,6 @@
 	@include headingFont;
 	margin-top: 20px;
 	margin-bottom: 50px;
-	font-size: 32px;
 	line-height: 1.25;
 	
 	@include mobile-only {
@@ -24,8 +23,7 @@ nav.main {
 			list-style-type: none;
 			
 			li {
-				@include headingFont;
-				margin-bottom: 10px;
+				margin-bottom: 20px;
 				line-height: 1;
 				
 				a {
@@ -127,7 +125,7 @@ nav.main {
 			li {
 				margin-left: -200px;
 				opacity: 0;
-				transition: opacity 600ms cubic-bezier(0.860, 0.000, 0.070, 1.000), margin-left 600ms cubic-bezier(0.860, 0.000, 0.070, 1.000);
+				transition: opacity 400ms cubic-bezier(0.860, 0.000, 0.070, 1.000), margin-left 400ms cubic-bezier(0.860, 0.000, 0.070, 1.000);
 			}
 		}
 	}

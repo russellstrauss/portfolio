@@ -36,10 +36,15 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		
 	<link rel="stylesheet" type="text/css" href="<?php echo get_stylesheet_uri(); ?>" />
-	<link href='http://fonts.googleapis.com/css?family=Merriweather+Sans:300,400' rel='stylesheet' type='text/css'>
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono" rel="stylesheet">
-		
+	<link href='http://fonts.googleapis.com/css?family=Merriweather+Sans:300' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/css?family=Quicksand:300" rel="stylesheet">
+	
+	<?php if (is_page('resume')) 
+	{ ?>
+		<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono" rel="stylesheet">
+		<?php
+	} ?>
+	
 	<?php wp_head(); ?>
 </head>
 

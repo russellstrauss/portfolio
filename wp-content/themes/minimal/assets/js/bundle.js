@@ -15,7 +15,7 @@ module.exports = function() {
 			setTimeout(function() {
 				$('#sphereWireframe').addClass('active');
 				scope.triggerAnimation();
-			}, utils.appSettings.titleFadeInLength + utils.appSettings.menuFadeInDelay + 1200);	
+			}, utils.appSettings.titleFadeInLength + utils.appSettings.menuFadeInDelay + 800);	
 		},
 		
 		triggerAnimation: function() {
@@ -160,9 +160,16 @@ module.exports = function() {
 				FAR = 1000;
 				
 				camera = new THREE.PerspectiveCamera(FOV, WIDTH / HEIGHT, NEAR, FAR);
-				camera.position.z = 400;
-				camera.position.y = -60;
-				camera.position.x = -60;
+				if (utils.mobile()) {
+					camera.position.z = 500;
+					camera.position.y = 80;
+					camera.position.x = -70;
+				}
+				else {
+					camera.position.z = 400;
+					camera.position.y = 80;
+					camera.position.x = -120;
+				}
 
 				scene = new THREE.Scene();
 
@@ -339,7 +346,7 @@ module.exports = function() {
 					
 					setTimeout(function() {
 						$menuItem.css({'margin-left': 0, 'opacity': 1});
-					}, (i * 250) + (utils.appSettings.titleFadeInLength + utils.appSettings.menuFadeInDelay));
+					}, (i * 150) + (utils.appSettings.titleFadeInLength + utils.appSettings.menuFadeInDelay));
 				});
 			}
 		}
@@ -491,16 +498,16 @@ var Utilities = require('./utils.js');
 			},
 			
 			mobile: function() {
-				return window.innerWidth < appSettings.tabletMin;
+				return window.innerWidth < this.appSettings.tabletMin;
 			},
 			
 			tablet: function() {
-				return (window.innerWidth > appSettings.mobileMax && window.innerWidth < appSettings.desktopMin);
+				return (window.innerWidth > this.appSettings.mobileMax && window.innerWidth < this.appSettings.desktopMin);
 			},
 			
 			getBreakpoint: function() {
-				if (window.innerWidth < appSettings.tabletMin) return 'mobile';
-				else if (window.innerWidth < appSettings.desktopMin) return 'tablet';
+				if (window.innerWidth < this.appSettings.tabletMin) return 'mobile';
+				else if (window.innerWidth < this.appSettings.desktopMin) return 'tablet';
 				else return 'desktop';
 			},
 			
