@@ -74,13 +74,24 @@
 				},
 				{
 					"eventID": "0000-0000-0000-0006",
-					"startTime": "1969-08-15T21:00:00-04:00",
-					"endTime": "1969-08-15T21:35:00-04:00",
+					"startTime": "1969-08-15T22:00:00-04:00",
+					"endTime": "1969-08-15T22:40:00-04:00",
 					"eventName": "Ravi Shankar",
 					"eventPhoto": "https://vignette.wikia.nocookie.net/woodstock/images/f/fc/Ravi_Shankar01.jpg/revision/latest?cb=20090410142047",
 					"description": "<p>The Indian music genius Ravi Shankar was a special guest at the Woodstock festival. He made his first appearance to the western world at the Monterey International Pop Festival in 1967, followed by an invitation from Beatle George Harrison. In the wake of spiritualism and the search for new influences his music became very popular, but Shankar wasn't fond of the drug-consuming and partying crowd of young people.</p><p>Shankar started at about 10 pm on Friday evening and played for over 40 minutes throughout the rain.</p>",
 					"eventLinkText": "Complete audio recording",
-					"eventLinkPath": "https://www.youtube.com/watch?v=zVE_eNVZyRo&t=28s",
+					"eventLinkPath": "https://www.youtube.com/watch?v=zVE_eNVZyRo&",
+					"currentlySelected": false
+				},
+				{
+					"eventID": "0000-0000-0000-0006",
+					"startTime": "1969-08-15T23:00:00-04:00",
+					"endTime": "1969-08-15T23:25:00-04:00",
+					"eventName": "Melanie Safka",
+					"eventPhoto": "http://bestclassicbands.com/wp-content/uploads/2018/06/melanie-1200.jpg",
+					"description": "<p>Melanie's solo set was short but sweet though you can hear her anxiety in her voice. She performed at 11 pm on Friday, the 15th.</p><p>Melanie played instead of The Incredible String Band who refused to play while it was raining.</p><p>During her set, the audience lit up candles to accompany the music. Later she wrote a song about that which was a great hit: \"Lay Down (Candles in the Rain)\"</p>",
+					"eventLinkText": "Performance of <em>Mr. Tambourine Man</em> and <em>Tuning My Guitar</em>",
+					"eventLinkPath": "https://www.youtube.com/watch?v=u9VTiAsliKs",
 					"currentlySelected": false
 				}
 			]
