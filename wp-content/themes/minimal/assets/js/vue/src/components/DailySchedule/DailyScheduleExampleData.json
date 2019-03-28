@@ -1,44 +1,16 @@
 {
-	"layout": "advanced",
+	"layout": "simple",
 	"title": "Woodstock '69",
 	"subtitle": "3 Days of Peace & Music",
 	"dates": [
 		{
 			"date": "1969-08-15",
-			"parks": [
-				{
-					"id": "0000-0000-0000-0001",
-					"title": "Theme Park",
-					"parkOpen": "2019-08-02T09:00:00-04:00",
-					"parkClose": "2019-08-02T18:00:00-04:00",
-					"filterApplied": false
-				},
-				{
-					"id": "0000-0000-0000-0002",
-					"title": "Water Park",
-					"parkOpen": "2019-08-02T10:00:00-04:00",
-					"parkClose": "2019-08-02T19:00:00-04:00",
-					"filterApplied": false
-				}
-			],
 			"scheduleDisclaimer": "Check the Shows & Entertainment page for a full list of our entertainment offerings. All performances, times, and show schedules are subject to change without notice. <strong>Keep watching here for future daily schedules. Details will be posted as available.</strong><div><a href=\"/\">Download Schedule<svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" viewBox=\"0 0 9 15\"><path d=\"M1.5,15c-0.4,0-0.8-0.1-1.1-0.4c-0.6-0.6-0.6-1.5,0-2.1l4.9-4.9L0.4,2.6C-0.1,2-0.1,1,0.4,0.4C1-0.1,2-0.1,2.6,0.4l6,6 C9.1,7,9.1,8,8.6,8.6l-6,6C2.3,14.8,1.9,15,1.5,15z\"/></svg></a></div>",
 			"events": [
 				{
 					"eventID": "0000-0000-0000-0001",
-					"startTime": "2019-08-02T16:00-0400",
+					"startTime": "1969-08-15T16:00-0400",
 					"eventName": "Festival Begins",
-					"eventLocation": "",
-					"featured": true,
-					"parkLocations": [
-						{
-							"id": "0000-0000-0000-0001",
-							"title": "Theme Park"
-						},
-						{
-							"id": "0000-0000-0000-0002",
-							"title": "Water Park"
-						}
-					],
 					"eventPhoto": "https://upload.wikimedia.org/wikipedia/en/b/b7/Woodstock_poster.jpg",
 					"description": "Start of the festival, yet the musicians weren't ready or available yet.",
 					"eventLinkText": "",
@@ -47,83 +19,58 @@
 				},
 				{
 					"eventID": "0000-0000-0000-0002",
-					"startTime": "2019-08-02T17:00:00-04:00",
-					"endTime": "2019-08-02T17:30:00-04:00",
+					"startTime": "1969-08-15T17:00:00-04:00",
+					"endTime": "1969-08-15T18:00:00-04:00",
 					"eventName": "Richie Havens",
-					"eventLocation": "",
-					"featured": true,
-					"parkLocations": [
-						{
-							"id": "0000-0000-0000-0001",
-							"title": "Theme Park"
-						}
-					],
 					"eventPhoto": "https://vignette.wikia.nocookie.net/woodstock/images/c/c2/Richie_Havens01.jpg/revision/latest?cb=20080801212055",
-					"description": "Richie Havens had the honour to open the Woodstock Festival at about 5.00 pm (sources[1] claim that it was exactly 5.07 pm). According to an interview on TV[2] there were originally four songs planned for him. But since the audience liked him and the organizers forced him to play longer (bands were stuck in the traffic jam) he was happy to perform more songs. He further claimed that he played every song he knew the next 2:45 hours but this is quite exaggerated since there were bands who also performed during daylight on this day. Sunset occured around 8:00 pm[3].",
-					"eventLinkText": "",
-					"eventLinkPath": "",
+					"description": "Richie Havens had the honour to open the Woodstock Festival at about 5.00 pm (sources claim that it was exactly 5.07 pm). According to an interview on TV there were originally four songs planned for him. But since the audience liked him and the organizers forced him to play longer (bands were stuck in the traffic jam) he was happy to perform more songs. He further claimed that he played every song he knew the next 2:45 hours but this is quite exaggerated since there were bands who also performed during daylight on this day. Sunset occured around 8:00 pm.",
+					"eventLinkText": "Performance of <em>Freedom</em>",
+					"eventLinkPath": "https://www.youtube.com/watch?v=rynxqdNMry4",
 					"currentlySelected": false
 				},
 				{
 					"eventID": "0000-0000-0000-0003",
-					"startTime": "2019-08-02T14:00:00-04:00",
-					"endTime": "2019-08-02T14:30:00-04:00",
-					"eventName": "Thrills in the Hills",
-					"eventLocation": "Showstreet Palace",
-					"featured": false,
-					"parkLocations": [
-						{
-							"id": "0000-0000-0000-0002",
-							"title": "Water Park"
-						}
-					],
-					"allStartTimes": [
-						{
-							"startTime": "2019-08-02T12:00:00-04:00"
-						},
-						{
-							"startTime": "2019-08-02T12:30:00-04:00"
-						},
-						{
-							"startTime": "2019-08-02T13:00:00-04:00"
-						},
-						{
-							"startTime": "2019-08-02T14:30:00-04:00"
-						},
-						{
-							"startTime": "2019-08-02T15:00:00-04:00"
-						}
-					],
-					"eventPhoto": "https://picsum.photos/800/303",
+					"startTime": "1969-08-15T18:00:00-04:00",
+					"endTime": "1969-08-15T18:15:00-04:00",
+					"eventName": "Swami Satchidananda",
+					"eventPhoto": "https://s3.amazonaws.com/swamisatchidanandabucket/wp-content/uploads/2013/11/A2537R-swami-satchidananda-478x420.jpg",
 					"description": "Dollywood celebrates its eleventh annual Thrills in the Hills July 12-13, 2019, with all of the behind-the-scenes access and information that coaster enthusiasts have come to love from this thrilling event.",
-					"eventLinkText": "Event Details",
-					"eventLinkPath": "https://www.dollywood.com/themepark/Festivals/ThrillsintheHills",
+					"eventLinkText": "Speech",
+					"eventLinkPath": "https://swamisatchidananda.org/woodstock-guru/",
+					"currentlySelected": false
+				},
+				{
+					"eventID": "0000-0000-0000-0003",
+					"startTime": "1969-08-15T18:15:00-04:00",
+					"endTime": "1969-08-15T19:00:00-04:00",
+					"eventName": "Sweetwater",
+					"eventPhoto": "https://vignette.wikia.nocookie.net/woodstock/images/c/c0/Sweetwater03.jpg/revision/latest?cb=20140509151603",
+					"description": "<p>The second band that played at the woodstock festival was Sweetwater following Richie Havens. Sweetwater arrived later on Friday afternoon because they were stuck in the traffic jam. They started at about 6.15 pm.</p><p>Sweetwater's performance was nothing special. The jams in their longer songs, \"What's Wrong\" and \"Why Oh Why\", didn't help much. The multi-vocal parts are rather chaotic. The only noteworthy song is the psychedelic \"My Crystal Spider\" which includes some strange solo parts. Sweetwater played for about 45 minutes.</p>",
+					"eventLinkText": "Complete performance audio",
+					"eventLinkPath": "https://www.youtube.com/watch?v=Qk2n8Wue2kI",
+					"currentlySelected": false
+				},
+				{
+					"eventID": "0000-0000-0000-0003",
+					"startTime": "1969-08-15T19:15:00-04:00",
+					"endTime": "1969-08-15T20:00:00-04:00",
+					"eventName": "Bert Sommer",
+					"eventPhoto": "https://vignette.wikia.nocookie.net/woodstock/images/1/12/Bert_Sommer02.jpg/revision/latest?cb=20080802162321",
+					"description": "Bert William Sommer was an American folk singer, songwriter, and actor. At Woodstock, Sommer's performance of Simon & Garfunkel's \"America\" received a standing ovation. He wrote \"We're All Playing In The Same Band\" at and about Woodstock, and his recording peaked at #48 on the Billboard Hot 100 on September 12th, 1970.",
+					"eventLinkText": "Audio recording of America",
+					"eventLinkPath": "https://swamisatchidananda.org/woodstock-guru/",
 					"currentlySelected": false
 				}
 			]
 		},
 		{
-			"date": "2019-08-03",
-			"parks": [
-				{
-					"id": "0000-0000-0000-0001",
-					"title": "Theme Park",
-					"parkOpen": "2019-08-03T11:00:00-04:00",
-					"parkClose": "2019-08-03T20:00:00-04:00"
-				},
-				{
-					"id": "0000-0000-0000-0002",
-					"title": "Water Park",
-					"parkOpen": "2019-08-03T12:00:00-04:00",
-					"parkClose": "2019-08-03T19:00:00-04:00"
-				}
-			],
+			"date": "1969-08-16",
 			"scheduleDisclaimer": "Different message, different day: Check the Shows & Entertainment page for a full list of our entertainment offerings. All performances, times, and show schedules are subject to change without notice. <strong>Keep watching here for future daily schedules. Details will be posted as available.</strong><div><a href=\"/\">Download Schedule<svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" viewBox=\"0 0 9 15\"><path d=\"M1.5,15c-0.4,0-0.8-0.1-1.1-0.4c-0.6-0.6-0.6-1.5,0-2.1l4.9-4.9L0.4,2.6C-0.1,2-0.1,1,0.4,0.4C1-0.1,2-0.1,2.6,0.4l6,6 C9.1,7,9.1,8,8.6,8.6l-6,6C2.3,14.8,1.9,15,1.5,15z\"/></svg></a></div>",
 			"events": [
 				{
 					"eventID": "0000-0000-0000-0001",
-					"startTime": "2019-08-03T12:00:00-04:00",
-					"endTime": "2019-08-03T12:30:00-04:00",
+					"startTime": "1969-08-16T12:00:00-04:00",
+					"endTime": "1969-08-16T12:30:00-04:00",
 					"eventName": "Event Name 1",
 					"eventLocation": "Back Porch Theater",
 					"featured": false,
@@ -139,19 +86,19 @@
 					],
 					"allStartTimes": [
 						{
-							"startTime": "2019-08-03T12:00:00-04:00"
+							"startTime": "1969-08-16T12:00:00-04:00"
 						},
 						{
-							"startTime": "2019-08-03T12:30:00-04:00"
+							"startTime": "1969-08-16T12:30:00-04:00"
 						},
 						{
-							"startTime": "2019-08-03T13:00:00-04:00"
+							"startTime": "1969-08-16T13:00:00-04:00"
 						},
 						{
-							"startTime": "2019-08-03T14:30:00-04:00"
+							"startTime": "1969-08-16T14:30:00-04:00"
 						},
 						{
-							"startTime": "2019-08-03T15:00:00-04:00"
+							"startTime": "1969-08-16T15:00:00-04:00"
 						}
 					],
 					"eventPhoto": "https://picsum.photos/800/301",
@@ -162,8 +109,8 @@
 				},
 				{
 					"eventID": "0000-0000-0000-0002",
-					"startTime": "2019-08-03T13:00:00-04:00",
-					"endTime": "2019-08-03T13:30:00-04:00",
+					"startTime": "1969-08-16T13:00:00-04:00",
+					"endTime": "1969-08-16T13:30:00-04:00",
 					"eventName": "Event Name 2",
 					"eventLocation": "DP's Celebrity Theater",
 					"featured": false,
@@ -179,19 +126,19 @@
 					],
 					"allStartTimes": [
 						{
-							"startTime": "2019-08-03T12:00:00-04:00"
+							"startTime": "1969-08-16T12:00:00-04:00"
 						},
 						{
-							"startTime": "2019-08-03T12:30:00-04:00"
+							"startTime": "1969-08-16T12:30:00-04:00"
 						},
 						{
-							"startTime": "2019-08-03T13:00:00-04:00"
+							"startTime": "1969-08-16T13:00:00-04:00"
 						},
 						{
-							"startTime": "2019-08-03T14:30:00-04:00"
+							"startTime": "1969-08-16T14:30:00-04:00"
 						},
 						{
-							"startTime": "2019-08-03T15:00:00-04:00"
+							"startTime": "1969-08-16T15:00:00-04:00"
 						}
 					],
 					"eventPhoto": "https://picsum.photos/800/302",
@@ -202,8 +149,8 @@
 				},
 				{
 					"eventID": "0000-0000-0000-0003",
-					"startTime": "2019-08-03T14:00:00-04:00",
-					"endTime": "2019-08-03T14:30:00-04:00",
+					"startTime": "1969-08-16T14:00:00-04:00",
+					"endTime": "1969-08-16T14:30:00-04:00",
 					"eventName": "Event Name 3",
 					"eventLocation": "Showstreet Palace",
 					"featured": false,
@@ -219,19 +166,19 @@
 					],
 					"allStartTimes": [
 						{
-							"startTime": "2019-08-03T12:00:00-04:00"
+							"startTime": "1969-08-16T12:00:00-04:00"
 						},
 						{
-							"startTime": "2019-08-03T12:30:00-04:00"
+							"startTime": "1969-08-16T12:30:00-04:00"
 						},
 						{
-							"startTime": "2019-08-03T13:00:00-04:00"
+							"startTime": "1969-08-16T13:00:00-04:00"
 						},
 						{
-							"startTime": "2019-08-03T14:30:00-04:00"
+							"startTime": "1969-08-16T14:30:00-04:00"
 						},
 						{
-							"startTime": "2019-08-03T15:00:00-04:00"
+							"startTime": "1969-08-16T15:00:00-04:00"
 						}
 					],
 					"eventPhoto": "https://picsum.photos/800/303",
@@ -243,27 +190,13 @@
 			]
 		},
 		{
-			"date": "2019-08-04",
-			"parks": [
-				{
-					"id": "0000-0000-0000-0001",
-					"title": "Theme Park",
-					"parkOpen": "2019-08-02T09:00:00-04:00",
-					"parkClose": "2019-08-02T18:00:00-04:00"
-				},
-				{
-					"id": "0000-0000-0000-0002",
-					"title": "Water Park",
-					"parkOpen": "2019-08-02T11:00:00-04:00",
-					"parkClose": "2019-08-02T22:00:00-04:00"
-				}
-			],
+			"date": "1969-08-17",
 			"scheduleDisclaimer": "Check the Shows & Entertainment page for a full list of our entertainment offerings. All performances, times, and show schedules are subject to change without notice. <strong>Keep watching here for future daily schedules. Details will be posted as available.</strong><div><a href=\"/\">Download Schedule<svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" viewBox=\"0 0 9 15\"><path d=\"M1.5,15c-0.4,0-0.8-0.1-1.1-0.4c-0.6-0.6-0.6-1.5,0-2.1l4.9-4.9L0.4,2.6C-0.1,2-0.1,1,0.4,0.4C1-0.1,2-0.1,2.6,0.4l6,6 C9.1,7,9.1,8,8.6,8.6l-6,6C2.3,14.8,1.9,15,1.5,15z\"/></svg></a></div>",
 			"events": [
 				{
 					"eventID": "0000-0000-0000-0001",
-					"startTime": "2019-08-04T12:00:00-04:00",
-					"endTime": "2019-08-04T12:30:00-04:00",
+					"startTime": "1969-08-17T12:00:00-04:00",
+					"endTime": "1969-08-17T12:30:00-04:00",
 					"eventName": "Event Name 1",
 					"eventLocation": "Back Porch Theater",
 					"featured": false,
@@ -275,19 +208,19 @@
 					],
 					"allStartTimes": [
 						{
-							"startTime": "2019-08-04T12:00:00-04:00"
+							"startTime": "1969-08-17T12:00:00-04:00"
 						},
 						{
-							"startTime": "2019-08-04T12:30:00-04:00"
+							"startTime": "1969-08-17T12:30:00-04:00"
 						},
 						{
-							"startTime": "2019-08-04T13:00:00-04:00"
+							"startTime": "1969-08-17T13:00:00-04:00"
 						},
 						{
-							"startTime": "2019-08-04T14:30:00-04:00"
+							"startTime": "1969-08-17T14:30:00-04:00"
 						},
 						{
-							"startTime": "2019-08-04T15:00:00-04:00"
+							"startTime": "1969-08-17T15:00:00-04:00"
 						}
 					],
 					"eventPhoto": "https://picsum.photos/800/301",
@@ -298,8 +231,8 @@
 				},
 				{
 					"eventID": "0000-0000-0000-0002",
-					"startTime": "2019-08-04T13:00:00-04:00",
-					"endTime": "2019-08-04T13:30:00-04:00",
+					"startTime": "1969-08-17T13:00:00-04:00",
+					"endTime": "1969-08-17T13:30:00-04:00",
 					"eventName": "Event Name 2",
 					"eventLocation": "DP's Celebrity Theater",
 					"featured": false,
@@ -311,19 +244,19 @@
 					],
 					"allStartTimes": [
 						{
-							"startTime": "2019-08-04T12:00:00-04:00"
+							"startTime": "1969-08-17T12:00:00-04:00"
 						},
 						{
-							"startTime": "2019-08-04T12:30:00-04:00"
+							"startTime": "1969-08-17T12:30:00-04:00"
 						},
 						{
-							"startTime": "2019-08-04T13:00:00-04:00"
+							"startTime": "1969-08-17T13:00:00-04:00"
 						},
 						{
-							"startTime": "2019-08-04T14:30:00-04:00"
+							"startTime": "1969-08-17T14:30:00-04:00"
 						},
 						{
-							"startTime": "2019-08-04T15:00:00-04:00"
+							"startTime": "1969-08-17T15:00:00-04:00"
 						}
 					],
 					"eventPhoto": "https://picsum.photos/800/302",
@@ -334,8 +267,8 @@
 				},
 				{
 					"eventID": "0000-0000-0000-0003",
-					"startTime": "2019-08-04T14:00:00-04:00",
-					"endTime": "2019-08-04T14:30:00-04:00",
+					"startTime": "1969-08-17T14:00:00-04:00",
+					"endTime": "1969-08-17T14:30:00-04:00",
 					"eventName": "Event Name 3",
 					"eventLocation": "Showstreet Palace",
 					"featured": false,
@@ -347,19 +280,19 @@
 					],
 					"allStartTimes": [
 						{
-							"startTime": "2019-08-04T12:00:00-04:00"
+							"startTime": "1969-08-17T12:00:00-04:00"
 						},
 						{
-							"startTime": "2019-08-04T12:30:00-04:00"
+							"startTime": "1969-08-17T12:30:00-04:00"
 						},
 						{
-							"startTime": "2019-08-04T13:00:00-04:00"
+							"startTime": "1969-08-17T13:00:00-04:00"
 						},
 						{
-							"startTime": "2019-08-04T14:30:00-04:00"
+							"startTime": "1969-08-17T14:30:00-04:00"
 						},
 						{
-							"startTime": "2019-08-04T15:00:00-04:00"
+							"startTime": "1969-08-17T15:00:00-04:00"
 						}
 					],
 					"eventPhoto": "https://picsum.photos/800/303",

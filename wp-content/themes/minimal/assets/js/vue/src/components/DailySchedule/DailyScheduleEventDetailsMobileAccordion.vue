@@ -18,9 +18,7 @@
 			<li v-bind:key="time.startTime" v-for="time in event.allStartTimes">{{ time.startTime | moment("hh:mmA") }}</li>
 		</ul>
 		
-		<div class="event-description">
-			{{ event.description }}
-		</div>
+		<div class="event-description" v-html="event.description"></div>
 		
 		<a class="event-details-page-link" v-bind:href="event.eventLinkPath">
 			{{ event.eventLinkText }}

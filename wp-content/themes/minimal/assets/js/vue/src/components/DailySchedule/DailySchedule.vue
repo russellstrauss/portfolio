@@ -1095,6 +1095,7 @@
 				
 				.event-description {
 					text-align: left;
+					line-height: 1.5;
 					
 					@include tablet-only {
 						font-size: 14px;
