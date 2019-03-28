@@ -34,31 +34,53 @@
 					"endTime": "1969-08-15T18:15:00-04:00",
 					"eventName": "Swami Satchidananda",
 					"eventPhoto": "https://s3.amazonaws.com/swamisatchidanandabucket/wp-content/uploads/2013/11/A2537R-swami-satchidananda-478x420.jpg",
-					"description": "Dollywood celebrates its eleventh annual Thrills in the Hills July 12-13, 2019, with all of the behind-the-scenes access and information that coaster enthusiasts have come to love from this thrilling event.",
-					"eventLinkText": "Speech",
+					"description": "Sri Swami Satchidananda opened the Woodstock Music Festival in Bethel, New York on August 15,1969 addressing a crowd of approximately 500,000.",
+					"eventLinkText": "Speech transcription",
 					"eventLinkPath": "https://swamisatchidananda.org/woodstock-guru/",
 					"currentlySelected": false
 				},
 				{
-					"eventID": "0000-0000-0000-0003",
+					"eventID": "0000-0000-0000-0004",
 					"startTime": "1969-08-15T18:15:00-04:00",
 					"endTime": "1969-08-15T19:00:00-04:00",
 					"eventName": "Sweetwater",
 					"eventPhoto": "https://vignette.wikia.nocookie.net/woodstock/images/c/c0/Sweetwater03.jpg/revision/latest?cb=20140509151603",
 					"description": "<p>The second band that played at the woodstock festival was Sweetwater following Richie Havens. Sweetwater arrived later on Friday afternoon because they were stuck in the traffic jam. They started at about 6.15 pm.</p><p>Sweetwater's performance was nothing special. The jams in their longer songs, \"What's Wrong\" and \"Why Oh Why\", didn't help much. The multi-vocal parts are rather chaotic. The only noteworthy song is the psychedelic \"My Crystal Spider\" which includes some strange solo parts. Sweetwater played for about 45 minutes.</p>",
-					"eventLinkText": "Complete performance audio",
+					"eventLinkText": "Complete audio recording",
 					"eventLinkPath": "https://www.youtube.com/watch?v=Qk2n8Wue2kI",
 					"currentlySelected": false
 				},
 				{
-					"eventID": "0000-0000-0000-0003",
+					"eventID": "0000-0000-0000-0005",
 					"startTime": "1969-08-15T19:15:00-04:00",
 					"endTime": "1969-08-15T20:00:00-04:00",
 					"eventName": "Bert Sommer",
 					"eventPhoto": "https://vignette.wikia.nocookie.net/woodstock/images/1/12/Bert_Sommer02.jpg/revision/latest?cb=20080802162321",
 					"description": "Bert William Sommer was an American folk singer, songwriter, and actor. At Woodstock, Sommer's performance of Simon & Garfunkel's \"America\" received a standing ovation. He wrote \"We're All Playing In The Same Band\" at and about Woodstock, and his recording peaked at #48 on the Billboard Hot 100 on September 12th, 1970.",
-					"eventLinkText": "Audio recording of America",
+					"eventLinkText": "Audio recording of <em>America</em>",
 					"eventLinkPath": "https://swamisatchidananda.org/woodstock-guru/",
+					"currentlySelected": false
+				},
+				{
+					"eventID": "0000-0000-0000-0006",
+					"startTime": "1969-08-15T21:00:00-04:00",
+					"endTime": "1969-08-15T21:35:00-04:00",
+					"eventName": "Tim Hardin",
+					"eventPhoto": "https://vignette.wikia.nocookie.net/woodstock/images/4/4d/Tim_Hardin03.jpg/revision/latest?cb=20080803103208",
+					"description": "Tim Hardin played his short set at about 9 pm on Friday. It was already dark. Since his early days of his career Tim Hardin was addicted to heroin. Originally he was scheduled earlier but the effects of drugs kept him down till sundown. The fact that he was stoned made it hard for the other musicians to follow, reported by his drummer Steve Booker. However, Gilles Malkine states that Tim Hardin only acted stoned because he did not want to perform first, as he was overwhelmed by the immensity of the event. Right after his gig it started to rain.",
+					"eventLinkText": "Performance of <em>If I Were a Carpenter</em>",
+					"eventLinkPath": "https://www.youtube.com/watch?v=F4OiAlgC310",
+					"currentlySelected": false
+				},
+				{
+					"eventID": "0000-0000-0000-0006",
+					"startTime": "1969-08-15T21:00:00-04:00",
+					"endTime": "1969-08-15T21:35:00-04:00",
+					"eventName": "Ravi Shankar",
+					"eventPhoto": "https://vignette.wikia.nocookie.net/woodstock/images/f/fc/Ravi_Shankar01.jpg/revision/latest?cb=20090410142047",
+					"description": "<p>The Indian music genius Ravi Shankar was a special guest at the Woodstock festival. He made his first appearance to the western world at the Monterey International Pop Festival in 1967, followed by an invitation from Beatle George Harrison. In the wake of spiritualism and the search for new influences his music became very popular, but Shankar wasn't fond of the drug-consuming and partying crowd of young people.</p><p>Shankar started at about 10 pm on Friday evening and played for over 40 minutes throughout the rain.</p>",
+					"eventLinkText": "Complete audio recording",
+					"eventLinkPath": "https://www.youtube.com/watch?v=zVE_eNVZyRo&t=28s",
 					"currentlySelected": false
 				}
 			]
