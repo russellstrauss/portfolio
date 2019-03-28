@@ -96,9 +96,9 @@
 			*/
 			getTransitionDuration: function(element) {
 				var $element = $(element);
-				return utils.secondsToMilliseconds(parseFloat(getComputedStyle($element[0])['transitionDuration']));
+				return utils.secondsToMilliseconds(parseFloat(getComputedStyle($element[0]).transitionDuration));
 			}
-		}
+		};
 	})();
 
 	module.exports = window.utils;

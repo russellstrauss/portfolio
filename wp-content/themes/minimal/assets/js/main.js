@@ -9,7 +9,7 @@ var Utilities = require('./utils.js');
 (function () {
 	
 	$(document).ready(function() {
-				
+
 		PhotoGrid().init();
 		Nav().init();
 		Videos().init();

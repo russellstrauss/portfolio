@@ -143,7 +143,7 @@ module.exports = function() {
 			var bgColor = 0xffffff;
 			var nodeVisibilityMargin = 10;//50;
 			var count = 0;
-			var backgroundNodeScale = .6;
+			var backgroundNodeScale = 0.6;
 			var randomMovement = 0.001;
 			
 			init();
@@ -280,8 +280,8 @@ module.exports = function() {
 				renderer.render(scene, camera);
 			}
 		}
-	}
-}
+	};
+};
 },{}],2:[function(require,module,exports){
 module.exports = function() {
 	
@@ -307,9 +307,10 @@ module.exports = function() {
 			}
 			
 			$('.resume-content p').remove();
+			$( 'p:empty' ).remove();
 		}
-	}
-}
+	};
+};
 },{}],3:[function(require,module,exports){
 module.exports = function() {
 	
@@ -350,8 +351,8 @@ module.exports = function() {
 				});
 			}
 		}
-	}
-}
+	};
+};
 },{}],4:[function(require,module,exports){
 module.exports = function() {
 	
@@ -373,12 +374,12 @@ module.exports = function() {
 		bindUI: function() {
 			
 			// Remove <br>'s and <p>'s from photo grid
-			jQuery('.photo-thumbnails .photo-thumb').find('br').remove()
-			jQuery('.photo-thumbnails').find('p').remove()
+			jQuery('.photo-thumbnails .photo-thumb').find('br').remove();
+			jQuery('.photo-thumbnails').find('p').remove();
 		
 		}
-	}
-}
+	};
+};
 },{}],5:[function(require,module,exports){
 module.exports = function() {
 	
@@ -403,59 +404,59 @@ module.exports = function() {
 				window.print();
 			});
 		}
-	}
-}
+	};
+};
 },{}],6:[function(require,module,exports){
-module.exports = function() {
-	
+module.exports = function () {
+
 	var settings;
-	
+
 	return {
-		
+
 		settings: {
-			
+
 		},
-		
-		init: function() {
-			
+
+		init: function () {
+
 			// Find all YouTube videos
 			var $allVideos = jQuery("iframe[src^='http://player.vimeo.com'], iframe[src^='http://www.youtube.com']"),
-			
-			// The element that is fluid width
-			$fluidEl = jQuery(".single-piece-description");
-			
+
+				// The element that is fluid width
+				$fluidEl = jQuery(".single-piece-description");
+
 			// Figure out and save aspect ratio for each video
-			$allVideos.each(function() {
-			
-			  jQuery(this)
-				.data('aspectRatio', this.height / this.width)
-			
-				// and remove the hard coded width/height
-				.removeAttr('height')
-				.removeAttr('width');
-			
+			$allVideos.each(function () {
+
+				jQuery(this)
+					.data('aspectRatio', this.height / this.width)
+
+					// and remove the hard coded width/height
+					.removeAttr('height')
+					.removeAttr('width');
+
 			});
-			
+
 			// When the window is resized
-			jQuery(window).resize(function() {
-			
-			  var newWidth = $fluidEl.width();
-			
-			  // Resize all videos according to their own aspect ratio
-			  $allVideos.each(function() {
-			
-				var $el = jQuery(this);
-				$el
-				  .width(newWidth)
-				  .height(newWidth * $el.data('aspectRatio'));
-			  });
-			
-			// Kick off one resize to fix all videos on page load
+			jQuery(window).resize(function () {
+
+				var newWidth = $fluidEl.width();
+
+				// Resize all videos according to their own aspect ratio
+				$allVideos.each(function () {
+
+					var $el = jQuery(this);
+					$el
+						.width(newWidth)
+						.height(newWidth * $el.data('aspectRatio'));
+				});
+
+				// Kick off one resize to fix all videos on page load
 			}).resize();
-			
+
 		}
-	}
-}
+	};
+};
 },{}],7:[function(require,module,exports){
 var Nav = require('./components/nav.js');
 var AnimatedSphereWireframe = require('./components/animated-sphere-wireframe.js');
@@ -468,7 +469,7 @@ var Utilities = require('./utils.js');
 (function () {
 	
 	$(document).ready(function() {
-				
+
 		PhotoGrid().init();
 		Nav().init();
 		Videos().init();
@@ -578,9 +579,9 @@ var Utilities = require('./utils.js');
 			*/
 			getTransitionDuration: function(element) {
 				var $element = $(element);
-				return utils.secondsToMilliseconds(parseFloat(getComputedStyle($element[0])['transitionDuration']));
+				return utils.secondsToMilliseconds(parseFloat(getComputedStyle($element[0]).transitionDuration));
 			}
-		}
+		};
 	})();
 
 	module.exports = window.utils;

@@ -63,15 +63,21 @@ gulp.task('javascript', function() {
 });
 
 gulp.task('validateJS', function() {
-	return gulp.src(['./assets/js/**/*.js', '!./assets/js/bundle.js'])
+	return gulp.src(['./assets/js/**/*.js', '!./assets/js/bundle.js', '!./assets/js/vue/**/*'])
 		.pipe(jshint())
 		.pipe(jshint.reporter(stylish));
 });
 
 gulp.task('watch', function() {
-	gulp.watch('./assets/sass/**/*.scss', ['sass']);
-	gulp.watch(['./assets/js/**/*.js', '!./assets/js/bundle.js'], ['javascript']);
+	
+	watch('./assets/sass/**/*.scss', function() {
+		gulp.start('sass');
+	});
+	
+	watch(['!./assets/js/bundle.js', '!./assets/js/vue/*', './assets/js/vue/dist', './assets/js/*.js', './assets/js/components/*.js'], function() {
+		gulp.start('javascript');
+	});
 });
 
 // Default Task
-gulp.task('default', ['vendors', 'javascript', 'sass', 'watch', 'sync']);
+gulp.task('default', ['vendors', 'javascript', 'validateJS', 'sass', 'watch', 'sync']);

@@ -142,7 +142,7 @@ module.exports = function() {
 			var bgColor = 0xffffff;
 			var nodeVisibilityMargin = 10;//50;
 			var count = 0;
-			var backgroundNodeScale = .6;
+			var backgroundNodeScale = 0.6;
 			var randomMovement = 0.001;
 			
 			init();
@@ -279,5 +279,5 @@ module.exports = function() {
 				renderer.render(scene, camera);
 			}
 		}
-	}
-}
+	};
+};
