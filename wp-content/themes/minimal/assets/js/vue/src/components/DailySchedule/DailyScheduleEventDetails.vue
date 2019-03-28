@@ -9,7 +9,7 @@
 				{{ selectedEvent.eventName }}
 			</h4>
 			<div class="event-time">
-				{{ selectedEvent.startTime | moment("h:mm") }} - {{ selectedEvent.endTime | moment("h:mm A") }}
+				{{ selectedEvent.startTime | moment("h:mm") }}<span v-if="selectedEvent.endTime">-</span>{{ selectedEvent.endTime | moment("h:mm A") }}
 			</div>
 		</div>
 		

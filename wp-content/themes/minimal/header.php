@@ -38,7 +38,9 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo get_stylesheet_uri(); ?>" />
 	<link href='http://fonts.googleapis.com/css?family=Merriweather+Sans:300' rel='stylesheet' type='text/css'>
 	<link href="https://fonts.googleapis.com/css?family=Quicksand:300" rel="stylesheet">
-	
+	<link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,700|Montserrat:400,600,700|Oswald:500" rel="stylesheet">
+	<link href="<?php bloginfo('template_directory');?>/assets/js/vue/dist/app.js" rel="preload" as="script">
+
 	<?php if (is_page('resume')) 
 	{ ?>
 		<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono" rel="stylesheet">
