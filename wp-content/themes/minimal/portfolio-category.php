@@ -19,13 +19,15 @@ function empty_content($str) {
 	<?php 
 	if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 		
-		<?php $page_title_url = str_replace(' ', '-', strtolower(get_the_title()) );?>
+		<?php 
+			$post_slug = $post->post_name;
+			$page_title_url = substr($post_slug, strrpos($post_slug, '/')); 
+		?>
 		
 		<h1><?php the_title(); ?></h1>
 		<div class="category-description">
 			<p><?php the_content(); ?></p>
 		</div>
-		
 		<?php $thumbnail_count = 1; ?>
 		<!-- Querying each work within the category -->
 		<?php $query_string = 'category_name='.$page_title_url.'&post_type=portfolio-piece&posts_per_page=-1&post_parent=0&order=ASC'; ?>
@@ -44,7 +46,7 @@ function empty_content($str) {
 			{ ?>
 			
 				<div class="each-piece"> 
-			
+				
 				<?php
 			} ?>
 			
@@ -52,9 +54,6 @@ function empty_content($str) {
 			if (($page_title_url == 'web-development' || $page_title_url == 'computer-graphics' || $page_title_url == 'fragments') && get_field('external-link') != null) 
 			{
 				$link = get_field('external-link') . '" target="_blank"';
-			}
-			else if (empty_content(get_the_content())) {
-				$link = null;
 			}
 			else 
 			{
