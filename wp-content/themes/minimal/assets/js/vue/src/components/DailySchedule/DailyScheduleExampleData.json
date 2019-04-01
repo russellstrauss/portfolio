@@ -73,7 +73,7 @@
 					"currentlySelected": false
 				},
 				{
-					"eventID": "0000-0000-0000-0006",
+					"eventID": "0000-0000-0000-0007",
 					"startTime": "1969-08-15T22:00:00-04:00",
 					"endTime": "1969-08-15T22:40:00-04:00",
 					"eventName": "Ravi Shankar",
@@ -84,7 +84,7 @@
 					"currentlySelected": false
 				},
 				{
-					"eventID": "0000-0000-0000-0006",
+					"eventID": "0000-0000-0000-0008",
 					"startTime": "1969-08-15T23:00:00-04:00",
 					"endTime": "1969-08-15T23:25:00-04:00",
 					"eventName": "Melanie Safka",
@@ -92,6 +92,17 @@
 					"description": "<p>Melanie's solo set was short but sweet though you can hear her anxiety in her voice. She performed at 11 pm on Friday, the 15th.</p><p>Melanie played instead of The Incredible String Band who refused to play while it was raining.</p><p>During her set, the audience lit up candles to accompany the music. Later she wrote a song about that which was a great hit: \"Lay Down (Candles in the Rain)\"</p>",
 					"eventLinkText": "Performance of <em>Mr. Tambourine Man</em> and <em>Tuning My Guitar</em>",
 					"eventLinkPath": "https://www.youtube.com/watch?v=u9VTiAsliKs",
+					"currentlySelected": false
+				},
+				{
+					"eventID": "0000-0000-0000-0009",
+					"startTime": "1969-08-15T23:55:00-04:00",
+					"endTime": "1969-08-15T23:25:00-04:00",
+					"eventName": "Arlo Guthrie",
+					"eventPhoto": "https://vignette.wikia.nocookie.net/woodstock/images/d/d5/Arlo_Guthrie02.jpg",
+					"description": "",
+					"eventLinkText": "Performance of <em></em>",
+					"eventLinkPath": "",
 					"currentlySelected": false
 				}
 			]
