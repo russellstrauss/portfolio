@@ -8,7 +8,9 @@
 				</svg>
 			</div>
 
-			{{ currentDate.date | moment("dddd, MMMM Do, YYYY") }}
+			<div class="current-date">
+				{{ currentDate.date | moment("dddd, MMMM Do, YYYY") }}
+			</div>
 			
 			<div class="daily-schedule-page-next" v-on:click="$emit('date-next');">
 				<svg class="icon-arrow-right-thin" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 15.6 28.7" xml:space="preserve">

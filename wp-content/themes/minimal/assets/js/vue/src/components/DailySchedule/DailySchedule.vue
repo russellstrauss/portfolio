@@ -354,15 +354,17 @@
 					
 					.date-selector {
 						font-size: 14px;
+						margin-bottom: 30px;
 					}
 					
 					.park-hours {
 						margin: 15px 0 5px 0;
 						padding: 0;
 						border: 0;
+						display: none;
 						
 						@include mobile-only {
-							display: block;
+							//display: block;
 						}
 						
 						.park {
@@ -524,7 +526,6 @@
 			.date-selector {
 				@include set-font('Montserrat');
 				text-align: center;
-				font-size: 18px;
 				list-style-type: none;
 				padding: 0;
 				color: $daily-schedule-date-selector-color;
@@ -533,8 +534,13 @@
 				justify-content: center;
 				align-items: center;
 				
-				@include mobile-only {
-					font-size: 18px;
+				.current-date {
+					font-size: 22px;
+					width: 400px;
+					
+					@include mobile-only {
+						font-size: 18px;
+					}
 				}
 				
 				.daily-schedule-page-prev, .daily-schedule-page-next {
@@ -542,6 +548,13 @@
 					display: flex;
 					align-items: center;
 					cursor: pointer;
+					transition: all 125ms ease-in;
+					opacity: .8;
+
+					&:hover {
+						opacity: 1;
+						transform: scale(1.2);
+					}
 					
 					&.daily-schedule-page-prev {
 						

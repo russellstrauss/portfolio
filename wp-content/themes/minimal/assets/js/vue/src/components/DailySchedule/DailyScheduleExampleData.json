@@ -113,122 +113,156 @@
 			"events": [
 				{
 					"eventID": "0000-0000-0000-0001",
-					"startTime": "1969-08-16T12:00:00-04:00",
-					"endTime": "1969-08-16T12:30:00-04:00",
-					"eventName": "Event Name 1",
-					"eventLocation": "Back Porch Theater",
-					"featured": false,
-					"parkLocations": [
-						{
-							"id": "0000-0000-0000-0001",
-							"title": "Theme Park"
-						},
-						{
-							"id": "0000-0000-0000-0002",
-							"title": "Water Park"
-						}
-					],
-					"allStartTimes": [
-						{
-							"startTime": "1969-08-16T12:00:00-04:00"
-						},
-						{
-							"startTime": "1969-08-16T12:30:00-04:00"
-						},
-						{
-							"startTime": "1969-08-16T13:00:00-04:00"
-						},
-						{
-							"startTime": "1969-08-16T14:30:00-04:00"
-						},
-						{
-							"startTime": "1969-08-16T15:00:00-04:00"
-						}
-					],
-					"eventPhoto": "https://picsum.photos/800/301",
-					"description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloremque, optio numquam sunt quo eius sint ipsa porro, unde, consequatur mollitia voluptas ad officia quisquam ipsam! Maxime rerum animi ad excepturi.",
-					"eventLinkText": "Event Details",
-					"eventLinkPath": "/",
+					"startTime": "1969-08-15T12:15-0400",
+					"endTime": "1969-08-15T12:45-0400",
+					"eventName": "Quill",
+					"eventPhoto": "https://upload.wikimedia.org/wikipedia/en/b/b7/Woodstock_poster.jpg",
+					"description": "Start of the festival, yet the musicians weren't ready or available yet.",
+					"eventLinkText": "",
+					"eventLinkPath": "",
 					"currentlySelected": false
 				},
 				{
 					"eventID": "0000-0000-0000-0002",
-					"startTime": "1969-08-16T13:00:00-04:00",
-					"endTime": "1969-08-16T13:30:00-04:00",
-					"eventName": "Event Name 2",
-					"eventLocation": "DP's Celebrity Theater",
-					"featured": false,
-					"parkLocations": [
-						{
-							"id": "0000-0000-0000-0001",
-							"title": "Theme Park"
-						},
-						{
-							"id": "0000-0000-0000-0002",
-							"title": "Water Park"
-						}
-					],
-					"allStartTimes": [
-						{
-							"startTime": "1969-08-16T12:00:00-04:00"
-						},
-						{
-							"startTime": "1969-08-16T12:30:00-04:00"
-						},
-						{
-							"startTime": "1969-08-16T13:00:00-04:00"
-						},
-						{
-							"startTime": "1969-08-16T14:30:00-04:00"
-						},
-						{
-							"startTime": "1969-08-16T15:00:00-04:00"
-						}
-					],
-					"eventPhoto": "https://picsum.photos/800/302",
-					"description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloremque, optio numquam sunt quo eius sint ipsa porro, unde, consequatur mollitia voluptas ad officia quisquam ipsam! Maxime rerum animi ad excepturi.",
-					"eventLinkText": "Event Details",
-					"eventLinkPath": "/",
+					"startTime": "1969-08-15T13:00:00-04:00",
+					"endTime": "1969-08-15T13:30:00-04:00",
+					"eventName": "Country Joe McDonald",
+					"eventPhoto": "https://vignette.wikia.nocookie.net/woodstock/images/c/c2/Richie_Havens01.jpg/revision/latest?cb=20080801212055",
+					"description": "",
+					"eventLinkText": "",
+					"eventLinkPath": "",
 					"currentlySelected": false
 				},
 				{
 					"eventID": "0000-0000-0000-0003",
-					"startTime": "1969-08-16T14:00:00-04:00",
-					"endTime": "1969-08-16T14:30:00-04:00",
-					"eventName": "Event Name 3",
-					"eventLocation": "Showstreet Palace",
-					"featured": false,
-					"parkLocations": [
-						{
-							"id": "0000-0000-0000-0001",
-							"title": "Theme Park"
-						},
-						{
-							"id": "0000-0000-0000-0002",
-							"title": "Water Park"
-						}
-					],
-					"allStartTimes": [
-						{
-							"startTime": "1969-08-16T12:00:00-04:00"
-						},
-						{
-							"startTime": "1969-08-16T12:30:00-04:00"
-						},
-						{
-							"startTime": "1969-08-16T13:00:00-04:00"
-						},
-						{
-							"startTime": "1969-08-16T14:30:00-04:00"
-						},
-						{
-							"startTime": "1969-08-16T15:00:00-04:00"
-						}
-					],
-					"eventPhoto": "https://picsum.photos/800/303",
-					"description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloremque, optio numquam sunt quo eius sint ipsa porro, unde, consequatur mollitia voluptas ad officia quisquam ipsam! Maxime rerum animi ad excepturi.",
-					"eventLinkText": "Event Details",
-					"eventLinkPath": "/",
+					"startTime": "1969-08-15T14:00:00-04:00",
+					"endTime": "1969-08-15T14:45:00-04:00",
+					"eventName": "Santana",
+					"eventPhoto": "https://vignette.wikia.nocookie.net/woodstock/images/c/c2/Richie_Havens01.jpg/revision/latest?cb=20080801212055",
+					"description": "",
+					"eventLinkText": "",
+					"eventLinkPath": "",
+					"currentlySelected": false
+				},
+				{
+					"eventID": "0000-0000-0000-0004",
+					"startTime": "1969-08-15T15:30:00-04:00",
+					"endTime": "1969-08-15T16:00:00-04:00",
+					"eventName": "John B Sebastian",
+					"eventPhoto": "https://vignette.wikia.nocookie.net/woodstock/images/c/c2/Richie_Havens01.jpg/revision/latest?cb=20080801212055",
+					"description": "",
+					"eventLinkText": "",
+					"eventLinkPath": "",
+					"currentlySelected": false
+				},
+				{
+					"eventID": "0000-0000-0000-0005",
+					"startTime": "1969-08-15T16:45:00-04:00",
+					"endTime": "1969-08-15T17:30:00-04:00",
+					"eventName": "Keef Hartley Band",
+					"eventPhoto": "https://vignette.wikia.nocookie.net/woodstock/images/c/c2/Richie_Havens01.jpg/revision/latest?cb=20080801212055",
+					"description": "",
+					"eventLinkText": "",
+					"eventLinkPath": "",
+					"currentlySelected": false
+				},
+				{
+					"eventID": "0000-0000-0000-0006",
+					"startTime": "1969-08-15T18:00:00-04:00",
+					"endTime": "1969-08-15T18:30:00-04:00",
+					"eventName": "Incredible String Band",
+					"eventPhoto": "https://vignette.wikia.nocookie.net/woodstock/images/c/c2/Richie_Havens01.jpg/revision/latest?cb=20080801212055",
+					"description": "",
+					"eventLinkText": "",
+					"eventLinkPath": "",
+					"currentlySelected": false
+				},
+				{
+					"eventID": "0000-0000-0000-0007",
+					"startTime": "1969-08-15T19:30:00-04:00",
+					"endTime": "1969-08-15T20:30:00-04:00",
+					"eventName": "Canned Heat",
+					"eventPhoto": "https://vignette.wikia.nocookie.net/woodstock/images/c/c2/Richie_Havens01.jpg/revision/latest?cb=20080801212055",
+					"description": "",
+					"eventLinkText": "",
+					"eventLinkPath": "",
+					"currentlySelected": false
+				},
+				{
+					"eventID": "0000-0000-0000-0008",
+					"startTime": "1969-08-15T21:00:00-04:00",
+					"endTime": "1969-08-15T22:00:00-04:00",
+					"eventName": "Leslie West & Mountain",
+					"eventPhoto": "https://vignette.wikia.nocookie.net/woodstock/images/c/c2/Richie_Havens01.jpg/revision/latest?cb=20080801212055",
+					"description": "",
+					"eventLinkText": "",
+					"eventLinkPath": "",
+					"currentlySelected": false
+				},
+				{
+					"eventID": "0000-0000-0000-0009",
+					"startTime": "1969-08-15T22:30:00-04:00",
+					"endTime": "1969-08-15T00:00:00-04:00",
+					"eventName": "Grateful Dead",
+					"eventPhoto": "https://vignette.wikia.nocookie.net/woodstock/images/c/c2/Richie_Havens01.jpg/revision/latest?cb=20080801212055",
+					"description": "",
+					"eventLinkText": "",
+					"eventLinkPath": "",
+					"currentlySelected": false
+				},
+				{
+					"eventID": "0000-0000-0000-0010",
+					"startTime": "1969-08-15T00:30:00-04:00",
+					"endTime": "1969-08-15T18:01:20-04:00",
+					"eventName": "Creedance Clearwater Revival",
+					"eventPhoto": "https://vignette.wikia.nocookie.net/woodstock/images/c/c2/Richie_Havens01.jpg/revision/latest?cb=20080801212055",
+					"description": "",
+					"eventLinkText": "",
+					"eventLinkPath": "",
+					"currentlySelected": false
+				},
+				{
+					"eventID": "0000-0000-0000-0011",
+					"startTime": "1969-08-15T02:00:00-04:00",
+					"endTime": "1969-08-15T03:00:00-04:00",
+					"eventName": "Janis Joplin",
+					"eventPhoto": "https://vignette.wikia.nocookie.net/woodstock/images/c/c2/Richie_Havens01.jpg/revision/latest?cb=20080801212055",
+					"description": "",
+					"eventLinkText": "",
+					"eventLinkPath": "",
+					"currentlySelected": false
+				},
+				{
+					"eventID": "0000-0000-0000-0012",
+					"startTime": "1969-08-15T03:30:00-04:00",
+					"endTime": "1969-08-15T04:20:00-04:00",
+					"eventName": "Sly & the Family Stone",
+					"eventPhoto": "https://vignette.wikia.nocookie.net/woodstock/images/c/c2/Richie_Havens01.jpg/revision/latest?cb=20080801212055",
+					"description": "",
+					"eventLinkText": "",
+					"eventLinkPath": "",
+					"currentlySelected": false
+				},
+				{
+					"eventID": "0000-0000-0000-0013",
+					"startTime": "1969-08-15T05:00:00-04:00",
+					"endTime": "1969-08-15T06:00:00-04:00",
+					"eventName": "The Who",
+					"eventPhoto": "https://vignette.wikia.nocookie.net/woodstock/images/c/c2/Richie_Havens01.jpg/revision/latest?cb=20080801212055",
+					"description": "",
+					"eventLinkText": "",
+					"eventLinkPath": "",
+					"currentlySelected": false
+				},
+				{
+					"eventID": "0000-0000-0000-0014",
+					"startTime": "1969-08-15T08:00:00-04:00",
+					"endTime": "1969-08-15T09:30:00-04:00",
+					"eventName": "Jefferson Airplane",
+					"eventPhoto": "https://vignette.wikia.nocookie.net/woodstock/images/c/c2/Richie_Havens01.jpg/revision/latest?cb=20080801212055",
+					"description": "",
+					"eventLinkText": "",
+					"eventLinkPath": "",
 					"currentlySelected": false
 				}
 			]
