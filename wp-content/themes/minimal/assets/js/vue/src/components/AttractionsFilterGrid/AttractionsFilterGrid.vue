@@ -77,7 +77,7 @@
 			let self = this;
 		
 			// get data from Sitecore API
-			let endpoint = location.protocol + '//' + window.location.host + '/assets/js/vue/hfe-vue/src/components/AttractionsFilterGrid/AttractionsFilterGridExampleData.json';
+			let endpoint = location.protocol + '//' + window.location.host + '/wp-content/themes/minimal/assets/js/vue/src/components/AttractionsFilterGrid/AttractionsFilterGridExampleData.json';
 			//let endpoint = location.protocol + '//' + window.location.host + '/api/sitecore/WorkApi/AttractionsFilterGrid';
 
 			axios.get(endpoint).then(function(response) {			

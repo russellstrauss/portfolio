@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>AEF4C954-4E21-46EF-B16E-725F840BFF09</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <path d="M7.97134247,6.52099609 L12.9210899,1.57124863 C13.3116142,1.18072433 13.9447792,1.18072433 14.3353035,1.57124863 C14.7258278,1.96177292 14.7258278,2.5949379 14.3353035,2.98546219 L9.38555603,7.93520966 L14.3353035,12.8849571 C14.7258278,13.2754814 14.7258278,13.9086464 14.3353035,14.2991707 C13.9447792,14.689695 13.3116142,14.689695 12.9210899,14.2991707 L7.97134247,9.34942322 L3.021595,14.2991707 C2.63107071,14.689695 1.99790573,14.689695 1.60738144,14.2991707 C1.21685715,13.9086464 1.21685715,13.2754814 1.60738144,12.8849571 L6.55712891,7.93520966 L1.60738144,2.98546219 C1.21685715,2.5949379 1.21685715,1.96177292 1.60738144,1.57124863 C1.99790573,1.18072433 2.63107071,1.18072433 3.021595,1.57124863 L7.97134247,6.52099609 Z" id="path-1"></path>
+    </defs>
+    <g id="Symbols/DW-Toolkit" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icon/Close/Small">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="Rectangle-2" fill="#000000" fill-rule="nonzero" xlink:href="#path-1"></use>
+            <g id="Color/Black" mask="url(#mask-2)" fill="#000000" fill-rule="nonzero">
+                <rect id="Rectangle" x="0" y="0" width="16" height="16"></rect>
+            </g>
+        </g>
+    </g>
+</svg>
