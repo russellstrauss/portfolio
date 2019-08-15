@@ -14,7 +14,7 @@ var stylish = require('jshint-stylish');
 gulp.task('sass', function () {
 	return gulp.src('./assets/sass/style.scss')
 	.pipe(sourcemaps.init())
-		.pipe(sass().on('error', sass.logError)) // .on('error', sass.logError) prevents gulp from crashing when saving a typo or syntax error
+	.pipe(sass().on('error', sass.logError)) // .on('error', sass.logError) prevents gulp from crashing when saving a typo or syntax error
 	.pipe(sourcemaps.write())
 	.pipe(gulp.dest('./'))
 	.pipe(browserSync.stream()); // causes injection of styles on save

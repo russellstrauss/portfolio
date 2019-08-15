@@ -134,7 +134,20 @@ function empty_content($str) {
 							<h2><?php the_title(); ?></h2>
 							<?php
 						} ?>
-						<p><?php the_field('description'); ?></p>
+						<p class="description">
+							<?php the_field('description'); ?>
+						</p>
+						
+						<?php if (get_field('nature_of_contributions')) {
+						?>
+							<p class="nature-of-contributions">
+								Nature of contributions: <?php the_field('nature_of_contributions'); ?>
+							</p>
+						<?php
+						} ?>
+
+
+						
 					</div>
 					<?php
 				}
