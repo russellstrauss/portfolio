@@ -97,6 +97,34 @@
 			getTransitionDuration: function(element) {
 				var $element = $(element);
 				return utils.secondsToMilliseconds(parseFloat(getComputedStyle($element[0]).transitionDuration));
+			},
+
+			/**
+			* Wraps all characters in an element with a specified element and class name. Useful for animations. Element type and class name parameters are optional. If you specify neither, characters will be wrapped with <span> tags.
+			* Params:
+			* 	-element: Element that contains the words you would like to wrap.
+			* 	-elementType (optional): Type of element to wrap words with, i.e. div, span, p, etc.
+			*	-className (optional): class to add to each wrapper element.
+			*/
+			wrapCharacters: function(element, elementType, className) {
+				className = className || undefined;
+				elementType = elementType || undefined;
+				
+				var el = $(element);
+				var regExp;
+								
+				if (elementType === undefined) {
+					regExp = '<span>$&</span>';
+				}
+				else if (className === undefined) {
+					regExp = '<' + elementType + '>$&</' + elementType + '>';
+				}
+				else {
+					regExp = '<' + elementType + ' class="' + className + '">$&</' + elementType + '>';
+				}
+				el.html(function(index, html) {
+					return html.replace(/\S/g, regExp);
+				});
 			}
 		};
 	})();
