@@ -6,22 +6,22 @@
 	
 	.each-piece {
 		margin-bottom: 30px;
+
+		@include mobile-only {
+			margin-bottom: 150px;
+		}
 		
-		img {
+		.wp-post-image {
 			border: 1px solid black;
-			float: left;
 			margin-right: 20px;
 			height: auto;
 			
 			@include mobile-only {
-				width: 25%;
 				margin-bottom: 10px;
 			}
 		}
 		
 		.piece-details {
-			float: left;
-			width: calc(100% - 150px);
 			
 			h2 {
 				@include portfolioPieceTitle;

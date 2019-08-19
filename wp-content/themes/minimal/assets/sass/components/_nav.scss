@@ -133,7 +133,7 @@ nav.main {
 				span {
 					transform: translateX(30px) scale(.3) rotate(-70deg);
 					opacity: 0;
-					transition: transform 300ms ease-in-out, opacity 400ms ease;
+					transition: transform 300ms ease-in-out, opacity 100ms ease;
 				}
 			}
 		}

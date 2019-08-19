@@ -298,6 +298,7 @@ module.exports = function() {
 			settings = this.settings;
 			
 			this.bindUI();
+			this.removeHardCodedImageAttributes();
 		},
 		
 		bindUI: function() {
@@ -308,6 +309,14 @@ module.exports = function() {
 			
 			$('.resume-content p').remove();
 			$( 'p:empty' ).remove();
+		},
+
+		removeHardCodedImageAttributes: function() {
+
+			var $images = $('img');
+			$images.removeAttr('height');
+			$images.removeAttr('width');
+			$images.removeAttr('sizes');
 		}
 	};
 };
