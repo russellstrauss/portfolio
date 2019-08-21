@@ -110,17 +110,19 @@ function empty_content($str) {
 				if ($page_title_url == 'web-development') 
 				{ ?>
 					
-					<?php
-					if ($link != null)
-					{ ?>
-						<a href="<?php echo $link; ?>">
-							<?php the_post_thumbnail( array(100, 100) ); ?>
-						</a>
+					<div class="featured-image">
 						<?php
-					}
-					else {
-						the_post_thumbnail( array(100, 100) );
-					} ?>
+						if ($link != null)
+						{ ?>
+								<a href="<?php echo $link; ?>">
+									<?php the_post_thumbnail( array(100, 100) ); ?>
+								</a>
+							<?php
+						}
+						else {
+							the_post_thumbnail( array(100, 100) );
+						} ?>
+					</div>
 
 					<div class="piece-details">
 						

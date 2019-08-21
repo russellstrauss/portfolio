@@ -10,14 +10,25 @@
 		@include mobile-only {
 			margin-bottom: 150px;
 		}
+
+		@include desktop {
+			display: flex;
+		}
 		
-		.wp-post-image {
-			border: 1px solid black;
-			margin-right: 20px;
-			height: auto;
-			
-			@include mobile-only {
-				margin-bottom: 10px;
+		.featured-image {
+
+			.wp-post-image {
+				border: 1px solid black;
+				margin-right: 20px;
+				height: auto;
+				
+				@include mobile-only {
+					margin-bottom: 10px;
+				}
+	
+				@include desktop {
+					max-width: 250px;
+				}
 			}
 		}
 		

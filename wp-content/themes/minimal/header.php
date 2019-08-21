@@ -66,8 +66,10 @@
 		} ?>
 	</div>
 
-	<nav class="main">
-		<?php wp_nav_menu( array( 'theme_location' => 'main-menu' ) ); ?>
-	</nav>
+	<div class="layout-wrapper">
 
-	<div class="main-content">
+		<nav class="main">
+			<?php wp_nav_menu( array( 'theme_location' => 'main-menu' ) ); ?>
+		</nav>
+	
+		<div class="main-content">
