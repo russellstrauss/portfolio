@@ -2,11 +2,10 @@
 	@include headingFont;
 	margin-top: 20px;
 	margin-bottom: 50px;
-	font-size: 32px;
 	line-height: 1.25;
 	
-	@include mobile-only {
-		font-size: 24px;
+	a {
+		text-decoration: none;
 	}
 }
 
@@ -20,24 +19,17 @@ nav.main {
 			list-style-type: none;
 			
 			li {
-				margin-bottom: 10px;
+				margin-bottom: 20px;
+				line-height: 1;
 				
 				a {
-					transition: margin-left .3s cubic-bezier(0.075, 0.82, 0.165, 1);
-					
-					&:hover {
-						margin-left: 1px;
-					}
-				}
-
-				span {
 					display: inline-block;
+					text-decoration: none;
 				}
 			}
 		}
 	}
 }
-
 #category-container {
 	
 	.portfolio-category { // category menu

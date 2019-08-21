@@ -36,12 +36,12 @@ $desktop-large-width: 1200px;
 }
 
 @mixin headingFont {
-	font-family: 'IBM Plex Mono', monospace;
-	font-size: 22px;
+	font-family: 'Quicksand', sans-serif;
 	color: $link-color;
+	font-size: 32px;
 	
 	@include mobile-only {
-		font-size: 32px;
+		font-size: 24px;
 	}
 }
 
