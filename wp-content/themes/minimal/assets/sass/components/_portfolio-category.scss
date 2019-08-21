@@ -15,20 +15,17 @@
 			display: flex;
 		}
 		
-		.featured-image {
+		.wp-post-image {
+			border: 1px solid black;
+			margin-right: 20px;
+			height: auto;
+			
+			@include mobile-only {
+				margin-bottom: 10px;
+			}
 
-			.wp-post-image {
-				border: 1px solid black;
-				margin-right: 20px;
-				height: auto;
-				
-				@include mobile-only {
-					margin-bottom: 10px;
-				}
-	
-				@include desktop {
-					max-width: 250px;
-				}
+			@include desktop {
+				max-width: 250px;
 			}
 		}
 		
