@@ -49,7 +49,7 @@ $desktop-large-width: 1200px;
 	@include headingFont;
 	
 	@include mobile-only {
-		font-size: 20px;
+		font-size: 32px;
 		line-height: 1.5;
 	}
 }

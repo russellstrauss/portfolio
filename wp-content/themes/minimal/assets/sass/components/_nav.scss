@@ -29,6 +29,10 @@ nav.main {
 						margin-left: 1px;
 					}
 				}
+
+				span {
+					display: inline-block;
+				}
 			}
 		}
 	}
@@ -120,10 +124,17 @@ nav.main {
 	}
 	
 	nav.main {
+
 		ul {
-			margin-top: 10px;
-			opacity: 0;
-			transition: margin-top 600ms ease, opacity 400ms ease;
+		
+			li {
+
+				span {
+					transform: translateX(30px) scale(.3) rotate(-70deg);
+					opacity: 0;
+					transition: transform 300ms ease-in-out, opacity 100ms ease;
+				}
+			}
 		}
 	}
 }
