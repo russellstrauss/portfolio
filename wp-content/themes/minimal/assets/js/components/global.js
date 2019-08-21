@@ -18,8 +18,8 @@ module.exports = function() {
 		
 		bindUI: function() {
 			
-			if (jQuery("p:first").text() == "Problem statement:") {
-				jQuery(".single-piece-description p:first").first().addClass('problem-statement');
+			if ($("p:first").text() == "Problem statement:") {
+				$(".single-piece-description p:first").first().addClass('problem-statement');
 			}
 			
 			$('.resume-content p').remove();
@@ -33,5 +33,5 @@ module.exports = function() {
 			$images.removeAttr('width');
 			$images.removeAttr('sizes');
 		}
-	}
-}
+	};
+};

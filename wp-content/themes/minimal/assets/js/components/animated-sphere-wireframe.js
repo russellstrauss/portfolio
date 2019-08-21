@@ -159,9 +159,16 @@ module.exports = function() {
 				FAR = 1000;
 				
 				camera = new THREE.PerspectiveCamera(FOV, WIDTH / HEIGHT, NEAR, FAR);
-				camera.position.z = 400;
-				camera.position.y = -60;
-				camera.position.x = -60;
+				if (utils.mobile()) {
+					camera.position.z = 500;
+					camera.position.y = 80;
+					camera.position.x = -70;
+				}
+				else {
+					camera.position.z = 400;
+					camera.position.y = 80;
+					camera.position.x = -120;
+				}
 
 				scene = new THREE.Scene();
 
