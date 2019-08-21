@@ -1,0 +1,41 @@
+// Unorganized Styles
+
+@include tablet-only {
+	
+	.piece-details {
+		max-width: 62%;
+	}
+}
+
+@include mobile-only {
+	
+	.photo-thumb img {
+		width: 33%;
+	}
+	
+	.piece-details {
+		max-width: 63%;
+	}
+	
+	.span8 {
+		max-width: 100%;
+		box-sizing: border-box;
+	}
+
+	#category-container div:last-child {
+		min-height: 50px;
+	}
+	
+	.category-content h1 {
+		margin-bottom: 20px;
+	}
+	
+	.piece-details {
+		max-width: 64%;
+	}
+	
+	.photo-thumb img {
+		width: 49%;
+	}
+	
+}

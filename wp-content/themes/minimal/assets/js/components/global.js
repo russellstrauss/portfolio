@@ -17,12 +17,9 @@ module.exports = function() {
 		
 		bindUI: function() {
 			
-			if ($("p:first").text() == "Problem statement:") {
-				$(".single-piece-description p:first").first().addClass('problem-statement');
+			if (jQuery("p:first").text() == "Problem statement:") {
+				jQuery(".single-piece-description p:first").first().addClass('problem-statement');
 			}
-			
-			$('.resume-content p').remove();
-			$( 'p:empty' ).remove();
 		}
-	};
-};
+	}
+}

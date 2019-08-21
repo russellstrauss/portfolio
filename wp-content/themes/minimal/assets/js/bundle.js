@@ -15,7 +15,7 @@ module.exports = function() {
 			setTimeout(function() {
 				$('#sphereWireframe').addClass('active');
 				scope.triggerAnimation();
-			}, utils.appSettings.titleFadeInLength + utils.appSettings.menuFadeInDelay + 800);	
+			}, utils.appSettings.titleFadeInLength + utils.appSettings.menuFadeInDelay + 1200);	
 		},
 		
 		triggerAnimation: function() {
@@ -338,16 +338,25 @@ module.exports = function() {
 					$menuItem.css({'margin-left': '0', 'opacity': 1});
 				}, i * 75);
 			});
-						
+			
+			$('nav.main ul li a').each(function() {
+
+				var $link = $(this);
+
+				utils.wrapCharacters($link, 'span');
+			});
+
 			if ($('body').hasClass('front-page')) {
+
 				$('.name a').addClass('swipe active');
-				
-				$('nav.main ul li').each(function(i) {
-					var $menuItem = $(this);
+
+				$('nav.main ul li a span').each(function(i) {
+					var $letter = $(this);
 					
 					setTimeout(function() {
-						$menuItem.css({'margin-left': 0, 'opacity': 1});
-					}, (i * 150) + (utils.appSettings.titleFadeInLength + utils.appSettings.menuFadeInDelay));
+						$letter.css({'margin-left': 0, 'opacity': 1, 'transform': 'none'});
+
+					}, (i * 50) + (utils.appSettings.titleFadeInLength + utils.appSettings.menuFadeInDelay));
 				});
 			}
 		}
@@ -580,6 +589,34 @@ var Utilities = require('./utils.js');
 			getTransitionDuration: function(element) {
 				var $element = $(element);
 				return utils.secondsToMilliseconds(parseFloat(getComputedStyle($element[0]).transitionDuration));
+			},
+
+			/**
+			* Wraps all characters in an element with a specified element and class name. Useful for animations. Element type and class name parameters are optional. If you specify neither, characters will be wrapped with <span> tags.
+			* Params:
+			* 	-element: Element that contains the words you would like to wrap.
+			* 	-elementType (optional): Type of element to wrap words with, i.e. div, span, p, etc.
+			*	-className (optional): class to add to each wrapper element.
+			*/
+			wrapCharacters: function(element, elementType, className) {
+				className = className || undefined;
+				elementType = elementType || undefined;
+				
+				var el = $(element);
+				var regExp;
+								
+				if (elementType === undefined) {
+					regExp = '<span>$&</span>';
+				}
+				else if (className === undefined) {
+					regExp = '<' + elementType + '>$&</' + elementType + '>';
+				}
+				else {
+					regExp = '<' + elementType + ' class="' + className + '">$&</' + elementType + '>';
+				}
+				el.html(function(index, html) {
+					return html.replace(/\S/g, regExp);
+				});
 			}
 		};
 	})();

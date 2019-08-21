@@ -14,7 +14,7 @@ module.exports = function() {
 			setTimeout(function() {
 				$('#sphereWireframe').addClass('active');
 				scope.triggerAnimation();
-			}, utils.appSettings.titleFadeInLength + utils.appSettings.menuFadeInDelay + 800);	
+			}, utils.appSettings.titleFadeInLength + utils.appSettings.menuFadeInDelay + 500);	
 		},
 		
 		triggerAnimation: function() {
@@ -142,7 +142,7 @@ module.exports = function() {
 			var bgColor = 0xffffff;
 			var nodeVisibilityMargin = 10;//50;
 			var count = 0;
-			var backgroundNodeScale = 0.6;
+			var backgroundNodeScale = .6;
 			var randomMovement = 0.001;
 			
 			init();
@@ -159,16 +159,9 @@ module.exports = function() {
 				FAR = 1000;
 				
 				camera = new THREE.PerspectiveCamera(FOV, WIDTH / HEIGHT, NEAR, FAR);
-				if (utils.mobile()) {
-					camera.position.z = 500;
-					camera.position.y = 80;
-					camera.position.x = -70;
-				}
-				else {
-					camera.position.z = 400;
-					camera.position.y = 80;
-					camera.position.x = -120;
-				}
+				camera.position.z = 400;
+				camera.position.y = -60;
+				camera.position.x = -60;
 
 				scene = new THREE.Scene();
 
@@ -279,5 +272,5 @@ module.exports = function() {
 				renderer.render(scene, camera);
 			}
 		}
-	};
-};
+	}
+}
