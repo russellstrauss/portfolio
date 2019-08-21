@@ -4,6 +4,10 @@
 	margin-bottom: 50px;
 	line-height: 1.25;
 	
+	@include mobile-only {
+		font-size: 24px;
+	}
+	
 	a {
 		text-decoration: none;
 	}
@@ -26,10 +30,15 @@ nav.main {
 					display: inline-block;
 					text-decoration: none;
 				}
+
+				span {
+					display: inline-block;
+				}
 			}
 		}
 	}
 }
+
 #category-container {
 	
 	.portfolio-category { // category menu
