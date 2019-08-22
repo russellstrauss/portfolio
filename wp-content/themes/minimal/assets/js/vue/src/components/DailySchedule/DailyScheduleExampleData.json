@@ -2,6 +2,7 @@
 	"layout": "simple",
 	"title": "Woodstock '69",
 	"subtitle": "3 Days of Peace & Music",
+	"introText": "<p>Woodstock was a music festival held August 15–18, 1969 which attracted an audience of more than 400,000, billed as \"an Aquarian Exposition: 3 Days of Peace & Music.\" It was held at Max Yasgur's 600-acre dairy farm in Bethel, New York. It was alternatively referred to as the Bethel Rock Festival or the Aquarian Music Festival. Thirty-two acts performed outdoors despite sporadic rain. It has become widely regarded as a pivotal moment in popular music history, as well as a defining event for the \"counterculture generation\".</p>",
 	"dates": [
 		{
 			"date": "1969-08-15",
@@ -272,35 +273,11 @@
 			"scheduleDisclaimer": "Check the Shows & Entertainment page for a full list of our entertainment offerings. All performances, times, and show schedules are subject to change without notice. <strong>Keep watching here for future daily schedules. Details will be posted as available.</strong><div><a href=\"/\">Download Schedule<svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" viewBox=\"0 0 9 15\"><path d=\"M1.5,15c-0.4,0-0.8-0.1-1.1-0.4c-0.6-0.6-0.6-1.5,0-2.1l4.9-4.9L0.4,2.6C-0.1,2-0.1,1,0.4,0.4C1-0.1,2-0.1,2.6,0.4l6,6 C9.1,7,9.1,8,8.6,8.6l-6,6C2.3,14.8,1.9,15,1.5,15z\"/></svg></a></div>",
 			"events": [
 				{
-					"eventID": "0000-0000-0000-0001",
-					"startTime": "1969-08-17T12:00:00-04:00",
-					"endTime": "1969-08-17T12:30:00-04:00",
-					"eventName": "Event Name 1",
-					"eventLocation": "Back Porch Theater",
+					"eventID": "3000",
+					"startTime": "1969-08-17T14:00:00-04:00",
+					"endTime": "1969-08-17T14:45:00-04:00",
+					"eventName": "Joe Cocker",
 					"featured": false,
-					"parkLocations": [
-						{
-							"id": "0000-0000-0000-0001",
-							"title": "Theme Park"
-						}
-					],
-					"allStartTimes": [
-						{
-							"startTime": "1969-08-17T12:00:00-04:00"
-						},
-						{
-							"startTime": "1969-08-17T12:30:00-04:00"
-						},
-						{
-							"startTime": "1969-08-17T13:00:00-04:00"
-						},
-						{
-							"startTime": "1969-08-17T14:30:00-04:00"
-						},
-						{
-							"startTime": "1969-08-17T15:00:00-04:00"
-						}
-					],
 					"eventPhoto": "https://picsum.photos/800/301",
 					"description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloremque, optio numquam sunt quo eius sint ipsa porro, unde, consequatur mollitia voluptas ad officia quisquam ipsam! Maxime rerum animi ad excepturi.",
 					"eventLinkText": "Event Details",
@@ -308,72 +285,120 @@
 					"currentlySelected": false
 				},
 				{
-					"eventID": "0000-0000-0000-0002",
-					"startTime": "1969-08-17T13:00:00-04:00",
-					"endTime": "1969-08-17T13:30:00-04:00",
-					"eventName": "Event Name 2",
-					"eventLocation": "DP's Celebrity Theater",
+					"eventID": "3001",
+					"startTime": "1969-08-17T15:00:00-04:00",
+					"endTime": "1969-08-17T17:45:00-04:00",
+					"eventName": "No Acts",
 					"featured": false,
-					"parkLocations": [
-						{
-							"id": "0000-0000-0000-0002",
-							"title": "Water Park"
-						}
-					],
-					"allStartTimes": [
-						{
-							"startTime": "1969-08-17T12:00:00-04:00"
-						},
-						{
-							"startTime": "1969-08-17T12:30:00-04:00"
-						},
-						{
-							"startTime": "1969-08-17T13:00:00-04:00"
-						},
-						{
-							"startTime": "1969-08-17T14:30:00-04:00"
-						},
-						{
-							"startTime": "1969-08-17T15:00:00-04:00"
-						}
-					],
-					"eventPhoto": "https://picsum.photos/800/302",
+					"eventPhoto": "https://picsum.photos/800/301",
+					"description": "A heavy storm and rain rages over Woodstock.",
+					"eventLinkText": "Event Details",
+					"eventLinkPath": "/",
+					"currentlySelected": false
+				},
+				{
+					"eventID": "3002",
+					"startTime": "1969-08-17T18:30:00-04:00",
+					"endTime": "1969-08-17T19:30:00-04:00",
+					"eventName": "Joe Country & the Fish",
+					"featured": false,
+					"eventPhoto": "https://picsum.photos/800/301",
 					"description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloremque, optio numquam sunt quo eius sint ipsa porro, unde, consequatur mollitia voluptas ad officia quisquam ipsam! Maxime rerum animi ad excepturi.",
 					"eventLinkText": "Event Details",
 					"eventLinkPath": "/",
 					"currentlySelected": false
 				},
 				{
-					"eventID": "0000-0000-0000-0003",
-					"startTime": "1969-08-17T14:00:00-04:00",
-					"endTime": "1969-08-17T14:30:00-04:00",
-					"eventName": "Event Name 3",
-					"eventLocation": "Showstreet Palace",
+					"eventID": "3003",
+					"startTime": "1969-08-17T20:15:00-04:00",
+					"endTime": "1969-08-17T21:00:00-04:00",
+					"eventName": "Ten Years After",
 					"featured": false,
-					"parkLocations": [
-						{
-							"id": "0000-0000-0000-0001",
-							"title": "Theme Park"
-						}
-					],
-					"allStartTimes": [
-						{
-							"startTime": "1969-08-17T12:00:00-04:00"
-						},
-						{
-							"startTime": "1969-08-17T12:30:00-04:00"
-						},
-						{
-							"startTime": "1969-08-17T13:00:00-04:00"
-						},
-						{
-							"startTime": "1969-08-17T14:30:00-04:00"
-						},
-						{
-							"startTime": "1969-08-17T15:00:00-04:00"
-						}
-					],
-					"eventPhoto": "https://picsum.photos/800/303",
+					"eventPhoto": "https://picsum.photos/800/301",
+					"description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloremque, optio numquam sunt quo eius sint ipsa porro, unde, consequatur mollitia voluptas ad officia quisquam ipsam! Maxime rerum animi ad excepturi.",
+					"eventLinkText": "Event Details",
+					"eventLinkPath": "/",
+					"currentlySelected": false
+				},
+				{
+					"eventID": "3004",
+					"startTime": "1969-08-17T22:00:00-04:00",
+					"endTime": "1969-08-17T22:45:00-04:00",
+					"eventName": "The Band",
+					"featured": false,
+					"eventPhoto": "https://picsum.photos/800/301",
+					"description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloremque, optio numquam sunt quo eius sint ipsa porro, unde, consequatur mollitia voluptas ad officia quisquam ipsam! Maxime rerum animi ad excepturi.",
+					"eventLinkText": "Event Details",
+					"eventLinkPath": "/",
+					"currentlySelected": false
+				},
+				{
+					"eventID": "3005",
+					"startTime": "1969-08-17T12:00:00-04:00",
+					"endTime": "1969-08-17T12:45:00-04:00",
+					"eventName": "Johnny Winter",
+					"featured": false,
+					"eventPhoto": "https://picsum.photos/800/301",
+					"description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloremque, optio numquam sunt quo eius sint ipsa porro, unde, consequatur mollitia voluptas ad officia quisquam ipsam! Maxime rerum animi ad excepturi.",
+					"eventLinkText": "Event Details",
+					"eventLinkPath": "/",
+					"currentlySelected": false
+				},
+				{
+					"eventID": "3006",
+					"startTime": "1969-08-17T01:30:00-04:00",
+					"endTime": "1969-08-17T02:15:00-04:00",
+					"eventName": "Blood, Sweat, & Tears",
+					"featured": false,
+					"eventPhoto": "https://picsum.photos/800/301",
+					"description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloremque, optio numquam sunt quo eius sint ipsa porro, unde, consequatur mollitia voluptas ad officia quisquam ipsam! Maxime rerum animi ad excepturi.",
+					"eventLinkText": "Event Details",
+					"eventLinkPath": "/",
+					"currentlySelected": false
+				},
+				{
+					"eventID": "3007",
+					"startTime": "1969-08-17T03:00:00-04:00",
+					"endTime": "1969-08-17T03:45:00-04:00",
+					"eventName": "Crosby, Stills, Nash, & Young",
+					"featured": false,
+					"eventPhoto": "https://picsum.photos/800/301",
+					"description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloremque, optio numquam sunt quo eius sint ipsa porro, unde, consequatur mollitia voluptas ad officia quisquam ipsam! Maxime rerum animi ad excepturi.",
+					"eventLinkText": "Event Details",
+					"eventLinkPath": "/",
+					"currentlySelected": false
+				},
+				{
+					"eventID": "3008",
+					"startTime": "1969-08-17T06:00:00-04:00",
+					"endTime": "1969-08-17T07:45:00-04:00",
+					"eventName": "Paul Butterfield Blues Band",
+					"featured": false,
+					"eventPhoto": "https://picsum.photos/800/301",
+					"description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloremque, optio numquam sunt quo eius sint ipsa porro, unde, consequatur mollitia voluptas ad officia quisquam ipsam! Maxime rerum animi ad excepturi.",
+					"eventLinkText": "Event Details",
+					"eventLinkPath": "/",
+					"currentlySelected": false
+				},
+				{
+					"eventID": "3009",
+					"startTime": "1969-08-17T07:30:00-04:00",
+					"endTime": "1969-08-17T07:45:00-04:00",
+					"eventName": "Sha Na Na",
+					"featured": false,
+					"eventPhoto": "https://picsum.photos/800/301",
+					"description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloremque, optio numquam sunt quo eius sint ipsa porro, unde, consequatur mollitia voluptas ad officia quisquam ipsam! Maxime rerum animi ad excepturi.",
+					"eventLinkText": "Event Details",
+					"eventLinkPath": "/",
+					"currentlySelected": false
+				},
+				{
+					"eventID": "3010",
+					"startTime": "1969-08-17T09:00:00-04:00",
+					"endTime": "1969-08-17T11:00:00-04:00",
+					"eventName": "Jimi Hendrix",
+					"featured": false,
+					"eventPhoto": "https://picsum.photos/800/301",
 					"description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloremque, optio numquam sunt quo eius sint ipsa porro, unde, consequatur mollitia voluptas ad officia quisquam ipsam! Maxime rerum animi ad excepturi.",
 					"eventLinkText": "Event Details",
 					"eventLinkPath": "/",

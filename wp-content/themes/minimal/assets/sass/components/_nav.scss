@@ -131,9 +131,9 @@ nav.main {
 			li {
 
 				span {
-					transform: translateX(30px) scale(.3) rotate(-70deg);
+					transform: translate(80px, 50px) scale(0) rotate(-90deg);
 					opacity: 0;
-					transition: transform 300ms ease-in-out, opacity 100ms ease;
+					transition: transform 500ms ease-in-out, opacity 100ms ease-out;
 				}
 			}
 		}
