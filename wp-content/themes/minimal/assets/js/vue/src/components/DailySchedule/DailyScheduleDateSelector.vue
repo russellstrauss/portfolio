@@ -9,8 +9,7 @@
 			</div>
 
 			<div class="current-date">
-				<!-- {{ currentDate.date | moment("dddd, MMMM Do, YYYY") }} -->
-				{{ currentDate.date }}
+				{{ currentDate.date | moment("dddd, MMMM Do, YYYY") }}
 			</div>
 			
 			<div class="daily-schedule-page-next" v-on:click="$emit('date-next');">

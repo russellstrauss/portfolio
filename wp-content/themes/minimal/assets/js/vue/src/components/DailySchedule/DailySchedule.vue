@@ -2,7 +2,7 @@
 
 	<div class="daily-schedule container" v-bind:class="'layout-' + layout"> <!-- layout variable can be "simple" or "advanced" -->
 		
-		<DailyScheduleIntro v-if="currentDate" :title="title" :subtitle="subtitle" :layout="layout" v-on:date-prev="datePrev" v-on:date-next="dateNext"></DailyScheduleIntro>
+		<DailyScheduleIntro v-if="currentDate" :title="title" :subtitle="subtitle" :introText="introText" :layout="layout" v-on:date-prev="datePrev" v-on:date-next="dateNext"></DailyScheduleIntro>
 		<DailyScheduleSortOrder v-if="layout === 'advanced'"></DailyScheduleSortOrder>
 		<DailyScheduleParkFilter v-if="layout === 'advanced'"></DailyScheduleParkFilter>
 		<DailyScheduleEventListing v-if="currentDate" :layout="layout"></DailyScheduleEventListing>
@@ -35,6 +35,7 @@
 				layout: "",
 				title: "",
 				subtitle: "",
+				introText: "",
 				scheduleDisclaimer: "",
 				dates: []
 			}
@@ -60,6 +61,7 @@
 				
 				self.title = response.data.title;
 				self.subtitle = response.data.subtitle;
+				self.introText = response.data.introText;
 				self.layout = response.data.layout;
 				self.scheduleDisclaimer = response.data.scheduleDisclaimer;
 				self.dates = response.data.dates;
@@ -169,13 +171,15 @@
 	$dw-peach: #cb6e52;
 	$dw-blue: #4374A6;
 	$daily-schedule-date-selector-color: $dw-blue;
-	$daily-schedule-subtitle-color: $dw-peach;
-	$daily-schedule-color-primary: $dw-blue;
-	$daily-schedule-color-secondary: #cb6e52;
+	$daily-schedule-title-color: black;
+	$daily-schedule-subtitle-color: black;
+	$daily-schedule-hr-color: #E44525;
+	$daily-schedule-color-primary: black;
+	$daily-schedule-color-secondary: #E44525;
 	$daily-schedule-timestamp-font-family: 'Baskerville';
 	$daily-schedule-timestamp-color: #7B7B7B;
 	$daily-schedule-active-title-color: black;
-	$daily-schedule-active-location-color: $dw-blue;
+	$daily-schedule-active-location-color: black;
 	$daily-schedule-arrow-color: $dw-blue;
 
 	$global-link-color: $dw-blue;
@@ -516,11 +520,16 @@
 			}
 			
 			h2 {
-				@include horizontal-rule($daily-schedule-color-primary);
+				@include horizontal-rule($daily-schedule-hr-color);
 				@include set-font('Baskerville');
 				color: black;
 				text-align: center;
 				font-size: 44px;
+			}
+
+			.body {
+				margin: 50px 0 75px 0;
+				text-align: center;
 			}
 			
 			.date-selector {
@@ -537,6 +546,7 @@
 				.current-date {
 					font-size: 22px;
 					width: 400px;
+					color: black;
 					
 					@include mobile-only {
 						font-size: 18px;
