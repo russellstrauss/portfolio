@@ -1,0 +1,24 @@
+El Jimador
+Nature of contributions:
+Took over development and content entry after a contractor who started the project dissappeared. Helped take the site from panic mode to laumch.
+
+Verizon Wireless
+Nature of contributions:
+Built static pages from designs and iterated based on feedback from Verizon.
+
+Cisco Mobility Your Way
+Nature of contributions:
+Independently built infographic.
+
+Callaway Gardens:
+Nature of contributions:
+Worked in a three person team to build and launch new public-facing site.
+
+BlogOnAir:
+Adding responsive mobile site to existing desktop site, maintenance, adding features, adding Faceebook Connect for users to have the ability to log in with their Facebook accounts.
+
+Night Rydazz
+Nature of contribution:
+Worked in a team to build out physical prototype of bicycle wheel light, designed and built site inependently.
+
+Fix El Jimador link.
