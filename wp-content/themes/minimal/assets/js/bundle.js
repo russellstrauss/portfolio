@@ -160,9 +160,16 @@ module.exports = function() {
 				FAR = 1000;
 				
 				camera = new THREE.PerspectiveCamera(FOV, WIDTH / HEIGHT, NEAR, FAR);
-				camera.position.z = 400;
-				camera.position.y = -60;
-				camera.position.x = -60;
+				if (utils.mobile()) {
+					camera.position.z = 500;
+					camera.position.y = 80;
+					camera.position.x = -70;
+				}
+				else {
+					camera.position.z = 400;
+					camera.position.y = 80;
+					camera.position.x = -120;
+				}
 
 				scene = new THREE.Scene();
 
@@ -296,8 +303,8 @@ module.exports = function() {
 		
 		bindUI: function() {
 			
-			if (jQuery("p:first").text() == "Problem statement:") {
-				jQuery(".single-piece-description p:first").first().addClass('problem-statement');
+			if ($("p:first").text() == "Problem statement:") {
+				$(".single-piece-description p:first").first().addClass('problem-statement');
 			}
 			
 			$('.resume-content p').remove();
@@ -311,8 +318,8 @@ module.exports = function() {
 			$images.removeAttr('width');
 			$images.removeAttr('sizes');
 		}
-	}
-}
+	};
+};
 },{}],3:[function(require,module,exports){
 module.exports = function() {
 	
@@ -362,8 +369,8 @@ module.exports = function() {
 				});
 			}
 		}
-	}
-}
+	};
+};
 },{}],4:[function(require,module,exports){
 module.exports = function() {
 	
@@ -385,12 +392,12 @@ module.exports = function() {
 		bindUI: function() {
 			
 			// Remove <br>'s and <p>'s from photo grid
-			jQuery('.photo-thumbnails .photo-thumb').find('br').remove()
-			jQuery('.photo-thumbnails').find('p').remove()
+			jQuery('.photo-thumbnails .photo-thumb').find('br').remove();
+			jQuery('.photo-thumbnails').find('p').remove();
 		
 		}
-	}
-}
+	};
+};
 },{}],5:[function(require,module,exports){
 module.exports = function() {
 	
@@ -404,68 +411,94 @@ module.exports = function() {
 		
 		init: function() {
 			
+			settings = this.settings;
+			
+			this.bindUI();
+		},
+		
+		bindUI: function() {
+						
+			$('.print-icon').click(function() {
+				window.print();
+			});
+		}
+	};
+};
+},{}],6:[function(require,module,exports){
+module.exports = function () {
+
+	var settings;
+
+	return {
+
+		settings: {
+
+		},
+
+		init: function () {
+
 			// Find all YouTube videos
 			var $allVideos = jQuery("iframe[src^='http://player.vimeo.com'], iframe[src^='http://www.youtube.com']"),
-			
-			// The element that is fluid width
-			$fluidEl = jQuery(".single-piece-description");
-			
+
+				// The element that is fluid width
+				$fluidEl = jQuery(".single-piece-description");
+
 			// Figure out and save aspect ratio for each video
-			$allVideos.each(function() {
-			
-			  jQuery(this)
-				.data('aspectRatio', this.height / this.width)
-			
-				// and remove the hard coded width/height
-				.removeAttr('height')
-				.removeAttr('width');
-			
+			$allVideos.each(function () {
+
+				jQuery(this)
+					.data('aspectRatio', this.height / this.width)
+
+					// and remove the hard coded width/height
+					.removeAttr('height')
+					.removeAttr('width');
+
 			});
-			
+
 			// When the window is resized
-			jQuery(window).resize(function() {
-			
-			  var newWidth = $fluidEl.width();
-			
-			  // Resize all videos according to their own aspect ratio
-			  $allVideos.each(function() {
-			
-				var $el = jQuery(this);
-				$el
-				  .width(newWidth)
-				  .height(newWidth * $el.data('aspectRatio'));
-			  });
-			
-			// Kick off one resize to fix all videos on page load
+			jQuery(window).resize(function () {
+
+				var newWidth = $fluidEl.width();
+
+				// Resize all videos according to their own aspect ratio
+				$allVideos.each(function () {
+
+					var $el = jQuery(this);
+					$el
+						.width(newWidth)
+						.height(newWidth * $el.data('aspectRatio'));
+				});
+
+				// Kick off one resize to fix all videos on page load
 			}).resize();
-			
+
 		}
-	}
-}
-},{}],6:[function(require,module,exports){
+	};
+};
+},{}],7:[function(require,module,exports){
 var Nav = require('./components/nav.js');
 var AnimatedSphereWireframe = require('./components/animated-sphere-wireframe.js');
 var PhotoGrid = require('./components/photo-grid.js');
 var Videos = require('./components/videos.js');
+var Resume = require('./components/resume.js');
 var Global = require('./components/global.js');
 var Utilities = require('./utils.js');
 
 (function () {
 	
 	$(document).ready(function() {
-				
+
 		PhotoGrid().init();
 		Nav().init();
 		Videos().init();
+		Resume().init();
 		Global().init();
 		AnimatedSphereWireframe().init();
-		
-		$(window).trigger('resize');
 	
 	});
 	
 })();
-},{"./components/animated-sphere-wireframe.js":1,"./components/global.js":2,"./components/nav.js":3,"./components/photo-grid.js":4,"./components/videos.js":5,"./utils.js":7}],7:[function(require,module,exports){
+},{"./components/animated-sphere-wireframe.js":1,"./components/global.js":2,"./components/nav.js":3,"./components/photo-grid.js":4,"./components/resume.js":5,"./components/videos.js":6,"./utils.js":8}],8:[function(require,module,exports){
 (function () {
 	
 	var appSettings;
@@ -600,4 +633,4 @@ var Utilities = require('./utils.js');
 	module.exports = window.utils;
 
 })();
-},{}]},{},[6]);
+},{}]},{},[7]);

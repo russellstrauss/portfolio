@@ -35,4 +35,4 @@ get_header(); ?>
 		<?php edit_post_link(); ?>
 	</div>
 
-<?php get_footer(); ?>
+<?php //get_footer(); ?>

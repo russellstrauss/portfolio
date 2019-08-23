@@ -168,8 +168,8 @@
 
 @media print {
 
-	$section-title-size: 18px;
-	$paragraph-size: 12px;
+	$section-title-size: 14px;
+	$paragraph-size: 9px;
 	
 	body {
 		padding: 0;
@@ -185,32 +185,62 @@
 		section {
 			margin-bottom: 10px;
 			
-			
 			&.contact {
 				font-size: $paragraph-size;
+
+				.left {
+					padding-left: 60px;
+
+					ul {
+						padding-left: 0;
+					}
+				}
+			}
+
+			&.skills {
+
+				ul {
+					padding-left: 60px;
+				}
 			}
 			
 			&.experience {
 				
 				.employment {
 					margin-bottom: 10px;
-					padding-left: 10px;
+					padding-left: 50px;
+
+					.duration {
+						margin-bottom: 5px;
+					}
 					
 					.company {
-						font-size: 14px !important;
+						font-size: 10px !important;
 					}
 				}
 			}
 			
 			&.education {
+				margin-bottom: 0;
 				
 				ul {
-					padding-left: 5px;
+					vertical-align: top;
+					display: inline-block;
+					width: 45%;
+
+					&:first-of-type {
+						padding-left: 50px;
+					}
+
+					&:last-of-type {
+						margin-bottom: 0;
+					}
 				}
 			}
 			
 			h2 {
 				font-size: $section-title-size;
+				margin-bottom: 20px;
 			}
 			
 			ul {
