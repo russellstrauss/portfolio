@@ -8,7 +8,7 @@ var source = require('vinyl-source-stream'); // required to dest() for browserif
 var browserSync = require('browser-sync').create();
 var concat = require('gulp-concat');
 var gutil = require('gulp-util');
-var config = require('./gulp/localConfig.js');
+//var config = require('./gulp/localConfig.js');
 
 var minimal = './wp-content/themes/minimal/';
 var rework = './wp-content/themes/rework/';
@@ -26,10 +26,10 @@ gulp.task('sass', function () {
 
 gulp.task('sync', ['sass'], function() {
 	browserSync.init({
-		open: true,
-		proxy: {
-			target: config.hostname
-		}
+		open: true//,
+		// proxy: {
+		// 	target: config.hostname
+		// }
 	});
 	
 	gulp.watch(theme + '**/*.php').on("change", browserSync.reload); // Manual reload when php files are modified
