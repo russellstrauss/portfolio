@@ -6,6 +6,24 @@
 	height: 0;
 }
 
+.container {
+	width: 100%;
+	padding-left: 15px;
+	padding-right: 15px;
+	margin-left: auto;
+	margin-right: auto;
+	
+	@include tablet {
+		max-width: 720px;
+	}
+	@include desktop {
+		max-width: 960px;
+	}
+	@include desktop-large {
+		max-width: 1200px;
+	}
+}
+
 .center, .aligncenter {
 	margin-left: auto;
 	margin-right: auto;
