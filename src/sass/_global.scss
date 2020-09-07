@@ -1,0 +1,41 @@
+// Global class-based selectors, put all bare element styling in elements.scss
+
+.clearfix {
+	float: none;
+	clear: both;
+	height: 0;
+}
+
+.center, .aligncenter {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
+.edit-link {
+	font-size:10px;
+	text-align:right;
+	margin-top: 10px;
+}
+
+.error-message { //404
+	@include headingFont;
+}
+
+.caption {
+	font-size: 10px;
+}
+
+.coming-soon {
+	display: none;
+}
+
+.custom-row img {
+	float: left;
+	margin-right: 20px;
+	border: 1px solid black;
+}
+
+.illustration {
+	border: 1px solid black;
+}

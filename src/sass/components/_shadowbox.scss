@@ -1,0 +1,52 @@
+#sb-container {
+	height: 100vh !important;
+	
+	#sb-overlay {
+		opacity: .7 !important;
+	}
+	
+	#sb-wrapper {
+		
+		#sb-title {
+			
+			#sb-title-inner {
+				
+			}
+		}
+		
+		#sb-wrapper-inner {
+			
+		}
+		
+		#sb-info {
+			
+			#sb-info-inner {
+				
+				#sb-counter {
+					
+					@include mobile-only {
+						font-size: 16px;
+						padding-top: 5px;
+					}
+				}
+				
+				#sb-nav {
+					
+					#sb-nav-close {
+						//background-image: url($img-path + "assets/img/close.png");
+					}
+				}
+			}
+		}
+	}
+}
+
+/* Resizing text for longer captions on AT page */
+#sb-title, #sb-title-inner {
+	height: auto !important;
+	line-height: normal !important;
+	padding-bottom: 3px;
+}
+#sb-title-inner {
+	font-size: 12px !important;
+}
