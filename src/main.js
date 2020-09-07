@@ -8,11 +8,15 @@ Vue.use(moment);
 
 import App from './App.vue';
 import Home from './Home.vue';
-// import About from './About.vue';
+import About from './About.vue';
+import Work from './Work.vue';
+import Resume from './Resume.vue';
 
 const routes = [
-	{ path: '/', component: Home }
-	// { path: '/about', component: About },
+	{ path: '/', component: Home },
+	{ path: '/about', component: About },
+	{ path: '/work', component: Work },
+	{ path: '/resume', component: Resume }
 ];
 
 let baseUrl = process.env.NODE_ENV === 'production' ? '/' : '/'; // also update vue.config.js

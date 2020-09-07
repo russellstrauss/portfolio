@@ -28,6 +28,7 @@
     "vuetify": "^1.5.5"
   },
   "devDependencies": {
+    "@staaky/tipped": "^4.7.0",
     "@vue/cli-plugin-babel": "^3.9.0",
     "@vue/cli-service": "^3.9.0",
     "css-loader": "^3.4.2",
