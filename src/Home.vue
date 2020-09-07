@@ -13,17 +13,14 @@
 	var AnimatedSphereWireframe = require('./js/animated-sphere-wireframe.js');
 	
 	export default {
-		name: "Home",
+		name: 'Home',
 
 		components: {
 			Nav
 		},
 
 		data() {
-			return {
-				titleFadeInLength: 1800,
-				menuFadeInDelay: 300
-			};
+			return {};
 		},
 
 		methods: {
@@ -35,7 +32,7 @@
 			AnimatedSphereWireframe().init();
 			
 			var fadeInWireframe = function () {
-				$("#sphereWireframe").css("opacity", "1");
+				$('#sphereWireframe').css('opacity', '1');
 			};
 		},
 	};

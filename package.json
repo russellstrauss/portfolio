@@ -8,31 +8,17 @@
     "watch": "nodemon -e vue -x \"npm run build\""
   },
   "dependencies": {
-    "axios": "^0.19.0",
-    "body-parser": "^1.19.0",
-    "core-js": "^2.6.5",
-    "fs": "0.0.1-security",
-    "http": "0.0.1-security",
+    "@staaky/tipped": "^4.7.0",
+    "animejs": "^3.2.0",
     "jquery": "^3.4.1",
-    "moment": "^2.24.0",
-    "mongoose": "^5.9.7",
-    "morgan": "^1.10.0",
-    "multer": "^1.4.2",
-    "nodemailer": "^6.4.6",
-    "parsley": "^0.1.0",
-    "serialize-javascript": "^2.1.1",
     "swiper": "^5.3.6",
     "vue": "^2.6.10",
-    "vue-awesome-swiper": "^4.1.0",
-    "vue-moment": "^4.1.0",
-    "vuetify": "^1.5.5"
+    "vue-awesome-swiper": "^4.1.0"
   },
   "devDependencies": {
-    "@staaky/tipped": "^4.7.0",
     "@vue/cli-plugin-babel": "^3.9.0",
     "@vue/cli-service": "^3.9.0",
     "css-loader": "^3.4.2",
-    "firebase": "^7.9.1",
     "node-sass": "^4.13.1",
     "nodemon": "^1.19.1",
     "sass-loader": "^7.3.1",
@@ -41,7 +27,6 @@
     "vue-cli-plugin-vuetify": "^0.5.0",
     "vue-router": "^3.1.6",
     "vue-template-compiler": "^2.6.10",
-    "vuetify-loader": "^1.0.5",
     "webpack": "^4.35.3"
   }
 }

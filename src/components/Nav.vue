@@ -1,47 +1,46 @@
 <template>
 	<div>
-		<div class="name">
-			<a class="swipe" href="/">John Russell Strauss</a>
-		</div>
-
-		<div class="layout-wrapper">
-			<nav class="main">
-				<div class="menu-main-container">
-					<ul id="menu-main" class="menu">
-						<li class="menu-item" v-for="menuItem in nav" :key="menuItem.path">
-							<a :href="menuItem.path">{{ menuItem.title }}</a>
-						</li>
-					</ul>
-				</div>
-			</nav>
-		</div>
+		<Title></Title>
+		<nav class="main">
+			<div class="menu-main-container">
+				<ul id="menu-main" class="menu">
+					<li class="menu-item" v-for="menuItem in nav" :key="menuItem.path">
+						<a :href="menuItem.path">{{ menuItem.title }}</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
 	</div>
 </template>
 
 <script>
 	
+	import Title from './Title.vue';
+	
 	export default {
-		name: "Nav",
+		name: 'Nav',
 
-		components: {},
+		components: {
+			Title
+		},
 
 		data() {
 			return {
 				titleFadeInLength: 1800,
-				menuFadeInDelay: 300,
+				menuFadeInDelay: 500,
 				
 				nav: [
 					{
-						title: "About",
-						path: "/about"
+						title: 'About',
+						path: '/about'
 					},
 					{
-						title: "Work",
-						path: "/work"
+						title: 'Work',
+						path: '/work'
 					},
 					{
-						title: "Resume",
-						path: "/resume"
+						title: 'Resume',
+						path: '/resume'
 					},
 				]
 			};
@@ -82,8 +81,6 @@
 				self.wrapCharacters($link, 'span');
 			});
 
-			$('.name a').addClass('active');
-
 			$('nav.main ul li a span').each(function(i) {
 				var $letter = $(this);
 				
@@ -92,47 +89,6 @@
 
 				}, (i * 50) + (self.titleFadeInLength + self.menuFadeInDelay));
 			});
-			
-			// Animate name in
-			var $name = $(".name a span");
-			$name.each(function (i) {
-				var $letter = $(this);
-				var fadeInInterval = 100;
-
-				setTimeout(function () {
-					$letter.css({
-						"margin-left": "0",
-						opacity: "1",
-						transform: "rotate(0deg)",
-					});
-				}, i * fadeInInterval);
-
-				setTimeout(function () {
-					fadeInMenu();
-				}, $name.length * fadeInInterval + 800);
-			});
-
-			var fadeInMenu = function () {
-				var $menu = $(".menu-main-container ul li");
-				var fadeInInterval = 200;
-
-				$menu.each(function (i) {
-					var $menuItem = $(this);
-					
-					console.log($menuItem);
-					
-					setTimeout(function () {
-						$menuItem.css({ "margin-left": "0", opacity: "1" });
-					}, i * fadeInInterval);
-				});
-
-				setTimeout(function () {
-					fadeInWireframe();
-				}, $menu.length * fadeInInterval + 800);
-			};
-			// var fadeInWireframe = function () {
-			// 	$("#sphereWireframe").css("opacity", "1");
-			// };
 		},
 	};
 </script>

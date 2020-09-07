@@ -1,10 +1,8 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import moment from 'vue-moment';
 import './sass/main.scss';
 import './helpers/utils.js';
-import VueAwesomeSwiper from 'vue-awesome-swiper'
-Vue.use(moment);
+import VueAwesomeSwiper from 'vue-awesome-swiper';
 
 import App from './App.vue';
 import Home from './Home.vue';
