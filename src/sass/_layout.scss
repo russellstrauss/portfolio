@@ -1,0 +1,22 @@
+
+.layout-wrapper {
+
+	@include tablet {
+		display: flex;
+	}
+
+	nav.main {
+		
+		@include tablet {
+			width: 20%;
+		}
+	}
+	
+	.main-content {
+		max-width: 1200px;
+		
+		@include tablet {
+			width: 80%;
+		}
+	}
+}

@@ -1,0 +1,25 @@
+@import 'theme-name';
+
+// This project uses inverted triangle CSS architecture (https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/)
+
+// global
+@import 'mixins';
+@import 'vars';
+@import 'reset';
+@import 'elements';
+@import 'global';
+@import 'layout';
+
+// components
+@import 'components/about';
+@import 'components/animated-sphere-wireframe';
+@import 'components/attractions-filter-grid';
+@import 'components/nav';
+@import 'components/photo-grid';
+@import 'components/portfolio-category';
+@import 'components/resume';
+@import 'components/shadowbox';
+@import 'components/single-post';
+@import 'components/video';
+
+@import 'helpers';
