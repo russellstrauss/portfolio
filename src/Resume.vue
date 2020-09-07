@@ -57,7 +57,7 @@
 							<li>Portfolio</li>
 						</ul>
 					</div>
-					<div class="right"><a href="http://portfolio.jrstrauss.net/work/">http://portfolio.jrstrauss.net/work/</a></div>
+					<div class="right"><a href="https://portfolio.jrstrauss.net/work/">https://portfolio.jrstrauss.net/work/</a></div>
 					<div class="clearfix"> </div>
 				</div>
 				<div>
@@ -99,7 +99,7 @@
 					<li>Front end: JavaScript, Vue.js, HTML, SASS, Gulp, Node.js, SVG</li>
 					<li>Back end: C#, Python, Node.js, IIS, SQL, Apache, PHP; interested in learning Ruby</li>
 					<li>Responsive development for devices of all sizes, maintainability, and cross-browser compatibility</li>
-					<li>Methodology: iterative design and development through collaboration</li>
+					<li>Preferred Methodology: iterative design and development through collaboration</li>
 					<li>Adobe Creative Suite, InVision, Sketch</li>
 				</ul>
 			</section>
@@ -186,7 +186,9 @@
 
 <script>
 
-import Tipped from '@staaky/tipped';
+	import $ from 'jquery';
+	var jQuery = $;
+	import Tipped from '@staaky/tipped';
 	
 	export default {
 		name: 'Resume',

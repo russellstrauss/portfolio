@@ -11,8 +11,8 @@ module.exports = function() {
 		init: function() {
 			var scope = this;
 			
-			var titleFadeInLength = 1800; // match to timer in Home.vue
-			var menuFadeInDelay = 300; // match to timer in Home.vue
+			var titleFadeInLength = 1800; // match to timer in Nav.vue
+			var menuFadeInDelay = 500; // match to timer in Nav.vue
 			
 			setTimeout(function() {
 				$('#sphereWireframe').addClass('active');
