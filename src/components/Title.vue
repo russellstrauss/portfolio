@@ -1,18 +1,12 @@
 <template>
-	<div>
-		<!-- <div class="name">
-			<a class="swipe" href="/">John Russell Strauss</a>
-		</div> -->
-		
-		<h1 class="name">
-			<a href="/">
-				<span class="text-wrapper">
-					<span class="line line1"></span>
-					<span class="letters">John Russell Strauss</span>
-				</span>
-			</a>
-		</h1>
-	</div>
+	<h1 class="name">
+		<a href="/">
+			<span class="text-wrapper">
+				<span class="line line1"></span>
+				<span class="letters">John Russell Strauss</span>
+			</span>
+		</a>
+	</h1>
 </template>
 
 <script>
@@ -29,40 +23,47 @@
 			return {};
 		},
 
-		methods: {},
+		methods: {
+			
+			triggerTitleAnimation: function() {
+				
+				anime.timeline({ loop: false })
+				.add({
+					targets: '.name .line',
+					scaleY: [0,1],
+					opacity: [0.5,1],
+					easing: 'easeOutExpo',
+					duration: 600,
+					delay: 1000
+				})
+				.add({
+					targets: '.name .line',
+					translateX: [0, document.querySelector('.name .letters').getBoundingClientRect().width + 10],
+					easing: 'cubicBezier(0.860, 0.000, 0.070, 1.000)',
+					duration: 800
+				}).add({
+					targets: '.name .letter',
+					opacity: [0, 1],
+					duration: 300,
+					delay: (el, i) => (14 * (i))
+				}, '-=500').add({
+					targets: '.name .line',
+					opacity: 0,
+					duration: 600,
+					easing: 'easeOutExpo',
+					delay: 600
+				});
+			}
+		},
 
 		mounted: function () {
 			
-			// Wrap every letter in a span
 			var textWrapper = document.querySelector('.name .letters');
-			textWrapper.innerHTML = textWrapper.textContent.replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>");
+			textWrapper.innerHTML = textWrapper.textContent.replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>"); // Wrap every letter in a span
 
-			anime.timeline({ loop: false })
-			.add({
-				targets: '.name .line',
-				scaleY: [0,1],
-				opacity: [0.5,1],
-				easing: 'easeOutExpo',
-				duration: 600,
-				delay: 1000
-			})
-			.add({
-				targets: '.name .line',
-				translateX: [0, document.querySelector('.name .letters').getBoundingClientRect().width + 10],
-				easing: 'cubicBezier(0.860, 0.000, 0.070, 1.000)',
-				duration: 800
-			}).add({
-				targets: '.name .letter',
-				opacity: [0, 1],
-				duration: 300,
-				delay: (el, i) => (14 * (i))
-			}, '-=500').add({
-				targets: '.name .line',
-				opacity: 0,
-				duration: 600,
-				easing: 'easeOutExpo',
-				delay: 600
-			});
+			if (this.$route.path === '/') {
+				this.triggerTitleAnimation();
+			}
 		},
 	};
 </script>
@@ -110,4 +111,5 @@
 			}
 		}
 	}
+	
 </style>

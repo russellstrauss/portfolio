@@ -1,6 +1,6 @@
 <template>
-	<div class="front-page">
-		
+	<div class="landing">
+		<Title></Title>
 		<Nav></Nav>
 		
 		<div id="sphereWireframe"></div>
@@ -9,6 +9,7 @@
 
 <script>
 	
+	import Title from './components/Title.vue';
 	import Nav from './components/Nav.vue';
 	var AnimatedSphereWireframe = require('./js/animated-sphere-wireframe.js');
 	
@@ -16,29 +17,23 @@
 		name: 'Home',
 
 		components: {
-			Nav
+			Nav,
+			Title
 		},
 
 		data() {
 			return {};
 		},
 
-		methods: {
-			
-		},
+		methods: {},
 
 		mounted: function () {
 			
 			AnimatedSphereWireframe().init();
-			
-			var fadeInWireframe = function () {
-				$('#sphereWireframe').css('opacity', '1');
-			};
 		},
 	};
 </script>
 
 <style lang="scss">
-
 	
 </style>
