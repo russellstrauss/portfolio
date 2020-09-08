@@ -1,0 +1,38 @@
+{
+	"categories": [
+		{
+			"path": "web-application-development",
+			"pieces": [
+				{
+					"title": "Dollywood",
+					"description": "New site build of large scale e-commerce and marketing site for Herschend Family Entertainment. Site includes multiple theme park properties designed to use the same platform and code base.",
+					"natureOfContributions": "Designed and built initial front-end site; designed the site architecture to support many sites being built on the same platform while maintaining unique branding needs for each independent site; built interactive and animated components; maintained automated build taskrunners; worked directly with client representative to ensure their needs and satisfaction were met; collaborated with UX and design team mates to improve site usability and overall quality; worked with team in India to integrate front-end build into Sitecore CMS.",
+					"featuredImage": "/img/featured-images/dollywood.jpg",
+					"href": "https://www.dollywood.com"
+				},
+				{
+					"title": "FultonCountyGA.gov",
+					"description": "New public-facing web site build for the Fulton Country local government body.",
+					"natureOfContributions": "Responsible for front-end build from static designs into well-structured, maintainable, and functional site; worked with back-end devs to integrate front-end build into the Sitecore CMS; led junior developers in building new front-end components and assisted with their back-end and CMS related questions while removing technical roadblocks.",
+					"featuredImage": "/img/featured-images/fulton-thumb.jpg",
+					"href": "https://fultoncountyga.gov/"
+				}
+			]
+		},
+		{
+			"title": "Interactive",
+			"path": "interactive",
+			"description": "int Description here"
+		},
+		{
+			"title": "2189 miles",
+			"path": "2189-miles",
+			"description": "mi Description here"
+		},
+		{
+			"title": "Linear Algebra",
+			"path": "linear-algebra",
+			"description": "linalg Description here"
+		}
+	]
+}
