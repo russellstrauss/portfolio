@@ -17,7 +17,7 @@ body {
 a {
 	color: $link-color;
 	text-decoration: none;
-	cursor: pointer !important;
+	cursor: pointer;
 	word-wrap: break-word;
 	
 	&:hover {

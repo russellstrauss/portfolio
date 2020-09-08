@@ -4,35 +4,278 @@
 			"path": "web-application-development",
 			"pieces": [
 				{
+					"sortOrder": "1",
 					"title": "Dollywood",
 					"description": "New site build of large scale e-commerce and marketing site for Herschend Family Entertainment. Site includes multiple theme park properties designed to use the same platform and code base.",
 					"natureOfContributions": "Designed and built initial front-end site; designed the site architecture to support many sites being built on the same platform while maintaining unique branding needs for each independent site; built interactive and animated components; maintained automated build taskrunners; worked directly with client representative to ensure their needs and satisfaction were met; collaborated with UX and design team mates to improve site usability and overall quality; worked with team in India to integrate front-end build into Sitecore CMS.",
 					"featuredImage": "/img/featured-images/dollywood.jpg",
-					"href": "https://www.dollywood.com"
+					"href": "https://www.dollywood.com",
+					"openInNewTab": "true"
 				},
 				{
+					"sortOrder": "2",
 					"title": "FultonCountyGA.gov",
 					"description": "New public-facing web site build for the Fulton Country local government body.",
 					"natureOfContributions": "Responsible for front-end build from static designs into well-structured, maintainable, and functional site; worked with back-end devs to integrate front-end build into the Sitecore CMS; led junior developers in building new front-end components and assisted with their back-end and CMS related questions while removing technical roadblocks.",
 					"featuredImage": "/img/featured-images/fulton-thumb.jpg",
-					"href": "https://fultoncountyga.gov/"
+					"href": "https://fultoncountyga.gov/",
+					"openInNewTab": "true"
+				},
+				{
+					"sortOrder": "3",
+					"title": "Hammerhead Silver",
+					"description": "E-commerce site build for handmade jewelry brand, Hammerhead Silver.",
+					"natureOfContributions": "Freelance; worked directly with business owners to gather requirements and add features based on their feedback.",
+					"featuredImage": "/img/featured-images/bling-shark-color.jpg",
+					"href": "https://hammerheadsilver.com/",
+					"openInNewTab": "true"
+				},
+				{
+					"sortOrder": "4",
+					"title": "Rightpoint.com",
+					"description": "Added multiple features and pages to Rightpoint agency web site including news filtering pages, portfolio piece filtering pages, careers landing page, animations, and others",
+					"natureOfContributions": "Iterated with designers to improve existing pages and collaborated with marketing team to add new features.",
+					"featuredImage": "/img/featured-images/rightpoint.jpg",
+					"href": "https://www.rightpoint.com/",
+					"openInNewTab": "true"
+				},
+				{
+					"sortOrder": "5",
+					"title": "ICF International ",
+					"description": "New site build for international consulting company.",
+					"natureOfContributions": "Built various custom UI's including menus, search interface, and various interactive components; wrote back-end code to integrate into Sitecore CMS.",
+					"featuredImage": "/img/featured-images/ICF-screenshot.jpg",
+					"href": "https://www.icf.com/",
+					"openInNewTab": "true"
+				},
+				{
+					"sortOrder": "6",
+					"title": "Pariveda Solutions",
+					"description": "New site build for software company.",
+					"natureOfContributions": "Designed and built front-end code from static designs: layout, CSS and JS structure, custom UI, & animations; collaborated with back-end devs to integrate full front-end build into Sitecore CMS.",
+					"featuredImage": "/img/featured-images/pariveda-thumb-1.jpg",
+					"href": "https://parivedasolutions.com/",
+					"openInNewTab": "true"
+				},
+				{
+					"sortOrder": "7",
+					"title": "Brother USA",
+					"description": "Public facing site build for printer and sewing machine manufacturer.",
+					"natureOfContributions": "Worked in a large team to fix bugs, organize layouts, and coordinate front-end work between team members.",
+					"featuredImage": "/img/featured-images/brother.jpg",
+					"href": "https://www.brother-usa.com/",
+					"openInNewTab": "true"
+				},
+				{
+					"sortOrder": "8",
+					"title": "Hilton Grand Vacations",
+					"description": "This project involved building an internal intranet site for Hilton Grand Vacations using Microsoft SharePoint. The site has a user base of 8000 users and is used to distribute information to employees, provide links and bookmarks to benefits, communicate news & company announcements, and allow Hilton to set up pages for its internal departments. Since the site is not publicly available, I have documented small pieces of the work here on my own site.",
+					"natureOfContributions": "Built custom designs into functional intranet site while working within the constraints of SharePoint platform.",
+					"featuredImage": "/img/featured-images/HGV-thumb.jpg",
+					"href": "/work/web-application-development/detail/hilton-grand-vacations",
+					"openInNewTab": "false"
+				},
+				{
+					"sortOrder": "9",
+					"title": "Atrium Health",
+					"description": "Re-platform of previous site and ongoing maintenance.",
+					"natureOfContributions": "Re-platformed original site from previous system into Sitecore CMS; maintained and improved site over the course of 4 years; added pages, features, and single page applications such as doctor search and urgent care locator.",
+					"featuredImage": "/img/featured-images/atrium.jpg",
+					"href": "https://atriumhealth.org/",
+					"openInNewTab": "true"
+				},
+				{
+					"sortOrder": "10",
+					"title": "Broward Health",
+					"description": "Broward Health is a hospital system in Fort Lauderdale, Florida. I am proud of this project as it was a big success since our 3-person team delivered a quality product on time and under-budget. I also learned a ton over the 3-month project dealing with frontend JavaScript architecture, writing modular and maintainable web components, and writing backend code in C# to create enterprise web apps.",
+					"natureOfContributions": "Worked in small team to build out new site.",
+					"featuredImage": "/img/featured-images/broward-thumb-new.jpg",
+					"href": "https://www.browardhealth.org/",
+					"openInNewTab": "true"
+				},
+				{
+					"sortOrder": "11",
+					"title": "Heartland Payments Systems",
+					"description": "New multi-site integration build for financial tech company.",
+					"natureOfContributions": "Designed front-end structure that would allow for multiple sites to be built upon the same design system and code base, while using their own custom branding for each site brand; worked with India team to integrate and debug Sitecore components.",
+					"featuredImage": "/img/featured-images/heartland.jpg",
+					"href": "https://www.heartlandpaymentsystems.com/",
+					"openInNewTab": "true"
+				},
+				{
+					"sortOrder": "12",
+					"title": "Bay Area Air Quality Management District",
+					"description": "Maintenance on existing site for air quality regulating body of San Francisco Bay area.",
+					"natureOfContributions": "Minor maintenance and integration of complex data table structures.",
+					"featuredImage": "/img/featured-images/baaqmd-thumb.jpg",
+					"href": "http://www.baaqmd.gov/",
+					"openInNewTab": "true"
+				},
+				{
+					"sortOrder": "13",
+					"title": "El Jimador",
+					"description": "The redesign of El Jimador's web site was taken on by Engauge in early 2013. The site, built in Drupal and fully responsive among all devices and browsers, is a robust example of a site that uses branding and imagery to drive the site's appeal. The structure of the site itself is very interesting in its layout and unique segmentation—not only purely for its form factor, but also for the process of its implementation. It's a great example of both a multilingual and multi-country site. ¡Olé! Tequila shots all around!",
+					"natureOfContributions": "An external contractor dropped the job and disappeared, so I picked up the project and completed it to see it to production launch.",
+					"featuredImage": "/img/featured-images/el-jimador-thumb.jpg",
+					"href": "https://www.eljimador.com/",
+					"openInNewTab": "true"
+				},
+				{
+					"sortOrder": "14",
+					"title": "Verizon Wireless",
+					"description": "Verizon is Moxie's biggest client, and for 2014, I was a part of the team that was in charge of rebuilding and refactoring their site (specifically www.verizonwireless.com) for Verizon Wireless—their cell phone and wireless services sector. Since this project is a much longer term and ongoing project, it creates a different workflow that many developers are not used to—from always referencing branding and style guidelines, to getting previously built pages, widgets, and code working and interacting with new builds, to working with a huge team, to keeping up with all of the code standards that all code must strictly follow in order to be approved. Though among all these challenges, I thoroughly enjoyed working on something that is well-known and being used by so many people around the world.",
+					"natureOfContributions": "Created cart pages with complex table structures for online phone store.",
+					"featuredImage": "/img/featured-images/verizon-thumb.jpg",
+					"href": "https://www.verizonwireless.com/",
+					"openInNewTab": "true"
+				},
+				{
+					"sortOrder": "15",
+					"title": "Food Lion",
+					"description": "Food Lion's site is a large-scale, corporate site with a robust set of features and an expansive amount of content. The site is all built on .Net and managed by a small team of people at Engauge.",
+					"natureOfContributions": "Maintenance—promotions, new features, bug fixes, interactive front-end work, content updates, and deployment.",
+					"featuredImage": "/img/featured-images/food-lion-thumb.jpg",
+					"href": "https://www.foodlion.com/",
+					"openInNewTab": "true"
+				},
+				{
+					"sortOrder": "16",
+					"title": "Cisco's Mobility Your Way",
+					"description": "Internet security is an extremely important concept in computing today. You've heard the horror stories—Apple's prototypes leaked to the public, Target's databases scoured for credit card information, identity theft occurring daily all over the world, and more. That's why Cisco put together this interactive experience to educate business owner's on the importance of security, some of the common pitfalls people run into, and how goals and perspective differ between business decision makers and technical decision makers.",
+					"natureOfContributions": "Created infographic independently.",
+					"featuredImage": "/img/featured-images/mobility-your-way-thumb.jpg",
+					"href": "https://www.cisco.com/c/dam/assets/sol/mob/security-threats/index.html",
+					"openInNewTab": "true"
+				},
+				{
+					"sortOrder": "17",
+					"title": "Callaway Gardens",
+					"description": "Callaway Garden's site, developed in Drupal in 2012.",
+					"natureOfContributions": "Built site with 3-person dev team.",
+					"featuredImage": "/img/featured-images/callaway-thumb.jpg",
+					"href": "https://www.callawaygardens.com/",
+					"openInNewTab": "true"
 				}
 			]
 		},
 		{
-			"title": "Interactive",
 			"path": "interactive",
-			"description": "int Description here"
+			"pieces": [
+				{
+					"sortOrder": "1",
+					"title": "Painting Nature",
+					"description": "A non-traditional paint program used to create striking scenes of nature.",
+					"featuredImage": "/img/featured-images/painting-nature.jpg",
+					"href": "/work/interactive/painting-nature",
+					"openInNewTab": "false"
+				},
+				{
+					"sortOrder": "2",
+					"title": "3D Animation Editor",
+					"description": "",
+					"featuredImage": "/img/featured-images/3d-animation-editor.jpg",
+					"href": "/work/interactive/",
+					"openInNewTab": "false"
+				},
+				{
+					"sortOrder": "3",
+					"title": "Projectile Movement Prediction",
+					"description": "",
+					"featuredImage": "/img/featured-images/",
+					"href": "/work/interactive/",
+					"openInNewTab": "false"
+				},
+				{
+					"sortOrder": "4",
+					"title": "Polygon Smoothing and Subdivision",
+					"description": "",
+					"featuredImage": "/img/featured-images/",
+					"href": "/work/interactive/",
+					"openInNewTab": "false"
+				},
+				{
+					"sortOrder": "5",
+					"title": "Rotation Transformations, realistic center of gravity",
+					"description": "",
+					"featuredImage": "/img/featured-images/",
+					"href": "/work/interactive/",
+					"openInNewTab": "false"
+				},
+				{
+					"sortOrder": "6",
+					"title": "Calculating Medial Axis",
+					"description": "",
+					"featuredImage": "/img/featured-images/",
+					"href": "/work/interactive/",
+					"openInNewTab": "false"
+				},
+				{
+					"sortOrder": "6",
+					"title": "Dynamic Fermat Point Calculation",
+					"description": "",
+					"featuredImage": "/img/featured-images/",
+					"href": "/work/interactive/",
+					"openInNewTab": "false"
+				}
+			]
 		},
 		{
-			"title": "2189 miles",
-			"path": "2189-miles",
-			"description": "mi Description here"
+			"path": "video",
+			"pieces": [
+				{
+					"sortOrder": "1",
+					"title": "Mt. Hood Climb",
+					"description": "Video footage from my summit of Mt. Hood, April 2019.",
+					"featuredImage": "/img/featured-images/mt-hood-thumb.jpg",
+					"href": "/work/video/mt-hood",
+					"openInNewTab": "false"
+				},
+				{
+					"sortOrder": "2",
+					"title": "Star of Wonder",
+					"description": "A film project about the grandeur of the Universe and smallness of humans.",
+					"featuredImage": "/img/featured-images/star-of-wonder-thumb.jpg",
+					"href": "/work/video/star-of-wonder",
+					"openInNewTab": "false"
+				}
+			]
 		},
 		{
-			"title": "Linear Algebra",
-			"path": "linear-algebra",
-			"description": "linalg Description here"
+			"path": "mathematics",
+			"pieces": [
+				{
+					"sortOrder": "1",
+					"title": "LU Decomposition",
+					"description": "",
+					"featuredImage": "/img/featured-images/LU.jpg",
+					"href": "/work/mathematics/LU",
+					"openInNewTab": "false"
+				},
+				{
+					"sortOrder": "2",
+					"title": "QR Decomposition via Householder Reflections",
+					"description": "",
+					"featuredImage": "/img/featured-images/householder.jpg",
+					"href": "/work/mathematics/householders",
+					"openInNewTab": "false"
+				},
+				{
+					"sortOrder": "3",
+					"title": "QR Decomposition via Givens Rotations",
+					"description": "",
+					"featuredImage": "/img/featured-images/givens.jpg",
+					"href": "/work/mathematics/givens",
+					"openInNewTab": "false"
+				},
+				{
+					"sortOrder": "4",
+					"title": "Matrix Operations",
+					"description": "",
+					"featuredImage": "/img/featured-images/matrix-operations.jpg",
+					"href": "/work/mathematics/matrix-operations",
+					"openInNewTab": "false"
+				}
+			]
 		}
 	]
 }
