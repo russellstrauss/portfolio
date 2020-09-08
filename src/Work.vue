@@ -19,7 +19,14 @@
 		},
 
 		data() {
-			return {};
+			return {
+				categories: [
+					{
+						title: 'Web Application Development',
+						path: ''
+					}
+				]
+			};
 		},
 
 		methods: {},
