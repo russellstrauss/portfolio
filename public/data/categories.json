@@ -1,0 +1,24 @@
+{
+	"categories": [
+		{
+			"title": "Web Application Development",
+			"path": "web-application-development",
+			"description": "web Description here"
+		},
+		{
+			"title": "Interactive",
+			"path": "interactive",
+			"description": "int Description here"
+		},
+		{
+			"title": "2189 miles",
+			"path": "2189-miles",
+			"description": "mi Description here"
+		},
+		{
+			"title": "Linear Algebra",
+			"path": "linear-algebra",
+			"description": "linalg Description here"
+		}
+	]
+}

@@ -8,20 +8,20 @@ import Home from './Home.vue';
 import About from './About.vue';
 import Work from './Work.vue';
 import Resume from './Resume.vue';
-
-const routes = [
-	{ path: '/', component: Home },
-	{ path: '/about', component: About },
-	{ path: '/work', component: Work },
-	{ path: '/resume', component: Resume }
-];
+import CategoryDetail from './components/CategoryDetail.vue';
 
 let baseUrl = process.env.NODE_ENV === 'production' ? '/' : '/'; // also update vue.config.js
 
 const router = new VueRouter({
 	base: baseUrl,
 	mode: 'history',
-	routes: routes
+	routes: [
+		{ path: '/', component: Home },
+		{ path: '/about', component: About },
+		{ path: '/work', component: Work },
+		{ path: '/resume', component: Resume },
+		{ path: '/work/:path', component: CategoryDetail }
+	]
 });
 
 Vue.use(VueRouter);

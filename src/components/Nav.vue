@@ -38,7 +38,7 @@
 					{
 						title: 'Resume',
 						path: '/resume'
-					},
+					}
 				]
 			};
 		},

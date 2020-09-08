@@ -1,12 +1,22 @@
 <template>
-	<div>
+	<div class="work">
+		
 		<Title></Title>
-		<Nav></Nav>
+		
+		<div class="layout-wrapper">
+			<Nav></Nav>
+			<ul>
+				<li v-for="category in categories" :key="category.path" class="category">
+					<a :href="$route.path + '/' + category.path">{{ category.title }}</a>
+				</li>
+			</ul>
+		</div>
 	</div>
 </template>
 
 <script>
-
+	
+	import axios from 'axios';
 	import Title from './components/Title.vue';
 	import Nav from './components/Nav.vue';
 	
@@ -20,18 +30,25 @@
 
 		data() {
 			return {
-				categories: [
-					{
-						title: 'Web Application Development',
-						path: ''
-					}
-				]
+				categories: []
 			};
 		},
 
 		methods: {},
 
 		mounted: function () {
+			
+			console.log(this.$route.path);
+			
+			let self = this;
+			let categories = '/data/categories.json';
+			axios.get(categories).then(function(response) {
+				
+				self.categories = response.data.categories;
+			})
+			.catch(function (error) {
+				console.log(error);
+			});
 			
 			// $('#category-container').find('.portfolio-category').each(function(i) {
 			// 	var $menuItem = $(this);
@@ -46,5 +63,12 @@
 </script>
 
 <style lang="scss">
-	
+
+	.category {
+		@include headingFont;
+		margin-bottom: 20px;
+		margin-left: 30px;
+		// opacity: 0;
+		transition: opacity 600ms ease, margin-left 400ms ease;
+	}
 </style>
