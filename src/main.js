@@ -9,6 +9,9 @@ import About from './About.vue';
 import Work from './Work.vue';
 import Resume from './Resume.vue';
 import CategoryDetail from './components/CategoryDetail.vue';
+import DetailPage from './components/DetailPage.vue';
+import GenericPage from './components/GenericPage.vue';
+import Missing from './components/Missing.vue';
 
 let baseUrl = process.env.NODE_ENV === 'production' ? '/' : '/'; // also update vue.config.js
 
@@ -20,7 +23,11 @@ const router = new VueRouter({
 		{ path: '/about', component: About },
 		{ path: '/work', component: Work },
 		{ path: '/resume', component: Resume },
-		{ path: '/work/:path', component: CategoryDetail }
+		{ path: '/work/:category', component: CategoryDetail },
+		{ path: '/work/detail/:category', component: GenericPage }, // category landing page instead of listing page
+		{ path: '/work/:category/detail/:id', component: GenericPage }, // detail page for item in category listing page
+		{ path: '/work/:category/:id', component: GenericPage },
+		{ path: '*', component: Missing }
 	]
 });
 

@@ -44,6 +44,10 @@
 			let categories = '/data/categories.json';
 			axios.get(categories).then(function(response) {
 				
+				let categories = response.data.categories;
+				if (categories) categories.sort(function(a, b) {
+					return a.sortOrder - b.sortOrder;
+				});
 				self.categories = response.data.categories;
 			})
 			.catch(function (error) {

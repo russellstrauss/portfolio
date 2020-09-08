@@ -1,25 +1,28 @@
 <template>
 	<div class="category-detail">
 		
+		
 		<Title></Title>
 		
 		<div class="layout-wrapper">
 			<Nav></Nav>
 			<div class="main-content">
 				<div class="category-content">
-					<h1>{{ category.title }}</h1>
-					<div class="category-description" v-if="category.description">
-						<p>{{ category.description }}</p>
-					</div>
+					<header>
+						<h1>{{ category.title }}</h1>
+						<div class="category-description" v-if="category.description">
+							<p>{{ category.description }}</p>
+						</div>
+					</header>
 					
 					<ul>
-						<li v-for="piece in pieces" :key="piece.title" class="each-piece">
-							<div class="featured-image">
-								<a :href="piece.href" target="_blank"><img v-if="piece.featuredImage" :src="piece.featuredImage" alt="featured-image"></a>
+						<li v-for="piece in pieces" :key="piece.sortOrder" class="each-piece">
+							<div class="featured-image" v-if="piece.featuredImage">
+								<a :href="piece.href" :target="JSON.parse(piece.openInNewTab) ? '_blank' : '_self'"><img v-if="piece.featuredImage" :src="piece.featuredImage" alt="featured-image"></a>
 							</div>
 							
 							<div class="piece-details">
-								<h2><a :href="piece.href" target="_blank">{{ piece.title }}</a></h2>
+								<h2><a :href="piece.href" :target="JSON.parse(piece.openInNewTab) ? '_blank' : '_self'">{{ piece.title }}</a></h2>
 								<p class="description">{{ piece.description }}</p>
 								<p class="nature-of-contributions" v-if="piece.natureOfContributions">Nature of contributions: {{ piece.natureOfContributions }}</p>
 							</div>
@@ -69,12 +72,15 @@
 		mounted: function () {
 			
 			let self = this;
+			
+			// console.log(self.$route.params);
+			
 			axios.all([self.getCategories(), self.getPieces()]).then(axios.spread(function (categories, pieces) {
 
-				
-				self.category = categories.data.categories.filter(category => category.path === self.$route.params.path)[0];
-				self.pieces = pieces.data.categories.filter(category => category.path === self.$route.params.path)[0].pieces;
-				console.log(self.pieces);
+				let categoryResponse = categories.data.categories.filter(category => category.path === self.$route.params.category)[0];
+				if (categoryResponse) self.category = categoryResponse;
+				let piecesResponse = pieces.data.categories.filter(category => category.path === self.$route.params.category)[0];
+				if (piecesResponse) self.pieces = piecesResponse.pieces;
 			}))
 			.catch(function (error) {
 				console.log(error);
@@ -84,12 +90,67 @@
 </script>
 
 <style lang="scss">
-	.featured-image {
-		max-width: 250px;
-		margin-right: 20px;
+
+
+	.category-content {
 		
-		img {
-			border: 1px solid black;
+		header {
+			margin-bottom: 100px;
+		}
+		
+		.category-description {
+			margin-bottom: 50px;
+		}
+		
+		.each-piece {
+			margin-bottom: 30px;
+
+			@include mobile-only {
+				margin-bottom: 150px;
+			}
+
+			@include desktop {
+				display: flex;
+			}
+			
+			.featured-image {
+				max-width: 250px;
+				margin-right: 20px;
+				
+				@include mobile-only {
+					margin-right: 0;
+					max-width: 100%;
+				}
+				
+				img {
+					border: 1px solid black;
+					margin-right: 20px;
+					height: auto;
+					
+					@include mobile-only {
+						margin-bottom: 10px;
+					}
+	
+					@include desktop {
+						max-width: 250px;
+					}
+				}
+			}
+			
+			.piece-details {
+				
+				h2 {
+					@include portfolioPieceTitle;
+				}
+
+				.description {
+					margin-bottom: 10px;
+				}
+
+				.nature-of-contributions {
+					font-size: 12px;
+				}
+			}
 		}
 	}
 </style>
