@@ -1,18 +1,21 @@
 <template>
 	<div>
+		<Title></Title>
 		<Nav></Nav>
 	</div>
 </template>
 
 <script>
 
+	import Title from './components/Title.vue';
 	import Nav from './components/Nav.vue';
 	
 	export default {
 		name: 'Work',
 
 		components: {
-			Nav
+			Nav,
+			Title
 		},
 
 		data() {
@@ -36,4 +39,5 @@
 </script>
 
 <style lang="scss">
+	
 </style>

@@ -1,7 +1,7 @@
 <template>
-	<div>
+	<div class="about">
+		<Title></Title>
 		<div class="layout-wrapper">
-			
 			<Nav></Nav>
 			
 			<div class="main-content">
@@ -19,7 +19,8 @@
 </template>
 
 <script>
-
+	
+	import Title from './components/Title.vue';
 	import Nav from './components/Nav.vue';
 
 	export default {
@@ -27,7 +28,8 @@
 		name: 'About',
 		
 		components: {
-			Nav
+			Nav,
+			Title
 		},
 		
 		data() {
@@ -39,5 +41,9 @@
 </script>
 
 <style lang="scss">
+	
+	.about {
+		
+	}
 	
 </style>
