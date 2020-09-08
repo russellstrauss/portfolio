@@ -57,7 +57,7 @@
 							<li>Portfolio</li>
 						</ul>
 					</div>
-					<div class="right"><a href="https://portfolio.jrstrauss.net/work/">https://portfolio.jrstrauss.net/work/</a></div>
+					<div class="right"><a href="/work/">https://portfolio.jrstrauss.net/work/</a></div>
 					<div class="clearfix"> </div>
 				</div>
 				<div>

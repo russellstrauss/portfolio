@@ -162,7 +162,7 @@ module.exports = function() {
 				FAR = 1000;
 				
 				camera = new THREE.PerspectiveCamera(FOV, WIDTH / HEIGHT, NEAR, FAR);
-				if (utils.mobile()) {
+				if (window.innerWidth < 768) {
 					camera.position.z = 500;
 					camera.position.y = 80;
 					camera.position.x = -70;

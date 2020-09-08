@@ -5,9 +5,27 @@
 		
 		<div class="layout-wrapper">
 			<Nav></Nav>
-			<div>
-				<h1>{{ category.title }}</h1>
-				<p>{{ category.description }}</p>
+			<div class="main-content">
+				<div class="category-content">
+					<h1>{{ category.title }}</h1>
+					<div class="category-description" v-if="category.description">
+						<p>{{ category.description }}</p>
+					</div>
+					
+					<ul>
+						<li v-for="piece in pieces" :key="piece.title" class="each-piece">
+							<div class="featured-image">
+								<a :href="piece.href" target="_blank"><img v-if="piece.featuredImage" :src="piece.featuredImage" alt="featured-image"></a>
+							</div>
+							
+							<div class="piece-details">
+								<h2><a :href="piece.href" target="_blank">{{ piece.title }}</a></h2>
+								<p class="description">{{ piece.description }}</p>
+								<p class="nature-of-contributions" v-if="piece.natureOfContributions">Nature of contributions: {{ piece.natureOfContributions }}</p>
+							</div>
+						</li>
+					</ul>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -30,21 +48,34 @@
 
 		data() {
 			return {
-				category: {}
+				category: {},
+				pieces: []
 			};
 		},
 
-		methods: {},
+		methods: {
+			
+			getCategories: function() {
+				
+				return axios.get('/data/categories.json');
+			},
+			
+			getPieces: function() {
+				
+				return axios.get('/data/pieces.json');
+			}
+		},
 
 		mounted: function () {
 			
 			let self = this;
-			let categories = '/data/categories.json';
-			axios.get(categories).then(function(response) {
+			axios.all([self.getCategories(), self.getPieces()]).then(axios.spread(function (categories, pieces) {
+
 				
-				let categories = response.data.categories;
-				self.category = categories.filter(category => category.path === self.$route.params.path)[0];
-			})
+				self.category = categories.data.categories.filter(category => category.path === self.$route.params.path)[0];
+				self.pieces = pieces.data.categories.filter(category => category.path === self.$route.params.path)[0].pieces;
+				console.log(self.pieces);
+			}))
 			.catch(function (error) {
 				console.log(error);
 			});
@@ -53,5 +84,12 @@
 </script>
 
 <style lang="scss">
-
+	.featured-image {
+		max-width: 250px;
+		margin-right: 20px;
+		
+		img {
+			border: 1px solid black;
+		}
+	}
 </style>
