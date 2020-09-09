@@ -114,7 +114,7 @@
 			}
 			
 			.featured-image {
-				max-width: 250px;
+				max-width: 500px;
 				margin-right: 20px;
 				
 				@include mobile-only {
@@ -132,7 +132,7 @@
 					}
 	
 					@include desktop {
-						max-width: 250px;
+						max-width: 500px;
 					}
 				}
 			}
