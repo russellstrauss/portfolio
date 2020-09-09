@@ -8,9 +8,15 @@
 		},
 		{
 			"sortOrder": "2",
-			"title": "Interactive",
+			"title": "Interactive Development",
 			"path": "interactive",
 			"description": "int Description here"
+		},
+		{
+			"sortOrder": "2",
+			"title": "UI/UX",
+			"path": "ux",
+			"description": ""
 		},
 		{
 			"sortOrder": "3",
