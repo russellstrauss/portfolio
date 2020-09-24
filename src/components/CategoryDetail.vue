@@ -81,7 +81,6 @@
 				if (categoryResponse) self.category = categoryResponse;
 				let piecesResponse = pieces.data.categories.filter(category => category.path === self.$route.params.category)[0];
 				if (piecesResponse) self.pieces = piecesResponse.pieces.filter(piece => piece.published === "true");
-				console.log(self.pieces)
 			}))
 			.catch(function (error) {
 				console.log(error);

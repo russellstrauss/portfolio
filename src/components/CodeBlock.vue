@@ -2,7 +2,7 @@
 	<div class="code-block">
 		
 		<div v-if="pretext" v-html="pretext"></div>
-		
+
 		<div class="code">
 			<pre :data-src="src"></pre>
 		</div>
@@ -35,7 +35,6 @@
 		mounted: function () {
 			
 			let self = this;
-			
 		}
 	};
 </script>
@@ -46,6 +45,5 @@
 		.code {
 			margin: 20px auto;
 		}
-		
 	}
 </style>

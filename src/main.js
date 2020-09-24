@@ -14,6 +14,9 @@ import GenericPage from './components/GenericPage.vue';
 import Code from './components/Code.vue';
 import Missing from './components/Missing.vue';
 
+window.Prism = window.Prism || {};
+Prism.manual = true;
+
 let baseUrl = process.env.NODE_ENV === 'production' ? 'https://jrstrauss.net/pending/portfolio/' : '/'; // also update vue.config.js
 
 const router = new VueRouter({
