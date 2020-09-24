@@ -11,7 +11,9 @@
 					<div v-html="details.rawHTML"></div>
 				</div>
 				
-				<CodeBlock v-for="codeBlock in codeBlocks" :key="codeBlock.src" :src="'/code/lu1.java'" :pretext="codeBlock.pretext" :posttext="codeBlock.posttext"></CodeBlock> 
+				<div v-if="details.codeBlocks">
+					<CodeBlock v-for="codeBlock in details.codeBlocks" :key="codeBlock.src" :src="codeBlock.src" :pretext="codeBlock.pretext" :posttext="codeBlock.posttext"></CodeBlock> 
+				</div>
 			</div>
 		</div>
 	</div>
@@ -36,8 +38,7 @@
 
 		data() {
 			return {
-				details: {},
-				codeBlocks: []
+				details: {}
 			};
 		},
 
@@ -52,11 +53,13 @@
 				
 				let categories = response.data.categories;
 				let category = categories.filter(category => category.path === self.$route.params.category);
-				console.log(category);
 				if (category[0]) self.details = category[0].pieces.filter(details => details.href === self.$route.path)[0];
 			})
 			.catch(function (error) {
 				console.log(error);
+			})
+			.then(function() { // run syntax highlighter after code has been successfully loaded
+				Prism.highlightAll();
 			});
 		}
 	};
