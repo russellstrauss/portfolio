@@ -76,7 +76,7 @@
 					<li>MS Computer Science 2020</li>
 					<li>Specialized in Computer Graphics</li>
 					<li>
-						<span class="gt-rankings" title="Ranked #4 Most Innovative Schools <br>Ranked #5 Top Public Schools <br>Ranked #8 Computer Science<br><br>Source: <a href='https://www.usnews.com/best-colleges'>US News and World Report</a>">
+						<span class="gt-rankings" title="Ranked #4 Most Innovative Schools <br>Ranked #5 Top Public Schools <br>Ranked #5 Computer Science<br><br>Source: <a href='https://www.usnews.com/best-colleges'>US News and World Report 2021</a>">
 							Georgia Institute of Technology
 						</span>
 					</li>
@@ -85,7 +85,7 @@
 				<ul>
 					<li>BS Computational Media 2012</li>
 					<li>
-						<span class="gt-rankings" title="Ranked #4 Most Innovative Schools <br>Ranked #5 Top Public Schools <br>Ranked #8 Computer Science<br><br>Source: <a href='https://www.usnews.com/best-colleges'>US News and World Report</a>">
+						<span class="gt-rankings" title="Ranked #4 Most Innovative Schools <br>Ranked #5 Top Public Schools <br>Ranked #5 Computer Science<br><br>Source: <a href='https://www.usnews.com/best-colleges'>US News and World Report 2021</a>">
 							Georgia Institute of Technology
 						</span>
 					</li>

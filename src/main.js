@@ -11,9 +11,10 @@ import Resume from './Resume.vue';
 import CategoryDetail from './components/CategoryDetail.vue';
 import DetailPage from './components/DetailPage.vue';
 import GenericPage from './components/GenericPage.vue';
+import Code from './components/Code.vue';
 import Missing from './components/Missing.vue';
 
-let baseUrl = process.env.NODE_ENV === 'production' ? '/' : '/'; // also update vue.config.js
+let baseUrl = process.env.NODE_ENV === 'production' ? 'https://jrstrauss.net/pending/portfolio/' : '/'; // also update vue.config.js
 
 const router = new VueRouter({
 	base: baseUrl,
@@ -27,6 +28,7 @@ const router = new VueRouter({
 		{ path: '/work/detail/:category', component: GenericPage }, // category landing page instead of listing page
 		{ path: '/work/:category/detail/:id', component: GenericPage }, // detail page for item in category listing page
 		{ path: '/work/:category/:id', component: GenericPage },
+		{ path: '/work/:category/code/:id', component: Code },
 		{ path: '*', component: Missing }
 	]
 });

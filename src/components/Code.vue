@@ -1,15 +1,17 @@
 <template>
-	<div class="generic-page">
+	<div class="code-page">
 		
 		<Title></Title>
 		<div class="layout-wrapper">
 			<Nav></Nav>
 			
 			<div class="main-content">
-				<h1>{{details.title}}</h1>
+				<h1>Code Page {{details.title}}</h1>
 				<div v-if="details.rawHTML" class="raw-html-container">
 					<div v-html="details.rawHTML"></div>
 				</div>
+				
+				<CodeBlock v-for="codeBlock in codeBlocks" :key="codeBlock.src" :src="'/code/lu1.java'" :pretext="codeBlock.pretext" :posttext="codeBlock.posttext"></CodeBlock> 
 			</div>
 		</div>
 	</div>
@@ -19,20 +21,23 @@
 	
 	import Title from './Title.vue';
 	import Nav from './Nav.vue';
+	import CodeBlock from './CodeBlock.vue';
 	import axios from 'axios';
 	
 	export default {
 		
-		name: 'GenericPage',
+		name: 'Code',
 
 		components: {
+			Title,
 			Nav,
-			Title
+			CodeBlock
 		},
 
 		data() {
 			return {
-				details: {}
+				details: {},
+				codeBlocks: []
 			};
 		},
 
@@ -42,14 +47,12 @@
 			
 			let self = this;
 			
-			console.log(self.$route);
-			
 			let pieces = '/data/pieces.json';
 			axios.get(pieces).then(function(response) {
 				
 				let categories = response.data.categories;
 				let category = categories.filter(category => category.path === self.$route.params.category);
-				
+				console.log(category);
 				if (category[0]) self.details = category[0].pieces.filter(details => details.href === self.$route.path)[0];
 			})
 			.catch(function (error) {
@@ -60,7 +63,7 @@
 </script>
 
 <style lang="scss">
-	.generic-page {
+	.code-page {
 		
 		h1 {
 			margin-bottom: 100px;

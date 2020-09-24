@@ -5,6 +5,7 @@
 			"pieces": [
 				{
 					"sortOrder": "1",
+					"published": "true",
 					"title": "Dollywood",
 					"description": "New site build of large scale e-commerce and marketing site for Herschend Family Entertainment. Site includes multiple theme park properties designed to use the same platform and code base.",
 					"natureOfContributions": "Designed and built initial front-end site; designed the site architecture to support many sites being built on the same platform while maintaining unique branding needs for each independent site; built interactive and animated components; maintained automated build taskrunners; worked directly with client representative to ensure their needs and satisfaction were met; collaborated with UX and design team mates to improve site usability and overall quality; worked with team in India to integrate front-end build into Sitecore CMS.",
@@ -14,6 +15,7 @@
 				},
 				{
 					"sortOrder": "2",
+					"published": "true",
 					"title": "FultonCountyGA.gov",
 					"description": "New public-facing web site build for the Fulton Country local government body.",
 					"natureOfContributions": "Responsible for front-end build from static designs into well-structured, maintainable, and functional site; worked with back-end devs to integrate front-end build into the Sitecore CMS; led junior developers in building new front-end components and assisted with their back-end and CMS related questions while removing technical roadblocks.",
@@ -23,6 +25,7 @@
 				},
 				{
 					"sortOrder": "3",
+					"published": "true",
 					"title": "Hammerhead Silver",
 					"description": "E-commerce site build for handmade jewelry brand, Hammerhead Silver.",
 					"natureOfContributions": "Freelance; worked directly with business owners to gather requirements and add features based on their feedback.",
@@ -32,15 +35,17 @@
 				},
 				{
 					"sortOrder": "4",
+					"published": "true",
 					"title": "Growasis",
 					"description": "Location-based web application concept built for sharing garden harvests, seed sharing, and farmers markets to help improve proximity-based food distribution.",
 					"natureOfContributions": "Original idea, requirements gathering, planning, and execution.",
 					"featuredImage": "/img/featured-images/growasis.jpg",
-					"href": "https://www.rightpoint.com/",
+					"href": "https://www.growasis.technology/",
 					"openInNewTab": "true"
 				},
 				{
 					"sortOrder": "5",
+					"published": "true",
 					"title": "Rightpoint.com",
 					"description": "Added multiple features and pages to Rightpoint agency web site including news filtering pages, portfolio piece filtering pages, careers landing page, animations, and others",
 					"natureOfContributions": "Iterated with designers to improve existing pages and collaborated with marketing team to add new features.",
@@ -50,6 +55,7 @@
 				},
 				{
 					"sortOrder": "6",
+					"published": "true",
 					"title": "ICF International ",
 					"description": "New site build for international consulting company.",
 					"natureOfContributions": "Built various custom UI's including menus, search interface, and various interactive components; wrote back-end code to integrate into Sitecore CMS.",
@@ -59,6 +65,7 @@
 				},
 				{
 					"sortOrder": "7",
+					"published": "true",
 					"title": "Pariveda Solutions",
 					"description": "New site build for software company.",
 					"natureOfContributions": "Designed and built front-end code from static designs: layout, CSS and JS structure, custom UI, & animations; collaborated with back-end devs to integrate full front-end build into Sitecore CMS.",
@@ -68,6 +75,7 @@
 				},
 				{
 					"sortOrder": "8",
+					"published": "true",
 					"title": "Brother USA",
 					"description": "Public facing site build for printer and sewing machine manufacturer.",
 					"natureOfContributions": "Worked in a large team to fix bugs, organize layouts, and coordinate front-end work between team members.",
@@ -77,6 +85,7 @@
 				},
 				{
 					"sortOrder": "9",
+					"published": "true",
 					"title": "Hilton Grand Vacations",
 					"description": "This project involved building an internal intranet site for Hilton Grand Vacations using Microsoft SharePoint. The site has a user base of 8000 users and is used to distribute information to employees, provide links and bookmarks to benefits, communicate news & company announcements, and allow Hilton to set up pages for its internal departments. Since the site is not publicly available, I have documented small pieces of the work here on my own site.",
 					"natureOfContributions": "Built custom designs into functional intranet site while working within the constraints of SharePoint platform.",
@@ -86,6 +95,7 @@
 				},
 				{
 					"sortOrder": "10",
+					"published": "true",
 					"title": "Atrium Health",
 					"description": "Re-platform of previous site and ongoing maintenance.",
 					"natureOfContributions": "Re-platformed original site from previous system into Sitecore CMS; maintained and improved site over the course of 4 years; added pages, features, and single page applications such as doctor search and urgent care locator.",
@@ -95,6 +105,7 @@
 				},
 				{
 					"sortOrder": "11",
+					"published": "true",
 					"title": "Broward Health",
 					"description": "Broward Health is a hospital system in Fort Lauderdale, Florida. I am proud of this project as it was a big success since our 3-person team delivered a quality product on time and under-budget. I also learned a ton over the 3-month project dealing with frontend JavaScript architecture, writing modular and maintainable web components, and writing backend code in C# to create enterprise web apps.",
 					"natureOfContributions": "Worked in small team to build out new site.",
@@ -104,6 +115,7 @@
 				},
 				{
 					"sortOrder": "12",
+					"published": "true",
 					"title": "Heartland Payments Systems",
 					"description": "New multi-site integration build for financial tech company.",
 					"natureOfContributions": "Designed front-end structure that would allow for multiple sites to be built upon the same design system and code base, while using their own custom branding for each site brand; worked with India team to integrate and debug Sitecore components.",
@@ -113,6 +125,7 @@
 				},
 				{
 					"sortOrder": "13",
+					"published": "true",
 					"title": "Bay Area Air Quality Management District",
 					"description": "Maintenance on existing site for air quality regulating body of San Francisco Bay area.",
 					"natureOfContributions": "Minor maintenance and integration of complex data table structures.",
@@ -122,6 +135,7 @@
 				},
 				{
 					"sortOrder": "14",
+					"published": "true",
 					"title": "El Jimador",
 					"description": "The redesign of El Jimador's web site was taken on by Engauge in early 2013. The site, built in Drupal and fully responsive among all devices and browsers, is a robust example of a site that uses branding and imagery to drive the site's appeal. The structure of the site itself is very interesting in its layout and unique segmentation—not only purely for its form factor, but also for the process of its implementation. It's a great example of both a multilingual and multi-country site. ¡Olé! Tequila shots all around!",
 					"natureOfContributions": "An external contractor dropped the job and disappeared, so I picked up the project and completed it to see it to production launch.",
@@ -131,6 +145,7 @@
 				},
 				{
 					"sortOrder": "15",
+					"published": "true",
 					"title": "Verizon Wireless",
 					"description": "Verizon is Moxie's biggest client, and for 2014, I was a part of the team that was in charge of rebuilding and refactoring their site (specifically www.verizonwireless.com) for Verizon Wireless—their cell phone and wireless services sector. Since this project is a much longer term and ongoing project, it creates a different workflow that many developers are not used to—from always referencing branding and style guidelines, to getting previously built pages, widgets, and code working and interacting with new builds, to working with a huge team, to keeping up with all of the code standards that all code must strictly follow in order to be approved. Though among all these challenges, I thoroughly enjoyed working on something that is well-known and being used by so many people around the world.",
 					"natureOfContributions": "Created cart pages with complex table structures for online phone store.",
@@ -140,6 +155,7 @@
 				},
 				{
 					"sortOrder": "16",
+					"published": "true",
 					"title": "Food Lion",
 					"description": "Food Lion's site is a large-scale, corporate site with a robust set of features and an expansive amount of content. The site is all built on .Net and managed by a small team of people at Engauge.",
 					"natureOfContributions": "Maintenance—promotions, new features, bug fixes, interactive front-end work, content updates, and deployment.",
@@ -149,6 +165,7 @@
 				},
 				{
 					"sortOrder": "17",
+					"published": "true",
 					"title": "Cisco's Mobility Your Way",
 					"description": "Internet security is an extremely important concept in computing today. You've heard the horror stories—Apple's prototypes leaked to the public, Target's databases scoured for credit card information, identity theft occurring daily all over the world, and more. That's why Cisco put together this interactive experience to educate business owner's on the importance of security, some of the common pitfalls people run into, and how goals and perspective differ between business decision makers and technical decision makers.",
 					"natureOfContributions": "Created infographic independently.",
@@ -158,6 +175,7 @@
 				},
 				{
 					"sortOrder": "18",
+					"published": "true",
 					"title": "Callaway Gardens",
 					"description": "Callaway Garden's site, developed in Drupal in 2012.",
 					"natureOfContributions": "Built site with 3-person dev team.",
@@ -172,46 +190,67 @@
 			"pieces": [
 				{
 					"sortOrder": "1",
+					"published": "true",
 					"title": "3DJ: A Virtual Reality Real-time Audio Maniuplation Tool",
 					"description": "",
 					"featuredImage": "/img/featured-images/3DJ.jpg",
+					"rawHTML": "Example with live audio:<br><br> <video controls poster=\"/img/featured-images/3dj-poster-1.jpg\"><source src=\"/video/3DJ-sound.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video> Example full-quality headset direct video capture (no sound but better image clarity):<br><br> <video controls poster=\"/img/featured-images/3dj-poster-2.jpg\"><source src=\"/video/3DJ-video.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video> <a href=\"https://jrstrauss.net/vr/3DJ/\">View live application here</a>",
 					"href": "/work/interactive/3DJ",
 					"openInNewTab": "false"
 				},
 				{
 					"sortOrder": "2",
+					"published": "true",
 					"title": "Algorhythm: Interactive Beat Sequencing",
 					"description": "",
 					"featuredImage": "/img/featured-images/rhthym-wheel.jpg",
-					"href": "/work/interactive/3DJ",
+					"rawHTML": "<video controls poster=\"/img/featured-images/algorhythm-poster.jpg\"><source src=\"/video/algorhythm.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video> <a href=\"https://jrstrauss.net/cg/rhythm-wheel\">View live application here</a>",
+					"href": "/work/interactive/algorhythm",
 					"openInNewTab": "false"
 				},
 				{
 					"sortOrder": "3",
+					"published": "true",
 					"title": "Zoom Eternal",
 					"description": "Realtime physics robot battle arena game.",
 					"featuredImage": "/img/featured-images/zoom-eternal.jpg",
+					"rawHTML": "<video controls poster=\"/img/featured-images/zoom-eternal-poster.jpg\"><source src=\"/video/zoom-eternal.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video> <a href=\"https://jrstrauss.net/vg/team_zoom_eternal_final.7z\">Download game here</a>",
 					"href": "/work/interactive/zoom-eternal",
 					"openInNewTab": "false"
 				},
 				{
 					"sortOrder": "4",
+					"published": "true",
 					"title": "Immersive Art",
 					"description": "",
 					"featuredImage": "/img/featured-images/immersive-art.jpg",
+					"rawHTML": "<video controls poster=\"/img/featured-images/immersive-art-poster.jpg\"><source src=\"/video/immersive-art.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video> <a href=\"https://jrstrauss.net/vr/immersive-art\">View live application here</a>",
 					"href": "/work/interactive/immersive-art",
 					"openInNewTab": "false"
 				},
 				{
 					"sortOrder": "5",
+					"published": "true",
 					"title": "colorspace",
 					"description": "Three-dimensional colorspace models: using geometry to calculate colors in 3D space.",
 					"featuredImage": "/img/featured-images/colorspace.jpg",
-					"href": "https://jrstrauss.net/cg/colorspace/",
+					"rawHTML": "<video controls poster=\"/img/featured-images/colorspace-poster.jpg\"><source src=\"/video/colorspace.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video> <a href=\"https://jrstrauss.net/cg/colorspace\">View live application here</a>",
+					"href": "/work/interactive/colorspace",
+					"openInNewTab": "false"
+				},
+				{
+					"sortOrder": "6",
+					"published": "true",
+					"title": "Logarithmic Spiral for Smooth Camera Motion",
+					"description": "Dynamically generating log spirals for camera trajectory.",
+					"featuredImage": "/img/featured-images/log-spiral.jpg",
+					"rawHTML": "<video controls poster=\"/img/featured-images/log-spiral-poster.jpg\"><source src=\"/video/log-spiral.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video>",
+					"href": "/work/interactive/logarithmic-spiral-camera-motion",
 					"openInNewTab": "false"
 				},
 				{
 					"sortOrder": "11",
+					"published": "true",
 					"title": "Painting Nature",
 					"description": "A non-traditional paint program used to create striking scenes of nature.",
 					"featuredImage": "/img/featured-images/painting-nature.jpg",
@@ -220,6 +259,7 @@
 				},
 				{
 					"sortOrder": "12",
+					"published": "true",
 					"title": "3D Animation Editor",
 					"description": "",
 					"featuredImage": "/img/featured-images/3d-animation-editor.jpg",
@@ -228,6 +268,7 @@
 				},
 				{
 					"sortOrder": "13",
+					"published": "true",
 					"title": "Projectile Prediction",
 					"description": "",
 					"featuredImage": "/img/featured-images/projectile-prediction.jpg",
@@ -236,6 +277,7 @@
 				},
 				{
 					"sortOrder": "14",
+					"published": "true",
 					"title": "Polygon Smoothing and Subdivision",
 					"description": "",
 					"featuredImage": "/img/featured-images/polygon-subdivision.jpg",
@@ -244,6 +286,7 @@
 				},
 				{
 					"sortOrder": "15",
+					"published": "true",
 					"title": "Rotation Transformations, Realistic Center of Gravity",
 					"description": "",
 					"featuredImage": "/img/featured-images/rainbow-road.jpg",
@@ -252,6 +295,7 @@
 				},
 				{
 					"sortOrder": "16",
+					"published": "true",
 					"title": "Medial Axis",
 					"description": "",
 					"featuredImage": "/img/featured-images/medial-axis.jpg",
@@ -260,6 +304,7 @@
 				},
 				{
 					"sortOrder": "17",
+					"published": "true",
 					"title": "Fermat Point",
 					"description": "",
 					"featuredImage": "/img/featured-images/fermat.jpg",
@@ -273,17 +318,21 @@
 			"pieces": [
 				{
 					"sortOrder": "1",
+					"published": "true",
 					"title": "Mt. Hood Climb",
 					"description": "Video footage from my summit of Mt. Hood, April 2019.",
-					"featuredImage": "/img/featured-images/mt-hood-thumb.jpg",
+					"featuredImage": "/img/featured-images/mt-hood-poster.jpg",
+					"rawHTML": "<video controls poster=\"/img/mt-hood-poster.jpg\"><source src=\"/video/mt-hood.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video><p>Video documenting the process of my climb of Mt. Hood, the tallest mountain in Oregon. The mountain is covered in snow year-round and stands 11,250 feet above sea level.</p>",
 					"href": "/work/video/mt-hood",
 					"openInNewTab": "false"
 				},
 				{
 					"sortOrder": "2",
+					"published": "true",
 					"title": "Star of Wonder",
 					"description": "A film project about the grandeur of the Universe and smallness of humans.",
-					"featuredImage": "/img/featured-images/star-of-wonder-thumb.jpg",
+					"featuredImage": "/img/featured-images/star-of-wonder-poster.jpg",
+					"rawHTML": "<video style=\"width: 100%;\" controls><source src=\"/video/star-of-wonder.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video> <p>The song, called Star of Wonder by Sufjan Stevens, I thought runs deeper than only the music and could be improved by visual aid. I thought of what the song might mean, what it tries to communicate, and what that might look like on a screen. I tried to listen more closely to the music and really focus on what images the music builds in my mind. When shooting the video, I tried to elaborate on some of the themes that the music touches on such as: the smallness or insignificance of human beings, the aesthetics of lights, the stars and the moon, the busyness of our lives and how small and insignificant we are, and the overall awesomeness and grandeur of the Universe. I shot within the city and let the bigness of the city parallel and serve as a metaphor with the theme of the hugeness of the Universe.</p><p>Since I was not able to get any shots of the night sky in detail with the primitive equipment that I have, I let the city lights serve as a substitute. I made sure that the rhythm of the video matches the rhythm of the music, such as only cutting on beat with the music or the stop motion segments alongside the fleeting sounds of the flute and keyboard. Segments with quicker tempoed sounds match with quicker movements on the screen, and more peaceful music match with serene landscapes or sights of lights. I tried to focus on the framing and color of the shots in the video the most. With all of the city lights, the colors are very important. Additionally, the camera movement provided another hugely important element in the video, which offers different artistic perspectives in the way the images are presented.</p>",
 					"href": "/work/video/star-of-wonder",
 					"openInNewTab": "false"
 				}
@@ -294,14 +343,43 @@
 			"pieces": [
 				{
 					"sortOrder": "1",
+					"published": "true",
 					"title": "LU Decomposition",
 					"description": "",
 					"featuredImage": "/img/featured-images/LU.jpg",
-					"href": "/work/mathematics/LU",
-					"openInNewTab": "false"
+					"href": "/work/mathematics/code/LU",
+					"openInNewTab": "false",
+					"codeBlocks": [
+						{
+							"pretext": "<p><a href=\"http://en.wikipedia.org/wiki/LU_decomposition\">LU Decomposition</a> is one of the most common methods of matrix decomposition. It results in one lower triangular matrix, L, and one upper triangular matrix, U. LU decomposition has a much simpler process than other methods of matrix decomposition, but cannot be calculated with as much accuracy as other methods, which is especially important when writing computer programs such as this one that can extend the iterations well beyond what can be done by a human.</p><p>To begin the decomposition, we first create the <a href=\"http://en.wikipedia.org/wiki/Hilbert_matrix\">Hilbert matrix</a>, which is the matrix that we will decompose in this problem, but the process can be performed with any desired matrix. The user is prompted to enter a dimension, and the program generates the Hilbert matrix (and each successive step in the process) based upon that dimension.</p>",
+							"src": "/code/lu1.java",
+							"posttext": "<p>The decimal format is used to display the matrices in the terminal in a readable form, neatly organized. The next step is to calculate our vector b, given in the problem statement, which is simply a vector equal to the number of dimensions, n, with 1 in each element: {1, 1,..., 1}.</p>"
+						},
+						{
+							"src": "/code/lu2.java",
+							"posttext": "<p>Throughout the calculation of the decomposition, we will need to use the identity matrix at various points, so we calculate it and store it into an array named I.</p>"
+						},
+						{
+							"src": "/code/lu3.java",
+							"posttext": "<p>After creating the Hilbert matrix, identity matrix, and vector b, we can now start to calculate L and U. The matrix U consists of our original Hilbert matrix, row-reduced into an upper-triangular <a href=\"http://en.wikipedia.org/wiki/Row_echelon_form\">row echelon form</a>.</p>"
+						},
+						{
+							"src": "/code/lu4.java",
+							"posttext": "<p>Next, we want to find the L matrix. At this point, finding L is very similar to finding U, except now we will add another for loop to the method. L starts out as the first column of our original Hilbert matrix. Next we need an identity matrix to work with, so we create it with two for loops and create a temporary matrix, tempL, and set it to the identity. Next, we use the tempL by dividing the elements in the Hilbert matrix (locally called “Matrix”) and multiply it by our variable L matrix to find the end product L matrix.</p><p>In other words, to find L, we want to find the inverse of the Hilbert matrix--what matrix when multiplied by the original matrix will equal the identity matrix. Performing the same row-reducing operations that we used to find U on the identity matrix will give us the lower triangular matrix L.</p>"
+						},
+						{
+							"src": "/code/lu5.java",
+							"posttext": "<p>As you can see, when evaluating our error, our LU algorithm is generally accurate, maxing out at 4.108e-14 at n=19, although our error in compared to the max norm of Hx-b only stays accurate for the first 8 or 9 dimensions. To calculate X, we used the equation Lb=y to solve for y, and then used back substitution in UX=y to solve for X. Note: the larger error in maxNorm(HX-b) occurs as a result of using Python to solve for Hx-b, which can not handle such large numbers as Java can. Regardless, the overall LU decomposition was successful and accurate.</p><img class=\"margin-bottom-small\" alt=\"LU decomposition error\" src=\"/img/math/LUchart.png\" />"
+						},
+						{
+							"pretext": "<p>And when all put together:</p>",
+							"src": "/code/lu6.java"
+						}
+					]
 				},
 				{
 					"sortOrder": "2",
+					"published": "true",
 					"title": "QR Decomposition via Householder Reflections",
 					"description": "",
 					"featuredImage": "/img/featured-images/householder.jpg",
@@ -310,6 +388,7 @@
 				},
 				{
 					"sortOrder": "3",
+					"published": "true",
 					"title": "QR Decomposition via Givens Rotations",
 					"description": "",
 					"featuredImage": "/img/featured-images/givens.jpg",
@@ -318,6 +397,7 @@
 				},
 				{
 					"sortOrder": "4",
+					"published": "true",
 					"title": "Matrix Operations",
 					"description": "",
 					"featuredImage": "/img/featured-images/matrix-operations.jpg",
