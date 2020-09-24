@@ -74,5 +74,9 @@
 		margin-left: 30px;
 		// opacity: 0;
 		transition: opacity 600ms ease, margin-left 400ms ease;
+		
+		a {
+			text-decoration: none;
+		}
 	}
 </style>

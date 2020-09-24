@@ -78,6 +78,10 @@
 		margin-bottom: 50px;
 		line-height: 1.25;
 		
+		@include mobile-only {
+			font-size: 18px;
+		}
+		
 		a {
 			font-size: 40px;
 			color: black;
