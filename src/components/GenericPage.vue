@@ -42,8 +42,6 @@
 			
 			let self = this;
 			
-			console.log(self.$route);
-			
 			let pieces = '/data/pieces.json';
 			axios.get(pieces).then(function(response) {
 				
