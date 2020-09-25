@@ -352,28 +352,28 @@
 					"codeBlocks": [
 						{
 							"pretext": "<p><a href=\"http://en.wikipedia.org/wiki/LU_decomposition\">LU Decomposition</a> is one of the most common methods of matrix decomposition. It results in one lower triangular matrix, L, and one upper triangular matrix, U. LU decomposition has a much simpler process than other methods of matrix decomposition, but cannot be calculated with as much accuracy as other methods, which is especially important when writing computer programs such as this one that can extend the iterations well beyond what can be done by a human.</p><p>To begin the decomposition, we first create the <a href=\"http://en.wikipedia.org/wiki/Hilbert_matrix\">Hilbert matrix</a>, which is the matrix that we will decompose in this problem, but the process can be performed with any desired matrix. The user is prompted to enter a dimension, and the program generates the Hilbert matrix (and each successive step in the process) based upon that dimension.</p>",
-							"src": "/code/lu1.java",
+							"src": "/code//math/lu/lu1.java",
 							"posttext": "<p>The decimal format is used to display the matrices in the terminal in a readable form, neatly organized. The next step is to calculate our vector b, given in the problem statement, which is simply a vector equal to the number of dimensions, n, with 1 in each element: {1, 1,..., 1}.</p>"
 						},
 						{
-							"src": "/code/lu2.java",
+							"src": "/code//math/lu/lu2.java",
 							"posttext": "<p>Throughout the calculation of the decomposition, we will need to use the identity matrix at various points, so we calculate it and store it into an array named I.</p>"
 						},
 						{
-							"src": "/code/lu3.java",
+							"src": "/code//math/lu/lu3.java",
 							"posttext": "<p>After creating the Hilbert matrix, identity matrix, and vector b, we can now start to calculate L and U. The matrix U consists of our original Hilbert matrix, row-reduced into an upper-triangular <a href=\"http://en.wikipedia.org/wiki/Row_echelon_form\">row echelon form</a>.</p>"
 						},
 						{
-							"src": "/code/lu4.java",
+							"src": "/code//math/lu/lu4.java",
 							"posttext": "<p>Next, we want to find the L matrix. At this point, finding L is very similar to finding U, except now we will add another for loop to the method. L starts out as the first column of our original Hilbert matrix. Next we need an identity matrix to work with, so we create it with two for loops and create a temporary matrix, tempL, and set it to the identity. Next, we use the tempL by dividing the elements in the Hilbert matrix (locally called “Matrix”) and multiply it by our variable L matrix to find the end product L matrix.</p><p>In other words, to find L, we want to find the inverse of the Hilbert matrix--what matrix when multiplied by the original matrix will equal the identity matrix. Performing the same row-reducing operations that we used to find U on the identity matrix will give us the lower triangular matrix L.</p>"
 						},
 						{
-							"src": "/code/lu5.java",
+							"src": "/code//math/lu/lu5.java",
 							"posttext": "<p>As you can see, when evaluating our error, our LU algorithm is generally accurate, maxing out at 4.108e-14 at n=19, although our error in compared to the max norm of Hx-b only stays accurate for the first 8 or 9 dimensions. To calculate X, we used the equation Lb=y to solve for y, and then used back substitution in UX=y to solve for X. Note: the larger error in maxNorm(HX-b) occurs as a result of using Python to solve for Hx-b, which can not handle such large numbers as Java can. Regardless, the overall LU decomposition was successful and accurate.</p><img class=\"margin-bottom-small\" alt=\"LU decomposition error\" src=\"/img/math/LUchart.png\" />"
 						},
 						{
 							"pretext": "<p>And when all put together:</p>",
-							"src": "/code/lu6.java"
+							"src": "/code//math/lu/lu6.java"
 						}
 					]
 				},
@@ -383,8 +383,39 @@
 					"title": "QR Decomposition via Householder Reflections",
 					"description": "",
 					"featuredImage": "/img/featured-images/householder.jpg",
-					"href": "/work/mathematics/householders",
-					"openInNewTab": "false"
+					"href": "/work/mathematics/code/householders",
+					"openInNewTab": "false",
+					"codeBlocks": [
+						{
+							"pretext": "<p>The first step in calculating our <a title=\"Householder transformation\" href=\"http://en.wikipedia.org/wiki/Householder_transformation\">Householder reflection</a> matrices is to find our a<sub>n</sub> (also notated a<sub>i</sub>) vector, which is calculated by vector X - ||c-e1||: the vector X is the first column of the Hilbert matrix, and c is the norm of vector X. We use the same method in calculating the Hilbert matrix and the vector b as used prior in LU decomposition.</p>",
+							"src": "/code/math/householders/householders1.java"
+						},
+						{
+							"pretext": "<p>The next step is to find H(a<sub>1</sub>) which is found with the given equation:</p> <img class=\"add-border center\" alt=\"householder-equation-1\" src=\"/img/math/householder-equation-1.jpg\" />",
+							"src": "/code/math/householders/householders2.java",
+							"posttext": "<p>This will not only find H(a<sub>1</sub>), but also each subsequent H(a<sub>n</sub>) within the for loop, until we reach H(a<sub>n-1</sub>). After finding H(a<sub>n</sub>), we find H<sub>n</sub> but multiplying H<sub>n</sub> times A<sub>n-1</sub> which the first time through the loop is the Hilbert matrix.</p>"
+						},
+						{
+							"src": "/code/math/householders/householders3.java",
+							"posttext": "<p>After going through the loop, the program will find H<sub>n</sub>, set our starting matrix, HCopy, to that H<sub>n</sub>, and then perform the loop over again, until we have found Q and R. At the end of each loop H<sub>n-1</sub> is multiplied by H<sub>n</sub> and stored into Q. And next, we found the max norm of QR-H:</p>"
+						},
+						{
+							"src": "/code/math/householders/householders4.java",
+							"posttext": "<p>which uses the method we created for finding the max norm of a matrix:</p>"
+						},
+						{
+							"src": "/code/math/matrix-operations/infinite-norm.java",
+							"posttext": "<a href=\"/img/math/householder-error1.jpg\"><img alt=\"householder-error\" src=\"/img/math/householder-error1.jpg\" /></a><p>As you can see, when evaluating our error, our Householder algorithm is generally very accurate, maxing out at 3.379e-15 at n=19, although our error in compared to the max norm of Hx-b only stays accurate for the first 8 or 9 dimensions. To calculate X, we used the equation Q<sup>t</sup>b=y to solve for y, and then used back substitution in RX=y to solve for X. The larger error in maxNorm(HX-b) is because we used Python to solve for Hx-b which can not handle such large numbers as Java can. Regardless, our QR Householder factorization was successful and accurate.</p>"
+						},
+						{
+							"pretext": "<p>And the entire piece, unbroken:</p>",
+							"src": "/code/math/householders/householders5.java"
+						},
+						{
+							"pretext": "<p>will output the following:</p>",
+							"src": "/code/math/householders/householders-output.java"
+						}
+					]
 				},
 				{
 					"sortOrder": "3",
@@ -392,8 +423,38 @@
 					"title": "QR Decomposition via Givens Rotations",
 					"description": "",
 					"featuredImage": "/img/featured-images/givens.jpg",
-					"href": "/work/mathematics/givens",
-					"openInNewTab": "false"
+					"href": "/work/mathematics/code/givens",
+					"openInNewTab": "false",
+					"codeBlocks": [
+						{
+							"pretext": "<p>Simply put, <a title=\"Givens rotations\" href=\"http://en.wikipedia.org/wiki/Givens_rotation\">Givens rotations</a> is a method of <a href=\"http://en.wikipedia.org/wiki/Matrix_decomposition\">matrix decomposition</a>. Just as with polynomials in Algebra, a matrix can be factored into two separate matrices and used to solve a system of equations. There are many different methods of matrix decomposition, using Given rotations being one of them.</p><p>The following code will decompose the <a href=\"http://en.wikipedia.org/wiki/Hilbert_matrix\">Hilbert matrix </a>of any dimension with very high accuracy.</p><p>To start out, we calculate the Hilbert matrix as explained in the previous problems. Again we created the identity matrix, and set both our Q and G<sub>n</sub> to the identity to begin with.</p>",
+							"src": "/code/math/givens/givens1.java"
+						},
+						{
+							"pretext": "<p>Our first step is to calculate our rotation matrices to be used in multiplying and finding each G<sub>n</sub>. The cosine and sine squares move up and left in the matrix as we cancel out each element in the column. So for example, when we try to cancel out the bottom left element of the Hilbert matrix will start in the bottom right corner and as we move upward through the Hilbert matrix columns, the cosine and sine square in the rotation matrix will move up one row and left one column as we proceed. The rest of the elements are filled with the identity. It follows the form:</p><img class=\"add-border center margin-bottom-small\" alt=\"rotation-matrix\" src=\"/img/math//rotation-matrix.jpg\" /><p>The values of cosine and sine are calculated with:</p><img class=\"add-border center margin-bottom-small\" alt=\"sin-cos\" src=\"/img/math//sin-cos.jpg\" /><p>where b is the element in the Hilbert matrix that we are trying to cancel out, and a is the element above it. So to do this, I first calculated a and b:</p>",
+							"src": "/code/math/givens/givens2.java"
+						},
+						{
+							"pretext": "<p>The i for loop begins the process and goes through the rows of the Hilbert matrix while the j loop goes through the columns, moving from bottom to top. The first time through the loop, A<sub>n</sub> equals our Hilbert matrix, the next time through, it will equal G<sub>1</sub>*Hilbert, or A<sub>1</sub>, and so forth. Now that we have found the values for our sinX and cosX variables, we will put them into their corrosponding places into the G<sub>n</sub> matrix.</p>",
+							"src": "/code/math/givens/givens3.java"
+						},
+						{
+							"pretext": "<p>Next, we multiply G<sub>n</sub> with A<sub>n</sub> to find our A<sub>n+1</sub> and print our each matrix to make sure it is being calculated correctly. Then we multiply G<sub>n</sub>*Q. At the end of the process, this will represent Q = G<sub>n</sub>…G<sub>3</sub>G<sub>2</sub>G<sub>1</sub>.</p>",
+							"src": "/code/math/givens/givens4.java"
+						},
+						{
+							"pretext": "<p>After doing this, we turn G<sub>n</sub> back into the identity and loop back through the process. Since A<sub>n</sub> has changed, it will redo the process with the new A<sub>n </sub>each time through the i loop.</p>",
+							"src": "/code/math/givens/givens5.java"
+						},
+						{
+							"pretext": "<p>Now the only step left is to calculate the max norm of the error. The same method is used as in the previous problem.</p><p>Givens error:</p><a href=\"/img/math//givens-error.jpg\"><img class=\"add-border center margin-bottom-small\" alt=\"givens-error\" src=\"/img/math//givens-error.jpg\" /></a><p>As you can see, when evaluating our error, our Givens algorithm is generally very accurate, maxing out at 1.4641e-15 at n=17, although our error in compared to the max norm of Hx-b only stays accurate for the first 8 or 9 dimensions. To calculate X, we used the equation Q<sup>t</sup>b=y to solve for y, and then used back substitution in RX=y to solve for X. The larger error in maxNorm(HX-b) is because we used Python to solve for Hx-b which can not handle such large numbers as Java can. Regardless, our QR Givens rotation factorization was successful and accurate. The Givens method is overall much more stable than the other 2 methods, LU and Householders.</p><p>The code in its entirety:</p>",
+							"src": "/code/math/givens/givens-whole.java"
+						},
+						{
+							"pretext": "<p>And its output:</p>",
+							"src": "/code/math/givens/givens-output.java"
+						}
+					]
 				},
 				{
 					"sortOrder": "4",

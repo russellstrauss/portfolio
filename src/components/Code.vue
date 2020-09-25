@@ -6,7 +6,7 @@
 			<Nav></Nav>
 			
 			<div class="main-content">
-				<h1>Code Page {{details.title}}</h1>
+				<h1>{{details.title}}</h1>
 				<div v-if="details.rawHTML" class="raw-html-container">
 					<div v-html="details.rawHTML"></div>
 				</div>
@@ -53,6 +53,7 @@
 				
 				let categories = response.data.categories;
 				let category = categories.filter(category => category.path === self.$route.params.category);
+				console.log(category);
 				if (category[0]) self.details = category[0].pieces.filter(details => details.href === self.$route.path)[0];
 			})
 			.catch(function (error) {
