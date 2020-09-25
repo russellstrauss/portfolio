@@ -1,37 +1,43 @@
 {
 	"categories": [
 		{
-			"sortOrder": "2",
-			"title": "Web Application Development",
-			"path": "web-application-development",
-			"description": ""
-		},
-		{
 			"sortOrder": "1",
 			"title": "Interactive Development",
 			"path": "interactive",
 			"description": "int Description here"
 		},
 		{
+			"sortOrder": "2",
+			"title": "Web Application Development",
+			"path": "web-application-development",
+			"description": ""
+		},
+		{
 			"sortOrder": "3",
+			"title": "Data Visualization",
+			"path": "data-visualization",
+			"description": ""
+		},
+		{
+			"sortOrder": "4",
 			"title": "UI/UX",
 			"path": "ux",
 			"description": ""
 		},
 		{
-			"sortOrder": "4",
+			"sortOrder": "5",
 			"title": "2189 miles",
 			"path": "detail/2189-miles",
 			"description": "2189 miles description here"
 		},
 		{
-			"sortOrder": "5",
+			"sortOrder": "6",
 			"title": "Video",
 			"path": "video",
 			"description": ""
 		},
 		{
-			"sortOrder": "6",
+			"sortOrder": "7",
 			"title": "Mathematics",
 			"path": "mathematics",
 			"description": ""
