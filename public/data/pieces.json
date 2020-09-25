@@ -1,6 +1,134 @@
 {
 	"categories": [
 		{
+			"path": "interactive",
+			"pieces": [
+				{
+					"sortOrder": "1",
+					"published": "true",
+					"title": "3DJ: A Virtual Reality Real-time Audio Maniuplation Tool",
+					"description": "",
+					"featuredImage": "/img/featured-images/3DJ.jpg",
+					"rawHTML": "Example with live audio:<br><br> <video controls poster=\"/img/featured-images/3dj-poster-1.jpg\"><source src=\"/video/3DJ-sound.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video> Example full-quality headset direct video capture (no sound but better image clarity):<br><br> <video controls poster=\"/img/featured-images/3dj-poster-2.jpg\"><source src=\"/video/3DJ-video.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video> <a href=\"https://jrstrauss.net/vr/3DJ/\">View live application here</a>",
+					"href": "/work/interactive/3DJ",
+					"openInNewTab": "false"
+				},
+				{
+					"sortOrder": "2",
+					"published": "true",
+					"title": "Algorhythm: Interactive Beat Sequencing",
+					"description": "",
+					"featuredImage": "/img/featured-images/rhthym-wheel.jpg",
+					"rawHTML": "<video controls poster=\"/img/featured-images/algorhythm-poster.jpg\"><source src=\"/video/algorhythm.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video> <a href=\"https://jrstrauss.net/cg/rhythm-wheel\">View live application here</a>",
+					"href": "/work/interactive/algorhythm",
+					"openInNewTab": "false"
+				},
+				{
+					"sortOrder": "3",
+					"published": "true",
+					"title": "Zoom Eternal",
+					"description": "Realtime physics robot battle arena game.",
+					"featuredImage": "/img/featured-images/zoom-eternal.jpg",
+					"rawHTML": "<video controls poster=\"/img/featured-images/zoom-eternal-poster.jpg\"><source src=\"/video/zoom-eternal.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video> <a href=\"https://jrstrauss.net/vg/team_zoom_eternal_final.7z\">Download game here</a>",
+					"href": "/work/interactive/zoom-eternal",
+					"openInNewTab": "false"
+				},
+				{
+					"sortOrder": "4",
+					"published": "true",
+					"title": "Immersive Art",
+					"description": "",
+					"featuredImage": "/img/featured-images/immersive-art.jpg",
+					"rawHTML": "<video controls poster=\"/img/featured-images/immersive-art-poster.jpg\"><source src=\"/video/immersive-art.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video> <a href=\"https://jrstrauss.net/vr/immersive-art\">View live application here</a>",
+					"href": "/work/interactive/immersive-art",
+					"openInNewTab": "false"
+				},
+				{
+					"sortOrder": "5",
+					"published": "true",
+					"title": "colorspace",
+					"description": "Three-dimensional colorspace models: using geometry to calculate colors in 3D space.",
+					"featuredImage": "/img/featured-images/colorspace.jpg",
+					"rawHTML": "<video controls poster=\"/img/featured-images/colorspace-poster.jpg\"><source src=\"/video/colorspace.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video> <a href=\"https://jrstrauss.net/cg/colorspace\">View live application here</a>",
+					"href": "/work/interactive/colorspace",
+					"openInNewTab": "false"
+				},
+				{
+					"sortOrder": "6",
+					"published": "true",
+					"title": "Logarithmic Spiral for Smooth Camera Motion",
+					"description": "Dynamically generating log spirals for camera trajectory.",
+					"featuredImage": "/img/featured-images/log-spiral.jpg",
+					"rawHTML": "<video controls poster=\"/img/featured-images/log-spiral-poster.jpg\"><source src=\"/video/log-spiral.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video>",
+					"href": "/work/interactive/logarithmic-spiral-camera-motion",
+					"openInNewTab": "false"
+				},
+				{
+					"sortOrder": "11",
+					"published": "true",
+					"title": "Painting Nature",
+					"description": "A non-traditional paint program used to create striking scenes of nature.",
+					"featuredImage": "/img/featured-images/painting-nature.jpg",
+					"href": "/work/interactive/painting-nature",
+					"openInNewTab": "false"
+				},
+				{
+					"sortOrder": "12",
+					"published": "true",
+					"title": "3D Animation Editor",
+					"description": "",
+					"featuredImage": "/img/featured-images/3d-animation-editor.jpg",
+					"href": "/work/interactive/3d-animation-editor",
+					"openInNewTab": "false"
+				},
+				{
+					"sortOrder": "13",
+					"published": "true",
+					"title": "Projectile Prediction",
+					"description": "",
+					"featuredImage": "/img/featured-images/projectile-prediction.jpg",
+					"href": "/work/interactive/projectile-prediciton",
+					"openInNewTab": "false"
+				},
+				{
+					"sortOrder": "14",
+					"published": "true",
+					"title": "Polygon Smoothing and Subdivision",
+					"description": "",
+					"featuredImage": "/img/featured-images/polygon-subdivision.jpg",
+					"href": "/work/interactive/polygon-subdivision",
+					"openInNewTab": "false"
+				},
+				{
+					"sortOrder": "15",
+					"published": "true",
+					"title": "Rotation Transformations, Realistic Center of Gravity",
+					"description": "",
+					"featuredImage": "/img/featured-images/rainbow-road.jpg",
+					"href": "/work/interactive/rainbow-road",
+					"openInNewTab": "false"
+				},
+				{
+					"sortOrder": "16",
+					"published": "true",
+					"title": "Medial Axis",
+					"description": "",
+					"featuredImage": "/img/featured-images/medial-axis.jpg",
+					"href": "/work/interactive/medial-axis",
+					"openInNewTab": "false"
+				},
+				{
+					"sortOrder": "17",
+					"published": "true",
+					"title": "Fermat Point",
+					"description": "",
+					"featuredImage": "/img/featured-images/fermat.jpg",
+					"href": "/work/interactive/fermat-point",
+					"openInNewTab": "false"
+				}
+			]
+		},
+		{
 			"path": "web-application-development",
 			"pieces": [
 				{
@@ -186,129 +314,60 @@
 			]
 		},
 		{
-			"path": "interactive",
+			"path": "data-visualization",
 			"pieces": [
 				{
 					"sortOrder": "1",
 					"published": "true",
-					"title": "3DJ: A Virtual Reality Real-time Audio Maniuplation Tool",
+					"title": "Microplastics",
 					"description": "",
-					"featuredImage": "/img/featured-images/3DJ.jpg",
-					"rawHTML": "Example with live audio:<br><br> <video controls poster=\"/img/featured-images/3dj-poster-1.jpg\"><source src=\"/video/3DJ-sound.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video> Example full-quality headset direct video capture (no sound but better image clarity):<br><br> <video controls poster=\"/img/featured-images/3dj-poster-2.jpg\"><source src=\"/video/3DJ-video.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video> <a href=\"https://jrstrauss.net/vr/3DJ/\">View live application here</a>",
-					"href": "/work/interactive/3DJ",
+					"featuredImage": "/img/featured-images/microplastics-thumb.jpg",
+					"href": "https://jrstrauss.net/data-visualization/plastics-in-our-world/",
 					"openInNewTab": "false"
 				},
 				{
 					"sortOrder": "2",
 					"published": "true",
-					"title": "Algorhythm: Interactive Beat Sequencing",
+					"title": "Exoplanets: Lab 3 activity 1 & 2",
 					"description": "",
-					"featuredImage": "/img/featured-images/rhthym-wheel.jpg",
-					"rawHTML": "<video controls poster=\"/img/featured-images/algorhythm-poster.jpg\"><source src=\"/video/algorhythm.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video> <a href=\"https://jrstrauss.net/cg/rhythm-wheel\">View live application here</a>",
-					"href": "/work/interactive/algorhythm",
+					"featuredImage": "/img/featured-images/exoplanets-thumb.jpg",
+					"href": "",
 					"openInNewTab": "false"
 				},
 				{
 					"sortOrder": "3",
 					"published": "true",
-					"title": "Zoom Eternal",
-					"description": "Realtime physics robot battle arena game.",
-					"featuredImage": "/img/featured-images/zoom-eternal.jpg",
-					"rawHTML": "<video controls poster=\"/img/featured-images/zoom-eternal-poster.jpg\"><source src=\"/video/zoom-eternal.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video> <a href=\"https://jrstrauss.net/vg/team_zoom_eternal_final.7z\">Download game here</a>",
-					"href": "/work/interactive/zoom-eternal",
+					"title": "Whiskeys",
+					"description": "",
+					"featuredImage": "/img/featured-images/whiskeys-thumb.jpg",
+					"href": "",
 					"openInNewTab": "false"
 				},
 				{
 					"sortOrder": "4",
 					"published": "true",
-					"title": "Immersive Art",
+					"title": "Homerun Leaders: Lab 2 Activity 2",
 					"description": "",
-					"featuredImage": "/img/featured-images/immersive-art.jpg",
-					"rawHTML": "<video controls poster=\"/img/featured-images/immersive-art-poster.jpg\"><source src=\"/video/immersive-art.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video> <a href=\"https://jrstrauss.net/vr/immersive-art\">View live application here</a>",
-					"href": "/work/interactive/immersive-art",
+					"featuredImage": "/img/featured-images/homerun-leaders-thumb.jpg",
+					"href": "",
 					"openInNewTab": "false"
 				},
 				{
 					"sortOrder": "5",
 					"published": "true",
-					"title": "colorspace",
-					"description": "Three-dimensional colorspace models: using geometry to calculate colors in 3D space.",
-					"featuredImage": "/img/featured-images/colorspace.jpg",
-					"rawHTML": "<video controls poster=\"/img/featured-images/colorspace-poster.jpg\"><source src=\"/video/colorspace.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video> <a href=\"https://jrstrauss.net/cg/colorspace\">View live application here</a>",
-					"href": "/work/interactive/colorspace",
+					"title": "Website Popularity Through the Years",
+					"description": "",
+					"featuredImage": "/img/featured-images/website-popularity-thumb.jpg",
+					"href": "",
 					"openInNewTab": "false"
 				},
 				{
 					"sortOrder": "6",
 					"published": "true",
-					"title": "Logarithmic Spiral for Smooth Camera Motion",
-					"description": "Dynamically generating log spirals for camera trajectory.",
-					"featuredImage": "/img/featured-images/log-spiral.jpg",
-					"rawHTML": "<video controls poster=\"/img/featured-images/log-spiral-poster.jpg\"><source src=\"/video/log-spiral.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video>",
-					"href": "/work/interactive/logarithmic-spiral-camera-motion",
-					"openInNewTab": "false"
-				},
-				{
-					"sortOrder": "11",
-					"published": "true",
-					"title": "Painting Nature",
-					"description": "A non-traditional paint program used to create striking scenes of nature.",
-					"featuredImage": "/img/featured-images/painting-nature.jpg",
-					"href": "/work/interactive/painting-nature",
-					"openInNewTab": "false"
-				},
-				{
-					"sortOrder": "12",
-					"published": "true",
-					"title": "3D Animation Editor",
+					"title": "Stock Prices Trellis",
 					"description": "",
-					"featuredImage": "/img/featured-images/3d-animation-editor.jpg",
-					"href": "/work/interactive/3d-animation-editor",
-					"openInNewTab": "false"
-				},
-				{
-					"sortOrder": "13",
-					"published": "true",
-					"title": "Projectile Prediction",
-					"description": "",
-					"featuredImage": "/img/featured-images/projectile-prediction.jpg",
-					"href": "/work/interactive/projectile-prediciton",
-					"openInNewTab": "false"
-				},
-				{
-					"sortOrder": "14",
-					"published": "true",
-					"title": "Polygon Smoothing and Subdivision",
-					"description": "",
-					"featuredImage": "/img/featured-images/polygon-subdivision.jpg",
-					"href": "/work/interactive/polygon-subdivision",
-					"openInNewTab": "false"
-				},
-				{
-					"sortOrder": "15",
-					"published": "true",
-					"title": "Rotation Transformations, Realistic Center of Gravity",
-					"description": "",
-					"featuredImage": "/img/featured-images/rainbow-road.jpg",
-					"href": "/work/interactive/rainbow-road",
-					"openInNewTab": "false"
-				},
-				{
-					"sortOrder": "16",
-					"published": "true",
-					"title": "Medial Axis",
-					"description": "",
-					"featuredImage": "/img/featured-images/medial-axis.jpg",
-					"href": "/work/interactive/medial-axis",
-					"openInNewTab": "false"
-				},
-				{
-					"sortOrder": "17",
-					"published": "true",
-					"title": "Fermat Point",
-					"description": "",
-					"featuredImage": "/img/featured-images/fermat.jpg",
-					"href": "/work/interactive/fermat-point",
+					"featuredImage": "/img/featured-images/",
+					"href": "",
 					"openInNewTab": "false"
 				}
 			]
