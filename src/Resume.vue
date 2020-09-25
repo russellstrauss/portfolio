@@ -10,7 +10,7 @@
 				<h2>Objective</h2>
 				<ul>
 					<li>To find a full-time position utilizing my experience on the web platform to explore interests such
-						as<br />UI, visualization, computer graphics, and WebVR.</li>
+						as<br />UI/UX, visualization, computer graphics, and virtual reality.</li>
 				</ul>
 			</section>
 			<section class="contact left">
@@ -96,8 +96,8 @@
 			<section class="skills">
 				<h2>Skills</h2>
 				<ul class="plus">
-					<li>Front end: JavaScript, Vue.js, HTML, SASS, Gulp, Node.js, SVG</li>
-					<li>Back end: C#, Python, Node.js, IIS, SQL, Apache, PHP; interested in learning Ruby</li>
+					<li>Front end: JavaScript, Vue.js, Node.js, SASS, Gulp, SVG</li>
+					<li>Back end: C#, Node.js, Python, IIS, SQL, Apache, PHP; interested in learning Ruby</li>
 					<li>Responsive development for devices of all sizes, maintainability, and cross-browser compatibility</li>
 					<li>Preferred Methodology: iterative design and development through collaboration</li>
 					<li>Adobe Creative Suite, InVision, Sketch</li>
