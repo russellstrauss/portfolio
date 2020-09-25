@@ -321,8 +321,8 @@
 					"published": "true",
 					"title": "Mt. Hood Climb",
 					"description": "Video footage from my summit of Mt. Hood, April 2019.",
-					"featuredImage": "/img/featured-images/mt-hood-poster.jpg",
-					"rawHTML": "<video controls poster=\"/img/mt-hood-poster.jpg\"><source src=\"/video/mt-hood.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video><p>Video documenting the process of my climb of Mt. Hood, the tallest mountain in Oregon. The mountain is covered in snow year-round and stands 11,250 feet above sea level.</p>",
+					"featuredImage": "/img/featured-images/mt-hood-thumb.jpg",
+					"rawHTML": "<video controls poster=\"/img/featured-images/mt-hood-poster.jpg\"><source src=\"/video/mt-hood.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video><p>Video documenting the process of my climb of Mt. Hood, the tallest mountain in Oregon. The mountain is covered in snow year-round and stands 11,250 feet above sea level.</p>",
 					"href": "/work/video/mt-hood",
 					"openInNewTab": "false"
 				},
@@ -331,7 +331,7 @@
 					"published": "true",
 					"title": "Star of Wonder",
 					"description": "A film project about the grandeur of the Universe and smallness of humans.",
-					"featuredImage": "/img/featured-images/star-of-wonder-poster.jpg",
+					"featuredImage": "/img/featured-images/star-of-wonder-thumb.jpg",
 					"rawHTML": "<video style=\"width: 100%;\" controls><source src=\"/video/star-of-wonder.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video> <p>The song, called Star of Wonder by Sufjan Stevens, I thought runs deeper than only the music and could be improved by visual aid. I thought of what the song might mean, what it tries to communicate, and what that might look like on a screen. I tried to listen more closely to the music and really focus on what images the music builds in my mind. When shooting the video, I tried to elaborate on some of the themes that the music touches on such as: the smallness or insignificance of human beings, the aesthetics of lights, the stars and the moon, the busyness of our lives and how small and insignificant we are, and the overall awesomeness and grandeur of the Universe. I shot within the city and let the bigness of the city parallel and serve as a metaphor with the theme of the hugeness of the Universe.</p><p>Since I was not able to get any shots of the night sky in detail with the primitive equipment that I have, I let the city lights serve as a substitute. I made sure that the rhythm of the video matches the rhythm of the music, such as only cutting on beat with the music or the stop motion segments alongside the fleeting sounds of the flute and keyboard. Segments with quicker tempoed sounds match with quicker movements on the screen, and more peaceful music match with serene landscapes or sights of lights. I tried to focus on the framing and color of the shots in the video the most. With all of the city lights, the colors are very important. Additionally, the camera movement provided another hugely important element in the video, which offers different artistic perspectives in the way the images are presented.</p>",
 					"href": "/work/video/star-of-wonder",
 					"openInNewTab": "false"
@@ -462,8 +462,58 @@
 					"title": "Matrix Operations",
 					"description": "",
 					"featuredImage": "/img/featured-images/matrix-operations.jpg",
-					"href": "/work/mathematics/matrix-operations",
-					"openInNewTab": "false"
+					"href": "/work/mathematics/code/matrix-operations",
+					"openInNewTab": "false",
+					"codeBlocks": [
+						{
+							"pretext": "<p>Each method of decomposition uses various basic fundamental matrix operations, as follows:</p><p>Printing out matrices in a way that can be easily read and accurately displayed in the terminal:</p><p>To be able to view the results of our matrix operations and display the contents of the matrices, we must be able to print matrices in a form that is easily readable:</p>",
+							"src": "/code/math/matrix-operations/print2d.java"
+						},
+						{
+							"pretext": "<p>We must also be able to do the same with 3D matrices (or arrays of matrices):</p>",
+							"src": "/code/math/matrix-operations/print3d.java"
+						},
+						{
+							"pretext": "<p>In order to calculated the <a href=\"http://en.wikipedia.org/wiki/Transpose\">transpose</a> of a matrix:</p>",
+							"src": "/code/math/matrix-operations/transpose.java"
+						},
+						{
+							"pretext": "<p>Matrix subtraction:</p>",
+							"src": "/code/math/matrix-operations/subtract.java"
+						},
+						{
+							"pretext": "<p>Scalar multiplication on to a matrix:</p>",
+							"src": "/code/math/matrix-operations/scalar.java"
+						},
+						{
+							"pretext": "<p>Print a vector stored in a 1-dimensional array:</p>",
+							"src": "/code/math/matrix-operations/print-vector.java"
+						},
+						{
+							"pretext": "<p>Print a vector stored in a 2-dimensional array:</p>",
+							"src": "/code/math/matrix-operations/print-2d-vector.java"
+						},
+						{
+							"pretext": "<p>Print a vector stored in a 2D array, transposed:</p>",
+							"src": "/code/math/matrix-operations/print-vector-transposed.java"
+						},
+						{
+							"pretext": "<p>Subtract vectors:</p>",
+							"src": "/code/math/matrix-operations/subtract-vectors.java"
+						},
+						{
+							"pretext": "<p>Calculate the <a href=\"http://en.wikipedia.org/wiki/Norm_(mathematics)\">norm</a> of a vector:</p>",
+							"src": "/code/math/matrix-operations/norm-vector.java"
+						},
+						{
+							"pretext": "<p>Multiply a matrix by its transpose, as required by many methods of decomposition:</p>",
+							"src": "/code/math/matrix-operations/multiply-U-by-Ut.java"
+						},
+						{
+							"pretext": "<p>And finally, calculate the infinite norm of a matrix:</p>",
+							"src": "/code/math/matrix-operations/infinite-norm.java"
+						}
+					]
 				}
 			]
 		}
