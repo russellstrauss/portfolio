@@ -93,7 +93,7 @@
 <style lang="scss">
 
 	.name {
-		@include headingFont;
+		@include heading-font;
 		margin-top: 20px;
 		margin-bottom: 50px;
 		line-height: 1.25;
@@ -108,7 +108,7 @@
 	}
 
 	nav.main {
-		@include headingFont;
+		@include heading-font;
 		margin-bottom: 50px;
 		
 		.menu-main-container {

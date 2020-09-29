@@ -15,17 +15,24 @@
 						</div>
 					</header>
 					
-					<ul>
-						<li v-for="piece in pieces" :key="piece.sortOrder" class="each-piece">
-							<div class="featured-image" v-if="piece.featuredImage">
-								<a :href="piece.href" :target="JSON.parse(piece.openInNewTab) ? '_blank' : '_self'"><img v-if="piece.featuredImage" :src="piece.featuredImage" alt="featured-image"></a>
-							</div>
+					<ul :class="viewType">
+						<li v-for="piece in pieces" :key="piece.sortOrder" class="each-piece" :style="'background-image: url(' + piece.featuredImage + ');'">
 							
-							<div class="piece-details">
-								<h2><a :href="piece.href" :target="JSON.parse(piece.openInNewTab) ? '_blank' : '_self'">{{ piece.title }}</a></h2>
-								<p class="description">{{ piece.description }}</p>
-								<p class="nature-of-contributions" v-if="piece.natureOfContributions">Nature of contributions: {{ piece.natureOfContributions }}</p>
-							</div>
+							<!-- <div class="featured-image" v-if="piece.featuredImage">
+								<a :href="piece.href" :target="JSON.parse(piece.openInNewTab) ? '_blank' : '_self'"><img v-if="piece.featuredImage" :src="piece.featuredImage" alt="featured-image"></a>
+							</div> -->
+							<a :href="piece.href" :target="JSON.parse(piece.openInNewTab) ? '_blank' : '_self'">
+								<div class="piece-details">
+									<div class="row">
+										<h2><span>{{ piece.title }}</span></h2>
+										<div class="year" v-if="piece.year">{{piece.year}}</div>
+									</div>
+									<div class="text-block" v-if="piece.description !== ''">
+										<p class="description">{{ piece.description }}</p>
+										<p class="nature-of-contributions" v-if="piece.natureOfContributions">Nature of contributions: {{ piece.natureOfContributions }}</p>
+									</div>
+								</div>
+							</a>
 						</li>
 					</ul>
 				</div>
@@ -52,7 +59,8 @@
 		data() {
 			return {
 				category: {},
-				pieces: []
+				pieces: [],
+				viewType: 'grid' // grid or list
 			};
 		},
 
@@ -102,57 +110,156 @@
 			margin-bottom: 50px;
 		}
 		
-		.each-piece {
-			margin-bottom: 30px;
-
-			@include mobile-only {
-				margin-bottom: 150px;
-			}
-
-			@include desktop {
-				display: flex;
-			}
-			
-			.featured-image {
-				max-width: 500px;
-				margin-right: 20px;
+		ul {
+			&.grid {
 				
-				@include mobile-only {
-					margin-right: 0;
-					max-width: 100%;
+				@include tablet {
+					display: flex;
+					flex-wrap: wrap;
 				}
 				
-				img {
-					border: 1px solid black;
+				.each-piece {
+					background-size: cover;
+					background-position: center center;
+					position: relative;
+					
+					@include tablet {
+						@include grid(2, 100);
+					}
+					
+					&:hover {
+						
+						.piece-details {
+							background-color: rgba(255, 255, 255, .75);
+						}
+					}
+					
+					&:before {
+						content: "";
+						display: block;
+						padding-top: 100%;
+					}
+					
+					a {
+						color: black;
+					}
+					
+					.featured-image {
+						width: 100%;
+						margin: 0;
+					}
+					
+					.piece-details {
+						position: absolute;
+						top: 0;
+						left: 0;
+						right: 0;
+						bottom: 0;
+						padding: 20px;
+						
+						.row {
+							display: flex;
+							justify-content: space-between;
+							align-items: flex-start;
+							
+							h2 {
+								
+								span {
+									@include square-shadow;
+									background-color: white;
+									border: 1px solid black;
+									padding: 5px 10px;
+									line-height: 2;
+								}
+							}
+							
+							.year {
+								@include square-shadow;
+								background-color: white;
+								border: 1px solid black;
+								margin-bottom: 15px;
+								padding: 10px;
+								font-size: 18px;
+							}
+						}
+						
+						.text-block {
+							@include square-shadow;
+							background-color: white;
+							border: 1px solid black;
+							padding: 20px;
+							
+							*:last-child {
+								margin-bottom: 0;
+							}
+						}
+					}
+				}
+			}
+			
+			&.list {
+				
+			}
+		
+			.each-piece {
+				transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+				box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+				margin-bottom: 30px;
+
+				@include mobile-only {
+					margin-bottom: 150px;
+				}
+
+				@include desktop {
+					display: flex;
+				}
+				
+				&:hover {
+					box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+				}
+				
+				.featured-image {
+					max-width: 500px;
 					margin-right: 20px;
-					height: auto;
 					
 					@include mobile-only {
+						margin-right: 0;
+						max-width: 100%;
+					}
+					
+					img {
+						border: 1px solid black;
+						margin-right: 20px;
+						height: auto;
+						
+						@include mobile-only {
+							margin-bottom: 10px;
+						}
+		
+						@include desktop {
+							max-width: 500px;
+						}
+					}
+				}
+				
+				.piece-details {
+					transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+					
+					a {
+						text-decoration: none;
+					}
+					
+					h2 {
+						@include portfolio-piece-title;
+					}
+
+					.description {
 						margin-bottom: 10px;
 					}
-	
-					@include desktop {
-						max-width: 500px;
+
+					.nature-of-contributions {
+						font-size: 12px;
 					}
-				}
-			}
-			
-			.piece-details {
-				
-				a {
-					text-decoration: none;
-				}
-				
-				h2 {
-					@include portfolioPieceTitle;
-				}
-
-				.description {
-					margin-bottom: 10px;
-				}
-
-				.nature-of-contributions {
-					font-size: 12px;
 				}
 			}
 		}

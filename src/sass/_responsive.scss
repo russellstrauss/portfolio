@@ -10,7 +10,7 @@ $desktop-large-width: 1200px;
 	}
 }
 
-@mixin small-screen {
+@mixin small-screen { // tablet and mobile only
 	@media (max-width: #{$desktop-width}) {
 		@content;
 	}
@@ -33,12 +33,6 @@ $desktop-large-width: 1200px;
 // Target desktop and above (992px+)
 @mixin desktop {
 	@media (min-width: #{$desktop-width}) {
-		@content;
-	}
-}
-
-@mixin desktop-small-only {
-	@media (min-width: #{$desktop-width}) and (max-width: #{$desktop-large-width - 1px}) {
 		@content;
 	}
 }

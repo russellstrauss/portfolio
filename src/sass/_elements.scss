@@ -30,12 +30,13 @@ em {
 }
 
 img {
+	display: block;
 	max-width: 100%;
 	margin-bottom: 10px;
 }
 
 h1, h2, h3, h4, h5, h6 {
-	@include headingFont;
+	@include heading-font;
 }
 
 h1 {
@@ -77,6 +78,16 @@ hr {
 
 strong {
 	font-weight: bold;
+}
+
+ol {
+	list-style-type: decimal;
+	padding-left: 40px;
+	
+	li {
+		margin-bottom: 10px;
+		line-height: normal;
+	}
 }
 
 p {

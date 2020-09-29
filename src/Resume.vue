@@ -76,7 +76,7 @@
 					<li>MS Computer Science 2020</li>
 					<li>Specialized in Computer Graphics</li>
 					<li>
-						<span class="gt-rankings" title="Ranked #4 Most Innovative Schools <br>Ranked #5 Top Public Schools <br>Ranked #5 Computer Science<br><br>Source: <a href='https://www.usnews.com/best-colleges'>US News and World Report 2021</a>">
+						<span class="gt-rankings" title="Ranked #4 Most Innovative Schools <br>Ranked #5 Top U.S. Public Schools <br>Ranked #5 Computer Science<br><br>Source: <a href='https://www.usnews.com/best-colleges'>US News and World Report 2021</a>">
 							Georgia Institute of Technology
 						</span>
 					</li>
@@ -85,7 +85,7 @@
 				<ul>
 					<li>BS Computational Media 2012</li>
 					<li>
-						<span class="gt-rankings" title="Ranked #4 Most Innovative Schools <br>Ranked #5 Top Public Schools <br>Ranked #5 Computer Science<br><br>Source: <a href='https://www.usnews.com/best-colleges'>US News and World Report 2021</a>">
+						<span class="gt-rankings" title="Ranked #4 Most Innovative Schools <br>Ranked #5 Top U.S. Public Schools <br>Ranked #5 Computer Science<br><br>Source: <a href='https://www.usnews.com/best-colleges'>US News and World Report 2021</a>">
 							Georgia Institute of Technology
 						</span>
 					</li>
@@ -96,8 +96,8 @@
 			<section class="skills">
 				<h2>Skills</h2>
 				<ul class="plus">
-					<li>Front end: JavaScript, Vue.js, Node.js, SASS, Gulp, SVG</li>
-					<li>Back end: C#, Node.js, Python, IIS, SQL, Apache, PHP; interested in learning Ruby</li>
+					<li>Front end: JavaScript, Vue.js, Node.js, SASS, three.js, Gulp, SVG</li>
+					<li>Back end: C#, Python, IIS, SQL, Apache, PHP; interested in learning Ruby</li>
 					<li>Responsive development for devices of all sizes, maintainability, and cross-browser compatibility</li>
 					<li>Preferred Methodology: iterative design and development through collaboration</li>
 					<li>Adobe Creative Suite, InVision, Sketch</li>
@@ -227,6 +227,7 @@
 		color: $link-color;
 		font-size: 32px;
 		margin-bottom: 20px;
+		font-weight: 400;
 		
 		@include mobile-only {
 			margin-bottom: 10px;

@@ -49,3 +49,4 @@ if (window.NodeList && !NodeList.prototype.forEach) {
 }
 
 Vue.use(VueAwesomeSwiper, /* { default options with global component } */);
+import 'pdfobject';

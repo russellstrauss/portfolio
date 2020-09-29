@@ -48,7 +48,7 @@
 				if (categories) categories.sort(function(a, b) {
 					return a.sortOrder - b.sortOrder;
 				});
-				self.categories = response.data.categories;
+				self.categories = response.data.categories.filter(category => category.published === "true");
 			})
 			.catch(function (error) {
 				console.log(error);
@@ -69,7 +69,7 @@
 <style lang="scss">
 
 	.category {
-		@include headingFont;
+		@include heading-font;
 		margin-bottom: 20px;
 		margin-left: 30px;
 		// opacity: 0;

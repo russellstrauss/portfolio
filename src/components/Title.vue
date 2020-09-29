@@ -71,20 +71,21 @@
 <style lang="scss">
 
 	.name {
-		@include headingFont;
+		@include heading-font;
 		position: relative;
 		margin-bottom: 100px;
 		margin-top: 20px;
 		margin-bottom: 50px;
 		line-height: 1.25;
 		
-		@include mobile-only {
-			font-size: 18px;
-		}
 		
 		a {
 			font-size: 40px;
 			color: black;
+			
+			@include mobile-only {
+				font-size: 32px;
+			}
 		
 			.text-wrapper {
 				position: relative;
