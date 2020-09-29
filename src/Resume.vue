@@ -8,10 +8,10 @@
 		<div class="resume container">
 			<section class="skills">
 				<h2>Objective</h2>
-				<ul>
-					<li>To find a full-time position utilizing my experience on the web platform to explore interests such
-						as<br />UI/UX, visualization, computer graphics, and virtual reality.</li>
-				</ul>
+				<p>
+					To find a full-time position utilizing my experience on the web platform to explore interests such
+						as UI/UX, visualization, computer graphics, and virtual reality.
+				</p>
 			</section>
 			<section class="contact left">
 				<h2>Contact</h2>
@@ -218,12 +218,13 @@
 		text-align: right;
 		
 		.print-icon {
+			display: inline-block;
 			cursor: pointer;
 		}
 	}
 
-	@mixin resumeHeading {
-		font-family: 'IBM Plex Mono', monospace;
+	@mixin resume-heading {
+		@include ibm;
 		color: $link-color;
 		font-size: 32px;
 		margin-bottom: 20px;
@@ -354,7 +355,7 @@
 			}
 			
 			h2 {
-				@include resumeHeading;
+				@include resume-heading;
 			}
 			
 			ul {

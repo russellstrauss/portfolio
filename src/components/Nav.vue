@@ -108,8 +108,11 @@
 	}
 
 	nav.main {
-		@include heading-font;
 		margin-bottom: 50px;
+		
+		@include mobile-only {
+			margin-bottom: 100px;
+		}
 		
 		.menu-main-container {
 			
@@ -117,6 +120,7 @@
 				list-style-type: none;
 				
 				li {
+					@include heading-font;
 					margin-bottom: 20px;
 					line-height: 1;
 					

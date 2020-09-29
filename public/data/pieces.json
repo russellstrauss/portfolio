@@ -67,7 +67,7 @@
 					"featuredImage": "/img/featured-images/colorspace.jpg",
 					"rawHTML": "<video controls poster=\"/img/featured-images/colorspace-poster.jpg\"><source src=\"/video/colorspace.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video>",
 					"applicationLink": {
-						"href": "",
+						"href": "https://jrstrauss.net/cg/colorspace/",
 						"text": "View live application"
 					},
 					"href": "/work/interactive/colorspace",
@@ -129,11 +129,17 @@
 				{
 					"sortOrder": "14",
 					"published": "true",
-					"title": "Polygon Smoothing and Subdivision",
+					"title": "Polygon Smoothing",
 					"description": "",
 					"featuredImage": "/img/featured-images/polygon-subdivision.jpg",
-					"href": "/work/interactive/polygon-subdivision",
-					"openInNewTab": "false"
+					"href": "/work/interactive/code/polygon-subdivision",
+					"openInNewTab": "false",
+					"codeBlocks": [
+						{
+							"pretext": "<img class=\"limit-width-500 center\" src=\"/img/featured-images/polygon-subdivision.jpg\" alt=\"polygon subdivision\" /><h3>Directions</h3><p>Drag vertices to form a polygon. Press 1, 2, 3, 4, or 5 to perform that many iterations (r) of subdivide. The red curve is s=0; the blue curve is s=.5; the green curve is s=1.</p><h3>Problem</h3><p>There are many reasons to take a polygonal and smooth it's edges to remove the edges and create a continuous curve. Take a given polygon and create your own subdivide method that smooths the polygon. Pass in variables r and s. Variable r will be the number of iterations your subdivision method performs and variable s will be the distance that the subdivision untucks to compensate for shrinkage.</p><h3>Solution</h3><p>For my subdivide method, I first refined the original polygon by calculating the midpoints between every original vertex. Then I calculated the cubic B-spline by average each point in the polygon with the two points adjacent to it. By nesting the average, I could simplify the solution into a single algebraic equation:</p><p>A(A(A(pt i-1, pt i), pt i ),A(pt i,A(pt i,pt i+1) ) ); </p><p>where i is the vertex moving inward, (i-1) is the point to the left, and (i+1) is the point to the right. Since the average of two points is (A+B)/2, substitute this into the complex nest of averages and algebraically simplify to:</p><p>(1/8)(i-1) + (3/4)(i) + (1/8)(i-1)</p><p>To subdivide, this is calculated for every point in the polygon. Then to compensate for shrinkage, the curve is expanded outward, in the direction normal to the curve at every point in the polygon.</p>",
+							"src": "/code/interactive/cg/polygon-subdivision.java"
+						}
+					]
 				},
 				{
 					"sortOrder": "15",
@@ -150,8 +156,14 @@
 					"title": "Medial Axis",
 					"description": "",
 					"featuredImage": "/img/featured-images/medial-axis.jpg",
-					"href": "/work/interactive/medial-axis",
-					"openInNewTab": "false"
+					"href": "/work/interactive/code/medial-axis",
+					"openInNewTab": "false",
+					"codeBlocks": [
+						{
+							"pretext": "<img class=\"limit-width-800 center\" src=\"/img/interactive/medial-axis.svgz\" alt=\"Medial axis\" /> <img class=\"center vertical-space\" src=\"/img/featured-images/medial-axis.jpg\" alt=\"Medial axis\" />",
+							"src": "/code/interactive/cg/medial-axis.java"
+						}
+					]
 				},
 				{
 					"sortOrder": "17",
@@ -163,7 +175,7 @@
 					"openInNewTab": "false",
 					"codeBlocks": [
 						{
-							"pretext": "<h2>Problem</h2> <p>Three points can be placed anywhere in space. Find the path of least distance that connects all three points. The program must be dynamic and controlled by the user.</p><h2>Solution</h2><ol><li>Determine whether the triangle has any angle greater than (or equal to) 120 degrees. If so, then the Fermat Point is the vertex of the angle that is greater than 120 degrees.</li><li>If no angles are greater than 120 degrees, then form three equilateral triangles created by each edge of the original triangle created by A, B, and C.</li><li>Form lines connecting the outer vertex of each equilateral triangle to the opposite vertex of the original triangle (A, B, or C).</li><li>Where these lines intersect is the Fermat Point. The paths connecting the three points with the least amount of distance are the paths from each vertex to the Fermat Point, represented above by the lightest shade of blue.</li></ol>",
+							"pretext": "<img class=\"full-width\" src=\"/img/interactive/fermat-point-diagram.svg\" alt=\"Fermat point\" /><h2>Problem</h2> <p>Three points can be placed anywhere in space. Find the path of least distance that connects all three points. The program must be dynamic and controlled by the user.</p><h2>Solution</h2><ol><li>Determine whether the triangle has any angle greater than (or equal to) 120 degrees. If so, then the Fermat Point is the vertex of the angle that is greater than 120 degrees.</li><li>If no angles are greater than 120 degrees, then form three equilateral triangles created by each edge of the original triangle created by A, B, and C.</li><li>Form lines connecting the outer vertex of each equilateral triangle to the opposite vertex of the original triangle (A, B, or C).</li><li>Where these lines intersect is the Fermat Point. The paths connecting the three points with the least amount of distance are the paths from each vertex to the Fermat Point, represented above by the lightest shade of blue.</li></ol>",
 							"src": "/code/interactive/cg/fermat.java"
 						}
 					]
@@ -309,7 +321,7 @@
 					"published": "true",
 					"title": "El Jimador",
 					"year": "2013",
-					"description": "The redesign of El Jimador's web site was taken on by Engauge in early 2013. The site, built in Drupal and fully responsive among all devices and browsers, is a robust example of a site that uses branding and imagery to drive the site's appeal. The structure of the site itself is very interesting in its layout and unique segmentation—not only purely for its form factor, but also for the process of its implementation. It's a great example of both a multilingual and multi-country site. ¡Olé! Tequila shots all around!",
+					"description": "The redesign of El Jimador's web site was taken on by Engauge in early 2013. Early responsive and multilingual site.",
 					"natureOfContributions": "An external contractor dropped the job and disappeared, so I picked up the project and completed it to see it to production launch.",
 					"featuredImage": "/img/featured-images/el-jimador-thumb.jpg",
 					"href": "https://www.eljimador.com/",
@@ -440,7 +452,7 @@
 					"title": "Star of Wonder",
 					"description": "A film project about the grandeur of the Universe and smallness of humans.",
 					"featuredImage": "/img/featured-images/star-of-wonder-thumb.jpg",
-					"rawHTML": "<video style=\"width: 100%;\" controls><source src=\"/video/star-of-wonder.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video> <p>The song, called Star of Wonder by Sufjan Stevens, I thought runs deeper than only the music and could be improved by visual aid. I thought of what the song might mean, what it tries to communicate, and what that might look like on a screen. I tried to listen more closely to the music and really focus on what images the music builds in my mind. When shooting the video, I tried to elaborate on some of the themes that the music touches on such as: the smallness or insignificance of human beings, the aesthetics of lights, the stars and the moon, the busyness of our lives and how small and insignificant we are, and the overall awesomeness and grandeur of the Universe. I shot within the city and let the bigness of the city parallel and serve as a metaphor with the theme of the hugeness of the Universe.</p><p>Since I was not able to get any shots of the night sky in detail with the primitive equipment that I have, I let the city lights serve as a substitute. I made sure that the rhythm of the video matches the rhythm of the music, such as only cutting on beat with the music or the stop motion segments alongside the fleeting sounds of the flute and keyboard. Segments with quicker tempoed sounds match with quicker movements on the screen, and more peaceful music match with serene landscapes or sights of lights. I tried to focus on the framing and color of the shots in the video the most. With all of the city lights, the colors are very important. Additionally, the camera movement provided another hugely important element in the video, which offers different artistic perspectives in the way the images are presented.</p>",
+					"rawHTML": "<video style=\"width: 100%;\" controls poster=\"/img/featured-images/star-of-wonder-poster.jpg\"><source src=\"/video/star-of-wonder.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video> <p>The song, called Star of Wonder by Sufjan Stevens, I thought runs deeper than only the music and could be improved by visual aid. I thought of what the song might mean, what it tries to communicate, and what that might look like on a screen. I tried to listen more closely to the music and really focus on what images the music builds in my mind. When shooting the video, I tried to elaborate on some of the themes that the music touches on such as: the smallness or insignificance of human beings, the aesthetics of lights, the stars and the moon, the busyness of our lives and how small and insignificant we are, and the overall awesomeness and grandeur of the Universe. I shot within the city and let the bigness of the city parallel and serve as a metaphor with the theme of the hugeness of the Universe.</p><p>Since I was not able to get any shots of the night sky in detail with the primitive equipment that I have, I let the city lights serve as a substitute. I made sure that the rhythm of the video matches the rhythm of the music, such as only cutting on beat with the music or the stop motion segments alongside the fleeting sounds of the flute and keyboard. Segments with quicker tempoed sounds match with quicker movements on the screen, and more peaceful music match with serene landscapes or sights of lights. I tried to focus on the framing and color of the shots in the video the most. With all of the city lights, the colors are very important. Additionally, the camera movement provided another hugely important element in the video, which offers different artistic perspectives in the way the images are presented.</p>",
 					"href": "/work/video/star-of-wonder",
 					"openInNewTab": "false"
 				}
