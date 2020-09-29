@@ -1,17 +1,10 @@
 // Elements – styling for bare HTML elements
 
 body {
+	@include body;
 	padding: 20px 20px 100px 20px;
 	padding-bottom: 100px;
-	font-size: 14px;
-	font-family: 'Merriweather Sans', sans-serif;
-	font-weight: 300;
-	line-height: 1;
-	
-	@include mobile-only {
-		font-size: 16px;
-		line-height: 1.5;
-	}
+	line-height: normal;
 }
 
 a {
@@ -81,6 +74,7 @@ strong {
 }
 
 ol {
+	@include body;
 	list-style-type: decimal;
 	padding-left: 40px;
 	
@@ -91,15 +85,13 @@ ol {
 }
 
 p {
-	font-size: 14px;
-	font-family: 'Merriweather Sans', sans-serif;
-	font-weight: 300;
+	@include body;
 	margin-bottom: 20px;
-	line-height: 1.4;
-	
-	@include mobile-only {
-		font-size: 16px;
-		line-height: 1.5;
+}
+
+ul {
+	li {
+		@include body;
 	}
 }
 

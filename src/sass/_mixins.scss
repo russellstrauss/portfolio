@@ -19,6 +19,18 @@
 	}
 }
 
+@mixin body {
+	font-family: 'Merriweather Sans', sans-serif;
+	font-weight: 300;
+	font-size: 14px;
+	line-height: 1.5;
+}
+
+@mixin ibm {
+	font-family: 'IBM Plex Mono', monospace;
+	font-weight: 500;
+}
+
 // Cross-browser
 @mixin placeholder-text($color: #979898) {
 	
@@ -109,11 +121,10 @@
 }
 
 @mixin callout {
+	@include ibm;
 	$hover-color: #26ADE4;
 	// $hover-color: #009ad3;
 	@include square-shadow;
-	font-family: 'IBM Plex Mono', monospace;
-	font-weight: 400;
 	color: $link-color;
 	color: black;
 	font-size: 24px;
@@ -124,6 +135,10 @@
 	border: 1px solid black;
 	padding: 10px;
 	display: inline-flex;
+	
+	@include mobile-only {
+		font-size: 22px;
+	}
 	
 	&:hover {
 		border: 1px solid $hover-color;

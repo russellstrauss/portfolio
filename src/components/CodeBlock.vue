@@ -3,7 +3,7 @@
 		
 		<div v-if="pretext" v-html="pretext"></div>
 
-		<div class="code">
+		<div class="code" v-if="src">
 			<pre :data-src="src"></pre>
 		</div>
 		

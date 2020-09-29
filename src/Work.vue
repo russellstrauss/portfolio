@@ -5,6 +5,7 @@
 		
 		<div class="layout-wrapper">
 			<Nav></Nav>
+			
 			<ul>
 				<li v-for="category in categories" :key="category.path" class="category">
 					<a :href="$route.path + '/' + category.path">{{ category.title }}</a>
@@ -71,7 +72,6 @@
 	.category {
 		@include heading-font;
 		margin-bottom: 20px;
-		margin-left: 30px;
 		// opacity: 0;
 		transition: opacity 600ms ease, margin-left 400ms ease;
 		

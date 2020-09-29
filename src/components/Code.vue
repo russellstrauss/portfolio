@@ -14,6 +14,8 @@
 				<div v-if="details.codeBlocks">
 					<CodeBlock v-for="codeBlock in details.codeBlocks" :key="codeBlock.src" :src="codeBlock.src" :pretext="codeBlock.pretext" :posttext="codeBlock.posttext"></CodeBlock> 
 				</div>
+				
+				<!-- <canvas data-processing-sources="/code/interactive/cg/fermat.pde"></canvas> -->
 			</div>
 		</div>
 	</div>
@@ -53,7 +55,7 @@
 				
 				let categories = response.data.categories;
 				let category = categories.filter(category => category.path === self.$route.params.category);
-				console.log(category);
+				
 				if (category[0]) self.details = category[0].pieces.filter(details => details.href === self.$route.path)[0];
 			})
 			.catch(function (error) {
