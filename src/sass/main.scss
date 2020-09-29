@@ -1,6 +1,7 @@
 // This project uses inverted triangle CSS architecture (https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/)
 
 // global
+@import 'responsive';
 @import 'mixins';
 @import 'vars';
 @import 'reset';

@@ -30,18 +30,14 @@
 	display: block;
 }
 
-.entry-content img {
+.frame {
 	border: 1px solid black;
+	margin: 40px auto;
 }
 
-.edit-link {
-	font-size: 10px;
-	text-align: right;
-	margin-top: 10px;
-}
 
 .error-message { //404
-	@include headingFont;
+	@include heading-font;
 }
 
 .caption {
@@ -60,4 +56,8 @@
 
 .illustration {
 	border: 1px solid black;
+}
+
+.callout {
+	@include callout;
 }

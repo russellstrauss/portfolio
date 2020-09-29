@@ -6,10 +6,14 @@
 				{
 					"sortOrder": "1",
 					"published": "true",
-					"title": "3DJ: A Virtual Reality Real-time Audio Maniuplation Tool",
+					"title": "3DJ: A Virtual Reality Real-time Audio Manipulation Tool",
 					"description": "",
 					"featuredImage": "/img/featured-images/3DJ.jpg",
-					"rawHTML": "Example with live audio:<br><br> <video controls poster=\"/img/featured-images/3dj-poster-1.jpg\"><source src=\"/video/3DJ-sound.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video> Example full-quality headset direct video capture (no sound but better image clarity):<br><br> <video controls poster=\"/img/featured-images/3dj-poster-2.jpg\"><source src=\"/video/3DJ-video.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video> <a href=\"https://jrstrauss.net/vr/3DJ/\">View live application here</a>",
+					"rawHTML": "Example with live audio:<br><br> <video controls poster=\"/img/featured-images/3dj-poster-1.jpg\"><source src=\"/video/3DJ-sound.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video> Example headset direct video capture (no sound but better image clarity):<br><br> <video controls poster=\"/img/featured-images/3dj-poster-2.jpg\"><source src=\"/video/3DJ-video.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video>",
+					"applicationLink": {
+						"href": "https://jrstrauss.net/vr/3DJ/",
+						"text": "View live application"
+					},
 					"href": "/work/interactive/3DJ",
 					"openInNewTab": "false"
 				},
@@ -19,7 +23,11 @@
 					"title": "Algorhythm: Interactive Beat Sequencing",
 					"description": "",
 					"featuredImage": "/img/featured-images/rhthym-wheel.jpg",
-					"rawHTML": "<video controls poster=\"/img/featured-images/algorhythm-poster.jpg\"><source src=\"/video/algorhythm.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video> <a href=\"https://jrstrauss.net/cg/rhythm-wheel\">View live application here</a>",
+					"rawHTML": "<video controls poster=\"/img/featured-images/algorhythm-poster.jpg\"><source src=\"/video/algorhythm.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video>",
+					"applicationLink": {
+						"href": "https://jrstrauss.net/cg/rhythm-wheel",
+						"text": "View live application"
+					},
 					"href": "/work/interactive/algorhythm",
 					"openInNewTab": "false"
 				},
@@ -29,7 +37,11 @@
 					"title": "Zoom Eternal",
 					"description": "Realtime physics robot battle arena game.",
 					"featuredImage": "/img/featured-images/zoom-eternal.jpg",
-					"rawHTML": "<video controls poster=\"/img/featured-images/zoom-eternal-poster.jpg\"><source src=\"/video/zoom-eternal.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video> <a href=\"https://jrstrauss.net/vg/team_zoom_eternal_final.7z\">Download game here</a>",
+					"rawHTML": "<video controls poster=\"/img/featured-images/zoom-eternal-poster.jpg\"><source src=\"/video/zoom-eternal.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video>",
+					"applicationLink": {
+						"href": "https://jrstrauss.net/vg/team_zoom_eternal_final.7z",
+						"text": "Download game"
+					},
 					"href": "/work/interactive/zoom-eternal",
 					"openInNewTab": "false"
 				},
@@ -39,7 +51,11 @@
 					"title": "Immersive Art",
 					"description": "",
 					"featuredImage": "/img/featured-images/immersive-art.jpg",
-					"rawHTML": "<video controls poster=\"/img/featured-images/immersive-art-poster.jpg\"><source src=\"/video/immersive-art.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video> <a href=\"https://jrstrauss.net/vr/immersive-art\">View live application here</a>",
+					"rawHTML": "<video controls poster=\"/img/featured-images/immersive-art-poster.jpg\"><source src=\"/video/immersive-art.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video>",
+					"applicationLink": {
+						"href": "https://jrstrauss.net/vr/immersive-art",
+						"text": "View live application"
+					},
 					"href": "/work/interactive/immersive-art",
 					"openInNewTab": "false"
 				},
@@ -49,7 +65,11 @@
 					"title": "colorspace",
 					"description": "Three-dimensional colorspace models: using geometry to calculate colors in 3D space.",
 					"featuredImage": "/img/featured-images/colorspace.jpg",
-					"rawHTML": "<video controls poster=\"/img/featured-images/colorspace-poster.jpg\"><source src=\"/video/colorspace.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video> <a href=\"https://jrstrauss.net/cg/colorspace\">View live application here</a>",
+					"rawHTML": "<video controls poster=\"/img/featured-images/colorspace-poster.jpg\"><source src=\"/video/colorspace.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video>",
+					"applicationLink": {
+						"href": "",
+						"text": "View live application"
+					},
 					"href": "/work/interactive/colorspace",
 					"openInNewTab": "false"
 				},
@@ -60,6 +80,10 @@
 					"description": "Dynamically generating log spirals for camera trajectory.",
 					"featuredImage": "/img/featured-images/log-spiral.jpg",
 					"rawHTML": "<video controls poster=\"/img/featured-images/log-spiral-poster.jpg\"><source src=\"/video/log-spiral.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video>",
+					"applicationLink": {
+						"href": "https://jrstrauss.net/cg/log_spiral.7z",
+						"text": "Download application"
+					},
 					"href": "/work/interactive/logarithmic-spiral-camera-motion",
 					"openInNewTab": "false"
 				},
@@ -69,6 +93,7 @@
 					"title": "Painting Nature",
 					"description": "A non-traditional paint program used to create striking scenes of nature.",
 					"featuredImage": "/img/featured-images/painting-nature.jpg",
+					"rawHTML": "<p>Our challenge for this application was to create our own paint program from scratch. The catch was that we were not allowed to use any sort of traditional painting tools. Pen, brush, line, box, were all out of the question. I decided to create a program in which the user can draw different nature scenes. His tools are elements of Mother Nature. His palette is the seasons.</p><img alt=\"Painting Nature\" src=\"/img/interactive/painting-nature-1.jpg\" /><img alt=\"Painting Nature\" src=\"/img/interactive/painting-nature-2.jpg\" />",
 					"href": "/work/interactive/painting-nature",
 					"openInNewTab": "false"
 				},
@@ -78,8 +103,19 @@
 					"title": "3D Animation Editor",
 					"description": "",
 					"featuredImage": "/img/featured-images/3d-animation-editor.jpg",
-					"href": "/work/interactive/3d-animation-editor",
-					"openInNewTab": "false"
+					"href": "/work/interactive/code/3d-animation-editor",
+					"openInNewTab": "false",
+					"codeBlocks": [
+						{
+							"pretext": "<img src=\"/img/interactive/3d-animation-editor.png\" alt=\"3D Animation Editor\" /><p>When the program is initially loaded, the user is asked to define a figure. This figure is defined by how the user constructs the skeleton and will remain constant throughout the animation. Once the skeleton has been constructed, the user can continue to the animation editor and move the skeleton in eight different keyframes to animate it.</p><p>Upon moving to the animation editor, the program stores the positions of the joints in the skeleton in an array and sets every keyframe to this shape. The user can change each different keyframe by dragging the different joints of the skeleton with the mouse and watch the figure animate, at which point the animation will loop through the eight different keyframes he has defined. Since the locations of each skeleton are stored in an array for each keyframe, the user can switch between keyframes and the appropriate skeletons will be saved and loaded into and from their arrays.</p><p>In order to smooth the animation, four-point subdivision is used along each joint in the skeleton over the eight keyframes. For example, if the skeleton has four different joints, then the first joint in each keyframe forms a curve, the second joint in each keyframe forms another curve, and so on, for however many joints the skeleton has. So a figure with four different control points forms four different curves. Then, while animating, the location of the joints move successively along the points of the curve frame by frame to smoothly animate it in between keyframes.</p><p>Each skeleton (made up of sets of points) is stored into an array called keyframe1, keyframe2, ..., to keyframe8, for the eight different figures the user specifies for the eight keyframes. A two-dimensional area is set up in order to store each curve to be subdivided. The amount of joints the user attaches to the skeleton is dynamic and can change, so the array of curves must be dynamic. Then a loop is created to cycle through the array of skeletons at each keyframe to put each point of each curve into its own array:</p>",
+							"src": "/code/interactive/3d-animation-editor/3d-animation-editor-1.java"
+						},
+						{
+							"pretext": "<p>Once each curve is separated into its own array, it can be passed into the subdivide function which will subdivide each curve using four-point subdivision. Four-point subdivision is implemented using refine, tuck, and untuck, passing in a scaler of 1 for tuck and -1 for untuck. The algorithm is as follows:</p>",
+							"src": "/code/interactive/3d-animation-editor/3d-animation-editor-2.java",
+							"posttext": "<p><u>Other features of the application:</u></p><p><i>Two-dimensional editing mode:</i><br> The user can choose a specific link in the larger 3D model and switch to the 2D editor to edit that link. Upon entering the 2D editor, the radii of the spheres in the selected link are loaded into the 2D model. The user can then change the size of the two spheres in the link which will change the corresponding spheres in the 3D model. The distance between spheres is fixed in the 2D editor since the distance between joints cannot be changed in the 3D model.</p><a class=\"callout\" href=\"https://jrstrauss.net/computer-graphics/P4B/source.zip\">Download application</a>"
+						}
+					]
 				},
 				{
 					"sortOrder": "13",
@@ -87,7 +123,7 @@
 					"title": "Projectile Prediction",
 					"description": "",
 					"featuredImage": "/img/featured-images/projectile-prediction.jpg",
-					"href": "/work/interactive/projectile-prediciton",
+					"href": "https://jrstrauss.net/computer-graphics/P2/",
 					"openInNewTab": "false"
 				},
 				{
@@ -101,7 +137,7 @@
 				},
 				{
 					"sortOrder": "15",
-					"published": "true",
+					"published": "false",
 					"title": "Rotation Transformations, Realistic Center of Gravity",
 					"description": "",
 					"featuredImage": "/img/featured-images/rainbow-road.jpg",
@@ -123,8 +159,14 @@
 					"title": "Fermat Point",
 					"description": "",
 					"featuredImage": "/img/featured-images/fermat.jpg",
-					"href": "/work/interactive/fermat-point",
-					"openInNewTab": "false"
+					"href": "/work/interactive/code/fermat-point",
+					"openInNewTab": "false",
+					"codeBlocks": [
+						{
+							"pretext": "<h2>Problem</h2> <p>Three points can be placed anywhere in space. Find the path of least distance that connects all three points. The program must be dynamic and controlled by the user.</p><h2>Solution</h2><ol><li>Determine whether the triangle has any angle greater than (or equal to) 120 degrees. If so, then the Fermat Point is the vertex of the angle that is greater than 120 degrees.</li><li>If no angles are greater than 120 degrees, then form three equilateral triangles created by each edge of the original triangle created by A, B, and C.</li><li>Form lines connecting the outer vertex of each equilateral triangle to the opposite vertex of the original triangle (A, B, or C).</li><li>Where these lines intersect is the Fermat Point. The paths connecting the three points with the least amount of distance are the paths from each vertex to the Fermat Point, represented above by the lightest shade of blue.</li></ol>",
+							"src": "/code/interactive/cg/fermat.java"
+						}
+					]
 				}
 			]
 		},
@@ -163,7 +205,7 @@
 				},
 				{
 					"sortOrder": "4",
-					"published": "true",
+					"published": "false",
 					"title": "Growasis",
 					"description": "Location-based web application concept built for sharing garden harvests, seed sharing, and farmers markets to help improve proximity-based food distribution.",
 					"natureOfContributions": "Original idea, requirements gathering, planning, and execution.",
@@ -218,6 +260,7 @@
 					"description": "This project involved building an internal intranet site for Hilton Grand Vacations using Microsoft SharePoint. The site has a user base of 8000 users and is used to distribute information to employees, provide links and bookmarks to benefits, communicate news & company announcements, and allow Hilton to set up pages for its internal departments. Since the site is not publicly available, I have documented small pieces of the work here on my own site.",
 					"natureOfContributions": "Built custom designs into functional intranet site while working within the constraints of SharePoint platform.",
 					"featuredImage": "/img/featured-images/HGV-thumb.jpg",
+					"rawHTML": "<h4>Home</h4><p>Used to communicate news and announcements to employees, allow employees to connect and interact with social platforms, get an overview of latest events within the company, give employees a place to important links such as benefits, and connect employees to their respective department pages.</p><img class=\"frame\" src=\"/img/web/HGV-home.jpg\" alt=\"HGV-home\" /><h4>Topic Landing</h4><p>Used as a location for each department to have their own page with relevant information and provide a site contact for those who have further questions.</p><img class=\"frame\" src=\"/img/web/HGV-topic.jpg\" alt=\"HGV-topic\" />",
 					"href": "/work/web-application-development/detail/hilton-grand-vacations",
 					"openInNewTab": "false"
 				},
@@ -265,6 +308,7 @@
 					"sortOrder": "14",
 					"published": "true",
 					"title": "El Jimador",
+					"year": "2013",
 					"description": "The redesign of El Jimador's web site was taken on by Engauge in early 2013. The site, built in Drupal and fully responsive among all devices and browsers, is a robust example of a site that uses branding and imagery to drive the site's appeal. The structure of the site itself is very interesting in its layout and unique segmentation—not only purely for its form factor, but also for the process of its implementation. It's a great example of both a multilingual and multi-country site. ¡Olé! Tequila shots all around!",
 					"natureOfContributions": "An external contractor dropped the job and disappeared, so I picked up the project and completed it to see it to production launch.",
 					"featuredImage": "/img/featured-images/el-jimador-thumb.jpg",
@@ -275,7 +319,8 @@
 					"sortOrder": "15",
 					"published": "true",
 					"title": "Verizon Wireless",
-					"description": "Verizon is Moxie's biggest client, and for 2014, I was a part of the team that was in charge of rebuilding and refactoring their site (specifically www.verizonwireless.com) for Verizon Wireless—their cell phone and wireless services sector. Since this project is a much longer term and ongoing project, it creates a different workflow that many developers are not used to—from always referencing branding and style guidelines, to getting previously built pages, widgets, and code working and interacting with new builds, to working with a huge team, to keeping up with all of the code standards that all code must strictly follow in order to be approved. Though among all these challenges, I thoroughly enjoyed working on something that is well-known and being used by so many people around the world.",
+					"year": "2014",
+					"description": "Refactoring www.verizonwireless.com for their cell phone and wireless services sector. Building cart pages with a large team.",
 					"natureOfContributions": "Created cart pages with complex table structures for online phone store.",
 					"featuredImage": "/img/featured-images/verizon-thumb.jpg",
 					"href": "https://www.verizonwireless.com/",
@@ -285,6 +330,7 @@
 					"sortOrder": "16",
 					"published": "true",
 					"title": "Food Lion",
+					"year": "2014",
 					"description": "Food Lion's site is a large-scale, corporate site with a robust set of features and an expansive amount of content. The site is all built on .Net and managed by a small team of people at Engauge.",
 					"natureOfContributions": "Maintenance—promotions, new features, bug fixes, interactive front-end work, content updates, and deployment.",
 					"featuredImage": "/img/featured-images/food-lion-thumb.jpg",
@@ -295,8 +341,9 @@
 					"sortOrder": "17",
 					"published": "true",
 					"title": "Cisco's Mobility Your Way",
-					"description": "Internet security is an extremely important concept in computing today. You've heard the horror stories—Apple's prototypes leaked to the public, Target's databases scoured for credit card information, identity theft occurring daily all over the world, and more. That's why Cisco put together this interactive experience to educate business owner's on the importance of security, some of the common pitfalls people run into, and how goals and perspective differ between business decision makers and technical decision makers.",
-					"natureOfContributions": "Created infographic independently.",
+					"year": "2013",
+					"description": "",
+					"natureOfContributions": "",
 					"featuredImage": "/img/featured-images/mobility-your-way-thumb.jpg",
 					"href": "https://www.cisco.com/c/dam/assets/sol/mob/security-threats/index.html",
 					"openInNewTab": "true"
@@ -305,6 +352,7 @@
 					"sortOrder": "18",
 					"published": "true",
 					"title": "Callaway Gardens",
+					"year": "2013",
 					"description": "Callaway Garden's site, developed in Drupal in 2012.",
 					"natureOfContributions": "Built site with 3-person dev team.",
 					"featuredImage": "/img/featured-images/callaway-thumb.jpg",
@@ -328,42 +376,43 @@
 				{
 					"sortOrder": "2",
 					"published": "true",
-					"title": "Exoplanets: Lab 3 activity 1 & 2",
+					"title": "Exoplanets",
 					"description": "",
 					"featuredImage": "/img/featured-images/exoplanets-thumb.jpg",
-					"href": "",
+					"href": "https://jrstrauss.net/data-visualization/exoplanets/",
 					"openInNewTab": "false"
 				},
 				{
 					"sortOrder": "3",
 					"published": "true",
-					"title": "Whiskeys",
+					"title": "Website Popularity Through the Decade",
 					"description": "",
-					"featuredImage": "/img/featured-images/whiskeys-thumb.jpg",
-					"href": "",
+					"featuredImage": "/img/featured-images/website-popularity-thumb.jpg",
+					"href": "https://jrstrauss.net/data-visualization/website-popularity/",
 					"openInNewTab": "false"
 				},
 				{
 					"sortOrder": "4",
 					"published": "true",
-					"title": "Homerun Leaders: Lab 2 Activity 2",
+					"title": "Whiskeys",
 					"description": "",
-					"featuredImage": "/img/featured-images/homerun-leaders-thumb.jpg",
-					"href": "",
+					"featuredImage": "/img/featured-images/whiskeys-thumb.jpg",
+					"rawHTML": "<a href=\"/img/data-visualization/whiskeys.jpg\"><img src=\"/img/data-visualization/whiskeys.jpg\" alt=\"Whiskey price, age, and rating visualization\" /><a/>",
+					"href": "/work/data-visualization/whiskeys",
 					"openInNewTab": "false"
 				},
 				{
 					"sortOrder": "5",
 					"published": "true",
-					"title": "Website Popularity Through the Years",
+					"title": "Homerun Leaders 1880 - 2020",
 					"description": "",
-					"featuredImage": "/img/featured-images/website-popularity-thumb.jpg",
-					"href": "",
+					"featuredImage": "/img/featured-images/homerun-leaders-thumb.jpg",
+					"href": "https://jrstrauss.net/data-visualization/homerun-leaders/",
 					"openInNewTab": "false"
 				},
 				{
 					"sortOrder": "6",
-					"published": "true",
+					"published": "false",
 					"title": "Stock Prices Trellis",
 					"description": "",
 					"featuredImage": "/img/featured-images/",
