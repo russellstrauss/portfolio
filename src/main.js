@@ -32,6 +32,7 @@ const router = new VueRouter({
 		{ path: '/work/:category/detail/:id', component: GenericPage }, // detail page for item in category listing page
 		{ path: '/work/:category/:id', component: GenericPage },
 		{ path: '/work/:category/code/:id', component: Code },
+		{ path: '/cg/point-cloud', component: PointCloud },
 		{ path: '*', component: Missing }
 	]
 });
