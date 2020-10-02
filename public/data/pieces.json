@@ -6,8 +6,8 @@
 				{
 					"sortOrder": "1",
 					"published": "true",
-					"title": "3DJ: A Virtual Reality Real-time Audio Manipulation Tool",
-					"description": "",
+					"title": "3DJ",
+					"description": "A Virtual Reality Real-time Audio Manipulation Tool",
 					"featuredImage": "/img/featured-images/3DJ.jpg",
 					"rawHTML": "Example with live audio:<br><br> <video controls poster=\"/img/featured-images/3dj-poster-1.jpg\"><source src=\"/video/3DJ-sound.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video> Example headset direct video capture (no sound but better image clarity):<br><br> <video controls poster=\"/img/featured-images/3dj-poster-2.jpg\"><source src=\"/video/3DJ-video.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video>",
 					"applicationLink": {
@@ -21,7 +21,7 @@
 					"sortOrder": "2",
 					"published": "true",
 					"title": "Immersive Art",
-					"description": "",
+					"description": "Step inside your masterpiece",
 					"featuredImage": "/img/featured-images/immersive-art.jpg",
 					"rawHTML": "<video controls poster=\"/img/featured-images/immersive-art-poster.jpg\"><source src=\"/video/immersive-art.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video>",
 					"applicationLink": {
@@ -48,8 +48,8 @@
 				{
 					"sortOrder": "4",
 					"published": "true",
-					"title": "Algorhythm: Interactive Beat Sequencing",
-					"description": "",
+					"title": "Algorhythm",
+					"description": "Interactive Beat Sequencing",
 					"featuredImage": "/img/featured-images/rhthym-wheel.jpg",
 					"rawHTML": "<video controls poster=\"/img/featured-images/algorhythm-poster.jpg\"><source src=\"/video/algorhythm.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video>",
 					"applicationLink": {
