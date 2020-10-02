@@ -39,8 +39,6 @@
 
 		mounted: function () {
 			
-			console.log(this.$route.path);
-			
 			let self = this;
 			let categories = '/data/categories.json';
 			axios.get(categories).then(function(response) {
