@@ -1,23 +1,39 @@
 <template>
-	<div class="work">
+	<div class="work container-fluid">
 		
 		<Title></Title>
 		
 		<div class="layout-wrapper">
 			<Nav></Nav>
 			
-			<ul>
+			<ul class="category-list">
 				<li v-for="category in categories" :key="category.path" class="category">
 					<a :href="$route.path + '/' + category.path">{{ category.title }}</a>
 				</li>
 			</ul>
+			
+			
 		</div>
+		<!-- <ul class="staggering-start-value">
+			<li class="el"></li>
+			<li class="el"></li>
+			<li class="el"></li>
+			<li class="el"></li>
+			<li class="el"></li>
+			<li class="el"></li>
+			<li class="el"></li>
+			<li class="el"></li>
+			<li class="el"></li>
+			<li class="el"></li>
+			<li class="el"></li>
+			<li class="el"></li>
+		</ul> -->
 	</div>
 </template>
 
 <script>
-	
 	import axios from 'axios';
+	import anime from 'animejs';
 	import Title from './components/Title.vue';
 	import Nav from './components/Nav.vue';
 	
@@ -63,20 +79,48 @@
 			// 	}, i * 75);
 			// });
 			
+			// anime({
+			// 	targets: '.category-list .category',
+			// 	translateX: 500,
+			// 	delay: anime.stagger(100, {start: 1500}) // delay starts at 500ms then increase by 100ms for each elements.
+			// });
+			
+			// anime({
+			// 	targets: '.staggering-start-value .el',
+			// 	translateX: 100,
+			// 	delay: anime.stagger(0, {start: 1500}) // delay starts at 500ms then increase by 100ms for each elements.
+			// });
+			
 		},
 	};
 </script>
 
 <style lang="scss">
-
-	.category {
-		@include heading-font;
-		margin-bottom: 20px;
-		// opacity: 0;
-		transition: opacity 600ms ease, margin-left 400ms ease;
+	
+	.category-list {
 		
-		a {
-			text-decoration: none;
+		.category {
+			@include heading-font;
+			margin-bottom: 20px;
+			// opacity: 0;
+			transition: opacity 600ms ease, margin-left 400ms ease;
+			
+			a {
+				text-decoration: none;
+			}
+		}
+	}
+	
+	.staggering-start-value {
+		display: block;
+		
+		.el {
+			width: 10px;
+			height: 10px;
+			display: block;
+			background-color: green;
+			margin: 5px;
+			// transform: translateX(600px)
 		}
 	}
 </style>

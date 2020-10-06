@@ -17,7 +17,7 @@ import Missing from './components/Missing.vue';
 window.Prism = window.Prism || {};
 Prism.manual = true;
 
-let baseUrl = process.env.NODE_ENV === 'production' ? 'https://jrstrauss.net/pending/portfolio/' : '/'; // also update vue.config.js
+let baseUrl = process.env.NODE_ENV === 'production' ? 'https://portfolio.jrstrauss.net/' : '/'; // also update vue.config.js
 
 const router = new VueRouter({
 	base: baseUrl,
@@ -49,4 +49,4 @@ if (window.NodeList && !NodeList.prototype.forEach) {
 }
 
 Vue.use(VueAwesomeSwiper, /* { default options with global component } */);
-import 'pdfobject';
+// import 'pdfobject';

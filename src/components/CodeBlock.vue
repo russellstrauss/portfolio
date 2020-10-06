@@ -44,6 +44,10 @@
 		
 		.code {
 			margin: 20px auto;
+			
+			@include mobile-only {
+				font-size: 10px;
+			}
 		}
 	}
 </style>

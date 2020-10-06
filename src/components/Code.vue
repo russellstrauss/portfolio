@@ -1,5 +1,5 @@
 <template>
-	<div class="code-page">
+	<div class="code-page container-fluid">
 		
 		<Title></Title>
 		<div class="layout-wrapper">
