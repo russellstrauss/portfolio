@@ -13,6 +13,7 @@ import DetailPage from './components/DetailPage.vue';
 import GenericPage from './components/GenericPage.vue';
 import Code from './components/Code.vue';
 import Missing from './components/Missing.vue';
+import PointCloud from './components/PointCloud.vue';
 
 window.Prism = window.Prism || {};
 Prism.manual = true;
@@ -32,6 +33,7 @@ const router = new VueRouter({
 		{ path: '/work/:category/detail/:id', component: GenericPage }, // detail page for item in category listing page
 		{ path: '/work/:category/:id', component: GenericPage },
 		{ path: '/work/:category/code/:id', component: Code },
+		{ path: '/cg/point-cloud', component: PointCloud },
 		{ path: '*', component: Missing }
 	]
 });
