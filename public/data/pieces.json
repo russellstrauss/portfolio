@@ -7,7 +7,7 @@
 					"sortOrder": "1",
 					"published": "true",
 					"title": "3DJ",
-					"description": "A Virtual Reality Real-time Audio Manipulation Tool",
+					"description": "A virtual reality real-time audio manipulation tool",
 					"featuredImage": "/img/featured-images/3DJ.jpg",
 					"rawHTML": "Example with live audio:<br><br> <video controls poster=\"/img/featured-images/3DJ-poster-1.jpg\"><source src=\"/video/3DJ-sound.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video> Example headset direct video capture (no sound but better image clarity):<br><br> <video controls poster=\"/img/featured-images/3DJ-poster-2.jpg\"><source src=\"/video/3DJ-video.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video>",
 					"applicationLink": {
@@ -35,7 +35,7 @@
 					"sortOrder": "3",
 					"published": "true",
 					"title": "colorspace",
-					"description": "Three-dimensional colorspace models: using geometry to calculate colors in 3D space.",
+					"description": "Three-dimensional colorspace models: using geometry to calculate colors in 3D space",
 					"featuredImage": "/img/featured-images/colorspace.jpg",
 					"rawHTML": "<video controls poster=\"/img/featured-images/colorspace-poster.jpg\"><source src=\"/video/colorspace.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video>",
 					"applicationLink": {
@@ -49,7 +49,7 @@
 					"sortOrder": "4",
 					"published": "true",
 					"title": "Algorhythm",
-					"description": "Interactive Beat Sequencing",
+					"description": "Interactive beat sequencing",
 					"featuredImage": "/img/featured-images/rhthym-wheel.jpg",
 					"rawHTML": "<video controls poster=\"/img/featured-images/algorhythm-poster.jpg\"><source src=\"/video/algorhythm.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video>",
 					"applicationLink": {
@@ -63,7 +63,7 @@
 					"sortOrder": "5",
 					"published": "true",
 					"title": "Zoom Eternal",
-					"description": "Realtime physics robot battle arena game.",
+					"description": "Realtime physics robot battle arena game",
 					"featuredImage": "/img/featured-images/zoom-eternal.jpg",
 					"rawHTML": "<video controls poster=\"/img/featured-images/zoom-eternal-poster.jpg\"><source src=\"/video/zoom-eternal.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video>",
 					"applicationLink": {
@@ -77,7 +77,7 @@
 					"sortOrder": "6",
 					"published": "true",
 					"title": "Logarithmic Spiral for Smooth Camera Motion",
-					"description": "Dynamically generating log spirals for camera trajectory.",
+					"description": "Dynamically generating log spirals for camera trajectory",
 					"featuredImage": "/img/featured-images/log-spiral.jpg",
 					"rawHTML": "<video controls poster=\"/img/featured-images/log-spiral-poster.jpg\"><source src=\"/video/log-spiral.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video>",
 					"applicationLink": {
@@ -91,7 +91,7 @@
 					"sortOrder": "11",
 					"published": "true",
 					"title": "Painting Nature",
-					"description": "A non-traditional paint program used to create striking scenes of nature.",
+					"description": "A non-traditional paint program used to create striking scenes of nature",
 					"featuredImage": "/img/featured-images/painting-nature.jpg",
 					"rawHTML": "<p>Our challenge for this application was to create our own paint program from scratch. The catch was that we were not allowed to use any sort of traditional painting tools. Pen, brush, line, box, were all out of the question. I decided to create a program in which the user can draw different nature scenes. His tools are elements of Mother Nature. His palette is the seasons.</p><img alt=\"Painting Nature\" src=\"/img/interactive/painting-nature-1.jpg\" /><img alt=\"Painting Nature\" src=\"/img/interactive/painting-nature-2.jpg\" />",
 					"href": "/work/interactive/painting-nature",
