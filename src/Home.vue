@@ -1,5 +1,5 @@
 <template>
-	<div class="landing">
+	<div class="landing container-fluid">
 		<Title></Title>
 		<Nav></Nav>
 		

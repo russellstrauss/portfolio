@@ -1,5 +1,5 @@
 <template>
-	<div class="generic-page">
+	<div class="missing-page container-fluid">
 		
 		<Title></Title>
 		<div class="layout-wrapper">
@@ -41,20 +41,6 @@
 			let self = this;
 			
 			console.log(self.$route.params);
-			
-			let pieces = '/data/pieces.json';
-			axios.get(pieces).then(function(response) {
-				
-				// let categories = response.data.categories;
-				// let category = categories.filter(category => category.path === self.$route.params.path);
-				
-				
-				// console.log(category);
-				// self.details = category[0].pieces.filter(details => details.internalURL === self.$route.params.id)[0];
-			})
-			.catch(function (error) {
-				console.log(error);
-			});
 		}
 	};
 </script>

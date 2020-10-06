@@ -17,7 +17,7 @@ module.exports = function() {
 			setTimeout(function() {
 				$('#sphereWireframe').addClass('active');
 				scope.triggerAnimation();
-			}, titleFadeInLength + menuFadeInDelay + 1200);	
+			}, titleFadeInLength + menuFadeInDelay + 1600);	
 		},
 		
 		triggerAnimation: function() {

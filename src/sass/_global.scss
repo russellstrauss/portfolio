@@ -24,6 +24,13 @@
 	}
 }
 
+.container-fluid {
+	padding-left: 15px;
+	padding-right: 15px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 .center, .aligncenter {
 	margin-left: auto;
 	margin-right: auto;
@@ -39,12 +46,13 @@
 	width: 100%;
 }
 
-.error-message { //404
-	@include heading-font;
-}
 
 .caption {
 	font-size: 10px;
+}
+
+.callout {
+	@include callout;
 }
 
 .coming-soon {
@@ -57,13 +65,19 @@
 	border: 1px solid black;
 }
 
+.dotted {
+	border-bottom: 1px dotted rgba(0, 0, 0, .5);
+	text-decoration: none;
+}
+
+.error-message { //404
+	@include heading-font;
+}
+
 .illustration {
 	border: 1px solid black;
 }
 
-.callout {
-	@include callout;
-}
 
 .vertical-space {
 	margin-top: 40px;

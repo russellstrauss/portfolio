@@ -1,5 +1,6 @@
 module.exports = {
-	publicPath: process.env.NODE_ENV === 'production' ? 'https://jrstrauss.net/pending/portfolio/' : '/', // if uploading to subfolder in domain, add it here, otherwise just use '' or '/'. Also update main.js to match
+	// You also need to upload /.htaccess to the server root directory for routing to function correctly.
+	publicPath: process.env.NODE_ENV === 'production' ? 'https://portfolio.jrstrauss.net/' : '/', // if uploading to subfolder in domain, add it here, otherwise just use '' or '/'. Also update main.js to match
 	configureWebpack: {
 		output: {
 			filename: 'app.js'

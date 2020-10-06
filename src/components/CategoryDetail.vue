@@ -1,6 +1,5 @@
 <template>
-	<div class="category-detail" :class="category.path">
-		
+	<div class="category-detail container-fluid" :class="category.path">
 		
 		<Title></Title>
 		
@@ -140,6 +139,10 @@
 							
 							.piece-details {
 								background-color: rgba(255, 255, 255, .75);
+								
+								.text-block {
+									background-color: white;
+								}
 							}
 						}
 						
@@ -170,6 +173,7 @@
 								display: flex;
 								justify-content: space-between;
 								align-items: flex-start;
+								margin-bottom: 15px;
 								
 								h2 {
 									
@@ -190,18 +194,24 @@
 									@include square-shadow;
 									background-color: white;
 									border: 1px solid black;
-									margin-bottom: 15px;
-									padding: 10px;
 									font-size: 18px;
+									
+									height: 44px;
+									display: flex;
+									justify-content: center;
+									flex-direction: column;
+									padding: 0 10px;
+									margin-left: 10px;
 								}
 							}
 							
 							.text-block {
 								@include square-shadow;
-								background-color: white;
+								background-color: rgba(white, .85);
 								border: 1px solid black;
 								
 								@include mobile-only {
+									background-color: rgba(white, .9);
 									padding: 10px;
 									margin-bottom: 20px;
 								}
