@@ -88,11 +88,10 @@
 				<h2>Skills</h2>
 				<ul class="plus">
 					<li>Front end: JavaScript, Vue.js, Three.js, Node.js, SASS, Gulp, SVG</li>
-					<li>Visualization, 3D, and interactive development</li>
+					<li>Visualization, 3D, WebGL, and interactive</li>
 					<li>Responsive development for devices of all sizes, maintainability, and cross-browser compatibility</li>
 					<li>Back end: C#, Python, IIS, SQL, Apache, PHP; interested in learning Ruby</li>
 					<li>Preferred workflow: iterative design and development through team collaboration</li>
-					<li>Adobe Creative Suite, InVision, Sketch</li>
 				</ul>
 			</section>
 			<section class="experience">

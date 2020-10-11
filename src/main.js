@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import './sass/main.scss';
+import './sass/main.scss'; // remove?
 import VueAwesomeSwiper from 'vue-awesome-swiper';
 
 import App from './App.vue';
@@ -37,8 +37,8 @@ const router = new VueRouter({
 		{ path: '*', component: Missing }
 	]
 });
-
 Vue.use(VueRouter);
+
 new Vue({
 	el: '#app',
 	router: router,
