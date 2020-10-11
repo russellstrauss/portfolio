@@ -110,7 +110,7 @@
 				<div class="employment">
 					<div class="duration left desktop">August 2013 - October 2014</div>
 					<div class="summary right">
-						<div class="company">Moxie</div>
+						<div class="company">Moxie Interactive</div>
 						<div class="position">User Experience Developer</div>
 						<div class="duration mobile">August 2013 - October 2014</div>
 						<div class="job-description">Built out sites according to design specifications using various technologies, iterated with design team to improve app quality, localized content for global clients, created custom JavaScript code for interactive microsite campaigns, and managed server deployment scripts.</div>
