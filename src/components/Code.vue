@@ -28,6 +28,8 @@
 	import CodeBlock from './CodeBlock.vue';
 	import axios from 'axios';
 	
+	var linearAlgebra = require('linear-algebra')(), Vector = linearAlgebra.Vector, Matrix = linearAlgebra.Matrix;
+	
 	export default {
 		
 		name: 'Code',
@@ -44,7 +46,8 @@
 			};
 		},
 
-		methods: {},
+		methods: {
+		},
 
 		mounted: function () {
 			
@@ -63,6 +66,7 @@
 			})
 			.then(function() { // run syntax highlighter after code has been successfully loaded
 				Prism.highlightAll();
+				MathJax.typeset();
 			});
 		}
 	};

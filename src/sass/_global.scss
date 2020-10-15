@@ -78,12 +78,6 @@
 	border: 1px solid black;
 }
 
-
-.vertical-space {
-	margin-top: 40px;
-	margin-bottom: 40px;
-}
-
 .limit-width-800 {
 	width: 100%;
 	max-width: 800px;
@@ -91,4 +85,14 @@
 .limit-width-500 {
 	width: 100%;
 	max-width: 500px;
+}
+
+.reading {
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+.vertical-space {
+	margin-top: 40px;
+	margin-bottom: 40px;
 }

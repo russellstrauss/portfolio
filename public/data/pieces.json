@@ -4,21 +4,22 @@
 			"path": "interactive",
 			"pieces": [
 				{
-					"sortOrder": "1",
+					"sortOrder": "10",
 					"published": "true",
 					"title": "3DJ",
 					"description": "A virtual reality real-time audio manipulation tool",
 					"featuredImage": "/img/featured-images/3DJ.jpg",
-					"rawHTML": "Example with live audio:<br><br> <video controls poster=\"/img/featured-images/3DJ-poster-1.jpg\"><source src=\"/video/3DJ-sound.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video> Example headset direct video capture (no sound but better image clarity):<br><br> <video controls poster=\"/img/featured-images/3DJ-poster-2.jpg\"><source src=\"/video/3DJ-video.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video>",
+					"rawHTML": "<h2>Introduction</h2><p>With an increasingly complex industry revolving around audio mixing and editing, the need for useful interactions that accomplish these tasks in a 3D virtual space continues to grow. Our project explores methods for sound and music interaction. This involves the development of different ways of visualizing the audio as well as seeing which actions feel most natural to users in this 3D space. While work has been done on sound interfaces, much of the work stays in the 2D space for digital audio workstations. However, there are several tools that exist for users to work with instruments in a VR space. Our project develops a tool set that allows users to manipulate and create audio in a 3D setting, combining some of the work done for digital audio workstations in 2D with the richness of a 3D space seen in VR. The metaphor we explore is a DJ-style workstation, such that the user can observe and interact with several different tools that change the sound being played in real time.</p> <p>We built this project for exploring novel methods of sound and music interaction in 3D space. We have built a DJ-style workstation to provide the user a meaningful context for their actions, different functions for manipulation, and a designated space to interact. Immersive musical instruments give users a high degree of control with gestural interaction to perform, compose, or improvise music in real time. [9] We have also enabled ways to select and manipulate specific audio attributes such as level adjustments, effect filters, changing playback rate, and playback control. These basic uses have application in a wide variety of tools from simple audio editing to live music creation. Metaphors are commonly used in UI as powerful tools to enable quick understanding and more effective usability [2], and thus we chose to simulate a virtual digital audio workstation. We have bridged the gap between the actions a user can perform and their natural human interaction. For example, using the distance between the user’s hands to adjust values creates a more natural interaction than selecting a volume modifier from a 2D menu.</p> <h2>Example with live audio:</h2> <video controls poster=\"/img/featured-images/3DJ-poster-1.jpg\"><source src=\"/video/3DJ-sound.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video> <h2>Direct video capture:</h2> <video controls poster=\"/img/featured-images/3DJ-poster-2.jpg\"><source src=\"/video/3DJ-video.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video>",
 					"applicationLink": {
 						"href": "https://jrstrauss.net/vr/3DJ/",
 						"text": "View live application"
 					},
+					"pdf": "/documents/3DJ.pdf",
 					"href": "/work/interactive/3DJ",
 					"openInNewTab": "false"
 				},
 				{
-					"sortOrder": "2",
+					"sortOrder": "20",
 					"published": "true",
 					"title": "Immersive Art",
 					"description": "Step inside your masterpiece",
@@ -32,7 +33,18 @@
 					"openInNewTab": "false"
 				},
 				{
-					"sortOrder": "3",
+					"sortOrder": "30",
+					"published": "true",
+					"title": "The Web as a Distribution Platform for Virtual Reality Systems",
+					"description": "",
+					"featuredImage": "/img/featured-images/webvr2.jpg",
+					"rawHTML": "",
+					"pdf": "/documents/Web_Virtual_Reality_Systems.pdf",
+					"href": "/work/interactive/web-virtual-reality-systems",
+					"openInNewTab": "false"
+				},
+				{
+					"sortOrder": "40",
 					"published": "true",
 					"title": "colorspace",
 					"description": "Three-dimensional colorspace models: using geometry to calculate colors in 3D space",
@@ -46,7 +58,7 @@
 					"openInNewTab": "false"
 				},
 				{
-					"sortOrder": "4",
+					"sortOrder": "50",
 					"published": "true",
 					"title": "Algorhythm",
 					"description": "Interactive beat sequencing",
@@ -60,7 +72,7 @@
 					"openInNewTab": "false"
 				},
 				{
-					"sortOrder": "5",
+					"sortOrder": "60",
 					"published": "true",
 					"title": "Zoom Eternal",
 					"description": "Realtime physics robot battle arena game",
@@ -74,7 +86,7 @@
 					"openInNewTab": "false"
 				},
 				{
-					"sortOrder": "6",
+					"sortOrder": "70",
 					"published": "true",
 					"title": "Logarithmic Spiral for Smooth Camera Motion",
 					"description": "Dynamically generating log spirals for camera trajectory",
@@ -84,11 +96,12 @@
 						"href": "https://jrstrauss.net/cg/log_spiral.7z",
 						"text": "Download application"
 					},
+					"pdf": "/documents/Log_Spiral.pdf",
 					"href": "/work/interactive/logarithmic-spiral-camera-motion",
 					"openInNewTab": "false"
 				},
 				{
-					"sortOrder": "11",
+					"sortOrder": "80",
 					"published": "true",
 					"title": "Painting Nature",
 					"description": "A non-traditional paint program used to create striking scenes of nature",
@@ -98,7 +111,7 @@
 					"openInNewTab": "false"
 				},
 				{
-					"sortOrder": "12",
+					"sortOrder": "90",
 					"published": "true",
 					"title": "3D Animation Editor",
 					"description": "",
@@ -118,7 +131,7 @@
 					]
 				},
 				{
-					"sortOrder": "13",
+					"sortOrder": "100",
 					"published": "true",
 					"title": "Projectile Prediction",
 					"description": "",
@@ -127,7 +140,7 @@
 					"openInNewTab": "false"
 				},
 				{
-					"sortOrder": "14",
+					"sortOrder": "110",
 					"published": "true",
 					"title": "Polygon Smoothing",
 					"description": "",
@@ -142,7 +155,7 @@
 					]
 				},
 				{
-					"sortOrder": "15",
+					"sortOrder": "120",
 					"published": "false",
 					"title": "Rotation Transformations, Realistic Center of Gravity",
 					"description": "",
@@ -151,7 +164,7 @@
 					"openInNewTab": "false"
 				},
 				{
-					"sortOrder": "16",
+					"sortOrder": "130",
 					"published": "true",
 					"title": "Medial Axis",
 					"description": "",
@@ -166,7 +179,7 @@
 					]
 				},
 				{
-					"sortOrder": "17",
+					"sortOrder": "140",
 					"published": "true",
 					"title": "Fermat Point",
 					"description": "",
@@ -217,13 +230,15 @@
 				},
 				{
 					"sortOrder": "4",
-					"published": "false",
+					"published": "true",
 					"title": "Growasis",
 					"description": "Location-based web application concept built for sharing garden harvests, seed sharing, and farmers markets to help improve proximity-based food distribution.",
 					"natureOfContributions": "Original idea, requirements gathering, planning, and execution.",
 					"featuredImage": "/img/featured-images/growasis.jpg",
-					"href": "https://www.growasis.technology/",
-					"openInNewTab": "true"
+					"rawHTML": "<p>During the last hundred years, improvements in mechanical technologies have led to innovations that greatly influenced agriculture—new tools and techniques improved productivity, precision, and land coverage. These advances in technology led to prosperous agricultural economies all over the world; however, food distribution remains a problem today. Foods lose freshness as they are shipped far distances resulting in lower quality goods. Consumers have difficulty connecting to fresh markets and produce grown in their area. Urban environments deal with geographic areas where low-income residents do not have access to fresh food at all. Our project seeks to use Internet technologies to explore methods for increasing connectivity and decreasing strain in these problem areas by finding new methods to connect food producers with consumers.</p>",
+					"pdf": "/documents/Growasis.pdf",
+					"href": "/work/web-application-development/detail/growasis",
+					"openInNewTab": "false"
 				},
 				{
 					"sortOrder": "5",
@@ -379,6 +394,16 @@
 				{
 					"sortOrder": "1",
 					"published": "true",
+					"title": "Whiskeys",
+					"description": "",
+					"featuredImage": "/img/featured-images/whiskeys-3d-thumb.jpg",
+					"rawHTML": "<a href=\"/img/data-visualization/whiskeys.jpg\"><img src=\"/img/data-visualization/whiskeys.jpg\" alt=\"Whiskey price, age, and rating visualization\" /><a/>",
+					"href": "https://jrstrauss.net/cg/whiskeys",
+					"openInNewTab": "false"
+				},
+				{
+					"sortOrder": "2",
+					"published": "true",
 					"title": "Microplastics",
 					"description": "",
 					"featuredImage": "/img/featured-images/microplastics-thumb.jpg",
@@ -386,7 +411,7 @@
 					"openInNewTab": "false"
 				},
 				{
-					"sortOrder": "2",
+					"sortOrder": "3",
 					"published": "true",
 					"title": "Exoplanets",
 					"description": "",
@@ -395,22 +420,12 @@
 					"openInNewTab": "false"
 				},
 				{
-					"sortOrder": "3",
+					"sortOrder": "4",
 					"published": "true",
 					"title": "Website Popularity Through the Decade",
 					"description": "",
 					"featuredImage": "/img/featured-images/website-popularity-thumb.jpg",
 					"href": "https://jrstrauss.net/data-visualization/website-popularity/",
-					"openInNewTab": "false"
-				},
-				{
-					"sortOrder": "4",
-					"published": "true",
-					"title": "Whiskeys",
-					"description": "",
-					"featuredImage": "/img/featured-images/whiskeys-thumb.jpg",
-					"rawHTML": "<a href=\"/img/data-visualization/whiskeys.jpg\"><img src=\"/img/data-visualization/whiskeys.jpg\" alt=\"Whiskey price, age, and rating visualization\" /><a/>",
-					"href": "/work/data-visualization/whiskeys",
 					"openInNewTab": "false"
 				},
 				{
@@ -464,6 +479,16 @@
 				{
 					"sortOrder": "1",
 					"published": "true",
+					"title": "Markov Chains & the Google PageRank Algorithm",
+					"description": "",
+					"featuredImage": "/img/featured-images/markov-chains-thumb.jpg",
+					"rawHTML": "<div class=\"reading\"><p>Markov Chains are directed graphs with special properties. In a Markov Chain $\\Omega$, every node in the graph represents a state.$$ \\Omega = (e, v) $$</p><p>The weighted, directed edges represent the probability from transitioning from one state to another. $$w(e) = edge(i, j) = \\mathbb{P}(i \\rightarrow j)$$ The weight of the edge from vertex $i$ to vertex $j$ is equal to the probability of transition from state $i$ to state $j$. We can discretize time $t = \\{0, 1, 2, ..., t_n\\}$ such that you can think of $t$ in seconds, minutes, or whichever unit.</p><p>The probability of staying at the same state is represented by a self-loop edge back onto the state itself. Since the probability of either staying at the same state or moving to a different state is 100%, all edges leaving a vertex must sum to 1. For all $v \\in \\Omega$$$\\sum_{j}P(i,j) = 1$$</p><p>The adjacency matrix for this graph is called transition matrix $P$, size $n$ x $n$, where each element $P[i, j]$ represents the probability of moving from state $i$ to $j$ in a single step. Any element $P[i, j] = 0$ if $edge(i, j) \\notin \\Omega$. We can calculate probabilities of moving from state to state in more than one time step by raising the transition matrix to powers of $P$ equal to the $t$ number of steps.$$P^{t}(i, j) = P(i \\rightarrow j)$$</p><p>Now if instead of calculating the transition matrix for a few steps in discrete time, it is possible to calculate $P^t$ as the limit of $t$ trends infinitely. $$\\lim_{t \\to \\infty} P^{t} = \\begin{bmatrix} \\pi \\\\ \\pi \\\\ \\vdots \\\\ \\pi\\end{bmatrix} $$ So every row of our transition matrix $P$ has converged to eigenvector $\\pi$. This is known as the stationary distribution.</p><p>Our defining property of the stationary distribution is $$\\pi P=\\pi$$</p><p>So what does this mean? It means that if you calculate $P^t$ for large enough $t$, regardless of which state you start within, the probability that you will be at state $j$ at time $t$ is $\\pi(j)$ for every $v \\in \\Omega$. Of course this is only helpful if the stationary distribution is unique. If it does not converge, how can we be sure that the probability of moving from state $i$ to $j$ is contained within our $\\pi$ vector if there could be more than possible solution for the distribution?</p><p>However, there are certain properties of Markov Chains that can ensure we reach a unique stationary distribution. If we can do this, then we can determine the respective probabilities of being in any state at a given time. How quickly we can calculate this distribution is known as the mxing time of the MArkov Chain.</p><p>For there to be a unique stationary distribution $\\pi$, the Markov Chain must be ergodic. The conditions for ergodicity are:</p><ol><li>Aperiodicity</li><li>Irreducibility</li></ol><h3>Aperiodicity</h3><h3>Irreducibility</h3></div>",
+					"href": "/work/mathematics/code/markov-chains",
+					"openInNewTab": "false"
+				},
+				{
+					"sortOrder": "2",
+					"published": "true",
 					"title": "LU Decomposition",
 					"description": "",
 					"featuredImage": "/img/featured-images/LU.jpg",
@@ -498,7 +523,7 @@
 					]
 				},
 				{
-					"sortOrder": "2",
+					"sortOrder": "3",
 					"published": "true",
 					"title": "QR Decomposition via Householder Reflections",
 					"description": "",
@@ -511,7 +536,7 @@
 							"src": "/code/math/householders/householders1.java"
 						},
 						{
-							"pretext": "<p>The next step is to find H(a<sub>1</sub>) which is found with the given equation:</p> <img class=\"add-border center\" alt=\"householder-equation-1\" src=\"/img/math/householder-equation-1.jpg\" />",
+							"pretext": "<p>The next step is to find H(a<sub>1</sub>) which is found with the equation:</p> <p>$$H(a) =  I - \\frac{2uu^{t}}{||u||^{2}}$$</p>",
 							"src": "/code/math/householders/householders2.java",
 							"posttext": "<p>This will not only find H(a<sub>1</sub>), but also each subsequent H(a<sub>n</sub>) within the for loop, until we reach H(a<sub>n-1</sub>). After finding H(a<sub>n</sub>), we find H<sub>n</sub> but multiplying H<sub>n</sub> times A<sub>n-1</sub> which the first time through the loop is the Hilbert matrix.</p>"
 						},
@@ -538,7 +563,7 @@
 					]
 				},
 				{
-					"sortOrder": "3",
+					"sortOrder": "4",
 					"published": "true",
 					"title": "QR Decomposition via Givens Rotations",
 					"description": "",
@@ -577,7 +602,7 @@
 					]
 				},
 				{
-					"sortOrder": "4",
+					"sortOrder": "5",
 					"published": "true",
 					"title": "Matrix Operations",
 					"description": "",

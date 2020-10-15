@@ -50,5 +50,4 @@ if (window.NodeList && !NodeList.prototype.forEach) {
 	NodeList.prototype.forEach = Array.prototype.forEach;
 }
 
-Vue.use(VueAwesomeSwiper, /* { default options with global component } */);
-// import 'pdfobject';
+// Vue.use(VueAwesomeSwiper, /* { default options with global component } */);
