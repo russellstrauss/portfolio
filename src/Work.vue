@@ -6,28 +6,13 @@
 		<div class="layout-wrapper">
 			<Nav></Nav>
 			
-			<ul class="category-list">
-				<li v-for="category in categories" :key="category.path" class="category">
+			<transition-group class="category-list" name="stagger-list" tag="ul"  v-on:enter="menuItemEnter" v-on:leave="menuItemLeave">
+				<li class="category" v-for="(category, index) in categories" :key="category.path" :data-index="index">
 					<a :href="$route.path + '/' + category.path">{{ category.title }}</a>
 				</li>
-			</ul>
-			
+			</transition-group>
 			
 		</div>
-		<!-- <ul class="staggering-start-value">
-			<li class="el"></li>
-			<li class="el"></li>
-			<li class="el"></li>
-			<li class="el"></li>
-			<li class="el"></li>
-			<li class="el"></li>
-			<li class="el"></li>
-			<li class="el"></li>
-			<li class="el"></li>
-			<li class="el"></li>
-			<li class="el"></li>
-			<li class="el"></li>
-		</ul> -->
 	</div>
 </template>
 
@@ -51,7 +36,23 @@
 			};
 		},
 
-		methods: {},
+		methods: {
+			
+			menuItemEnter: function (element) {
+				
+				var delay = element.dataset.index * 75;
+				setTimeout(function () {
+					element.classList.add('active');
+				}, delay);
+			},
+			menuItemLeave: function (element) {
+				
+				var delay = element.dataset.index * 75;
+				setTimeout(function () {
+					element.classList.remove('active');
+				}, delay);
+			}
+		},
 
 		mounted: function () {
 			
@@ -68,27 +69,6 @@
 			.catch(function (error) {
 				console.log(error);
 			});
-			
-			// $('#category-container').find('.portfolio-category').each(function(i) {
-			// 	var $menuItem = $(this);
-				
-			// 	setTimeout(function() {
-			// 		$menuItem.css({'margin-left': '0', 'opacity': 1});
-			// 	}, i * 75);
-			// });
-			
-			// anime({
-			// 	targets: '.category-list .category',
-			// 	translateX: 500,
-			// 	delay: anime.stagger(100, {start: 1500}) // delay starts at 500ms then increase by 100ms for each elements.
-			// });
-			
-			// anime({
-			// 	targets: '.staggering-start-value .el',
-			// 	translateX: 100,
-			// 	delay: anime.stagger(0, {start: 1500}) // delay starts at 500ms then increase by 100ms for each elements.
-			// });
-			
 		},
 	};
 </script>
@@ -100,25 +80,18 @@
 		.category {
 			@include heading-font;
 			margin-bottom: 20px;
-			// opacity: 0;
+			opacity: 0;
+			margin-left: 20px;
 			transition: opacity 600ms ease, margin-left 400ms ease;
+			
+			&.active {
+				opacity: 1;
+				margin-left: 0;
+			}
 			
 			a {
 				text-decoration: none;
 			}
-		}
-	}
-	
-	.staggering-start-value {
-		display: block;
-		
-		.el {
-			width: 10px;
-			height: 10px;
-			display: block;
-			background-color: green;
-			margin: 5px;
-			// transform: translateX(600px)
 		}
 	}
 </style>

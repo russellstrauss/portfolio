@@ -14,12 +14,8 @@
 						</div>
 					</header>
 					
-					<ul :class="viewType">
-						<li v-for="piece in pieces" :key="piece.sortOrder" class="each-piece" :style="'background-image: url(' + piece.featuredImage + ');'">
-							
-							<!-- <div class="featured-image" v-if="piece.featuredImage">
-								<a :href="piece.href" :target="JSON.parse(piece.openInNewTab) ? '_blank' : '_self'"><img v-if="piece.featuredImage" :src="piece.featuredImage" alt="featured-image"></a>
-							</div> -->
+					<transition-group :class="viewType" name="stagger-grid" tag="ul"  v-on:enter="gridItemEnter" v-on:leave="gridItemLeave">
+						<li v-for="(piece, index) in pieces" :key="piece.sortOrder" class="each-piece" :style="'background-image: url(' + piece.featuredImage + ');'" :data-index="index">
 							<a :href="piece.href" :target="JSON.parse(piece.openInNewTab) ? '_blank' : '_self'">
 								<div class="piece-details">
 									<div class="row">
@@ -33,7 +29,7 @@
 								</div>
 							</a>
 						</li>
-					</ul>
+					</transition-group>
 				</div>
 			</div>
 		</div>
@@ -73,6 +69,22 @@
 			getPieces: function() {
 				
 				return axios.get('/data/pieces.json');
+			},
+			
+			gridItemEnter: function (element) {
+				
+				var delay = element.dataset.index * 75;
+				setTimeout(function () {
+					element.classList.add('active');
+				}, delay);
+			},
+			
+			gridItemLeave: function (element) {
+				
+				var delay = element.dataset.index * 75;
+				setTimeout(function () {
+					element.classList.remove('active');
+				}, delay);
 			}
 		},
 
@@ -236,6 +248,15 @@
 					transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 					box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 					margin-bottom: 30px;
+					
+					opacity: 0;
+					transform: translate(0, 20px);
+					transition: opacity 400ms $ease-out-quadratic, transform 300ms $ease-out-quadratic;
+					
+					&.active {
+						opacity: 1;
+						transform: none;
+					}
 
 					@include mobile-only {
 						margin-bottom: 100px;
