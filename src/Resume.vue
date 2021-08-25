@@ -72,7 +72,7 @@
 						<span class="gt-rankings" title="Ranked #4 Most Innovative Schools <br>Ranked #5 Top U.S. Public Schools <br>Ranked #5 Computer Science<br><br>Source: <a href='https://www.usnews.com/best-colleges'>US News and World Report 2021</a>"> Georgia Institute of Technology
 						</span>
 					</li>
-					<li>GPA 3.77</li>
+					<li>GPA 3.8</li>
 				</ul>
 				<ul>
 					<li>BS Computational Media 2012</li>
@@ -88,10 +88,10 @@
 				<h2>Skills</h2>
 				<ul class="plus">
 					<li>Front end: JavaScript, Vue.js, Three.js, Node.js, SASS, Gulp, SVG</li>
-					<li>Visualization, 3D, WebGL, and interactive</li>
+					<li>Interactive, 3D, Visualization, WebGL, D3.js</li>
 					<li>Responsive development for devices of all sizes, maintainability, and cross-browser compatibility</li>
-					<li>Back end: C#, Python, IIS, SQL, Apache, PHP; interested in learning Ruby</li>
-					<li>Preferred workflow: iterative design and development through team collaboration</li>
+					<li>Back end: C#, Python</li>
+					<li>Preferred workflow: iterative design and development through cross disciplinary team collaboration</li>
 				</ul>
 			</section>
 			<section class="experience">
@@ -150,7 +150,7 @@
 			<section class="awards">
 				<h2>Awards &amp; Achievements</h2>
 				<ul class="plus">
-					<li><a class="dotted" target="_blank" href="/documents/NACA_Strauss.pdf">NACA Foundation GT-Shenzhen Scholarship 2020</a></li>
+					<li>NACA Foundation GT-Shenzhen Scholarship 2020</li>
 					<li>Richard Tapia Celebration of Diversity in Computing Scholarship 2019</li>
 					<li>Successfully completed a solo thru-hike of the 2,189 mile Appalachian Trail from Georgia to Maine 2015</li>
 					<li>Computational Media's Outstanding Students 2012</li>
