@@ -22,14 +22,29 @@
 	</p>
 	<p>Our defining property of the stationary distribution is $$\pi P=\pi$$</p>
 	<p>
-		So what does this mean? It means that if you calculate $P^t$ for large enough $t$, regardless of which state you start within, the probability that you will be at state $j$ at time $t$ is $\pi(j)$ for every $v \in \Omega$. Of course this is only helpful if the stationary distribution is unique. If it does not converge, how can we be sure that the probability of moving from state $i$ to $j$ is contained within our $\pi$ vector if there could be more than possible solution for the distribution?
+		So what does this mean? It means that if you calculate $P^t$ for large enough $t$, regardless of which state you start within, the probability that you will be at state $j$ at time $t$ is $\pi(j)$ for every $v \in \Omega$. Of course this is only helpful if the stationary distribution is unique. If it is not unique, how can we be sure that the probability of moving from state $i$ to $j$ is contained within our $\pi$ vector if there could be more than possible solution for the distribution?
 	</p>
-	<p>However, there are certain properties of Markov Chains that can ensure we reach a unique stationary distribution. If we can do this, then we can determine the respective probabilities of being in any state at a given time. How quickly we can calculate this distribution is known as the mxing time of the MArkov Chain.</p>
+	<p>However, there are certain properties of Markov Chains that can ensure we reach a unique stationary distribution. If we can do this, then we can determine the respective probabilities of being in any state at a given time. How quickly we can calculate this distribution is known as the mxing time of the Markov Chain.</p>
 	<p>For there to be a unique stationary distribution $\pi$, the Markov Chain must be ergodic. The conditions for ergodicity are:</p>
 	<ol>
-		<li>Aperiodicity</li>
 		<li>Irreducibility</li>
+		<li>Aperiodicity</li>
 	</ol>
-	<h3>Aperiodicity</h3>
 	<h3>Irreducibility</h3>
+	<p>
+		In terms of directed graphs, irreducibility in the chain means that the chain contains only one strongly connected component or class&mdash;you can reach every state from every other state in a finite number of steps. Any absorbing states or sink components will result in the possiblity that the chain enters an
+		absorbing state and then never leaves. This will prevent the convergence to a stationary distribution.
+	</p>
+	<h3>Aperiodicity</h3>
+	<p>
+		Periodic structure in a Markov Chain will cause reoccurence to states at regular intervals. The period of the chain is determined by the greatest common divisor of each state in the chain. Period $d_i = gcd\{t \geq 1: P^{t}_{ii} > 0\}$ You can also think of aperiodicity as $d_i = 1$. In other words, the probability 
+		of moving from state $i$ back to itself is greater than zero&mdash;it is possible. Aperiodicity is a class property, so all states in an irreducible chain will have the same period. Why does aperiodicity matter? Because if a chain has a periodic structure, then the landing state of a chain at time $t$ will depend on the initial state of the chain.
+		For example, a bipartite graph will have period 2 and thus where you land after a number of steps will be either even or odd only depending upon the initial state. To avoid this, we can add self-loops on every state in the chain. So for every state, add an edge back to itself with a weight of greater than 1&mdash;meaning there is some probability, no matter how small, that
+		in time $t+1$ the state will return to itself.
+	</p>
+	
+	<h2>PageRank</h2>
+	<p>
+		In the web graph, all vertices are pages and all edges are hyperlinks. If we can form a web graph with a unique stationary distribution and run until the stationary distribution converges, then we can learn the probability of landing on any given web page. Google calls this the PageRank.
+	</p>
 </div>
