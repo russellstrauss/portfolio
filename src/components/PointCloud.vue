@@ -465,11 +465,11 @@
 			scene.background = new THREE.Color(0xf0f0f0);
 			renderer = self.setUpRenderer(renderer);
 			camera = self.setUpCamera(camera);
-			floor = self.addFloor(settings.floorSize, settings.colors.worldColor, settings.colors.gridColor);
+			floor = self.addFloor(self.settings.floorSize, self.settings.colors.worldColor, self.settings.colors.gridColor);
 			controls = self.enableControls(controls, renderer, camera);
 			self.resizeRendererOnWindowResize(renderer, camera);
 			self.setUpLights();
-			self.setCameraLocation(camera, settings.defaultCameraLocation);
+			self.setCameraLocation(camera, self.settings.defaultCameraLocation);
 			self.setUpButtons();
 			self.dragging();
 			self.loadModel();
