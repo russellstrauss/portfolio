@@ -1,8 +1,8 @@
-// import * as THREE from 'three';
 import * as THREE from '@/js/vendors/three.js/build/three.module.js';
 import { OrbitControls } from '@/js/vendors/three.js/examples/jsm/controls/OrbitControls.js';
 import * as graphics from '@/js/cg/graphics.js'; var gfx = graphics.default;
-import * as Utils from '@/js/utils.js'; let utils = Utils.default;
+import * as Utils from '@/js/utils.js';import { Color } from 'three';
+ let utils = Utils.default;
 
 
 var galaxy = (function() {
@@ -31,7 +31,6 @@ var galaxy = (function() {
 	var geometry;
 	var initialized = false, frameCount = 0;
 	var clusterGeometry;
-	var colors = ['red', 'blue', 'green', 'white', 'purple', 'pink', 'orange', '#710C96']; // whiskey
 	
 	var renderer, scene, camera, controls, floor;
 	var targetList = [];
@@ -177,8 +176,10 @@ var galaxy = (function() {
 			}
 			clusterGeometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
 			
-			let colors = this.interpolateD3Colors(clusterGeometry, interps[5], true);
+			let colors = this.interpolateD3Colors(clusterGeometry, interps[5]);
+			
 			clusterGeometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+			console.log(clusterGeometry.getAttribute('color'));
 			
 			let size = 2;
 			if (utils.iOS() == true) size = settings.iOS.particleSize;
@@ -211,9 +212,9 @@ var galaxy = (function() {
 					// clusterGeometry.colors[i] = this.rgbStringToColor(interps[5](ratio));
 					
 					clusterGeometry.attributes.position[i].set(clusterGeometry.attributes.position[i].x + force.x, clusterGeometry.attributes.position[i].y + force.y, clusterGeometry.attributes.position[i].z + force.z);
+					// clusterGeometry.attributes.position[i].needsUpdate = true;
 				}
-				clusterGeometry.verticesNeedUpdate = true;
-				clusterGeometry.attributes.position.needsUpdate = true;
+				// clusterGeometry.verticesNeedUpdate = true;
 			}
 		},
 		
@@ -226,9 +227,12 @@ var galaxy = (function() {
 			for (let i = 0; i < vertexCount; i++) {
 				let interpolator = (i/(vertexCount - 1));
 				let color = this.rgbStringToColor(interpolatorFunc(interpolator));
-				colors.push(color.r, color.g, color.b);
+
+				colors.push(color.r);
+				colors.push(color.g);
+				colors.push(color.b);
 			}
-			if (reverse) colors.reverse();
+			if (reverse === true) colors.reverse();
 			return colors;
 		},
 		
