@@ -31,7 +31,7 @@ var galaxy = (function() {
 	var clusterGeometry, initialized = false, frameCount = 0;
 	var renderer, scene, camera, controls;
 	let interps = [d3.interpolateRainbow, d3.interpolateRgb('#450F66', '#B36002'), d3.interpolateRgb('white', 'red'), d3.interpolateSinebow, d3.interpolateYlOrRd, d3.interpolateYlGnBu,d3.interpolateRdPu, d3.interpolatePuBu, d3.interpolateGnBu, d3.interpolateBuPu, d3.interpolateCubehelixDefault, d3.interpolateCool, d3.interpolateWarm, d3.interpolateCividis, d3.interpolatePlasma, d3.interpolateMagma, d3.interpolateInferno, d3.interpolateViridis, d3.interpolateTurbo, d3.interpolatePurples, d3.interpolateReds, d3.interpolateOranges, d3.interpolateGreys, d3.interpolateGreens, d3.interpolateBlues, d3.interpolateSpectral, d3.interpolateRdYlBu, d3.interpolateRdBu, d3.interpolatePuOr, d3.interpolatePiYG, d3.interpolatePRGn];
-	let curve = [], progress = 0, default_camera_speed = .001, camera_speed = default_camera_speed, curve_index = 0, clock, dt, curveObject, catmullRomCurve;
+	let curve = [], progress = 0, default_camera_speed = .005, camera_speed = default_camera_speed, curve_index = 0, clock, dt, curveObject, catmullRomCurve;
 	let cameraFocalPoint = new THREE.Vector3(0, 0, 0), origin = new THREE.Vector3(0, 0, 0), particles, particleCount = 20000, particleSpread = 500, positions, trajectory_iteration_count = 40, trajectoryReverse = false;
 	
 	return {
@@ -160,7 +160,6 @@ var galaxy = (function() {
 				positions[i + 0] = 2000; //THREE.MathUtils.randFloatSpread(spread); // x
 				positions[i + 1] = 2000; // THREE.MathUtils.randFloatSpread(spread); // y
 				positions[i + 2] = 2000; // THREE.MathUtils.randFloatSpread(spread); // z
-				if (i < 10) console.log("positions", new THREE.Vector3(positions[i + 0], positions[i + 1], positions[i + 2]));
 			}
 			clusterGeometry.setAttribute( 'position', new THREE.BufferAttribute( positions, 3 ) );
 			
@@ -184,7 +183,8 @@ var galaxy = (function() {
 				
 				let pos = particles.geometry.attributes.position.array;
 				
-				for (let i = 0; i < particleCount; i++) {
+				for (let i = 0; i < particleCount; i+=3) {
+					
 					let scalar = .01;
 					
 					let x = pos[i + 0]; let y = pos[i + 1]; let z = pos[i + 2]
@@ -193,21 +193,16 @@ var galaxy = (function() {
 					let forceY = -z * scalar;
 					let forceZ = -x * scalar; // galaxy
 					let force =  new THREE.Vector3(forceX, forceY, forceZ);
-					if (i === 0) {
-						console.log("Pos: ", x, y, z);
-						console.log("Force: ", force);
-					}
-						
+					
 					let min = -500;
 					let max = 4000;
-					let maxDistance = 1000;//  + (Math.random() * (max - min) + min);
-					// if (new THREE.Vector3(pos[i], pos[i + 1], pos[i + 2]).distanceTo(origin) > maxDistance) pos[i] = THREE.MathUtils.randFloatSpread(1000), pos[i + 1] = THREE.MathUtils.randFloatSpread(1000), pos[i + 2] = THREE.MathUtils.randFloatSpread(1000);
-					if (new THREE.Vector3(pos[i], pos[i + 1], pos[i + 2]).distanceTo(origin) > maxDistance) pos[i] = 100, pos[i + 1] = 100, pos[i + 2] = 100;
+					let maxDistance = 1000 + (Math.random() * (max - min) + min);
+					if (new THREE.Vector3(pos[i], pos[i + 1], pos[i + 2]).distanceTo(origin) > maxDistance) pos[i] = THREE.MathUtils.randFloatSpread(1000), pos[i + 1] = THREE.MathUtils.randFloatSpread(1000), pos[i + 2] = THREE.MathUtils.randFloatSpread(1000);
+					// if (new THREE.Vector3(pos[i], pos[i + 1], pos[i + 2]).distanceTo(origin) > maxDistance) pos[i] = 100, pos[i + 1] = 100, pos[i + 2] = 100;
 					
-					// pos[i + 0] += force.x;
-					// pos[i + 1] += force.y;
-					// pos[i + 2] += force.z;
-					
+					pos[i + 0] += forceX;
+					pos[i + 1] += forceY;
+					pos[i + 2] += forceZ;
 				}
 				particles.geometry.attributes.position.needsUpdate = true;
 			}
