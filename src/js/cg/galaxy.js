@@ -28,19 +28,10 @@ var galaxy = (function() {
 		
 	};
 	
-	var geometry;
-	var initialized = false, frameCount = 0;
-	var clusterGeometry;
-	
-	var renderer, scene, camera, controls, floor;
-	var targetList = [];
-	var black = new THREE.Color('black'), white = new THREE.Color('white'), green = new THREE.Color(0x00ff00), red = new THREE.Color('#ED0000'), blue = new THREE.Color(0x0000ff);
-	
-	let interps = [d3.interpolateRainbow, d3.interpolateRgb('#450F66', '#B36002'), d3.interpolateRgb('white', 'red'), d3.interpolateSinebow, d3.interpolateYlOrRd, d3.interpolateYlGnBu,d3.interpolateRdPu, d3.interpolatePuBu, d3.interpolateGnBu, d3.interpolateBuPu, d3.interpolateCubehelixDefault, d3.interpolateCool, d3.interpolateWarm, d3.interpolateCividis, d3.interpolatePlasma, d3.interpolateMagma, d3.interpolateInferno, d3.interpolateViridis, d3.interpolateTurbo, d3.interpolatePurples, d3.interpolateReds, d3.interpolateOranges, d3.interpolateGreys, d3.interpolateGreens, d3.interpolateBlues, d3.interpolateSpectral, d3.interpolateRdYlBu, d3.interpolateRdBu, d3.interpolatePuOr, d3.interpolatePiYG, d3.interpolatePRGn]
-	let colorSchemes = [d3.schemeCategory10, d3.schemeAccent, d3.schemeDark2, d3.schemePaired, d3.schemePastel1, d3.schemePastel2, d3.schemeSet1, d3.schemeSet2, d3.schemeSet3, d3.schemeTableau10];
-	
-	let curve = [], progress = 0, default_camera_speed = .005, camera_speed = default_camera_speed, curve_index = 0, clock, dt, curveObject, catmullRomCurve;
-	
+	var clusterGeometry, initialized = false, frameCount = 0;
+	var renderer, scene, camera, controls;
+	let interps = [d3.interpolateRainbow, d3.interpolateRgb('#450F66', '#B36002'), d3.interpolateRgb('white', 'red'), d3.interpolateSinebow, d3.interpolateYlOrRd, d3.interpolateYlGnBu,d3.interpolateRdPu, d3.interpolatePuBu, d3.interpolateGnBu, d3.interpolateBuPu, d3.interpolateCubehelixDefault, d3.interpolateCool, d3.interpolateWarm, d3.interpolateCividis, d3.interpolatePlasma, d3.interpolateMagma, d3.interpolateInferno, d3.interpolateViridis, d3.interpolateTurbo, d3.interpolatePurples, d3.interpolateReds, d3.interpolateOranges, d3.interpolateGreys, d3.interpolateGreens, d3.interpolateBlues, d3.interpolateSpectral, d3.interpolateRdYlBu, d3.interpolateRdBu, d3.interpolatePuOr, d3.interpolatePiYG, d3.interpolatePRGn];
+	let curve = [], progress = 0, default_camera_speed = .001, camera_speed = default_camera_speed, curve_index = 0, clock, dt, curveObject, catmullRomCurve;
 	let cameraFocalPoint = new THREE.Vector3(0, 0, 0), origin = new THREE.Vector3(0, 0, 0), particles, particleCount = 20000, particleSpread = 500, positions, trajectory_iteration_count = 40, trajectoryReverse = false;
 	
 	return {
@@ -59,9 +50,9 @@ var galaxy = (function() {
 			gfx.resizeRendererOnWindowResize(renderer, camera);
 			gfx.setUpLights();
 			gfx.setCameraLocation(camera, settings.defaultCameraLocation);
+			clock = new THREE.Clock(); clock.start();
 			this.addStars();
 			this.addCluster();
-			clock = new THREE.Clock();
 			this.createCameraTrajectory();
 			this.firstFrame();
 			
@@ -103,10 +94,8 @@ var galaxy = (function() {
 				let spiralPt = new THREE.Vector3(spiral_x, spiral_y, spiral_z);
 				
 				if (prevPt !== null) {
-					
 					let showLine = false;
 					if (showLine === true && prevPt != new THREE.Vector3(0, 0, 0)) gfx.drawLineFromPoints(prevPt, spiralPt);
-					
 					curve.push(spiralPt);
 				}
 				prevPt = spiralPt
@@ -129,12 +118,10 @@ var galaxy = (function() {
 		
 		updateCamera: function() {
 			dt = clock.getDelta();
-			clock.start();
 
 			let cameraPosition = catmullRomCurve.getPointAt(progress);
 			camera.position.set(cameraPosition.x, cameraPosition.y, cameraPosition.z);
 			camera.lookAt(cameraFocalPoint);
-			
 			
 			if (camera.position.distanceTo(origin) < 505) camera_speed = default_camera_speed * (camera.position.distanceTo(origin) - 500) * 100; // prevent spin out at center of log spiral
 			else {
@@ -170,14 +157,14 @@ var galaxy = (function() {
 				let min = -1000;
 				let max =  1000;
 				let spread = Math.random() * (max - min) + min;
-				positions[i + 0] = THREE.MathUtils.randFloatSpread(spread); // x
-				positions[i + 1] = THREE.MathUtils.randFloatSpread(spread); // y
-				positions[i + 2] = THREE.MathUtils.randFloatSpread(spread); // z
+				positions[i + 0] = 2000; //THREE.MathUtils.randFloatSpread(spread); // x
+				positions[i + 1] = 2000; // THREE.MathUtils.randFloatSpread(spread); // y
+				positions[i + 2] = 2000; // THREE.MathUtils.randFloatSpread(spread); // z
+				if (i < 10) console.log("positions", new THREE.Vector3(positions[i + 0], positions[i + 1], positions[i + 2]));
 			}
 			clusterGeometry.setAttribute( 'position', new THREE.BufferAttribute( positions, 3 ) );
-			// clusterGeometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
 			
-			let colors = this.interpolateD3Colors(clusterGeometry, interps[5]);
+			let colors = this.interpolateD3Colors(clusterGeometry, interps[5], true);
 			
 			clusterGeometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
 			
@@ -200,19 +187,22 @@ var galaxy = (function() {
 				for (let i = 0; i < particleCount; i++) {
 					let scalar = .01;
 					
-					pos[i + 0] += -pos[i + 1] * scalar;
-					pos[i + 1] += -pos[i + 2] * scalar;
-					pos[i + 2] += -pos[i] * scalar;
+					let x = pos[i + 0]; let y = pos[i + 1]; let z = pos[i + 2]
 					
-					// let x = pos[i]; let y = pos[i + 1]; let z = pos[i + 2]
-					
-					// let forceX = -x * scalar; let forceY = -z * scalar; let forceZ = -x * scalar; // galaxy
-					// let force =  new THREE.Vector3(x, y, z);
-					
+					let forceX = -y * scalar;
+					let forceY = -z * scalar;
+					let forceZ = -x * scalar; // galaxy
+					let force =  new THREE.Vector3(forceX, forceY, forceZ);
+					if (i === 0) {
+						console.log("Pos: ", x, y, z);
+						console.log("Force: ", force);
+					}
+						
 					let min = -500;
 					let max = 4000;
-					let maxDistance = 1000  + (Math.random() * (max - min) + min);
-					if (new THREE.Vector3(pos[i], pos[i + 1], pos[i + 2]).distanceTo(origin) > maxDistance) pos[i] = THREE.MathUtils.randFloatSpread(1000), pos[i + 1] = THREE.MathUtils.randFloatSpread(1000), pos[i + 2] = THREE.MathUtils.randFloatSpread(1000);
+					let maxDistance = 1000;//  + (Math.random() * (max - min) + min);
+					// if (new THREE.Vector3(pos[i], pos[i + 1], pos[i + 2]).distanceTo(origin) > maxDistance) pos[i] = THREE.MathUtils.randFloatSpread(1000), pos[i + 1] = THREE.MathUtils.randFloatSpread(1000), pos[i + 2] = THREE.MathUtils.randFloatSpread(1000);
+					if (new THREE.Vector3(pos[i], pos[i + 1], pos[i + 2]).distanceTo(origin) > maxDistance) pos[i] = 100, pos[i + 1] = 100, pos[i + 2] = 100;
 					
 					// pos[i + 0] += force.x;
 					// pos[i + 1] += force.y;
@@ -220,28 +210,6 @@ var galaxy = (function() {
 					
 				}
 				particles.geometry.attributes.position.needsUpdate = true;
-				
-				// let vertices = [];
-				// for (let i = 0; i < clusterGeometry.attributes.position.count; i++) {
-					
-				// 	// console.log(clusterGeometry.attributes.position[i]);
-				// 	return
-				// 	let scalar = .01;
-				// 	let x = -clusterGeometry.attributes.position[i].y * scalar; let y = -clusterGeometry.attributes.position[i].z * scalar; let z =  - clusterGeometry.attributes.position[i].x * scalar; // galaxy
-				// 	let force =  new THREE.Vector3(x, y, z);
-					
-				// 	let min = -500;
-				// 	let max = 4000;
-				// 	let maxDistance = 1000  + (Math.random() * (max - min) + min);
-				// 	if (clusterGeometry.attributes.position[i].distanceTo(origin) > maxDistance) clusterGeometry.attributes.position[i].set(THREE.MathUtils.randFloatSpread(1000), THREE.MathUtils.randFloatSpread(1000), THREE.MathUtils.randFloatSpread(1000));
-					
-				// 	// let ratio = clusterGeometry.attributes.position[i].distanceTo(origin) / maxDistance;
-				// 	// clusterGeometry.colors[i] = this.rgbStringToColor(interps[5](ratio));
-					
-				// 	clusterGeometry.attributes.position[i].set(clusterGeometry.attributes.position[i].x + force.x, clusterGeometry.attributes.position[i].y + force.y, clusterGeometry.attributes.position[i].z + force.z);
-				// 	// clusterGeometry.attributes.position[i].needsUpdate = true;
-				// }
-				// // clusterGeometry.verticesNeedUpdate = true;
 			}
 		},
 		
