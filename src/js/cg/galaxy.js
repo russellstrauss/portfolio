@@ -1,7 +1,7 @@
 import * as THREE from '@/js/vendors/three.js/build/three.module.js';
 import { OrbitControls } from '@/js/vendors/three.js/examples/jsm/controls/OrbitControls.js';
 import * as graphics from '@/js/cg/graphics.js'; var gfx = graphics.default;
-import * as Utils from '@/js/utils.js';import { Color } from 'three';
+import * as Utils from '@/js/utils.js';import { Color, Vector2 } from 'three';
  let utils = Utils.default;
 
 
@@ -41,7 +41,7 @@ var galaxy = (function() {
 	
 	let curve = [], progress = 0, default_camera_speed = .005, camera_speed = default_camera_speed, curve_index = 0, clock, dt, curveObject, catmullRomCurve;
 	
-	let cameraFocalPoint = new THREE.Vector3(0, 0, 0), origin = new THREE.Vector3(0, 0, 0), particleSpread = 500, trajectory_iteration_count = 40, trajectoryReverse = false;
+	let cameraFocalPoint = new THREE.Vector3(0, 0, 0), origin = new THREE.Vector3(0, 0, 0), particles, particleCount = 20000, particleSpread = 500, positions, trajectory_iteration_count = 40, trajectoryReverse = false;
 	
 	return {
 		init: function() {
@@ -81,7 +81,7 @@ var galaxy = (function() {
 		everyFrame: function() {
 			
 			if (!initialized) this.firstFrame();
-			this.updateCamera();
+			// this.updateCamera();
 			this.updateParticles();
 			frameCount++;
 		},
@@ -165,56 +165,83 @@ var galaxy = (function() {
 		addCluster: function() {
 			
 			clusterGeometry = new THREE.BufferGeometry();
-			let vertices = [];
-			for (let i = 0; i < 20000; i++) {
+			positions = new Float32Array(particleCount * 3);
+			for (let i = 0; i < particleCount; i++) {
 				let min = -1000;
 				let max =  1000;
 				let spread = Math.random() * (max - min) + min;
-				vertices.push(THREE.MathUtils.randFloatSpread(spread)); // x
-				vertices.push(THREE.MathUtils.randFloatSpread(spread)); // y
-				vertices.push(THREE.MathUtils.randFloatSpread(spread)); // z
+				positions[i + 0] = THREE.MathUtils.randFloatSpread(spread); // x
+				positions[i + 1] = THREE.MathUtils.randFloatSpread(spread); // y
+				positions[i + 2] = THREE.MathUtils.randFloatSpread(spread); // z
 			}
-			clusterGeometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+			clusterGeometry.setAttribute( 'position', new THREE.BufferAttribute( positions, 3 ) );
+			// clusterGeometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
 			
 			let colors = this.interpolateD3Colors(clusterGeometry, interps[5]);
 			
 			clusterGeometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
-			console.log(clusterGeometry.getAttribute('color'));
 			
 			let size = 2;
 			if (utils.iOS() == true) size = settings.iOS.particleSize;
-			let particles = new THREE.Points(clusterGeometry, new THREE.PointsMaterial({
+			particles = new THREE.Points(clusterGeometry, new THREE.PointsMaterial({
 				color: 0xffffff,
 				vertexColors: THREE.VertexColors,
 				size: size
 			}));
 			scene.add(particles);
+			
 		},
 		
 		updateParticles: function() {
 			if (clusterGeometry) {
 				
-				let vertices = [];
-				for (let i = 0; i < clusterGeometry.attributes.position.count; i++) {
-					
-					// console.log(clusterGeometry.attributes.position[i]);
-					return
+				let pos = particles.geometry.attributes.position.array;
+				
+				for (let i = 0; i < particleCount; i++) {
 					let scalar = .01;
-					let x = -clusterGeometry.attributes.position[i].y * scalar; let y = -clusterGeometry.attributes.position[i].z * scalar; let z =  - clusterGeometry.attributes.position[i].x * scalar; // galaxy
-					let force =  new THREE.Vector3(x, y, z);
+					
+					pos[i + 0] += -pos[i + 1] * scalar;
+					pos[i + 1] += -pos[i + 2] * scalar;
+					pos[i + 2] += -pos[i] * scalar;
+					
+					// let x = pos[i]; let y = pos[i + 1]; let z = pos[i + 2]
+					
+					// let forceX = -x * scalar; let forceY = -z * scalar; let forceZ = -x * scalar; // galaxy
+					// let force =  new THREE.Vector3(x, y, z);
 					
 					let min = -500;
 					let max = 4000;
 					let maxDistance = 1000  + (Math.random() * (max - min) + min);
-					if (clusterGeometry.attributes.position[i].distanceTo(origin) > maxDistance) clusterGeometry.attributes.position[i].set(THREE.MathUtils.randFloatSpread(1000), THREE.MathUtils.randFloatSpread(1000), THREE.MathUtils.randFloatSpread(1000));
+					if (new THREE.Vector3(pos[i], pos[i + 1], pos[i + 2]).distanceTo(origin) > maxDistance) pos[i] = THREE.MathUtils.randFloatSpread(1000), pos[i + 1] = THREE.MathUtils.randFloatSpread(1000), pos[i + 2] = THREE.MathUtils.randFloatSpread(1000);
 					
-					// let ratio = clusterGeometry.attributes.position[i].distanceTo(origin) / maxDistance;
-					// clusterGeometry.colors[i] = this.rgbStringToColor(interps[5](ratio));
+					// pos[i + 0] += force.x;
+					// pos[i + 1] += force.y;
+					// pos[i + 2] += force.z;
 					
-					clusterGeometry.attributes.position[i].set(clusterGeometry.attributes.position[i].x + force.x, clusterGeometry.attributes.position[i].y + force.y, clusterGeometry.attributes.position[i].z + force.z);
-					// clusterGeometry.attributes.position[i].needsUpdate = true;
 				}
-				// clusterGeometry.verticesNeedUpdate = true;
+				particles.geometry.attributes.position.needsUpdate = true;
+				
+				// let vertices = [];
+				// for (let i = 0; i < clusterGeometry.attributes.position.count; i++) {
+					
+				// 	// console.log(clusterGeometry.attributes.position[i]);
+				// 	return
+				// 	let scalar = .01;
+				// 	let x = -clusterGeometry.attributes.position[i].y * scalar; let y = -clusterGeometry.attributes.position[i].z * scalar; let z =  - clusterGeometry.attributes.position[i].x * scalar; // galaxy
+				// 	let force =  new THREE.Vector3(x, y, z);
+					
+				// 	let min = -500;
+				// 	let max = 4000;
+				// 	let maxDistance = 1000  + (Math.random() * (max - min) + min);
+				// 	if (clusterGeometry.attributes.position[i].distanceTo(origin) > maxDistance) clusterGeometry.attributes.position[i].set(THREE.MathUtils.randFloatSpread(1000), THREE.MathUtils.randFloatSpread(1000), THREE.MathUtils.randFloatSpread(1000));
+					
+				// 	// let ratio = clusterGeometry.attributes.position[i].distanceTo(origin) / maxDistance;
+				// 	// clusterGeometry.colors[i] = this.rgbStringToColor(interps[5](ratio));
+					
+				// 	clusterGeometry.attributes.position[i].set(clusterGeometry.attributes.position[i].x + force.x, clusterGeometry.attributes.position[i].y + force.y, clusterGeometry.attributes.position[i].z + force.z);
+				// 	// clusterGeometry.attributes.position[i].needsUpdate = true;
+				// }
+				// // clusterGeometry.verticesNeedUpdate = true;
 			}
 		},
 		
