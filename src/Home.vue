@@ -53,7 +53,7 @@
 		height: 100vh;
 		top: 0;
 		left: 0;
-		z-index: -9000;
+		// z-index: -9000;
 	}
 	
 	.main a {
