@@ -32,7 +32,7 @@ var galaxy = (function() {
 	var renderer, scene, camera, controls;
 	let interps = [d3.interpolateRainbow, d3.interpolateRgb('#450F66', '#B36002'), d3.interpolateRgb('white', 'red'), d3.interpolateSinebow, d3.interpolateYlOrRd, d3.interpolateYlGnBu,d3.interpolateRdPu, d3.interpolatePuBu, d3.interpolateGnBu, d3.interpolateBuPu, d3.interpolateCubehelixDefault, d3.interpolateCool, d3.interpolateWarm, d3.interpolateCividis, d3.interpolatePlasma, d3.interpolateMagma, d3.interpolateInferno, d3.interpolateViridis, d3.interpolateTurbo, d3.interpolatePurples, d3.interpolateReds, d3.interpolateOranges, d3.interpolateGreys, d3.interpolateGreens, d3.interpolateBlues, d3.interpolateSpectral, d3.interpolateRdYlBu, d3.interpolateRdBu, d3.interpolatePuOr, d3.interpolatePiYG, d3.interpolatePRGn];
 	let curve = [], progress = 0, default_camera_speed = .005, camera_speed = default_camera_speed, curve_index = 0, clock, dt, curveObject, catmullRomCurve;
-	let cameraFocalPoint = new THREE.Vector3(0, 0, 0), origin = new THREE.Vector3(0, 0, 0), particles, particleCount = 20000, particleSpread = 500, positions, trajectory_iteration_count = 40, trajectoryReverse = false;
+	let cameraFocalPoint = new THREE.Vector3(0, 0, 0), origin = new THREE.Vector3(0, 0, 0), particles, particleCount = 60000, particleSpread = 500, positions, trajectory_iteration_count = 40, trajectoryReverse = false;
 	
 	return {
 		init: function() {
@@ -72,7 +72,7 @@ var galaxy = (function() {
 		everyFrame: function() {
 			
 			if (!initialized) this.firstFrame();
-			// this.updateCamera();
+			this.updateCamera();
 			this.updateParticles();
 			frameCount++;
 		},
@@ -153,24 +153,22 @@ var galaxy = (function() {
 			
 			clusterGeometry = new THREE.BufferGeometry();
 			positions = new Float32Array(particleCount * 3);
-			for (let i = 0; i < particleCount; i++) {
+			for (let i = 0; i < particleCount; i += 3) {
 				let min = -1000;
 				let max =  1000;
 				let spread = Math.random() * (max - min) + min;
-				positions[i + 0] = 2000; //THREE.MathUtils.randFloatSpread(spread); // x
-				positions[i + 1] = 2000; // THREE.MathUtils.randFloatSpread(spread); // y
-				positions[i + 2] = 2000; // THREE.MathUtils.randFloatSpread(spread); // z
+				positions[i + 0] = THREE.MathUtils.randFloatSpread(spread); // x
+				positions[i + 1] = THREE.MathUtils.randFloatSpread(spread); // y
+				positions[i + 2] = THREE.MathUtils.randFloatSpread(spread); // z
 			}
-			clusterGeometry.setAttribute( 'position', new THREE.BufferAttribute( positions, 3 ) );
+			clusterGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
 			
-			let colors = this.interpolateD3Colors(clusterGeometry, interps[5], true);
-			
+			let colors = this.interpolateD3Colors(clusterGeometry, interps[5], false);
 			clusterGeometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
 			
 			let size = 2;
 			if (utils.iOS() == true) size = settings.iOS.particleSize;
 			particles = new THREE.Points(clusterGeometry, new THREE.PointsMaterial({
-				color: 0xffffff,
 				vertexColors: THREE.VertexColors,
 				size: size
 			}));
@@ -198,7 +196,6 @@ var galaxy = (function() {
 					let max = 4000;
 					let maxDistance = 1000 + (Math.random() * (max - min) + min);
 					if (new THREE.Vector3(pos[i], pos[i + 1], pos[i + 2]).distanceTo(origin) > maxDistance) pos[i] = THREE.MathUtils.randFloatSpread(1000), pos[i + 1] = THREE.MathUtils.randFloatSpread(1000), pos[i + 2] = THREE.MathUtils.randFloatSpread(1000);
-					// if (new THREE.Vector3(pos[i], pos[i + 1], pos[i + 2]).distanceTo(origin) > maxDistance) pos[i] = 100, pos[i + 1] = 100, pos[i + 2] = 100;
 					
 					pos[i + 0] += forceX;
 					pos[i + 1] += forceY;
@@ -214,9 +211,11 @@ var galaxy = (function() {
 			let colors = [];
 			
 			let vertexCount = geometry.attributes.position.count;
-			for (let i = 0; i < vertexCount; i++) {
+			for (let i = 0; i < vertexCount; i += 3) {
 				let interpolator = (i/(vertexCount - 1));
 				let color = this.rgbStringToColor(interpolatorFunc(interpolator));
+				// color = new THREE.Color(0, 1, 0);
+				if (i < 10) console.log(color);
 
 				colors.push(color.r);
 				colors.push(color.g);
