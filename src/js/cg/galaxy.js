@@ -150,21 +150,6 @@ var galaxy = (function() {
 		
 		addCluster: function() {
 			
-			// let geometry = new THREE.BufferGeometry();
-			// let vertices2 = [];
-			// for (let i = 0; i < 10000; i++) {
-			// 	vertices2.push(THREE.MathUtils.randFloatSpread(4000)); vertices2.push(THREE.MathUtils.randFloatSpread(4000)); vertices2.push(THREE.MathUtils.randFloatSpread(4000));
-			// }
-			
-			// geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices2, 3));
-			// let testPts = new THREE.Points(geometry, new THREE.PointsMaterial({ 
-			// 	color: 0xff0000,
-			// 	size: 10
-			// }));
-			// scene.add(testPts);
-			
-			
-			
 			clusterGeometry = new THREE.BufferGeometry();
 			let vertices = [];
 			for (let i = 0; i < particleCount; i += 3) {
@@ -172,14 +157,9 @@ var galaxy = (function() {
 				let max =  1000;
 				let spread = Math.random() * (max - min) + min;
 				vertices.push(THREE.MathUtils.randFloatSpread(spread)); vertices.push(THREE.MathUtils.randFloatSpread(spread)); vertices.push(THREE.MathUtils.randFloatSpread(spread));
-				// positions[i + 0] = THREE.MathUtils.randFloatSpread(spread); // x
-				// positions[i + 1] = THREE.MathUtils.randFloatSpread(spread); // y
-				// positions[i + 2] = THREE.MathUtils.randFloatSpread(spread); // z
 			}
-			// clusterGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-			
+			// et colors and positions
 			clusterGeometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
-			
 			let colors = this.interpolateD3Colors(clusterGeometry, interps[5], false);
 			clusterGeometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
 			
@@ -190,7 +170,6 @@ var galaxy = (function() {
 				size: size
 			}));
 			scene.add(particles);
-			
 		},
 		
 		updateParticles: function() {
