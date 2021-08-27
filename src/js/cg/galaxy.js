@@ -179,19 +179,19 @@ var galaxy = (function() {
 				
 				for (let i = 0; i < particleCount; i+=3) {
 					
+					let position = new THREE.Vector3(pos[i + 0], pos[i + 1], pos[i + 2]);
+					
+					// define vector
 					let scalar = .01;
-					
-					let x = pos[i + 0]; let y = pos[i + 1]; let z = pos[i + 2]
-					
-					let forceX = -y * scalar;
-					let forceY = -z * scalar;
-					let forceZ = -x * scalar; // galaxy
+					let forceX = -position.y * scalar;
+					let forceY = -position.z * scalar;
+					let forceZ = -position.x * scalar; // galaxy
 					let force =  new THREE.Vector3(forceX, forceY, forceZ);
 					
 					let min = -500;
 					let max = 4000;
 					let maxDistance = 1000 + (Math.random() * (max - min) + min);
-					if (new THREE.Vector3(pos[i], pos[i + 1], pos[i + 2]).distanceTo(origin) > maxDistance) pos[i] = THREE.MathUtils.randFloatSpread(1000), pos[i + 1] = THREE.MathUtils.randFloatSpread(1000), pos[i + 2] = THREE.MathUtils.randFloatSpread(1000);
+					if (position.distanceTo(origin) > maxDistance) pos[i] = THREE.MathUtils.randFloatSpread(1000), pos[i + 1] = THREE.MathUtils.randFloatSpread(1000), pos[i + 2] = THREE.MathUtils.randFloatSpread(1000);
 					
 					pos[i + 0] += forceX;
 					pos[i + 1] += forceY;
