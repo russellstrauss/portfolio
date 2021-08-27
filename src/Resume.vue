@@ -9,7 +9,7 @@
 			<section class="skills">
 				<h2>Objective</h2>
 				<p>
-					To find a full-time position utilizing my experience on the web platform to explore interests such as UI/UX, visualization, computer graphics, and virtual reality.
+					In search of a full-time position in Colorado utilizing my experience on the web platform to explore software engineering interests such as application development, UI/UX, 3D, visualization, computer graphics, and virtual reality.
 				</p>
 			</section>
 			<section class="contact left">

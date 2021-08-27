@@ -389,7 +389,7 @@
 			]
 		},
 		{
-			"path": "data-visualization",
+			"path": "visualization",
 			"pieces": [
 				{
 					"sortOrder": "1",
@@ -397,7 +397,7 @@
 					"title": "Whiskeys",
 					"description": "",
 					"featuredImage": "/img/featured-images/whiskeys-3d-thumb.jpg",
-					"rawHTML": "<a href=\"/img/data-visualization/whiskeys.jpg\"><img src=\"/img/data-visualization/whiskeys.jpg\" alt=\"Whiskey price, age, and rating visualization\" /><a/>",
+					"rawHTML": "<a href=\"/img/visualization/whiskeys.jpg\"><img src=\"/img/visualization/whiskeys.jpg\" alt=\"Whiskey price, age, and rating visualization\" /><a/>",
 					"href": "https://jrstrauss.net/cg/whiskeys",
 					"openInNewTab": "false"
 				},
@@ -407,7 +407,7 @@
 					"title": "Microplastics",
 					"description": "",
 					"featuredImage": "/img/featured-images/microplastics-thumb.jpg",
-					"href": "https://jrstrauss.net/data-visualization/plastics-in-our-world/",
+					"href": "https://jrstrauss.net/visualization/plastics-in-our-world/",
 					"openInNewTab": "false"
 				},
 				{
@@ -416,7 +416,7 @@
 					"title": "Exoplanets",
 					"description": "",
 					"featuredImage": "/img/featured-images/exoplanets-thumb.jpg",
-					"href": "https://jrstrauss.net/data-visualization/exoplanets/",
+					"href": "https://jrstrauss.net/visualization/exoplanets/",
 					"openInNewTab": "false"
 				},
 				{
@@ -425,7 +425,7 @@
 					"title": "Website Popularity Through the Decade",
 					"description": "",
 					"featuredImage": "/img/featured-images/website-popularity-thumb.jpg",
-					"href": "https://jrstrauss.net/data-visualization/website-popularity/",
+					"href": "https://jrstrauss.net/visualization/website-popularity/",
 					"openInNewTab": "false"
 				},
 				{
@@ -434,7 +434,7 @@
 					"title": "Homerun Leaders 1880 - 2020",
 					"description": "",
 					"featuredImage": "/img/featured-images/homerun-leaders-thumb.jpg",
-					"href": "https://jrstrauss.net/data-visualization/homerun-leaders/",
+					"href": "https://jrstrauss.net/visualization/homerun-leaders/",
 					"openInNewTab": "false"
 				},
 				{
@@ -444,6 +444,15 @@
 					"description": "",
 					"featuredImage": "/img/featured-images/",
 					"href": "",
+					"openInNewTab": "false"
+				},
+				{
+					"sortOrder": "7",
+					"published": "true",
+					"title": "Cluster",
+					"description": "",
+					"featuredImage": "/img/featured-images/cluster.jpg",
+					"href": "https://jrstrauss.net/cg/cluster/",
 					"openInNewTab": "false"
 				}
 			]
