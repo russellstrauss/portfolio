@@ -37,7 +37,6 @@ var galaxy = (function() {
 	return {
 		init: function() {
 			this.begin();
-			// alert(galaxy)
 		},
 		
 		begin: function() {
@@ -142,31 +141,49 @@ var galaxy = (function() {
 			let size = 1;
 			if (utils.iOS() == true) size = settings.iOS.starSize;
 			geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
-			let particles = new THREE.Points(geometry, new THREE.PointsMaterial({ 
+			let stars = new THREE.Points(geometry, new THREE.PointsMaterial({ 
 				color: 0x888888,
 				size: size
 			}));
-			scene.add(particles);
+			scene.add(stars);
 		},
 		
 		addCluster: function() {
 			
+			// let geometry = new THREE.BufferGeometry();
+			// let vertices2 = [];
+			// for (let i = 0; i < 10000; i++) {
+			// 	vertices2.push(THREE.MathUtils.randFloatSpread(4000)); vertices2.push(THREE.MathUtils.randFloatSpread(4000)); vertices2.push(THREE.MathUtils.randFloatSpread(4000));
+			// }
+			
+			// geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices2, 3));
+			// let testPts = new THREE.Points(geometry, new THREE.PointsMaterial({ 
+			// 	color: 0xff0000,
+			// 	size: 10
+			// }));
+			// scene.add(testPts);
+			
+			
+			
 			clusterGeometry = new THREE.BufferGeometry();
-			positions = new Float32Array(particleCount * 3);
+			let vertices = [];
 			for (let i = 0; i < particleCount; i += 3) {
 				let min = -1000;
 				let max =  1000;
 				let spread = Math.random() * (max - min) + min;
-				positions[i + 0] = THREE.MathUtils.randFloatSpread(spread); // x
-				positions[i + 1] = THREE.MathUtils.randFloatSpread(spread); // y
-				positions[i + 2] = THREE.MathUtils.randFloatSpread(spread); // z
+				vertices.push(THREE.MathUtils.randFloatSpread(spread)); vertices.push(THREE.MathUtils.randFloatSpread(spread)); vertices.push(THREE.MathUtils.randFloatSpread(spread));
+				// positions[i + 0] = THREE.MathUtils.randFloatSpread(spread); // x
+				// positions[i + 1] = THREE.MathUtils.randFloatSpread(spread); // y
+				// positions[i + 2] = THREE.MathUtils.randFloatSpread(spread); // z
 			}
-			clusterGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+			// clusterGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+			
+			clusterGeometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
 			
 			let colors = this.interpolateD3Colors(clusterGeometry, interps[5], false);
 			clusterGeometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
 			
-			let size = 2;
+			let size = 1;
 			if (utils.iOS() == true) size = settings.iOS.particleSize;
 			particles = new THREE.Points(clusterGeometry, new THREE.PointsMaterial({
 				vertexColors: THREE.VertexColors,
@@ -210,12 +227,9 @@ var galaxy = (function() {
 			reverse = reverse || false;
 			let colors = [];
 			
-			let vertexCount = geometry.attributes.position.count;
-			for (let i = 0; i < vertexCount; i += 3) {
-				let interpolator = (i/(vertexCount - 1));
+			for (let i = 0; i < particleCount; i += 3) {
+				let interpolator = (i/(particleCount - 1));
 				let color = this.rgbStringToColor(interpolatorFunc(interpolator));
-				// color = new THREE.Color(0, 1, 0);
-				if (i < 10) console.log(color);
 
 				colors.push(color.r);
 				colors.push(color.g);

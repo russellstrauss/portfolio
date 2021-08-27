@@ -4,7 +4,7 @@
 		<Title></Title>
 		<Nav></Nav>
 		
-		<div id="sphereWireframe"></div>
+		<iframe style="dispay: none; !important;" width="560" height="315" src="https://www.youtube-nocookie.com/embed/wE2GZ2Vpqjo?rel=0&autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;" allowfullscreen></iframe>
 	</div>
 </template>
 
@@ -12,8 +12,6 @@
 	
 	import Title from './components/Title.vue';
 	import Nav from './components/Nav.vue';
-	// var AnimatedSphereWireframe = require('./js/animated-sphere-wireframe.js');
-	
 	import * as gfx from '@/js/cg/graphics.js';
 	import * as Galaxy from '@/js/cg/galaxy.js';
 	
@@ -41,9 +39,29 @@
 <style lang="scss">
 	
 	.landing {
-		.name a {
+		
+		.name {
+			
+			a {
+				@include ibm;
+				@include mobile-only {	
+					font-size: 28px;
+				}
+				color: white;
+			}
+		}
+		
+		.main a {
 			@include ibm;
 			color: white;
+			
+			&:hover {
+				color: #2592BE;
+			}
+		}
+		
+		iframe {
+			display: none;
 		}
 	}
 	
@@ -56,9 +74,5 @@
 		// z-index: -9000;
 	}
 	
-	.main a {
-		@include ibm;
-		color: white;
-	}
 	
 </style>
