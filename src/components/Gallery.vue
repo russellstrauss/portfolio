@@ -2,23 +2,23 @@
 <template>
 	<div class='gallery' :class="{ 'active': active }">
 		
-		<swiper class='swiper gallery-top' :options='swiperOptions' ref='swiperMain'>
-			<swiper-slide v-for="slide in slides" :key="slide.path" :style="'background-image: url(' + slide.path + ');'"></swiper-slide>
+		<Swiper class='swiper gallery-top' :options='swiperOptions' ref='swiperMain'>
+			<SwiperSlide v-for="slide in slides" :key="slide.path" :style="'background-image: url(' + slide.path + ');'"></swiper-slide>
 			
 			<div class='swiper-button-next' slot='button-next'></div>
 			<div class='swiper-button-prev' slot='button-prev'></div>
-		</swiper>
+		</Swiper>
 		
-		<swiper class='swiper gallery-thumbs' :options='thumbnailCarouselOptions' ref='swiperThumbs'>
-			<swiper-slide v-for="slide in slides" :key="slide.path" :style="'background-image: url(' + slide.path + ');'"></swiper-slide>
-		</swiper>
+		<Swiper class='swiper gallery-thumbs' :options='thumbnailCarouselOptions' ref='swiperThumbs'>
+			<SwiperSlide v-for="slide in slides" :key="slide.path" :style="'background-image: url(' + slide.path + ');'"></swiper-slide>
+		</Swiper>
 		<img src="/img/close-white.svg" alt="" class="close" v-on:click="dismiss">
 	</div>
 </template>
 
 <script>
-	import { Swiper, SwiperSlide } from 'vue-awesome-swiper';
-	import 'swiper/css/swiper.css';
+	import { Swiper, SwiperSlide } from 'swiper/vue';
+	import 'swiper/css';
 
 	export default {
 		
