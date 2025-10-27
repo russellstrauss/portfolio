@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "dev": "npm run serve",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "watch": "nodemon -e vue -x \"npm run build\""
@@ -14,6 +15,7 @@
     "linear-algebra": "^3.1.4",
     "pdfobject": "^2.2.3",
     "prismjs": "^1.24.1",
+    "regenerator-runtime": "^0.14.1",
     "swiper": "^5.3.6",
     "three": "^0.131.3",
     "three-orbitcontrols": "^2.110.3",
@@ -25,9 +27,10 @@
     "@vue/cli-plugin-babel": "^3.9.0",
     "@vue/cli-service": "^3.9.0",
     "axios": "^0.21.1",
-    "node-sass": "^4.13.1",
+    "node": "^16.0.0",
     "nodemon": "^1.19.1",
-    "sass-loader": "^7.3.1",
+    "sass": "1.70",
+    "sass-loader": "^10.5.2",
     "vue-cli-plugin-vuetify": "^0.5.0",
     "vue-router": "^3.1.6",
     "vue-template-compiler": "^2.6.10",

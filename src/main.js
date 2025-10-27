@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import './sass/main.scss'; // remove?
+//import './sass/main.scss'; // remove?
 import VueAwesomeSwiper from 'vue-awesome-swiper';
 
 import App from './App.vue';
