@@ -9,7 +9,11 @@ module.exports = {
 	css: {
 		loaderOptions: {
 			sass: {
-				data: `@import "@/sass/main.scss";`
+				additionalData: `
+					@use "@/sass/vars" as *;
+					@use "@/sass/mixins" as *;
+					@use "@/sass/responsive" as *;
+				`
 			}
 		}
 	}

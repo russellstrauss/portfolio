@@ -1,22 +1,22 @@
 // This project uses inverted triangle CSS architecture (https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/)
 
 // global
-@import 'responsive';
-@import 'mixins';
-@import 'vars';
-@import 'reset';
-@import 'elements';
-@import 'global';
-@import 'layout';
+@forward 'responsive';
+@forward 'mixins';
+@forward 'vars';
+@forward 'reset';
+@forward 'elements';
+@forward 'global';
+@forward 'layout';
 
 // components
-@import 'components/about';
-@import 'components/animated-sphere-wireframe';
-@import 'components/attractions-filter-grid';
-@import 'components/nav';
-@import 'components/photo-grid';
-@import 'components/resume';
-@import 'components/shadowbox';
-@import 'components/video';
+@forward 'components/about';
+@forward 'components/animated-sphere-wireframe';
+@forward 'components/attractions-filter-grid';
+@forward 'components/nav';
+@forward 'components/photo-grid';
+@forward 'components/resume';
+@forward 'components/shadowbox';
+@forward 'components/video';
 
-@import 'helpers';
+@forward 'helpers';
