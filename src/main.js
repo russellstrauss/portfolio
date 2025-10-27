@@ -1,7 +1,7 @@
-import Vue from 'vue';
-import VueRouter from 'vue-router';
-//import './sass/main.scss'; // remove?
-import VueAwesomeSwiper from 'vue-awesome-swiper';
+import { createApp } from 'vue';
+
+import { createRouter, createWebHistory } from 'vue-router';
+import { Swiper, SwiperSlide } from 'swiper/vue';
 
 import App from './App.vue';
 import Home from './Home.vue';
@@ -20,9 +20,9 @@ Prism.manual = true;
 
 let baseUrl = process.env.NODE_ENV === 'production' ? 'https://portfolio.jrstrauss.net/' : '/'; // also update vue.config.js
 
-const router = new VueRouter({
+const router = createRouter({
 	base: baseUrl,
-	mode: 'history',
+	history: createWebHistory(),
 	routes: [
 		{ path: '/', component: Home },
 		{ path: '/about', component: About },
@@ -34,16 +34,14 @@ const router = new VueRouter({
 		{ path: '/work/:category/:id', component: GenericPage },
 		{ path: '/work/:category/code/:id', component: Code },
 		// { path: '/cg/point-cloud', component: PointCloud },
-		{ path: '*', component: Missing }
+		{ path: '/:pathMatch(.*)*', component: Missing }
+
 	]
 });
-Vue.use(VueRouter);
 
-new Vue({
-	el: '#app',
-	router: router,
-	render: h => h(App)
-});
+const app = createApp(App);
+app.use(router);
+app.mount('#app');
 
 // Add polyfills for forEach for IE and .closest()
 if (window.NodeList && !NodeList.prototype.forEach) {
