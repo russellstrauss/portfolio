@@ -11,7 +11,7 @@
 					"featuredImage": "/img/featured-images/3DJ.jpg",
 					"rawHTML": "<h2>Introduction</h2><p>With an increasingly complex industry revolving around audio mixing and editing, the need for useful interactions that accomplish these tasks in a 3D virtual space continues to grow. Our project explores methods for sound and music interaction. This involves the development of different ways of visualizing the audio as well as seeing which actions feel most natural to users in this 3D space. While work has been done on sound interfaces, much of the work stays in the 2D space for digital audio workstations. However, there are several tools that exist for users to work with instruments in a VR space. Our project develops a tool set that allows users to manipulate and create audio in a 3D setting, combining some of the work done for digital audio workstations in 2D with the richness of a 3D space seen in VR. The metaphor we explore is a DJ-style workstation, such that the user can observe and interact with several different tools that change the sound being played in real time.</p> <p>We built this project for exploring novel methods of sound and music interaction in 3D space. We have built a DJ-style workstation to provide the user a meaningful context for their actions, different functions for manipulation, and a designated space to interact. Immersive musical instruments give users a high degree of control with gestural interaction to perform, compose, or improvise music in real time. [9] We have also enabled ways to select and manipulate specific audio attributes such as level adjustments, effect filters, changing playback rate, and playback control. These basic uses have application in a wide variety of tools from simple audio editing to live music creation. Metaphors are commonly used in UI as powerful tools to enable quick understanding and more effective usability [2], and thus we chose to simulate a virtual digital audio workstation. We have bridged the gap between the actions a user can perform and their natural human interaction. For example, using the distance between the user’s hands to adjust values creates a more natural interaction than selecting a volume modifier from a 2D menu.</p> <h2>Example with live audio:</h2> <video controls poster=\"/img/featured-images/3DJ-poster-1.jpg\"><source src=\"/video/3DJ-sound.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video> <h2>Direct video capture:</h2> <video controls poster=\"/img/featured-images/3DJ-poster-2.jpg\"><source src=\"/video/3DJ-video.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video>",
 					"applicationLink": {
-						"href": "https://jrstrauss.net/vr/3DJ/",
+						"href": "/vr/3DJ/",
 						"text": "View live application"
 					},
 					"pdf": "/documents/3DJ.pdf",
@@ -26,7 +26,7 @@
 					"featuredImage": "/img/featured-images/immersive-art.jpg",
 					"rawHTML": "<video controls poster=\"/img/featured-images/immersive-art-poster.jpg\"><source src=\"/video/immersive-art.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video>",
 					"applicationLink": {
-						"href": "https://jrstrauss.net/vr/immersive-art",
+						"href": "/vr/immersive-art",
 						"text": "View live application"
 					},
 					"href": "/work/interactive/immersive-art",
@@ -51,7 +51,7 @@
 					"featuredImage": "/img/featured-images/colorspace.jpg",
 					"rawHTML": "<video controls poster=\"/img/featured-images/colorspace-poster.jpg\"><source src=\"/video/colorspace.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video>",
 					"applicationLink": {
-						"href": "https://jrstrauss.net/cg/colorspace/",
+						"href": "/cg/colorspace/",
 						"text": "View live application"
 					},
 					"href": "/work/interactive/colorspace",
@@ -65,7 +65,7 @@
 					"featuredImage": "/img/featured-images/rhthym-wheel.jpg",
 					"rawHTML": "<video controls poster=\"/img/featured-images/algorhythm-poster.jpg\"><source src=\"/video/algorhythm.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video>",
 					"applicationLink": {
-						"href": "https://jrstrauss.net/cg/rhythm-wheel",
+						"href": "/cg/rhythm-wheel",
 						"text": "View live application"
 					},
 					"href": "/work/interactive/algorhythm",
@@ -79,7 +79,7 @@
 					"featuredImage": "/img/featured-images/zoom-eternal.jpg",
 					"rawHTML": "<video controls poster=\"/img/featured-images/zoom-eternal-poster.jpg\"><source src=\"/video/zoom-eternal.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video>",
 					"applicationLink": {
-						"href": "https://jrstrauss.net/vg/team_zoom_eternal_final.7z",
+						"href": "/vg/team_zoom_eternal_final.7z",
 						"text": "Download game"
 					},
 					"href": "/work/interactive/zoom-eternal",
@@ -93,7 +93,7 @@
 					"featuredImage": "/img/featured-images/log-spiral.jpg",
 					"rawHTML": "<video controls poster=\"/img/featured-images/log-spiral-poster.jpg\"><source src=\"/video/log-spiral.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video>",
 					"applicationLink": {
-						"href": "https://jrstrauss.net/cg/log_spiral.7z",
+						"href": "/cg/log_spiral.7z",
 						"text": "Download application"
 					},
 					"pdf": "/documents/Log_Spiral.pdf",
@@ -126,7 +126,7 @@
 						{
 							"pretext": "<p>Once each curve is separated into its own array, it can be passed into the subdivide function which will subdivide each curve using four-point subdivision. Four-point subdivision is implemented using refine, tuck, and untuck, passing in a scaler of 1 for tuck and -1 for untuck. The algorithm is as follows:</p>",
 							"src": "/code/interactive/cg/3d-animation-editor-2.java",
-							"posttext": "<p><u>Other features of the application:</u></p><p><i>Two-dimensional editing mode:</i><br> The user can choose a specific link in the larger 3D model and switch to the 2D editor to edit that link. Upon entering the 2D editor, the radii of the spheres in the selected link are loaded into the 2D model. The user can then change the size of the two spheres in the link which will change the corresponding spheres in the 3D model. The distance between spheres is fixed in the 2D editor since the distance between joints cannot be changed in the 3D model.</p><a class=\"callout\" href=\"https://jrstrauss.net/computer-graphics/P4B/source.zip\">Download application</a>"
+							"posttext": "<p><u>Other features of the application:</u></p><p><i>Two-dimensional editing mode:</i><br> The user can choose a specific link in the larger 3D model and switch to the 2D editor to edit that link. Upon entering the 2D editor, the radii of the spheres in the selected link are loaded into the 2D model. The user can then change the size of the two spheres in the link which will change the corresponding spheres in the 3D model. The distance between spheres is fixed in the 2D editor since the distance between joints cannot be changed in the 3D model.</p><a class=\"callout\" href=\"/computer-graphics/P4B/source.zip\">Download application</a>"
 						}
 					]
 				},
@@ -136,7 +136,7 @@
 					"title": "Projectile Prediction",
 					"description": "",
 					"featuredImage": "/img/featured-images/projectile-prediction.jpg",
-					"href": "https://jrstrauss.net/computer-graphics/P2/",
+					"href": "/computer-graphics/P2/",
 					"openInNewTab": "false"
 				},
 				{
@@ -389,7 +389,7 @@
 			]
 		},
 		{
-			"path": "visualization",
+			"path": "data-visualization",
 			"pieces": [
 				{
 					"sortOrder": "1",
@@ -407,7 +407,7 @@
 					"title": "Microplastics",
 					"description": "",
 					"featuredImage": "/img/featured-images/microplastics-thumb.jpg",
-					"href": "https://jrstrauss.net/visualization/plastics-in-our-world/",
+					"href": "/data-visualization/microplastics/",
 					"openInNewTab": "false"
 				},
 				{
@@ -416,7 +416,7 @@
 					"title": "Exoplanets",
 					"description": "",
 					"featuredImage": "/img/featured-images/exoplanets-thumb.jpg",
-					"href": "https://jrstrauss.net/visualization/exoplanets/",
+					"href": "/data-visualization/exoplanets/",
 					"openInNewTab": "false"
 				},
 				{
@@ -425,7 +425,7 @@
 					"title": "Website Popularity Through the Decade",
 					"description": "",
 					"featuredImage": "/img/featured-images/website-popularity-thumb.jpg",
-					"href": "https://jrstrauss.net/visualization/website-popularity/",
+					"href": "/data-visualization/website-popularity/",
 					"openInNewTab": "false"
 				},
 				{
@@ -434,7 +434,7 @@
 					"title": "Homerun Leaders 1880 - 2020",
 					"description": "",
 					"featuredImage": "/img/featured-images/homerun-leaders-thumb.jpg",
-					"href": "https://jrstrauss.net/visualization/homerun-leaders/",
+					"href": "/data-visualization/homerun-leaders/",
 					"openInNewTab": "false"
 				},
 				{
@@ -452,7 +452,7 @@
 					"title": "Cluster",
 					"description": "",
 					"featuredImage": "/img/featured-images/cluster.jpg",
-					"href": "https://jrstrauss.net/cg/cluster/",
+					"href": "/cg/cluster/",
 					"openInNewTab": "false"
 				}
 			]
