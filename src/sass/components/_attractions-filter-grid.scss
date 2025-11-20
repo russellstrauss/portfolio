@@ -1,5 +1,6 @@
 @use "sass:color";
 @use "sass:math";
+@use '../responsive' as *;
 
 $color-san-marino: #4374A6;
 $color-tundora: #4A4A4A;

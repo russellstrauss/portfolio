@@ -1,8 +1,7 @@
 import { createApp } from 'vue';
-
 import { createRouter, createWebHistory } from 'vue-router';
-import { Swiper, SwiperSlide } from 'swiper/vue';
 
+import './sass/main.scss';
 import App from './App.vue';
 import Home from './Home.vue';
 import About from './About.vue';
@@ -18,7 +17,7 @@ import Missing from './components/Missing.vue';
 window.Prism = window.Prism || {};
 Prism.manual = true;
 
-let baseUrl = process.env.NODE_ENV === 'production' ? 'https://portfolio.jrstrauss.net/' : '/'; // also update vue.config.js
+let baseUrl = import.meta.env.PROD ? 'https://portfolio.jrstrauss.net/' : '/'; // also update vite.config.js
 
 const router = createRouter({
 	base: baseUrl,

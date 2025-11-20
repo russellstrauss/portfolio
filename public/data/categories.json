@@ -22,13 +22,6 @@
 			"description": ""
 		},
 		{
-			"sortOrder": "4",
-			"published": "false",
-			"title": "UI/UX",
-			"path": "ux",
-			"description": ""
-		},
-		{
 			"sortOrder": "5",
 			"published": "false",
 			"title": "2189 miles",
@@ -47,6 +40,41 @@
 			"published": "true",
 			"title": "Mathematics",
 			"path": "mathematics",
+			"description": ""
+		},
+		{
+			"sortOrder": "8",
+			"published": "true",
+			"title": "User Experience",
+			"path": "ux",
+			"description": ""
+		},
+		{
+			"sortOrder": "9",
+			"published": "true",
+			"title": "Brand Identity",
+			"path": "brand-identity",
+			"description": ""
+		},
+		{
+			"sortOrder": "10",
+			"published": "true",
+			"title": "Web & App Dev",
+			"path": "web-app-dev",
+			"description": ""
+		},
+		{
+			"sortOrder": "11",
+			"published": "true",
+			"title": "Prototyping",
+			"path": "prototyping",
+			"description": ""
+		},
+		{
+			"sortOrder": "12",
+			"published": "true",
+			"title": "Visual Design",
+			"path": "visual-design",
 			"description": ""
 		}
 	]
