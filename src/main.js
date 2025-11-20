@@ -33,6 +33,8 @@ const router = createRouter({
 		{ path: '/work/:category/:id', component: GenericPage },
 		{ path: '/work/:category/code/:id', component: Code },
 		// { path: '/cg/point-cloud', component: PointCloud },
+		// Catch-all route for unmatched Vue routes
+		// Static files in public/ are served by Vite before the router intercepts them
 		{ path: '/:pathMatch(.*)*', component: Missing }
 
 	]
