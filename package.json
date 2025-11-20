@@ -2,38 +2,35 @@
   "name": "portfolio",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "dev": "npm run serve",
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "watch": "nodemon -e vue -x \"npm run build\""
+    "dev": "vite",
+    "serve": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "watch": "vite build --watch"
   },
   "dependencies": {
-    "@staaky/tipped": "^4.7.0",
+    "@staaky/tipped": "^4.8.1",
     "animejs": "^3.2.0",
-    "core-js": "^3.8.3",
-    "jquery": "^3.6.0",
+    "axios": "^1.7.9",
+    "jquery": "^3.7.1",
     "linear-algebra": "^3.1.4",
-    "pdfobject": "^2.2.3",
-    "prismjs": "^1.24.1",
-    "regenerator-runtime": "^0.14.1",
+    "pdfobject": "^2.3.1",
+    "prismjs": "^1.29.0",
     "swiper": "^12.0.3",
-    "three": "^0.131.3",
+    "three": "^0.170.0",
     "three-orbitcontrols": "^2.110.3",
-    "vue": "^3.5.22",
-    "vue-prism-component": "^2.0.0"
+    "vue": "^3.5.13",
+    "vue-prism-component": "^2.0.0",
+    "vue-router": "^4.4.5"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "~5.0.9",
-    "@vue/cli-service": "~5.0.9",
-    "@vue/compiler-sfc": "^3.5.22",
-    "axios": "^1.12.2",
-    "node": "^16.0.0",
-    "nodemon": "^3.1.10",
-    "sass": "1.70",
-    "sass-loader": "^13.3.3",
-    "vue-loader": "^17.4.2",
-    "vue-router": "^4.6.3",
-    "webpack": "^5.102.1"
+    "@vitejs/plugin-vue": "^5.2.1",
+    "sass": "^1.83.0",
+    "vite": "^6.0.3"
+  },
+  "engines": {
+    "node": ">=22.0.0"
   }
 }

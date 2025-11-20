@@ -1,4 +1,6 @@
 // Elements – styling for bare HTML elements
+@use 'mixins' as *;
+@use 'vars' as *;
 
 body {
 	@include body;
