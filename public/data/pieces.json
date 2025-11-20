@@ -398,7 +398,7 @@
 					"description": "",
 					"featuredImage": "/img/featured-images/whiskeys-3d-thumb.jpg",
 					"rawHTML": "<a href=\"/img/visualization/whiskeys.jpg\"><img src=\"/img/visualization/whiskeys.jpg\" alt=\"Whiskey price, age, and rating visualization\" /><a/>",
-					"href": "https://jrstrauss.net/cg/whiskeys",
+					"href": "/data-visualization/whiskeys/",
 					"openInNewTab": "false"
 				},
 				{
