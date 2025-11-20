@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import { fileURLToPath, URL } from 'node:url';
-import { existsSync, readFileSync } from 'fs';
+import { existsSync, readFileSync, watch } from 'fs';
 import { join, resolve } from 'path';
 
 // Plugin to serve static index.html files from public subdirectories
@@ -65,9 +65,44 @@ function serveStaticIndexPlugin() {
 	};
 }
 
+// Plugin to watch JSON files in public/data/ and trigger reload on changes
+function watchDataFilesPlugin() {
+	return {
+		name: 'watch-data-files',
+		configureServer(server) {
+			const publicDataDir = resolve(process.cwd(), 'public', 'data');
+			
+			// Only watch if the directory exists
+			if (!existsSync(publicDataDir)) {
+				return;
+			}
+
+			// Watch the data directory for changes
+			const watcher = watch(publicDataDir, { recursive: false }, (eventType, filename) => {
+				// Only trigger reload for JSON files
+				if (filename && filename.endsWith('.json')) {
+					console.log(`[watch-data-files] ${filename} changed, reloading...`);
+					// Send HMR update to all connected clients
+					// The WebSocket server should be available after configureServer runs
+					if (server.ws) {
+						server.ws.send({
+							type: 'full-reload'
+						});
+					}
+				}
+			});
+
+			// Clean up watcher on server close
+			server.httpServer?.on('close', () => {
+				watcher.close();
+			});
+		}
+	};
+}
+
 // https://vite.dev/config/
 export default defineConfig({
-	plugins: [vue(), serveStaticIndexPlugin()],
+	plugins: [vue(), serveStaticIndexPlugin(), watchDataFilesPlugin()],
 	resolve: {
 		alias: {
 			'@': fileURLToPath(new URL('./src', import.meta.url))
@@ -95,6 +130,14 @@ export default defineConfig({
 			}
 		}
 	},
-	publicDir: 'public'
+	publicDir: 'public',
+	server: {
+		// Watch public/data/ directory for changes
+		watch: {
+			// Include public/data in watched files (even though it's in publicDir)
+			// This ensures file changes trigger HMR
+			ignored: ['!**/public/data/**']
+		}
+	}
 });
 
