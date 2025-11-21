@@ -13,7 +13,7 @@
 	import Title from './components/Title.vue';
 	import Nav from './components/Nav.vue';
 	import * as gfx from '@/js/cg/graphics.js';
-	import * as Galaxy from '@/js/cg/galaxy.js';
+	import Galaxy from '@/js/cg/galaxy.js';
 	
 	export default {
 		name: 'Home',
@@ -30,8 +30,13 @@
 		methods: {},
 
 		mounted: function () {
-			
-			Galaxy.default.init();
+			try {
+				if (Galaxy && typeof Galaxy.init === 'function') {
+					Galaxy.init();
+				}
+			} catch (error) {
+				console.error('Error initializing Galaxy:', error);
+			}
 		}
 	};
 </script>

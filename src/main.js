@@ -20,8 +20,7 @@ Prism.manual = true;
 let baseUrl = import.meta.env.PROD ? 'https://portfolio.jrstrauss.net/' : '/'; // also update vite.config.js
 
 const router = createRouter({
-	base: baseUrl,
-	history: createWebHistory(),
+	history: createWebHistory(baseUrl),
 	routes: [
 		{ path: '/', component: Home },
 		{ path: '/about', component: About },
@@ -41,6 +40,14 @@ const router = createRouter({
 });
 
 const app = createApp(App);
+
+// Error handling for debugging
+app.config.errorHandler = (err, instance, info) => {
+	console.error('Vue Error:', err);
+	console.error('Component:', instance);
+	console.error('Info:', info);
+};
+
 app.use(router);
 app.mount('#app');
 
