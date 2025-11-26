@@ -17,7 +17,10 @@ import Missing from './components/Missing.vue';
 window.Prism = window.Prism || {};
 Prism.manual = true;
 
-let baseUrl = '/';
+// Base URL for router - must match vite.config.js base
+// For GitHub Pages, this should match the repository path
+// Can be set via VITE_BASE_URL environment variable at build time
+let baseUrl = import.meta.env.BASE_URL || '/';
 
 const router = createRouter({
 	history: createWebHistory(baseUrl),
