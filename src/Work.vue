@@ -8,7 +8,7 @@
 			
 			<transition-group class="category-list" name="stagger-list" tag="ul"  v-on:enter="menuItemEnter" v-on:leave="menuItemLeave">
 				<li class="category" v-for="(category, index) in categories" :key="category.path" :data-index="index">
-					<a :href="$route.path + '/' + category.path">{{ category.title }}</a>
+					<a :href="$route.path + '/' + category.path" @click.prevent="navigateToCategory(category.path)">{{ category.title }}</a>
 				</li>
 			</transition-group>
 			
@@ -37,6 +37,12 @@
 		},
 
 		methods: {
+			
+			navigateToCategory: function(categoryPath) {
+				if (this.$router) {
+					this.$router.push('/work/' + categoryPath);
+				}
+			},
 			
 			menuItemEnter: function (element) {
 				
