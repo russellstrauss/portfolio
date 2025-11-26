@@ -6,12 +6,12 @@
 		</div>
 		
 		<div class="resume container">
-			<section class="skills">
+			<!-- <section class="skills">
 				<h2>Objective</h2>
 				<p>
 					In search of a full-time position in Colorado utilizing my experience on the web platform to explore software engineering interests such as application development, UI/UX, 3D, visualization, computer graphics, and virtual reality.
 				</p>
-			</section>
+			</section> -->
 			<section class="contact left">
 				<h2>Contact</h2>
 				<div>
@@ -27,7 +27,7 @@
 						<ul class="plus"> <li>Phone</li>
 						</ul>
 					</div>
-					<div class="right">678.549.2874</div>
+					<div class="right">678.927.3289</div>
 					<div class="clearfix"> </div>
 				</div>
 				<div>
@@ -36,14 +36,6 @@
 						</ul>
 					</div>
 					<div class="right"><a href="mailto:russellstrauss@gmail.com">russellstrauss@gmail.com</a></div>
-					<div class="clearfix"> </div>
-				</div>
-				<div>
-					<div class="left">
-						<ul class="plus"> <li>Citizen status</li>
-						</ul>
-					</div>
-					<div class="right">US citizen</div>
 					<div class="clearfix"> </div>
 				</div>
 				<div>
@@ -87,61 +79,73 @@
 			<section class="skills">
 				<h2>Skills</h2>
 				<ul class="plus">
-					<li>Front end: JavaScript, Vue.js, Three.js, Node.js, SASS, Gulp, SVG</li>
-					<li>Interactive, 3D, Visualization, WebGL, D3.js</li>
-					<li>Responsive development for devices of all sizes, maintainability, and cross-browser compatibility</li>
-					<li>Back end: C#, Python</li>
-					<li>Preferred workflow: iterative design and development through cross disciplinary team collaboration</li>
+					<li>Front end: JavaScript, React, Vue, Angular, UI/UX, NPM, SASS, Three.js, D3.js</li>
+					<li>Interaction & Visualization: 3D experiences, data visualization, animation, performance optimization</li>
+					<li>Quality: Responsive design, accessibility (WCAG), cross-browser reliability</li>
+					<li>Back end: C#, Node, Python, .Net, PHP</li>
 				</ul>
 			</section>
 			<section class="experience">
 				<h2>Experience</h2>
 				<div class="employment">
-					<div class="duration left desktop">October 2014 - August 2019</div>
+					<div class="duration left desktop">2018-Present</div>
+					<div class="summary right">
+						<div class="company">Farmer John's Botanicals</div>
+						<div class="position">Frontend Software Architect / Creative Director</div>
+						<div class="duration mobile">2018 - Present</div>
+						<div class="job-description">
+							-Designing and producing beautiful, natural-fiber watercolor fashion lines and textiles and online store. <br />
+							-AI tooling automated code development
+						</div>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<div class="employment">
+					<div class="duration left desktop">2014 - 2019</div>
 					<div class="summary right">
 						<div class="company">Rightpoint</div>
 						<div class="position">Senior Front End Engineer</div>
-						<div class="duration mobile">October 2014 - August 2019</div>
+						<div class="duration mobile">2014 - 2019</div>
 						<div class="job-description">Built custom designs from the ground up into functional experiences, set up front end architecture, created and maintained automated front end build processes, designed modular and re-usable software components, debugged inconsistencies between server environments, participated in local and remote collaboration. Hired and trained junior developers, helped successfully design, build, and launch 10+ large-scale web sites and maintained many others.</div>
 					</div>
 					<div class="clearfix"> </div>
 				</div>
 				<div class="employment">
-					<div class="duration left desktop">August 2013 - October 2014</div>
+					<div class="duration left desktop">2013 - 2014</div>
 					<div class="summary right">
 						<div class="company">Moxie Interactive</div>
 						<div class="position">User Experience Developer</div>
-						<div class="duration mobile">August 2013 - October 2014</div>
+						<div class="duration mobile">2013 - 2014</div>
 						<div class="job-description">Built out sites according to design specifications using various technologies, iterated with design team to improve app quality, localized content for global clients, created custom JavaScript code for interactive microsite campaigns, and managed server deployment scripts.</div>
 					</div>
 					<div class="clearfix"> </div>
 				</div>
 				<div class="employment">
-					<div class="duration left desktop">May 2012 - August 2013</div>
+					<div class="duration left desktop">2012 - 2013</div>
 					<div class="summary right">
 						<div class="company">SolDesign Company</div>
 						<div class="position">Web Developer</div>
-						<div class="duration mobile">May 2012 - August 2013</div>
+						<div class="duration mobile">2012 - 2013</div>
 						<div class="job-description">Helped develop and maintain new and existing sites on WordPress and Drupal, managed servers to deploy code and debug issues, migrated sites to new servers, worked and communicated with clients to ensure satisfaction.</div>
 					</div>
 					<div class="clearfix"> </div>
 				</div>
 				<div class="employment">
-					<div class="duration left desktop">May 2011 - August 2012</div>
+					<div class="duration left desktop">2010 - 2012</div>
 					<div class="summary right">
 						<div class="company">The Children's School</div>
 						<div class="position">Robotics Teacher</div>
-						<div class="duration mobile">May 2011 - August 2012</div>
+						<div class="duration mobile">2011 - 2012</div>
 						<div class="job-description">Taught sixth grade technology class Robotics using Lego NXT Mindstorms and MIT's Scratch program to expose them to basic lessons in the fundamentals of computing and procedural programming.</div>
 					</div>
 					<div class="clearfix"> </div>
 				</div>
 				<div class="employment">
-					<div class="duration left desktop">August 2009 - May 2012</div>
+					<div class="duration left desktop">2008 - 2012</div>
 					<div class="summary right">
 						<div class="company">Institute for Computing Education</div>
 						<div class="position">Summer Camp Instructor, Workshop Leader, Inventory Manager</div>
-						<div class="duration mobile">August 2009 - May 2012</div>
+						<div class="duration mobile">2008 - 2012</div>
 						<div class="job-description">The Institute for Computing Education is a research institute funded by the National Science Foundation dedicated to raising interest in Computer Science among kids elementary through high school, especially among women and minorities. I led eight weeks of summer camps each summer, taught workshops throughout the school year, and managed their inventory throughout the year.</div>
 					</div>
 					<div class="clearfix"> </div>

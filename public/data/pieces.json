@@ -9,11 +9,7 @@
 					"title": "3DJ",
 					"description": "A virtual reality real-time audio manipulation tool",
 					"featuredImage": "/img/featured-images/3DJ.jpg",
-					"rawHTML": "<h2>Introduction</h2><p>With an increasingly complex industry revolving around audio mixing and editing, the need for useful interactions that accomplish these tasks in a 3D virtual space continues to grow. Our project explores methods for sound and music interaction. This involves the development of different ways of visualizing the audio as well as seeing which actions feel most natural to users in this 3D space. While work has been done on sound interfaces, much of the work stays in the 2D space for digital audio workstations. However, there are several tools that exist for users to work with instruments in a VR space. Our project develops a tool set that allows users to manipulate and create audio in a 3D setting, combining some of the work done for digital audio workstations in 2D with the richness of a 3D space seen in VR. The metaphor we explore is a DJ-style workstation, such that the user can observe and interact with several different tools that change the sound being played in real time.</p> <p>We built this project for exploring novel methods of sound and music interaction in 3D space. We have built a DJ-style workstation to provide the user a meaningful context for their actions, different functions for manipulation, and a designated space to interact. Immersive musical instruments give users a high degree of control with gestural interaction to perform, compose, or improvise music in real time. [9] We have also enabled ways to select and manipulate specific audio attributes such as level adjustments, effect filters, changing playback rate, and playback control. These basic uses have application in a wide variety of tools from simple audio editing to live music creation. Metaphors are commonly used in UI as powerful tools to enable quick understanding and more effective usability [2], and thus we chose to simulate a virtual digital audio workstation. We have bridged the gap between the actions a user can perform and their natural human interaction. For example, using the distance between the user’s hands to adjust values creates a more natural interaction than selecting a volume modifier from a 2D menu.</p> <h2>Example with live audio:</h2> <video controls poster=\"/img/featured-images/3DJ-poster-1.jpg\"><source src=\"/video/3DJ-sound.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video> <h2>Direct video capture:</h2> <video controls poster=\"/img/featured-images/3DJ-poster-2.jpg\"><source src=\"/video/3DJ-video.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video>",
-					"applicationLink": {
-						"href": "/vr/3DJ/",
-						"text": "View live application"
-					},
+					"rawHTML": "<h2>Introduction</h2><p>With an increasingly complex industry revolving around audio mixing and editing, the need for useful interactions that accomplish these tasks in a 3D virtual space continues to grow. Our project explores methods for sound and music interaction. This involves the development of different ways of visualizing the audio as well as seeing which actions feel most natural to users in this 3D space. While work has been done on sound interfaces, much of the work stays in the 2D space for digital audio workstations. However, there are several tools that exist for users to work with instruments in a VR space. Our project develops a tool set that allows users to manipulate and create audio in a 3D setting, combining some of the work done for digital audio workstations in 2D with the richness of a 3D space seen in VR. The metaphor we explore is a DJ-style workstation, such that the user can observe and interact with several different tools that change the sound being played in real time.</p> <p>We built this project for exploring novel methods of sound and music interaction in 3D space. We have built a DJ-style workstation to provide the user a meaningful context for their actions, different functions for manipulation, and a designated space to interact. Immersive musical instruments give users a high degree of control with gestural interaction to perform, compose, or improvise music in real time. [9] We have also enabled ways to select and manipulate specific audio attributes such as level adjustments, effect filters, changing playback rate, and playback control. These basic uses have application in a wide variety of tools from simple audio editing to live music creation. Metaphors are commonly used in UI as powerful tools to enable quick understanding and more effective usability [2], and thus we chose to simulate a virtual digital audio workstation. We have bridged the gap between the actions a user can perform and their natural human interaction. For example, using the distance between the user’s hands to adjust values creates a more natural interaction than selecting a volume modifier from a 2D menu.</p><!-- <h2>Example with live audio:</h2> <video controls poster=\"/img/featured-images/3DJ-poster-1.jpg\"><source src=\"/video/3DJ-sound.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video> <h2>Direct video capture:</h2> <video controls poster=\"/img/featured-images/3DJ-poster-2.jpg\"><source src=\"/video/3DJ-video.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video>-->",
 					"pdf": "/documents/3DJ.pdf",
 					"href": "/work/interactive/3DJ",
 					"openInNewTab": "false"
@@ -30,6 +26,15 @@
 						"text": "View live application"
 					},
 					"href": "/work/interactive/immersive-art",
+					"openInNewTab": "false"
+				},
+				{
+					"sortOrder": "21",
+					"published": "true",
+					"title": "Swarm",
+					"description": "Procedural audio visualization",
+					"featuredImage": "/img/featured-images/cluster.jpg",
+					"href": "/interactive/cluster/",
 					"openInNewTab": "false"
 				},
 				{
@@ -220,7 +225,7 @@
 				},
 				{
 					"sortOrder": "3",
-					"published": "true",
+					"published": "false",
 					"title": "Hammerhead Silver",
 					"description": "E-commerce site build for handmade jewelry brand, Hammerhead Silver.",
 					"natureOfContributions": "Freelance; worked directly with business owners to gather requirements and add features based on their feedback.",
@@ -444,15 +449,6 @@
 					"description": "",
 					"featuredImage": "/img/featured-images/",
 					"href": "",
-					"openInNewTab": "false"
-				},
-				{
-					"sortOrder": "7",
-					"published": "true",
-					"title": "Cluster",
-					"description": "",
-					"featuredImage": "/img/featured-images/cluster.jpg",
-					"href": "/cg/cluster/",
 					"openInNewTab": "false"
 				}
 			]
