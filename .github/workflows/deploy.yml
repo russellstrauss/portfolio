@@ -1,0 +1,38 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main, master ] # Update to match your default branch
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '22'
+        
+    - name: Install dependencies
+      run: npm ci
+      
+    - name: Build
+      run: npm run build
+      env:
+        # Set VITE_BASE_URL based on your GitHub Pages setup:
+        # - If repository is named 'username.github.io' (user/organization page): use '/'
+        # - If repository has any other name (project page): use '/repository-name/'
+        # Example for project page: VITE_BASE_URL: '/portfolio-2020/'
+        # Example for user page: VITE_BASE_URL: '/'
+        VITE_BASE_URL: '/'
+        
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./dist
+
