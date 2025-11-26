@@ -119,7 +119,7 @@ export default defineConfig({
 			}
 		}
 	},
-	base: process.env.NODE_ENV === 'production' ? 'https://portfolio.jrstrauss.net/' : '/',
+	base: '/',
 	build: {
 		outDir: 'dist',
 		rollupOptions: {

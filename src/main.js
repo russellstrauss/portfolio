@@ -17,7 +17,7 @@ import Missing from './components/Missing.vue';
 window.Prism = window.Prism || {};
 Prism.manual = true;
 
-let baseUrl = import.meta.env.PROD ? 'https://portfolio.jrstrauss.net/' : '/'; // also update vite.config.js
+let baseUrl = '/';
 
 const router = createRouter({
 	history: createWebHistory(baseUrl),
