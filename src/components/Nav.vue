@@ -3,7 +3,7 @@
 		<div class="menu-main-container">
 			<ul id="menu-main" class="menu">
 				<li class="menu-item" v-for="menuItem in nav" :key="menuItem.path">
-					<a :href="menuItem.path">{{ menuItem.title }}</a>
+					<a :href="menuItem.path" @click.prevent="navigate(menuItem.path)">{{ menuItem.title }}</a>
 				</li>
 			</ul>
 		</div>
@@ -44,6 +44,12 @@
 		},
 
 		methods: {
+			
+			navigate: function(path) {
+				if (this.$router) {
+					this.$router.push(path);
+				}
+			},
 			
 			wrapCharacters: function(element, elementType, className) {
 				className = className || undefined;

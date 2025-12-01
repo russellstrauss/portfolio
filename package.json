@@ -2,35 +2,41 @@
   "name": "portfolio",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "watch": "nodemon -e vue -x \"npm run build\""
+    "dev": "vite",
+    "serve": "vite",
+    "build": "vite build",
+    "build:github": "cross-env VITE_BASE_URL=/portfolio-2020/ vite build",
+    "preview": "vite preview",
+    "watch": "vite build --watch",
+    "deploy": "gh-pages -d dist",
+    "deploy:github": "powershell -ExecutionPolicy Bypass -File ./scripts/deploy-github.ps1",
+    "deploy:github:manual": "npm run build:github"
   },
   "dependencies": {
-    "@staaky/tipped": "^4.7.0",
+    "@staaky/tipped": "^4.8.1",
     "animejs": "^3.2.0",
-    "jquery": "^3.6.0",
+    "axios": "^1.7.9",
+    "jquery": "^3.7.1",
     "linear-algebra": "^3.1.4",
-    "pdfobject": "^2.2.3",
-    "prismjs": "^1.24.1",
-    "swiper": "^5.3.6",
-    "three": "^0.131.3",
+    "pdfobject": "^2.3.1",
+    "prismjs": "^1.29.0",
+    "swiper": "^12.0.3",
+    "three": "^0.170.0",
     "three-orbitcontrols": "^2.110.3",
-    "vue": "^2.6.10",
-    "vue-awesome-swiper": "^4.1.0",
-    "vue-prism-component": "^1.2.0"
+    "vue": "^3.5.13",
+    "vue-prism-component": "^2.0.0",
+    "vue-router": "^4.4.5"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.9.0",
-    "@vue/cli-service": "^3.9.0",
-    "axios": "^0.21.1",
-    "node-sass": "^4.13.1",
-    "nodemon": "^1.19.1",
-    "sass-loader": "^7.3.1",
-    "vue-cli-plugin-vuetify": "^0.5.0",
-    "vue-router": "^3.1.6",
-    "vue-template-compiler": "^2.6.10",
-    "webpack": "^4.35.3"
+    "@vitejs/plugin-vue": "^5.2.1",
+    "cross-env": "^10.1.0",
+    "gh-pages": "^6.3.0",
+    "sass": "^1.83.0",
+    "vite": "^6.0.3"
+  },
+  "engines": {
+    "node": ">=22.0.0"
   }
 }

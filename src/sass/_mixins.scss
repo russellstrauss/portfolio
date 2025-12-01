@@ -1,5 +1,9 @@
 // Global re-useable mixin blocks
 
+@use "sass:math";
+@use "vars" as *;
+@use "responsive" as *;
+
 @mixin heading-font {
 	font-family: 'Quicksand', sans-serif;
 	color: $link-color;
@@ -63,7 +67,7 @@
 	&:after {
 		content: '';
 		display: block;
-		padding-bottom: calc(#{$y / $x} * 100%);
+		padding-bottom: calc(#{math.div($y, $x)} * 100%);
 	}
 }
 
@@ -94,8 +98,8 @@
 // $columns should be n number of columns, i.e. 1, 2, 3, etc.
 // $gutter is the desired gutter size in px, i.e. 30
 @mixin grid($columns, $gutter: 15) {
-	$columnWidth: 100% / $columns;
-	$gutterPerColumn: ($columns - 1) * $gutter / $columns;
+	$columnWidth: math.div(100%, $columns);
+	$gutterPerColumn: math.div(($columns - 1) * $gutter, $columns);
 	width: calc(#{$columnWidth} - #{$gutterPerColumn}px);
 	margin-bottom: #{$gutter}px;
 	margin-right: #{$gutter}px;

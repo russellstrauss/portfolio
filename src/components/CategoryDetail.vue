@@ -16,7 +16,7 @@
 					
 					<transition-group :class="viewType" name="stagger-grid" tag="ul"  v-on:enter="gridItemEnter" v-on:leave="gridItemLeave">
 						<li v-for="(piece, index) in pieces" :key="piece.sortOrder" class="each-piece" :style="'background-image: url(' + piece.featuredImage + ');'" :data-index="index">
-							<a :href="piece.href" :target="JSON.parse(piece.openInNewTab) ? '_blank' : '_self'">
+							<a :href="piece.href" :target="JSON.parse(piece.openInNewTab) ? '_blank' : '_self'" @click="handleLinkClick($event, piece.href, piece.openInNewTab)">
 								<div class="piece-details">
 									<div class="row">
 										<h2><span>{{ piece.title }}</span></h2>
@@ -60,6 +60,25 @@
 		},
 
 		methods: {
+			
+			handleLinkClick: function(event, href, openInNewTab) {
+				// If the link should open in a new tab, let the browser handle it
+				// The target="_blank" attribute will be respected
+				if (openInNewTab === "true") {
+					return; // Allow default behavior (opens in new tab)
+				}
+				
+				// Define known Vue routes - all other routes should bypass the router
+				const vueRoutes = ['/', '/work', '/about', '/resume'];
+				const isVueRoute = vueRoutes.some(route => href === route || href.startsWith(route + '/'));
+				
+				// If it's not a Vue route (or is external), force full page navigation
+				// This allows static files in public/ to be served directly by Vite
+				if (href && !isVueRoute) {
+					event.preventDefault();
+					window.location.href = href;
+				}
+			},
 			
 			getCategories: function() {
 				

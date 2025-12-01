@@ -1,4 +1,6 @@
 // Global class-based selectors, put all bare element styling in elements.scss
+@use 'mixins' as *;
+@use 'responsive' as *;
 
 .clearfix {
 	float: none;

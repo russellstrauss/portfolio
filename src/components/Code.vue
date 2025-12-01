@@ -28,7 +28,11 @@
 	import CodeBlock from './CodeBlock.vue';
 	import axios from 'axios';
 	
-	var linearAlgebra = require('linear-algebra')(), Vector = linearAlgebra.Vector, Matrix = linearAlgebra.Matrix;
+	// Note: linear-algebra is imported but Vector/Matrix may not be used in this component
+	// If needed, uncomment and use dynamic import:
+	// const linearAlgebra = (await import('linear-algebra')).default();
+	// const Vector = linearAlgebra.Vector;
+	// const Matrix = linearAlgebra.Matrix;
 	
 	export default {
 		
