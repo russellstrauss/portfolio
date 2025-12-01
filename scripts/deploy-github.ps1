@@ -70,5 +70,5 @@ if ($LASTEXITCODE -ne 0) {
 }
 
 Write-Host "Deployment complete!" -ForegroundColor Green
-Write-Host "Your site will be available at: https://russellstrauss.github.io/portfolio-2020/" -ForegroundColor Green
+Write-Host "Your site will be available at: https://russellstrauss.github.io/portfolio/" -ForegroundColor Green
 

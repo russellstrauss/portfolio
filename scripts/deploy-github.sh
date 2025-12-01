@@ -35,5 +35,5 @@ git push origin gh-pages --force
 git checkout master 2>/dev/null || git checkout main
 
 echo "Deployment complete!"
-echo "Your site will be available at: https://russellstrauss.github.io/portfolio-2020/"
+echo "Your site will be available at: https://russellstrauss.github.io/portfolio/"
 
