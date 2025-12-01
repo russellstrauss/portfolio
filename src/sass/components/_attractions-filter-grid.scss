@@ -1,3 +1,7 @@
+@use "sass:color";
+@use "sass:math";
+@use '../responsive' as *;
+
 $color-san-marino: #4374A6;
 $color-tundora: #4A4A4A;
 $dw-peach: #cb6e52;
@@ -97,8 +101,8 @@ $global-button-outline-text: $dw-dark-gray;
 // $columns should be n number of columns, i.e. 1, 2, 3, etc.
 // $gutter is the desired gutter size in px, i.e. 30
 @mixin grid($columns, $gutter: 15) {
-	$columnWidth: 100% / $columns;
-	$gutterPerColumn: ($columns - 1) * $gutter / $columns;
+	$columnWidth: math.div(100%, $columns);
+	$gutterPerColumn: math.div(($columns - 1) * $gutter, $columns);
 	width: calc(#{$columnWidth} - #{$gutterPerColumn}px);
 	margin-bottom: #{$gutter}px;
 	margin-right: #{$gutter}px;
@@ -142,7 +146,7 @@ $global-button-outline-text: $dw-dark-gray;
 	cursor: pointer;
 	
 	&:hover {
-		background-color: darken($bg-color, $global-button-hover-darken-percentage);
+		background-color: color.adjust($bg-color, $lightness: -$global-button-hover-darken-percentage);
 		text-decoration: none;
 	}
 	

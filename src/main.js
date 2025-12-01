@@ -1,8 +1,7 @@
-import Vue from 'vue';
-import VueRouter from 'vue-router';
-import './sass/main.scss'; // remove?
-import VueAwesomeSwiper from 'vue-awesome-swiper';
+import { createApp } from 'vue';
+import { createRouter, createWebHistory } from 'vue-router';
 
+import './sass/main.scss';
 import App from './App.vue';
 import Home from './Home.vue';
 import About from './About.vue';
@@ -18,11 +17,13 @@ import Missing from './components/Missing.vue';
 window.Prism = window.Prism || {};
 Prism.manual = true;
 
-let baseUrl = process.env.NODE_ENV === 'production' ? 'https://portfolio.jrstrauss.net/' : '/'; // also update vue.config.js
+// Base URL for router - must match vite.config.js base
+// For GitHub Pages, this should match the repository path
+// Can be set via VITE_BASE_URL environment variable at build time
+let baseUrl = import.meta.env.BASE_URL || '/';
 
-const router = new VueRouter({
-	base: baseUrl,
-	mode: 'history',
+const router = createRouter({
+	history: createWebHistory(baseUrl),
 	routes: [
 		{ path: '/', component: Home },
 		{ path: '/about', component: About },
@@ -34,16 +35,24 @@ const router = new VueRouter({
 		{ path: '/work/:category/:id', component: GenericPage },
 		{ path: '/work/:category/code/:id', component: Code },
 		// { path: '/cg/point-cloud', component: PointCloud },
-		{ path: '*', component: Missing }
+		// Catch-all route for unmatched Vue routes
+		// Static files in public/ are served by Vite before the router intercepts them
+		{ path: '/:pathMatch(.*)*', component: Missing }
+
 	]
 });
-Vue.use(VueRouter);
 
-new Vue({
-	el: '#app',
-	router: router,
-	render: h => h(App)
-});
+const app = createApp(App);
+
+// Error handling for debugging
+app.config.errorHandler = (err, instance, info) => {
+	console.error('Vue Error:', err);
+	console.error('Component:', instance);
+	console.error('Info:', info);
+};
+
+app.use(router);
+app.mount('#app');
 
 // Add polyfills for forEach for IE and .closest()
 if (window.NodeList && !NodeList.prototype.forEach) {

@@ -2,7 +2,7 @@
 	"categories": [
 		{
 			"sortOrder": "1",
-			"published": "true",
+			"published": "false",
 			"title": "Interactive",
 			"path": "interactive",
 			"description": ""
@@ -10,40 +10,54 @@
 		{
 			"sortOrder": "2",
 			"published": "true",
-			"title": "Web Application Development",
+			"title": "Web & App Dev",
 			"path": "web-application-development",
 			"description": ""
 		},
 		{
 			"sortOrder": "3",
 			"published": "true",
-			"title": "Visualization",
-			"path": "visualization",
+			"title": "Data Visualization",
+			"path": "data-visualization",
 			"description": ""
 		},
 		{
 			"sortOrder": "4",
-			"published": "false",
-			"title": "UI/UX",
-			"path": "ux",
-			"description": ""
-		},
-		{
-			"sortOrder": "5",
 			"published": "false",
 			"title": "2189 miles",
 			"path": "detail/2189-miles",
 			"description": "2189 miles description here"
 		},
 		{
-			"sortOrder": "6",
-			"published": "true",
+			"sortOrder": "5",
+			"published": "false",
 			"title": "Video",
 			"path": "video",
 			"description": ""
 		},
 		{
+			"sortOrder": "6",
+			"published": "false",
+			"title": "User Experience",
+			"path": "ux",
+			"description": ""
+		},
+		{
 			"sortOrder": "7",
+			"published": "false",
+			"title": "Brand Identity",
+			"path": "brand-identity",
+			"description": ""
+		},
+		{
+			"sortOrder": "8",
+			"published": "false",
+			"title": "Visual Design",
+			"path": "visual-design",
+			"description": ""
+		},
+		{
+			"sortOrder": "9",
 			"published": "true",
 			"title": "Mathematics",
 			"path": "mathematics",

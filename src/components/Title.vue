@@ -1,6 +1,6 @@
 <template>
 	<h1 class="name">
-		<a href="/">
+		<a href="/" @click.prevent="navigateHome">
 			<span class="text-wrapper">
 				<span class="line line1"></span>
 				<span class="letters">John Russell Strauss</span>
@@ -24,6 +24,12 @@
 		},
 
 		methods: {
+			
+			navigateHome: function() {
+				if (this.$router) {
+					this.$router.push('/');
+				}
+			},
 			
 			triggerTitleAnimation: function() {
 				
