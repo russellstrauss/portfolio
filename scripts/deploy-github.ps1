@@ -17,8 +17,12 @@ if (-not (Test-Path "dist")) {
 
 Write-Host "Deploying to gh-pages branch..." -ForegroundColor Cyan
 
-# Save current branch
-$currentBranch = git branch --show-current
+# Save current branch (compatible with older git versions)
+$currentBranch = git rev-parse --abbrev-ref HEAD
+
+# Stash any uncommitted changes
+Write-Host "Stashing uncommitted changes..." -ForegroundColor Yellow
+git stash push -m "Stash before GitHub Pages deployment" 2>$null | Out-Null
 
 # Create or checkout gh-pages branch
 Write-Host "Checking out gh-pages branch..." -ForegroundColor Yellow
@@ -27,6 +31,7 @@ if ($LASTEXITCODE -ne 0) {
     git checkout gh-pages
     if ($LASTEXITCODE -ne 0) {
         Write-Host "Failed to checkout gh-pages branch!" -ForegroundColor Red
+        git stash pop 2>$null | Out-Null
         exit 1
     }
     # Remove all existing files
@@ -68,6 +73,10 @@ if ($LASTEXITCODE -ne 0) {
         git checkout master
     }
 }
+
+# Restore stashed changes
+Write-Host "Restoring stashed changes..." -ForegroundColor Yellow
+git stash pop 2>$null | Out-Null
 
 Write-Host "Deployment complete!" -ForegroundColor Green
 Write-Host "Your site will be available at: https://russellstrauss.github.io/portfolio/" -ForegroundColor Green
