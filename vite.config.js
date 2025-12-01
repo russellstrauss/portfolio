@@ -122,7 +122,7 @@ export default defineConfig({
 	// Base path for GitHub Pages
 	// For project pages: use the repository name (e.g., '/portfolio/')
 	// For user/organization pages: use '/' (root)
-	// Can be overridden with VITE_BASE_URL environment variable
+	// Set via VITE_BASE_URL in .env file or environment variable
 	base: process.env.VITE_BASE_URL || '/',
 	build: {
 		outDir: 'dist',
