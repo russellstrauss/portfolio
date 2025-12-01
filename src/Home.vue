@@ -4,7 +4,7 @@
 		<Title></Title>
 		<Nav></Nav>
 		
-		<iframe style="dispay: none; !important;" width="560" height="315" src="https://www.youtube-nocookie.com/embed/wE2GZ2Vpqjo?rel=0&autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;" allowfullscreen></iframe>
+		<iframe style="display: none; !important;" width="560" height="315" src="https://www.youtube-nocookie.com/embed/wE2GZ2Vpqjo?rel=0&autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;" allowfullscreen></iframe>
 	</div>
 </template>
 
@@ -71,7 +71,7 @@
 		height: 100vh;
 		top: 0;
 		left: 0;
-		// z-index: -9000;
+		z-index: -9000;
 	}
 	
 	
