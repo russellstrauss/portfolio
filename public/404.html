@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Redirecting...</title>
+	<script>
+		// GitHub Pages 404.html handler for SPA routing
+		// When GitHub Pages can't find a file, it serves 404.html
+		// We need to redirect to index.html and preserve the intended path
+		
+		const basePath = '/portfolio/';
+		const basePathWithoutTrailing = '/portfolio'; // Base path without trailing slash
+		const currentPath = window.location.pathname;
+		
+		// Extract the path relative to the base
+		let relativePath = currentPath;
+		if (currentPath.startsWith(basePathWithoutTrailing)) {
+			// Remove the base path (without trailing slash), keeping the rest
+			relativePath = currentPath.slice(basePathWithoutTrailing.length);
+			// Ensure we have a leading /
+			if (!relativePath.startsWith('/')) {
+				relativePath = '/' + relativePath;
+			}
+		} else if (!relativePath.startsWith('/')) {
+			relativePath = '/' + relativePath;
+		}
+		
+		// Preserve query string and hash
+		const query = window.location.search;
+		const hash = window.location.hash;
+		
+		// Store the intended path in sessionStorage so Vue Router can use it
+		sessionStorage.setItem('githubPagesRedirect', relativePath + query + hash);
+		
+		// Redirect to the base path (which will serve index.html)
+		window.location.replace(basePath);
+	</script>
+</head>
+<body>
+	<p>Redirecting...</p>
+	<noscript>
+		<p>Please enable JavaScript to view this site.</p>
+		<p><a href="/portfolio/">Go to homepage</a></p>
+	</noscript>
+</body>
+</html>
+
