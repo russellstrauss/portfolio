@@ -82,12 +82,12 @@
 			
 			getCategories: function() {
 				
-				return axios.get('/data/categories.json');
+				return axios.get(import.meta.env.BASE_URL + 'data/categories.json');
 			},
 			
 			getPieces: function() {
 				
-				return axios.get('/data/pieces.json');
+				return axios.get(import.meta.env.BASE_URL + 'data/pieces.json');
 			},
 			
 			gridItemEnter: function (element) {
