@@ -63,7 +63,7 @@
 		mounted: function () {
 			
 			let self = this;
-			let categories = '/data/categories.json';
+			let categories = import.meta.env.BASE_URL + 'data/categories.json';
 			axios.get(categories).then(function(response) {
 				
 				let categories = response.data.categories;

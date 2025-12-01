@@ -56,7 +56,7 @@
 			
 			let self = this;
 			
-			let pieces = '/data/pieces.json';
+			let pieces = import.meta.env.BASE_URL + 'data/pieces.json';
 			axios.get(pieces).then(function(response) {
 				
 				let categories = response.data.categories;
