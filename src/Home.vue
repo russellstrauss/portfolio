@@ -37,6 +37,16 @@
 			} catch (error) {
 				console.error('Error initializing Galaxy:', error);
 			}
+		},
+
+		beforeUnmount: function () {
+			try {
+				if (Galaxy && typeof Galaxy.destroy === 'function') {
+					Galaxy.destroy();
+				}
+			} catch (error) {
+				console.error('Error destroying Galaxy:', error);
+			}
 		}
 	};
 </script>

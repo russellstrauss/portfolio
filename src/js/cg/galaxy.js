@@ -255,6 +255,13 @@ var galaxy = (function() {
 			// Reset other variables
 			camera = null;
 			clusterGeometry = null;
+			particles = null;
+			clock = null;
+			catmullRomCurve = null;
+			curveObject = null;
+			curve = [];
+			progress = 0;
+			camera_speed = default_camera_speed;
 			initialized = false;
 			frameCount = 0;
 		}
