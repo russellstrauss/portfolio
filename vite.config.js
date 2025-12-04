@@ -100,9 +100,56 @@ function watchDataFilesPlugin() {
 	};
 }
 
+// Plugin to rewrite CSS url() references to include base URL
+// Note: Vite automatically handles HTML asset paths (src, href) when base URL is set
+function rewriteCssUrlsPlugin() {
+	const baseUrl = process.env.VITE_BASE_URL || '/';
+	
+	return {
+		name: 'rewrite-css-urls',
+		enforce: 'post',
+		generateBundle(options, bundle) {
+			// Only process if we have a base URL other than root
+			if (baseUrl === '/' || baseUrl === '') {
+				return;
+			}
+			
+			// Normalize base URL (ensure it starts with / and ends with /)
+			const normalizedBase = baseUrl.startsWith('/') 
+				? (baseUrl.endsWith('/') ? baseUrl : baseUrl + '/')
+				: '/' + (baseUrl.endsWith('/') ? baseUrl : baseUrl + '/');
+			const baseWithoutTrailing = normalizedBase.endsWith('/') ? normalizedBase.slice(0, -1) : normalizedBase;
+			
+			// Process CSS files - rewrite url() references
+			for (const fileName in bundle) {
+				const file = bundle[fileName];
+				if (file.type === 'asset' && fileName.endsWith('.css')) {
+					// Rewrite absolute paths in url() to include base URL
+					// Match url(/path) but not url(http://) or url(//) or url(data:) or url(./relative)
+					// Handles both quoted and unquoted URLs
+					const urlRegex = /url\((['"]?)(\/[^'")]*)\1\)/g;
+					file.source = file.source.replace(urlRegex, (match, quote, path) => {
+						// Don't rewrite if it's already a full URL, protocol-relative, or data URI
+						if (path.startsWith('http://') || 
+						    path.startsWith('https://') || 
+						    path.startsWith('//') || 
+						    path.startsWith('data:') ||
+						    path.startsWith('./') ||
+						    path.startsWith('../')) {
+							return match;
+						}
+						// Prepend base URL
+						return `url(${quote}${baseWithoutTrailing}${path}${quote})`;
+					});
+				}
+			}
+		}
+	};
+}
+
 // https://vite.dev/config/
 export default defineConfig({
-	plugins: [vue(), serveStaticIndexPlugin(), watchDataFilesPlugin()],
+	plugins: [vue(), serveStaticIndexPlugin(), watchDataFilesPlugin(), rewriteCssUrlsPlugin()],
 	resolve: {
 		alias: {
 			'@': fileURLToPath(new URL('./src', import.meta.url))

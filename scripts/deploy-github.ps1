@@ -20,17 +20,42 @@ Write-Host "Deploying to gh-pages branch..." -ForegroundColor Cyan
 # Save current branch (compatible with older git versions)
 $currentBranch = git rev-parse --abbrev-ref HEAD
 
-# Stash any uncommitted changes
+# Add any new files that should be tracked (like the SVG icons we created)
+Write-Host "Staging new files..." -ForegroundColor Yellow
+git add public/img/icon-checkmark.svg public/img/icon-close-black.svg 2>$null | Out-Null
+
+# Remove untracked files that might conflict (like debug.log)
+Write-Host "Cleaning untracked files..." -ForegroundColor Yellow
+if (Test-Path "debug.log") {
+    Remove-Item "debug.log" -Force -ErrorAction SilentlyContinue
+}
+
+# Stash any uncommitted changes (including the newly added files)
 Write-Host "Stashing uncommitted changes..." -ForegroundColor Yellow
-git stash push -m "Stash before GitHub Pages deployment" 2>$null | Out-Null
+git stash push -m "Stash before GitHub Pages deployment" --include-untracked 2>$null | Out-Null
 
 # Create or checkout gh-pages branch
 Write-Host "Checking out gh-pages branch..." -ForegroundColor Yellow
 git checkout --orphan gh-pages 2>$null
 if ($LASTEXITCODE -ne 0) {
-    git checkout gh-pages
+    # If orphan branch creation failed, try regular checkout
+    # First, clean any untracked files that might conflict
+    Write-Host "Cleaning untracked files before checkout..." -ForegroundColor Yellow
+    git clean -fd 2>$null | Out-Null
+    
+    # Remove specific files that might conflict
+    if (Test-Path "public/img/icon-checkmark.svg") {
+        Remove-Item "public/img/icon-checkmark.svg" -Force -ErrorAction SilentlyContinue
+    }
+    if (Test-Path "public/img/icon-close-black.svg") {
+        Remove-Item "public/img/icon-close-black.svg" -Force -ErrorAction SilentlyContinue
+    }
+    
+    # Force checkout to overwrite any conflicts
+    git checkout -f gh-pages 2>$null
     if ($LASTEXITCODE -ne 0) {
         Write-Host "Failed to checkout gh-pages branch!" -ForegroundColor Red
+        git checkout $currentBranch 2>$null | Out-Null
         git stash pop 2>$null | Out-Null
         exit 1
     }
