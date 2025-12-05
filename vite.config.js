@@ -177,11 +177,49 @@ export default defineConfig({
 	base: process.env.VITE_BASE_URL || '/',
 	build: {
 		outDir: 'dist',
+		// Increase chunk size warning limit since three.js is inherently large
+		// but properly chunked into its own file
+		chunkSizeWarningLimit: 600,
 		rollupOptions: {
 			output: {
 				entryFileNames: '[name].js',
 				chunkFileNames: '[name].js',
-				assetFileNames: '[name].[ext]'
+				assetFileNames: '[name].[ext]',
+				manualChunks: (id) => {
+					// Separate three.js into its own chunk (it's very large)
+					if (id.includes('three') || id.includes('node_modules/three')) {
+						return 'three-vendor';
+					}
+					
+					// Separate Vue ecosystem (Vue, Vue Router, FloatingVue)
+					if (id.includes('node_modules/vue') || 
+					    id.includes('node_modules/@vue') ||
+					    id.includes('node_modules/vue-router') ||
+					    id.includes('node_modules/floating-vue')) {
+						return 'vue-vendor';
+					}
+					
+					// Separate UI/animation libraries
+					if (id.includes('node_modules/swiper') ||
+					    id.includes('node_modules/animejs') ||
+					    id.includes('node_modules/pdfobject')) {
+						return 'ui-vendor';
+					}
+					
+					// Separate utility libraries
+					if (id.includes('node_modules/axios') ||
+					    id.includes('node_modules/prismjs') ||
+					    id.includes('node_modules/jquery') ||
+					    id.includes('node_modules/linear-algebra') ||
+					    id.includes('node_modules/vue-prism-component')) {
+						return 'utils-vendor';
+					}
+					
+					// All other node_modules go into vendor chunk
+					if (id.includes('node_modules')) {
+						return 'vendor';
+					}
+				}
 			}
 		}
 	},
