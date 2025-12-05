@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="refresh" content="0; url=/portfolio/">
+  <title>Redirecting...</title>
+  <script>
+    // GitHub Pages 404 redirect for SPA
+    // Stores the path in sessionStorage and redirects to the base URL
+    // The Vue router will then handle the navigation
+    
+    (function() {
+      var l = window.location;
+      var pathname = l.pathname;
+      var search = l.search || '';
+      var hash = l.hash || '';
+      
+      // Determine base path - check if we're on a project page
+      var basePath = '/portfolio/'; // Default for this project
+      var routePath = pathname;
+      
+      // If pathname starts with /portfolio/, extract the route path
+      if (pathname.startsWith('/portfolio/')) {
+        routePath = pathname.slice('/portfolio/'.length);
+        // Ensure routePath starts with /
+        if (routePath && !routePath.startsWith('/')) {
+          routePath = '/' + routePath;
+        }
+        if (!routePath) {
+          routePath = '/';
+        }
+      } else if (pathname === '/portfolio' || pathname === '/portfolio/') {
+        // Already at base, just redirect
+        routePath = '/';
+        basePath = '/portfolio/';
+      } else {
+        // Not a /portfolio/ path - might be root deployment or wrong URL
+        // Store the full pathname as-is and redirect to base
+        routePath = pathname;
+        basePath = '/portfolio/';
+      }
+      
+      // Store the route path for the Vue router
+      var fullRoutePath = routePath + search + hash;
+      
+      // Store in sessionStorage for the router to pick up
+      if (fullRoutePath && fullRoutePath !== '/' + search + hash) {
+        sessionStorage.setItem('githubPagesRedirect', fullRoutePath);
+      }
+      
+      // Redirect to base URL
+      var redirectUrl = l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + basePath;
+      
+      // Use replace to avoid adding to history
+      if (l.replace) {
+        l.replace(redirectUrl);
+      } else {
+        l.href = redirectUrl;
+      }
+    })();
+  </script>
+</head>
+<body>
+  <p>Redirecting...</p>
+  <p>If you are not redirected, <a href="/portfolio/">click here</a>.</p>
+</body>
+</html>
+
