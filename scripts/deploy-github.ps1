@@ -111,9 +111,13 @@ if ($LASTEXITCODE -ne 0) {
     }
 }
 
-# Restore stashed changes
+# Restore stashed changes (drop if there are conflicts to avoid re-applying conflicted files)
 Write-Host "Restoring stashed changes..." -ForegroundColor Yellow
-git stash pop 2>$null | Out-Null
+git stash pop 2>$null
+if ($LASTEXITCODE -ne 0) {
+    Write-Host "Stash pop had conflicts or failed. Dropping stash to avoid re-applying conflicts..." -ForegroundColor Yellow
+    git stash drop 2>$null | Out-Null
+}
 
 Write-Host "Deployment complete!" -ForegroundColor Green
 Write-Host "Your site will be available at: https://russellstrauss.github.io/portfolio/" -ForegroundColor Green
