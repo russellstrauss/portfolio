@@ -99,9 +99,14 @@
 				const vueRoutes = ['/', '/work', '/about', '/resume'];
 				const isVueRoute = vueRoutes.some(route => href === route || href.startsWith(route + '/'));
 				
+				// If it's a Vue route, use Vue Router for navigation
+				if (href && isVueRoute) {
+					event.preventDefault();
+					this.$router.push(href);
+				}
 				// If it's not a Vue route (or is external), force full page navigation
 				// This allows static files in public/ to be served directly by Vite
-				if (href && !isVueRoute) {
+				else if (href && !isVueRoute) {
 					event.preventDefault();
 					window.location.href = href;
 				}
