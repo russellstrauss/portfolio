@@ -138,6 +138,10 @@ function rewriteCssUrlsPlugin() {
 						    path.startsWith('../')) {
 							return match;
 						}
+						// Don't rewrite if path already starts with the base URL
+						if (path.startsWith(baseWithoutTrailing)) {
+							return match;
+						}
 						// Prepend base URL
 						return `url(${quote}${baseWithoutTrailing}${path}${quote})`;
 					});
