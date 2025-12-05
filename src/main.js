@@ -1,5 +1,7 @@
 import { createApp } from 'vue';
 import { createRouter, createWebHistory } from 'vue-router';
+import FloatingVue from 'floating-vue';
+import 'floating-vue/dist/style.css';
 
 import './sass/main.scss';
 import App from './App.vue';
@@ -63,6 +65,7 @@ app.config.errorHandler = (err, instance, info) => {
 };
 
 app.use(router);
+app.use(FloatingVue);
 app.mount('#app');
 
 // Add polyfills for forEach for IE and .closest()
