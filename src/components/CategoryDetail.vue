@@ -16,7 +16,7 @@
 					
 					<transition-group :class="viewType" name="stagger-grid" tag="ul"  v-on:enter="gridItemEnter" v-on:leave="gridItemLeave">
 						<li v-for="(piece, index) in pieces" :key="piece.sortOrder" class="each-piece" :style="'background-image: url(' + getImageUrl(piece.featuredImage) + ');'" :data-index="index">
-							<a :href="piece.href" :target="JSON.parse(piece.openInNewTab) ? '_blank' : '_self'" @click="handleLinkClick($event, piece.href, piece.openInNewTab)">
+							<a :href="getUrl(piece.href)" :target="JSON.parse(piece.openInNewTab) ? '_blank' : '_self'" @click="handleLinkClick($event, getUrl(piece.href), piece.openInNewTab)">
 								<div class="piece-details">
 									<div class="row">
 										<h2><span>{{ piece.title }}</span></h2>
@@ -76,6 +76,16 @@
 				}
 				// Otherwise return as is (relative paths)
 				return imagePath;
+			},
+			
+			getUrl: function(url) {
+				if (!url) return '';
+				// If it's an external URL (http/https), return as is
+				if (url.startsWith('http://') || url.startsWith('https://')) {
+					return url;
+				}
+				// Use the same logic as getImageUrl for internal paths
+				return this.getImageUrl(url);
 			},
 			
 			handleLinkClick: function(event, href, openInNewTab) {

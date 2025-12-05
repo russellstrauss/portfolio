@@ -43,7 +43,7 @@
 						<ul class="plus"> <li>Portfolio</li>
 						</ul>
 					</div>
-					<div class="right"><a href="/">https://portfolio.jrstrauss.net/</a></div>
+					<div class="right"><a href="https://russellstrauss.github.io/portfolio">https://russellstrauss.github.io/portfolio</a></div>
 					<div class="clearfix"> </div>
 				</div>
 				<div>
