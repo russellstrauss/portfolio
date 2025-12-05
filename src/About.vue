@@ -7,7 +7,7 @@
 			<div class="main-content">
 				<div class="entry-content">
 					<p>
-						I’m a UI-focused software engineer with over a decade of experience building production-grade web applications that are fast, accessible, and visually precise. My specialization is turning complex product requirements and detailed design systems into clean, maintainable interfaces that feel effortless to use.
+						I’m a UI-focused software engineer with over a decade of experience building production-grade web applications that are fast, accessible, and visually precise. My specialization is turning complex product requirements and detailed design systems into clean, maintainable interfaces that are effortless to use.
 					</p>
 					<p>
 						While many teams fixate on specific tool choices, my strength is deeper: I understand the underlying principles of modern JavaScript, rendering performance, state modeling, and component architecture. This lets me ramp up instantly on any stack—React, Vue, Angular, custom design systems, REST APIs, or whatever a project requires.
