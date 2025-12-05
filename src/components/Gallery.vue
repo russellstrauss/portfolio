@@ -3,16 +3,16 @@
 	<div class='gallery' :class="{ 'active': active }">
 		
 		<Swiper class='swiper gallery-top' :options='swiperOptions' ref='swiperMain'>
-			<SwiperSlide v-for="slide in slides" :key="slide.path" :style="'background-image: url(' + slide.path + ');'"></swiper-slide>
+			<SwiperSlide v-for="slide in slides" :key="slide.path" :style="'background-image: url(' + getImageUrl(slide.path) + ');'"></swiper-slide>
 			
 			<div class='swiper-button-next' slot='button-next'></div>
 			<div class='swiper-button-prev' slot='button-prev'></div>
 		</Swiper>
 		
 		<Swiper class='swiper gallery-thumbs' :options='thumbnailCarouselOptions' ref='swiperThumbs'>
-			<SwiperSlide v-for="slide in slides" :key="slide.path" :style="'background-image: url(' + slide.path + ');'"></swiper-slide>
+			<SwiperSlide v-for="slide in slides" :key="slide.path" :style="'background-image: url(' + getImageUrl(slide.path) + ');'"></swiper-slide>
 		</Swiper>
-		<img src="/img/close-white.svg" alt="" class="close" v-on:click="dismiss">
+		<img :src="getImageUrl('/img/close-white.svg')" alt="" class="close" v-on:click="dismiss">
 	</div>
 </template>
 
@@ -65,6 +65,23 @@
 		},
 		
 		methods: {
+			
+			getImageUrl: function(imagePath) {
+				if (!imagePath) return '';
+				// If the path is already absolute with base URL, return as is
+				const baseUrl = import.meta.env.BASE_URL || '/';
+				// If path already starts with base URL, return as is
+				if (imagePath.startsWith(baseUrl)) {
+					return imagePath;
+				}
+				// If path starts with /, prepend base URL (removing trailing slash from base if present)
+				if (imagePath.startsWith('/')) {
+					const normalizedBase = baseUrl.endsWith('/') ? baseUrl.slice(0, -1) : baseUrl;
+					return normalizedBase + imagePath;
+				}
+				// Otherwise return as is (relative paths)
+				return imagePath;
+			},
 			
 			dismiss: function() {
 				this.active = false;

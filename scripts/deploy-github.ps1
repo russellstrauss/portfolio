@@ -63,11 +63,23 @@ if ($LASTEXITCODE -ne 0) {
     git rm -rf . 2>$null | Out-Null
 }
 
+# Remove all existing files except .git
+Write-Host "Cleaning existing files..." -ForegroundColor Yellow
+Get-ChildItem -Path . -Exclude .git,dist,node_modules | Remove-Item -Recurse -Force -ErrorAction SilentlyContinue
+
 # Copy dist contents to root
 Write-Host "Copying dist files..." -ForegroundColor Yellow
 Copy-Item -Path "dist\*" -Destination "." -Recurse -Force
 
-# Stage all files
+# Ensure 404.html exists (Vite should copy it from public, but verify)
+if (-not (Test-Path "404.html")) {
+    if (Test-Path "public/404.html") {
+        Write-Host "Copying 404.html from public..." -ForegroundColor Yellow
+        Copy-Item -Path "public/404.html" -Destination "404.html" -Force
+    }
+}
+
+# Stage all files (only what we just copied from dist)
 Write-Host "Staging files..." -ForegroundColor Yellow
 git add -A
 
