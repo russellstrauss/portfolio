@@ -1,5 +1,0 @@
-Tipped.init();
-
-return Tipped;
-
-}));
