@@ -61,7 +61,13 @@
 					<li>MS Computer Science 2020</li>
 					<li>Specialized in Computer Graphics</li>
 					<li>
-						<span class="gt-rankings" title="Ranked #4 Most Innovative Schools <br>Ranked #5 Top U.S. Public Schools <br>Ranked #5 Computer Science<br><br>Source: <a href='https://www.usnews.com/best-colleges'>US News and World Report 2021</a>"> Georgia Institute of Technology
+						<span 
+							class="gt-rankings" 
+							v-tooltip="{
+								content: tooltipContent,
+								html: true
+							}"
+						> Georgia Institute of Technology
 						</span>
 					</li>
 					<li>GPA 3.8</li>
@@ -69,7 +75,13 @@
 				<ul>
 					<li>BS Computational Media 2012</li>
 					<li>
-						<span class="gt-rankings" title="Ranked #4 Most Innovative Schools <br>Ranked #5 Top U.S. Public Schools <br>Ranked #5 Computer Science<br><br>Source: <a href='https://www.usnews.com/best-colleges'>US News and World Report 2021</a>"> Georgia Institute of Technology
+						<span 
+							class="gt-rankings" 
+							v-tooltip="{
+								content: tooltipContent,
+								html: true
+							}"
+						> Georgia Institute of Technology
 						</span>
 					</li>
 					<li>GPA 3.5</li>
@@ -165,18 +177,15 @@
 </template>
 
 <script>
-
-	import $ from 'jquery';
-	var jQuery = $;
-	import Tipped from '@staaky/tipped';
-	
 	export default {
 		name: 'Resume',
 
 		components: {},
 
 		data() {
-			return {};
+			return {
+				tooltipContent: 'Ranked #4 Most Innovative Schools <br>Ranked #5 Top U.S. Public Schools <br>Ranked #5 Computer Science<br><br>Source: <a href=\'https://www.usnews.com/best-colleges\'>US News and World Report 2021</a>'
+			};
 		},
 
 		methods: {
@@ -184,11 +193,7 @@
 			openPrintDialogue: function() {
 				window.print();
 			}
-		},
-
-		mounted: function () {
-			Tipped.create('.gt-rankings');
-		},
+		}
 	};
 </script>
 

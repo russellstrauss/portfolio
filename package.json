@@ -15,9 +15,9 @@
     "deploy:github:manual": "npm run build:github"
   },
   "dependencies": {
-    "@staaky/tipped": "^4.8.1",
     "animejs": "^3.2.0",
     "axios": "^1.7.9",
+    "floating-vue": "^5.2.2",
     "jquery": "^3.7.1",
     "linear-algebra": "^3.1.4",
     "pdfobject": "^2.3.1",
