@@ -32,8 +32,8 @@
 
 <script>
 	
-	const THREE = require('three');
-	const OrbitControls = require('three-orbitcontrols');
+	import * as THREE from 'three';
+	import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 	
 	export default {
 		
