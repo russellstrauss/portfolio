@@ -30,7 +30,6 @@ var galaxy = (function() {
 	
 	var clusterGeometry, initialized = false, frameCount = 0;
 	var renderer, scene, camera, controls;
-	var animationFrameId = null;
 	let interps = [d3.interpolateRainbow, d3.interpolateRgb('#450F66', '#B36002'), d3.interpolateRgb('white', 'red'), d3.interpolateSinebow, d3.interpolateYlOrRd, d3.interpolateYlGnBu,d3.interpolateRdPu, d3.interpolatePuBu, d3.interpolateGnBu, d3.interpolateBuPu, d3.interpolateCubehelixDefault, d3.interpolateCool, d3.interpolateWarm, d3.interpolateCividis, d3.interpolatePlasma, d3.interpolateMagma, d3.interpolateInferno, d3.interpolateViridis, d3.interpolateTurbo, d3.interpolatePurples, d3.interpolateReds, d3.interpolateOranges, d3.interpolateGreys, d3.interpolateGreens, d3.interpolateBlues, d3.interpolateSpectral, d3.interpolateRdYlBu, d3.interpolateRdBu, d3.interpolatePuOr, d3.interpolatePiYG, d3.interpolatePRGn];
 	let curve = [], progress = 0, default_camera_speed = .005, camera_speed = default_camera_speed, curve_index = 0, clock, dt, curveObject, catmullRomCurve;
 	let cameraFocalPoint = new THREE.Vector3(0, 0, 0), origin = new THREE.Vector3(0, 0, 0), particles, particleCount = 60000, particleSpread = 500, positions, trajectory_iteration_count = 40, trajectoryReverse = false;
@@ -56,13 +55,13 @@ var galaxy = (function() {
 			this.createCameraTrajectory();
 			this.firstFrame();
 			
-		var animate = () => {
-			animationFrameId = requestAnimationFrame(animate);
-			controls.update();
-			this.everyFrame();
-			renderer.render(scene, camera);
-		};
-		animate();
+			var animate = () => {
+				requestAnimationFrame(animate);
+				controls.update();
+				this.everyFrame();
+				renderer.render(scene, camera);
+			};
+			animate(); 
 		},
 		
 		firstFrame: function() {
@@ -222,48 +221,6 @@ var galaxy = (function() {
 		rgbStringToColor: function(rgbString) {
 			rgbString = rgbString.replace('rgb(','').replace(')','').replace(' ','').split(',');
 			return new THREE.Color(rgbString[0]/255, rgbString[1]/255, rgbString[2]/255);
-		},
-		
-		destroy: function() {
-			// Cancel animation frame
-			if (animationFrameId !== null) {
-				cancelAnimationFrame(animationFrameId);
-				animationFrameId = null;
-			}
-			
-			// Dispose of controls
-			if (controls) {
-				controls.dispose();
-				controls = null;
-			}
-			
-			// Remove canvas from DOM and dispose renderer
-			if (renderer) {
-				if (renderer.domElement && renderer.domElement.parentNode) {
-					renderer.domElement.parentNode.removeChild(renderer.domElement);
-				}
-				renderer.dispose();
-				renderer = null;
-			}
-			
-			// Clear scene
-			if (scene) {
-				scene.clear();
-				scene = null;
-			}
-			
-			// Reset other variables
-			camera = null;
-			clusterGeometry = null;
-			particles = null;
-			clock = null;
-			catmullRomCurve = null;
-			curveObject = null;
-			curve = [];
-			progress = 0;
-			camera_speed = default_camera_speed;
-			initialized = false;
-			frameCount = 0;
 		}
 	}
 })();

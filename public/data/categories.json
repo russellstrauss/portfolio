@@ -30,9 +30,9 @@
 		},
 		{
 			"sortOrder": "5",
-			"published": "false",
-			"title": "Video",
-			"path": "video",
+			"published": "true",
+			"title": "Film",
+			"path": "film",
 			"description": ""
 		},
 		{

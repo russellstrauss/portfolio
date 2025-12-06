@@ -15,8 +15,8 @@
 					</header>
 					
 					<transition-group :class="viewType" name="stagger-grid" tag="ul"  v-on:enter="gridItemEnter" v-on:leave="gridItemLeave">
-						<li v-for="(piece, index) in pieces" :key="piece.sortOrder" class="each-piece" :style="'background-image: url(' + getImageUrl(piece.featuredImage) + ');'" :data-index="index">
-							<a :href="getUrl(piece.href)" :target="JSON.parse(piece.openInNewTab) ? '_blank' : '_self'" @click="handleLinkClick($event, getUrl(piece.href), piece.openInNewTab)">
+						<li v-for="(piece, index) in pieces" :key="piece.sortOrder" class="each-piece" :style="'background-image: url(' + piece.featuredImage + ');'" :data-index="index">
+							<a :href="piece.href" :target="JSON.parse(piece.openInNewTab) ? '_blank' : '_self'" @click="handleLinkClick($event, piece.href, piece.openInNewTab)">
 								<div class="piece-details">
 									<div class="row">
 										<h2><span>{{ piece.title }}</span></h2>
@@ -61,33 +61,6 @@
 
 		methods: {
 			
-			getImageUrl: function(imagePath) {
-				if (!imagePath) return '';
-				// If the path is already absolute with base URL, return as is
-				const baseUrl = import.meta.env.BASE_URL || '/';
-				// If path already starts with base URL, return as is
-				if (imagePath.startsWith(baseUrl)) {
-					return imagePath;
-				}
-				// If path starts with /, prepend base URL (removing trailing slash from base if present)
-				if (imagePath.startsWith('/')) {
-					const normalizedBase = baseUrl.endsWith('/') ? baseUrl.slice(0, -1) : baseUrl;
-					return normalizedBase + imagePath;
-				}
-				// Otherwise return as is (relative paths)
-				return imagePath;
-			},
-			
-			getUrl: function(url) {
-				if (!url) return '';
-				// If it's an external URL (http/https), return as is
-				if (url.startsWith('http://') || url.startsWith('https://')) {
-					return url;
-				}
-				// Use the same logic as getImageUrl for internal paths
-				return this.getImageUrl(url);
-			},
-			
 			handleLinkClick: function(event, href, openInNewTab) {
 				// If the link should open in a new tab, let the browser handle it
 				// The target="_blank" attribute will be respected
@@ -109,12 +82,12 @@
 			
 			getCategories: function() {
 				
-				return axios.get(import.meta.env.BASE_URL + 'data/categories.json');
+				return axios.get('/data/categories.json');
 			},
 			
 			getPieces: function() {
 				
-				return axios.get(import.meta.env.BASE_URL + 'data/pieces.json');
+				return axios.get('/data/pieces.json');
 			},
 			
 			gridItemEnter: function (element) {
