@@ -20,7 +20,6 @@ window.Prism = window.Prism || {};
 Prism.manual = true;
 
 // Base URL for router - must match vite.config.js base
-// For GitHub Pages, this should match the repository path
 // Can be set via VITE_BASE_URL environment variable at build time
 let baseUrl = import.meta.env.BASE_URL || '/';
 
@@ -43,17 +42,6 @@ const router = createRouter({
 
 	]
 });
-
-// Handle GitHub Pages 404.html redirect
-// When 404.html redirects to the base path, it stores the intended path in sessionStorage
-const redirectPath = sessionStorage.getItem('githubPagesRedirect');
-if (redirectPath) {
-	sessionStorage.removeItem('githubPagesRedirect');
-	// Use replace to avoid adding to history
-	router.replace(redirectPath).catch(() => {
-		// If the route doesn't exist, the catch-all will handle it
-	});
-}
 
 const app = createApp(App);
 

@@ -7,12 +7,8 @@
     "dev": "vite",
     "serve": "vite",
     "build": "vite build",
-    "build:github": "cross-env VITE_BASE_URL=/portfolio/ vite build",
     "preview": "vite preview",
-    "watch": "vite build --watch",
-    "deploy": "gh-pages -d dist",
-    "deploy:github": "powershell -ExecutionPolicy Bypass -File ./scripts/deploy-github.ps1",
-    "deploy:github:manual": "npm run build:github"
+    "watch": "vite build --watch"
   },
   "dependencies": {
     "animejs": "^3.2.0",
@@ -31,7 +27,6 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.2.1",
     "cross-env": "^10.1.0",
-    "gh-pages": "^6.3.0",
     "sass": "^1.83.0",
     "vite": "^6.0.3"
   },
