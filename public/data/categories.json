@@ -1,14 +1,14 @@
 {
 	"categories": [
 		{
-			"sortOrder": "1",
-			"published": "false",
-			"title": "Interactive",
+			"sortOrder": "2",
+			"published": "true",
+			"title": "3D & Interactive",
 			"path": "interactive",
 			"description": ""
 		},
 		{
-			"sortOrder": "2",
+			"sortOrder": "1",
 			"published": "true",
 			"title": "Web & App Dev",
 			"path": "web-application-development",
