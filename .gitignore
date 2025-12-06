@@ -1,3 +1,4 @@
 node_modules
 dist/
-*.mp4
+# Video files are now tracked with Git LFS instead of being ignored
+# *.mp4
