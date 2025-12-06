@@ -21,10 +21,6 @@
 					"description": "Step inside your masterpiece",
 					"featuredImage": "/img/featured-images/immersive-art.jpg",
 					"rawHTML": "<video controls poster=\"/img/featured-images/immersive-art-poster.jpg\"><source src=\"/video/immersive-art.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video>",
-					"applicationLink": {
-						"href": "/vr/immersive-art",
-						"text": "View live application"
-					},
 					"href": "/work/interactive/immersive-art",
 					"openInNewTab": "false"
 				},
@@ -55,10 +51,6 @@
 					"description": "Three-dimensional colorspace models: using geometry to calculate colors in 3D space",
 					"featuredImage": "/img/featured-images/colorspace.jpg",
 					"rawHTML": "<video controls poster=\"/img/featured-images/colorspace-poster.jpg\"><source src=\"/video/colorspace.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video>",
-					"applicationLink": {
-						"href": "/cg/colorspace/",
-						"text": "View live application"
-					},
 					"href": "/work/interactive/colorspace",
 					"openInNewTab": "false"
 				},
@@ -69,10 +61,6 @@
 					"description": "Interactive beat sequencing",
 					"featuredImage": "/img/featured-images/rhthym-wheel.jpg",
 					"rawHTML": "<video controls poster=\"/img/featured-images/algorhythm-poster.jpg\"><source src=\"/video/algorhythm.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video>",
-					"applicationLink": {
-						"href": "/cg/rhythm-wheel",
-						"text": "View live application"
-					},
 					"href": "/work/interactive/algorhythm",
 					"openInNewTab": "false"
 				},
@@ -137,7 +125,7 @@
 				},
 				{
 					"sortOrder": "100",
-					"published": "true",
+					"published": "false",
 					"title": "Projectile Prediction",
 					"description": "",
 					"featuredImage": "/img/featured-images/projectile-prediction.jpg",
@@ -454,26 +442,36 @@
 			]
 		},
 		{
-			"path": "video",
+			"path": "film",
 			"pieces": [
 				{
 					"sortOrder": "1",
 					"published": "true",
-					"title": "Mt. Hood Climb",
-					"description": "Video footage from my summit of Mt. Hood, April 2019.",
-					"featuredImage": "/img/featured-images/mt-hood-thumb.jpg",
-					"rawHTML": "<video controls poster=\"/img/featured-images/mt-hood-poster.jpg\"><source src=\"/video/mt-hood.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video><p>Video documenting the process of my climb of Mt. Hood, the tallest mountain in Oregon. The mountain is covered in snow year-round and stands 11,250 feet above sea level.</p>",
-					"href": "/work/video/mt-hood",
+					"title": "North Arapahoe",
+					"description": "free climbing summer fun",
+					"featuredImage": "/img/featured-images/arapahoe-thumb.jpg",
+					"rawHTML": "<video style=\"width: 100%;\" controls poster=\"/img/featured-images/arapahoe-poster.jpg\"><source src=\"/video/arapahoe.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video>",
+					"href": "/work/film/arapahoe",
 					"openInNewTab": "false"
 				},
 				{
 					"sortOrder": "2",
 					"published": "true",
+					"title": "Mt. Hood Climb",
+					"description": "Video footage from my summit of Mt. Hood, April 2019.",
+					"featuredImage": "/img/featured-images/mt-hood-thumb.jpg",
+					"rawHTML": "<video controls poster=\"/img/featured-images/mt-hood-poster.jpg\"><source src=\"/video/mt-hood.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video><p>Video documenting the process of my climb of Mt. Hood, the tallest mountain in Oregon. The mountain is covered in snow year-round and stands 11,250 feet above sea level.</p>",
+					"href": "/work/film/mt-hood",
+					"openInNewTab": "false"
+				},
+				{
+					"sortOrder": "3",
+					"published": "true",
 					"title": "Star of Wonder",
 					"description": "A film project about the grandeur of the Universe and smallness of humans.",
 					"featuredImage": "/img/featured-images/star-of-wonder-thumb.jpg",
 					"rawHTML": "<video style=\"width: 100%;\" controls poster=\"/img/featured-images/star-of-wonder-poster.jpg\"><source src=\"/video/star-of-wonder.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video> <p>The song, called Star of Wonder by Sufjan Stevens, I thought runs deeper than only the music and could be improved by visual aid. I thought of what the song might mean, what it tries to communicate, and what that might look like on a screen. I tried to listen more closely to the music and really focus on what images the music builds in my mind. When shooting the video, I tried to elaborate on some of the themes that the music touches on such as: the smallness or insignificance of human beings, the aesthetics of lights, the stars and the moon, the busyness of our lives and how small and insignificant we are, and the overall awesomeness and grandeur of the Universe. I shot within the city and let the bigness of the city parallel and serve as a metaphor with the theme of the hugeness of the Universe.</p><p>Since I was not able to get any shots of the night sky in detail with the primitive equipment that I have, I let the city lights serve as a substitute. I made sure that the rhythm of the video matches the rhythm of the music, such as only cutting on beat with the music or the stop motion segments alongside the fleeting sounds of the flute and keyboard. Segments with quicker tempoed sounds match with quicker movements on the screen, and more peaceful music match with serene landscapes or sights of lights. I tried to focus on the framing and color of the shots in the video the most. With all of the city lights, the colors are very important. Additionally, the camera movement provided another hugely important element in the video, which offers different artistic perspectives in the way the images are presented.</p>",
-					"href": "/work/video/star-of-wonder",
+					"href": "/work/film/star-of-wonder",
 					"openInNewTab": "false"
 				}
 			]
