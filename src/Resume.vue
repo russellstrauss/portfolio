@@ -92,9 +92,10 @@
 				<h2>Skills</h2>
 				<ul class="plus">
 					<li>Front end: JavaScript, React, Vue, Angular, UI/UX, NPM, SASS, Three.js, D3.js</li>
-					<li>Interaction & Visualization: 3D experiences, data visualization, animation, performance optimization</li>
+					<li>Interaction & Visualization: 3D experiences, data visualization, animation</li>
 					<li>Quality: Responsive design, accessibility (WCAG), cross-browser reliability</li>
 					<li>Back end: C#, Node, Python, .Net, PHP</li>
+					<li>DevOps: CI/CD, Azure, AWS, CloudFlare</li>
 				</ul>
 			</section>
 			<section class="experience">
@@ -106,8 +107,7 @@
 						<div class="position">Frontend Software Architect / Creative Director</div>
 						<div class="duration mobile">2018 - Present</div>
 						<div class="job-description">
-							-Designing and producing beautiful, natural-fiber watercolor fashion lines and textiles and online store. <br />
-							-AI tooling automated code development
+							AI tooling automated code development, designing and producing beautiful, natural-fiber watercolor fashion lines and textiles and online store. <br />
 						</div>
 					</div>
 					<div class="clearfix"> </div>
