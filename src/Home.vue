@@ -12,8 +12,6 @@
 	
 	import Title from './components/Title.vue';
 	import Nav from './components/Nav.vue';
-	import * as gfx from '@/js/cg/graphics.js';
-	import Galaxy from '@/js/cg/galaxy.js';
 	
 	export default {
 		name: 'Home',
@@ -27,17 +25,7 @@
 			return {};
 		},
 
-		methods: {},
-
-		mounted: function () {
-			try {
-				if (Galaxy && typeof Galaxy.init === 'function') {
-					Galaxy.init();
-				}
-			} catch (error) {
-				console.error('Error initializing Galaxy:', error);
-			}
-		}
+		methods: {}
 	};
 </script>
 
@@ -65,19 +53,9 @@
 			}
 		}
 		
-		iframe {
-			display: none;
-		}
+	iframe {
+		display: none;
 	}
-	
-	canvas {
-		position: fixed;
-		width: 100%;
-		height: 100vh;
-		top: 0;
-		left: 0;
-		z-index: -9000;
-	}
-	
-	
+}
+
 </style>

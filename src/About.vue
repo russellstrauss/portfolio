@@ -50,6 +50,14 @@
 	
 	.about {
 		
+		.entry-content {
+			background-color: rgba(255, 255, 255, 0.25);
+			padding: 20px;
+			
+			p:last-child {
+				margin-bottom: 0;
+			}
+		}
 	}
 	
 </style>

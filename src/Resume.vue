@@ -96,6 +96,7 @@
 					<li>Quality: Responsive design, accessibility (WCAG)</li>
 					<li>Back end: C#, Node, Python, .Net, PHP</li>
 					<li>DevOps: CI/CD, Azure, AWS, CloudFlare</li>
+					<li>CMS: SiteCore, WordPress</li>
 				</ul>
 			</section>
 			<section class="experience">

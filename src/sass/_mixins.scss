@@ -5,12 +5,16 @@
 @use "responsive" as *;
 
 @mixin heading-font {
-	font-family: 'Quicksand', sans-serif;
-	color: $link-color;
+	font-family: 'IBM Plex Mono', monospace;
+	color: white;
 	font-size: 32px;
 	
 	@include mobile-only {
 		font-size: 24px;
+	}
+	
+	a {
+		color: white;
 	}
 }
 
@@ -128,7 +132,7 @@
 	@include ibm;
 	$hover-color: #26ADE4;
 	// $hover-color: #009ad3;
-	@include square-shadow;
+	@include square-shadow(white);
 	color: $link-color;
 	color: black;
 	font-size: 24px;

@@ -169,10 +169,12 @@
 						&:hover {
 							
 							.piece-details {
-								background-color: rgba(255, 255, 255, .75);
-								
+								@include square-shadow(white);
+								.row h2 span {
+									@include square-shadow(white);
+								}
 								.text-block {
-									background-color: white;
+									@include square-shadow(white);
 								}
 							}
 						}
@@ -207,6 +209,7 @@
 								margin-bottom: 15px;
 								
 								h2 {
+									color: black;
 									
 									@include mobile-only {
 										font-size: 22px;
@@ -240,6 +243,7 @@
 								@include square-shadow;
 								background-color: rgba(white, .85);
 								border: 1px solid black;
+								display: inline-block;
 								
 								@include mobile-only {
 									background-color: rgba(white, .9);
@@ -314,6 +318,8 @@
 					}
 					
 					.piece-details {
+						@include square-shadow(rgba(255, 255, 255, .25));
+						border: 1px solid white;
 						transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 						
 						a {
