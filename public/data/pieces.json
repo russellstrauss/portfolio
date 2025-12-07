@@ -51,7 +51,11 @@
 					"description": "Three-dimensional colorspace models: using geometry to calculate colors in 3D space",
 					"featuredImage": "/img/featured-images/colorspace.jpg",
 					"rawHTML": "<video controls poster=\"/img/featured-images/colorspace-poster.jpg\"><source src=\"/video/colorspace.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video>",
-					"href": "/work/interactive/colorspace",
+					"href": "/work/interactive/colorspace/",
+					"applicationLink": {
+						"href": "/apps/colorspace/",
+						"text": "View live application"
+					},
 					"openInNewTab": "false"
 				},
 				{

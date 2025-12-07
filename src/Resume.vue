@@ -91,9 +91,8 @@
 			<section class="skills">
 				<h2>Skills</h2>
 				<ul class="plus">
-					<li>Front end: JavaScript, React, Vue, Angular, UI/UX, NPM, SASS, Three.js, D3.js</li>
-					<li>Interaction & Visualization: 3D experiences, data visualization, animation</li>
-					<li>Quality: Responsive design, accessibility (WCAG)</li>
+					<li>Front end: JavaScript, React, Vue, Angular, UI/UX, NPM, SASS, Three.js, D3.js, responsive, accessibility (WCAG)</li>
+					<li>Interaction & Visualization: VR, 3D experiences, data visualization, animation</li>
 					<li>Back end: C#, Node, Python, .Net, PHP</li>
 					<li>DevOps: CI/CD, Azure, AWS, CloudFlare</li>
 					<li>CMS: SiteCore, WordPress</li>
@@ -169,7 +168,7 @@
 				<ul class="plus">
 					<li>NACA Foundation GT-Shenzhen Scholarship 2020</li>
 					<li>Richard Tapia Celebration of Diversity in Computing Scholarship 2019</li>
-					<li>Successfully completed a solo thru-hike of the 2,189 mile Appalachian Trail from Georgia to Maine 2015</li>
+					<!-- <li>Successfully completed a solo thru-hike of the 2,189 mile Appalachian Trail from Georgia to Maine 2015</li> -->
 					<li>Computational Media's Outstanding Students 2012</li>
 				</ul>
 			</section>
