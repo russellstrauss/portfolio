@@ -80,11 +80,11 @@
 					"featuredImage": "/img/featured-images/zoom-eternal.jpg",
 					"rawHTML": "<video controls poster=\"/img/featured-images/zoom-eternal-poster.jpg\"><source src=\"/video/zoom-eternal.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video>",
 					"applicationLink": {
-						"href": "/apps/zoom-eternal/team_zoom_eternal_final.7z",
+						"href": "https://mega.nz/file/7N8lxLJK#vRYaQBwkTicbWIR2vK5KBGXXya2Ro-DjfCtFTp5411Y",
 						"text": "Download game"
 					},
 					"href": "/work/interactive/zoom-eternal",
-					"openInNewTab": "false"
+					"openInNewTab": "true"
 				},
 				{
 					"sortOrder": "70",
@@ -92,10 +92,10 @@
 					"title": "Logarithmic Spiral for Smooth Camera Motion",
 					"description": "Dynamically generating log spirals for camera trajectory",
 					"featuredImage": "/img/featured-images/log-spiral.jpg",
-					"rawHTML": "<video controls poster=\"/img/featured-images/log-spiral-poster.jpg\"><source src=\"/video/log-spiral.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video>",
+					"rawHTML": "<p>The logarithmic spiral is a mathematical curve also known as the golden ratio, growth spiral, golden section, and spira mirabilis. It was studied by Descartes and Torricelli in 1638 and again by Jacques Bernoulli 1654-1705. The curve originates as the inverse of an exponential curve. The pattern is found in nature and has been observed for its subjective beauty and aesthetic features. Some examples include plants, spiraled seashells, and many horns of goats, sheep, and other animals.</p>",
 					"applicationLink": {
-						"href": "/cg/log_spiral.7z",
-						"text": "Download application"
+						"href": "/apps/log-spiral/",
+						"text": "View live application"
 					},
 					"pdf": "/documents/Log_Spiral.pdf",
 					"href": "/work/interactive/logarithmic-spiral-camera-motion",
@@ -103,7 +103,7 @@
 				},
 				{
 					"sortOrder": "80",
-					"published": "true",
+					"published": "false",
 					"title": "Painting Nature",
 					"description": "A non-traditional paint program used to create striking scenes of nature",
 					"featuredImage": "/img/featured-images/painting-nature.jpg",
@@ -113,7 +113,7 @@
 				},
 				{
 					"sortOrder": "90",
-					"published": "true",
+					"published": "false",
 					"title": "3D Animation Editor",
 					"description": "",
 					"featuredImage": "/img/featured-images/3d-animation-editor.jpg",
