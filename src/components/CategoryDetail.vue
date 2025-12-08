@@ -161,6 +161,7 @@
 						background-size: cover;
 						background-position: center center;
 						position: relative;
+						margin-left: 0;
 						
 						@include tablet {
 							@include grid(2, 100);

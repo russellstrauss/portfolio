@@ -89,6 +89,7 @@
 			opacity: 0;
 			margin-left: 20px;
 			transition: opacity 600ms ease, margin-left 400ms ease;
+			list-style-type: none;
 			
 			&.active {
 				opacity: 1;

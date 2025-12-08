@@ -20,7 +20,7 @@
 					"title": "Immersive Art",
 					"description": "Step inside your masterpiece",
 					"featuredImage": "/img/featured-images/immersive-art.jpg",
-					"rawHTML": "<video controls poster=\"/img/featured-images/immersive-art-poster.jpg\"><source src=\"/video/immersive-art.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video>",
+					"rawHTML": "<p>Immersive Art is a browser-based VR studio for sketching, sculpting, and painting in three dimensions using WebXR. Built with Vue and Babylon.js, it places you on a subtle glowing platform under a panoramic starfield dome, then turns your VR controllers into creative tools: lasers that trace light, ribbons and strokes that carve colorful paths through space, floating blocks and bubbles you can spawn, resize, and rearrange, and erasers to quickly reshape your scene. A series of in-world color walls let you pick and sync vibrant hues across all tools, while a custom cursor system, lighting, and menu blocks around you make the interface feel like part of the environment rather than an overlay. The result is an experimental, playful sandbox for interactive 3D drawing—ideal for exploring spatial design, generative sketches, or simply making immersive light sculptures directly inside the browser.</p><br><br><video controls poster=\"/img/featured-images/immersive-art-poster.jpg\"><source src=\"/video/immersive-art.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video>",
 					"href": "/work/interactive/immersive-art",
 					"openInNewTab": "false"
 				},
@@ -50,7 +50,7 @@
 					"title": "colorspace",
 					"description": "Three-dimensional colorspace models: using geometry to calculate colors in 3D space",
 					"featuredImage": "/img/featured-images/colorspace.jpg",
-					"rawHTML": "<video controls poster=\"/img/featured-images/colorspace-poster.jpg\"><source src=\"/video/colorspace.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video>",
+					"rawHTML": "<p>Colorspace is an interactive 3D color aesthetic tool that maps colors into three-dimensional space, then uses geometric operations to generate color schemes.</p><br><br><video controls poster=\"/img/featured-images/colorspace-poster.jpg\"><source src=\"/video/colorspace.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video>",
 					"href": "/work/interactive/colorspace/",
 					"applicationLink": {
 						"href": "/apps/colorspace/",
@@ -64,7 +64,7 @@
 					"title": "Algorhythm",
 					"description": "Interactive beat sequencing",
 					"featuredImage": "/img/featured-images/rhthym-wheel.jpg",
-					"rawHTML": "<video controls poster=\"/img/featured-images/algorhythm-poster.jpg\"><source src=\"/video/algorhythm.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video>",
+					"rawHTML": "<p>Algorhythm is an interactive 3D rhythm sequencer that turns world music patterns into a visual playground. A rotating “rhythm wheel” maps beats around a circle, letting you see grooves unfold in real time as you build them—kick, snare, bongos, parade drums, and more—all color‑coded by instrument.</p><p>Designed for both curiosity and craft, the app lets you:</p><ul><li>Load authentic patterns from Africa, the Caribbean, the Americas, and beyond, or start from an empty kit.</li><li>Shape grooves intuitively by clicking cells on the wheel, adjusting tempo and pattern length with simple controls.</li><li>Hear and see rhythm at once, making it ideal for teaching, experimentation, and performance sketching.</li></ul><br><br><video controls poster=\"/img/featured-images/algorhythm-poster.jpg\"><source src=\"/video/algorhythm.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video>",
 					"href": "/work/interactive/algorhythm",
 					"applicationLink": {
 						"href": "/apps/algorhythm/",
@@ -78,13 +78,13 @@
 					"title": "Zoom Eternal",
 					"description": "Realtime physics robot battle arena game",
 					"featuredImage": "/img/featured-images/zoom-eternal.jpg",
-					"rawHTML": "<video controls poster=\"/img/featured-images/zoom-eternal-poster.jpg\"><source src=\"/video/zoom-eternal.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video>",
+					"rawHTML": "<p>Zoom Eternal is a controller-first, physics-based arena combat game built in Unity that focuses on expressive movement, impactful collisions, and distinct robot play styles. Players select from three unique bots—like the propeller-powered brawler and the hammer-swinging Pecker Wrecker—each with its own control scheme, abilities, and enemy AI behavior. Matches take place in battle arenas filled with environmental hazards that can damage or disrupt players, while power-ups introduce tactical choices by modifying speed, health, and survivability mid-fight. The experience is rounded out with dynamic sound design and a driving soundtrack, creating a high-energy, arcade-style feel that's easy to pick up but rewards skillful play.</p><br><br><video controls poster=\"/img/featured-images/zoom-eternal-poster.jpg\"><source src=\"/video/zoom-eternal.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video>",
 					"applicationLink": {
 						"href": "https://mega.nz/file/7N8lxLJK#vRYaQBwkTicbWIR2vK5KBGXXya2Ro-DjfCtFTp5411Y",
 						"text": "Download game"
 					},
 					"href": "/work/interactive/zoom-eternal",
-					"openInNewTab": "true"
+					"openInNewTab": "false"
 				},
 				{
 					"sortOrder": "70",
@@ -92,7 +92,7 @@
 					"title": "Logarithmic Spiral for Smooth Camera Motion",
 					"description": "Dynamically generating log spirals for camera trajectory",
 					"featuredImage": "/img/featured-images/log-spiral.jpg",
-					"rawHTML": "<p>The logarithmic spiral is a mathematical curve also known as the golden ratio, growth spiral, golden section, and spira mirabilis. It was studied by Descartes and Torricelli in 1638 and again by Jacques Bernoulli 1654-1705. The curve originates as the inverse of an exponential curve. The pattern is found in nature and has been observed for its subjective beauty and aesthetic features. Some examples include plants, spiraled seashells, and many horns of goats, sheep, and other animals.</p>",
+					"rawHTML": "<p>The logarithmic spiral is a mathematical curve also known as the golden ratio, growth spiral, golden section, and spira mirabilis. It was studied by Descartes and Torricelli in 1638 and again by Jacques Bernoulli 1654-1705. The curve originates as the inverse of an exponential curve. The pattern is found in nature and has been observed for its subjective beauty and aesthetic features. Some examples include plants, spiraled seashells, and many horns of goats, sheep, and other animals.</p><p>This interactive app creates the design for smooth camera trajectories in 3D space. Using the mathematically defined logarithmic spiral, it computes a continuous 3D path and lets the camera glide along it, creating cinematic fly‑throughs around a central object as the focal point for the camera trajectory. Through an on-screen control panel, you can fine‑tune parameters like spiral growth, radius, height, lift, and speed, then preview how the camera’s motion changes in real time. </p>",
 					"applicationLink": {
 						"href": "/apps/log-spiral/",
 						"text": "View live application"

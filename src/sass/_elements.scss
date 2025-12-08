@@ -30,6 +30,12 @@ img {
 	margin-bottom: 10px;
 }
 
+nav {
+	ul li {
+		list-style-type: none;
+	}
+}
+
 h1, h2, h3, h4, h5, h6 {
 	@include heading-font;
 }
@@ -94,6 +100,8 @@ p {
 ul, ol {
 	li {
 		@include body;
+		list-style-type: disc;
+		margin-left: 20px;
 	}
 }
 
