@@ -4,4 +4,3 @@ dist/
 # *.mp4
 # Large game archives (exceeds GitHub 2GB LFS limit)
 public/apps/zoom-eternal/*.7z
-public/apps/zoom-eternal/team_zoom_eternal_final.zip
