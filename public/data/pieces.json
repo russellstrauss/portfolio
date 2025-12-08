@@ -80,7 +80,7 @@
 					"featuredImage": "/img/featured-images/zoom-eternal.jpg",
 					"rawHTML": "<video controls poster=\"/img/featured-images/zoom-eternal-poster.jpg\"><source src=\"/video/zoom-eternal.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video>",
 					"applicationLink": {
-						"href": "/vg/team_zoom_eternal_final.7z",
+						"href": "/apps/zoom-eternal/team_zoom_eternal_final.7z",
 						"text": "Download game"
 					},
 					"href": "/work/interactive/zoom-eternal",

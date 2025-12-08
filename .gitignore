@@ -2,3 +2,5 @@ node_modules
 dist/
 # Video files are now tracked with Git LFS instead of being ignored
 # *.mp4
+# Large game archives (exceeds GitHub 2GB LFS limit)
+public/apps/zoom-eternal/*.7z
