@@ -1,23 +1,46 @@
 @use 'responsive' as *;
 
 .layout-wrapper {
-
-	@include tablet {
-		display: flex;
-	}
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	position: relative;
 
 	nav.main {
+		width: 200px;
+		flex-shrink: 0;
 		
-		@include tablet {
-			width: 20%;
+		ul li {
+			line-height: 1.5;
+		}
+	}
+	
+	.category-list {
+		.category {
+			line-height: 1.5;
 		}
 	}
 	
 	.main-content {
+		width: 100%;
 		max-width: 1200px;
+		margin-left: auto;
+		margin-right: auto;
 		
 		@include tablet {
 			width: 80%;
+			margin-left: max(200px, calc(50vw - 600px));
+			margin-right: auto;
+		}
+	}
+	
+	@include tablet {
+		flex-direction: row;
+		
+		nav.main {
+			position: absolute;
+			left: 0;
 		}
 	}
 }
+

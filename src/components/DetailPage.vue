@@ -10,19 +10,14 @@
 				{{ $route.params.path }}
 				{{ $route.params.id }}
 				
-				<h1>{{ details.title }}</h1>
+				<header>
+					<h1>{{ details.title }}</h1>
+				</header>
 				{{ details.description }}
 				
 			</div>
 		</div>
 		
-		
-		<!-- <div class="layout-wrapper">
-			<div>
-				<h1>{{ category.title }}</h1>
-				<p>{{ category.description }}</p>
-			</div>
-		</div> -->
 	</div>
 </template>
 

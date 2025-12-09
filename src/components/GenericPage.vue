@@ -3,10 +3,13 @@
 		
 		<Title></Title>
 		<div class="layout-wrapper">
+				
 			<Nav></Nav>
 			
 			<div class="main-content">
-				<h1>{{details.title}}</h1>
+				<header>
+					<h1>{{details.title}}</h1>
+				</header>
 				
 				<div v-if="details.rawHTML" class="raw-html-container">
 					<div v-html="details.rawHTML"></div>
@@ -23,6 +26,8 @@
 				
 				<PDFViewer v-if="details.pdf" :src="details.pdf"></PDFViewer>
 			</div>
+			
+			<div class="spacer"></div>
 		</div>
 	</div>
 </template>

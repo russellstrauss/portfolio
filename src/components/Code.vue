@@ -6,7 +6,9 @@
 			<Nav></Nav>
 			
 			<div class="main-content">
-				<h1>{{details.title}}</h1>
+				<header>
+					<h1>{{details.title}}</h1>
+				</header>
 				<div v-if="details.rawHTML" class="raw-html-container">
 					<div v-html="details.rawHTML"></div>
 				</div>
@@ -78,9 +80,6 @@
 
 <style lang="scss">
 	.code-page {
-		
-		h1 {
-			margin-bottom: 100px;
-		}
+
 	}
 </style>

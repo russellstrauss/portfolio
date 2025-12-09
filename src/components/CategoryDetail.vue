@@ -1,18 +1,13 @@
 <template>
-	<div class="category-detail container-fluid" :class="category.path">
-		
-		<Title></Title>
-		
-		<div class="layout-wrapper">
-			<Nav></Nav>
-			<div class="main-content">
-				<div class="category-content">
+	<Layout>
+		<div class="main-content">
+			<div class="category-detail category-content" :class="category.path">
 					<header>
 						<h1>{{ category.title }}</h1>
-						<div class="category-description" v-if="category.description">
-							<p>{{ category.description }}</p>
-						</div>
 					</header>
+					<div class="category-description" v-if="category.description">
+						<p>{{ category.description }}</p>
+					</div>
 					
 					<transition-group :class="viewType" name="stagger-grid" tag="ul"  v-on:enter="gridItemEnter" v-on:leave="gridItemLeave">
 						<li v-for="(piece, index) in pieces" :key="piece.sortOrder" class="each-piece" :style="'background-image: url(' + piece.featuredImage + ');'" :data-index="index">
@@ -30,25 +25,22 @@
 							</a>
 						</li>
 					</transition-group>
-				</div>
 			</div>
 		</div>
-	</div>
+	</Layout>
 </template>
 
 <script>
 	
 	import axios from 'axios';
-	import Title from './Title.vue';
-	import Nav from './Nav.vue';
+	import Layout from './Layout.vue';
 	
 	export default {
 		
 		name: 'CategoryDetail',
 
 		components: {
-			Nav,
-			Title
+			Layout
 		},
 
 		data() {
@@ -128,8 +120,11 @@
 </script>
 
 <style lang="scss">
+	@use '@/sass/vars' as *;
+	@use '@/sass/responsive' as *;
+	@use '@/sass/mixins' as *;
 
-	.category-detail {
+	.category-detail.category-content {
 		
 		&.web-application-development {
 			ul.grid .each-piece { // allow some extra mobile space for cool overlap effect on long content
@@ -139,135 +134,169 @@
 			}
 		}
 		
-		.category-content {
+		.category-description {
+			margin-bottom: 50px;
+		}
+		
+		ul {
+			list-style-type: none;
+			padding-left: 0;
 			
-			header {
-				margin-bottom: 100px;
-			}
-			
-			.category-description {
-				margin-bottom: 50px;
-			}
-			
-			ul {
-				&.grid {
+			&.grid {
 					
-					@include tablet {
-						display: flex;
-						flex-wrap: wrap;
+				@include desktop-large {
+					display: flex;
+					flex-wrap: wrap;
+				}
+				
+				.each-piece {
+					@include square-shadow(rgba(255, 255, 255, .5));
+					border: 1px solid rgba(255, 255, 255, .5);
+					list-style-type: none;
+					background-size: cover;
+					background-position: center center;
+					position: relative;
+					margin-left: 0;
+					margin-bottom: 30px;
+					opacity: 0;
+					transform: translate(0, 20px);
+					transition: opacity 400ms $ease-out-quadratic, transform 300ms $ease-out-quadratic, box-shadow 0.3s cubic-bezier(.25,.8,.25,1);
+					
+					@include mobile-only {
+						margin-bottom: 100px;
 					}
 					
-					.each-piece {
-						background-size: cover;
-						background-position: center center;
-						position: relative;
-						margin-left: 0;
-						
-						@include tablet {
-							@include grid(2, 100);
-						}
-						
-						&:hover {
-							
-							.piece-details {
-								@include square-shadow(white);
-								.row h2 span {
-									@include square-shadow(white);
-								}
-								.text-block {
-									@include square-shadow(white);
-								}
-							}
-						}
-						
-						&:before {
-							content: "";
-							display: block;
-							padding-top: 100%;
-						}
-						
-						a {
-							color: black;
-						}
-						
-						.featured-image {
-							width: 100%;
-							margin: 0;
-						}
+					@include desktop-large {
+						@include grid(2, 100);
+					}
+					
+					&.active {
+						opacity: 1;
+						transform: none;
+					}
+					
+					&:hover {
+						border: 1px solid white;
 						
 						.piece-details {
-							position: absolute;
-							top: 0;
-							left: 0;
-							right: 0;
-							bottom: 0;
-							padding: 20px;
+							@include square-shadow(white);
+							.row h2 span {
+								@include square-shadow(white);
+							}
+							.text-block {
+								@include square-shadow(white);
+							}
+						}
+					}
+					
+					&:before {
+						content: "";
+						display: block;
+						padding-top: 100%;
+					}
+					
+					a {
+						color: black;
+					}
+					
+					.featured-image {
+						width: 100%;
+						margin: 0;
+					}
+					
+					.piece-details {
+						position: absolute;
+						top: 0;
+						left: 0;
+						right: 0;
+						bottom: 0;
+						padding: 20px;
+						
+						@include tablet-only {
+							font-size: 0.875em;
+							padding: 15px;
+						}
+						
+						.row {
+							display: flex;
+							justify-content: space-between;
+							align-items: flex-start;
+							margin-bottom: 15px;
 							
-							.row {
-								display: flex;
-								justify-content: space-between;
-								align-items: flex-start;
-								margin-bottom: 15px;
+							h2 {
+								color: black;
 								
-								h2 {
-									color: black;
-									
-									@include mobile-only {
-										font-size: 22px;
-									}
-									
-									span {
-										@include square-shadow;
-										background-color: white;
-										border: 1px solid black;
-										padding: 5px 10px;
-										line-height: 2;
-									}
+								@include mobile-only {
+									font-size: 22px;
 								}
 								
-								.year {
+								@include tablet-only {
+									font-size: 24px;
+								}
+								
+								span {
 									@include square-shadow;
 									background-color: white;
 									border: 1px solid black;
-									font-size: 18px;
+									padding: 5px 10px;
+									line-height: 2;
 									
-									height: 44px;
-									display: flex;
-									justify-content: center;
-									flex-direction: column;
-									padding: 0 10px;
-									margin-left: 10px;
+									@include tablet-only {
+										padding: 4px 8px;
+									}
 								}
 							}
 							
-							.text-block {
+							.year {
 								@include square-shadow;
-								background-color: rgba(white, .85);
+								background-color: white;
 								border: 1px solid black;
-								display: inline-block;
+								font-size: 18px;
 								
-								@include mobile-only {
-									background-color: rgba(white, .9);
-									padding: 10px;
-									margin-bottom: 20px;
+								@include tablet-only {
+									font-size: 16px;
+									height: 40px;
 								}
 								
-								@include tablet {
-									padding: 20px;
-								}
-								
-								*:last-child {
-									margin-bottom: 0;
-								}
+								height: 44px;
+								display: flex;
+								justify-content: center;
+								flex-direction: column;
+								padding: 0 10px;
+								margin-left: 10px;
+							}
+						}
+						
+						.text-block {
+							@include square-shadow;
+							background-color: rgba(white, .85);
+							border: 1px solid black;
+							display: inline-block;
+							
+							@include mobile-only {
+								background-color: rgba(white, .9);
+								padding: 10px;
+								margin-bottom: 20px;
+							}
+							
+							@include tablet-only {
+								padding: 15px;
+								font-size: 0.9em;
+							}
+							
+							@include desktop {
+								padding: 20px;
+							}
+							
+							*:last-child {
+								margin-bottom: 0;
 							}
 						}
 					}
 				}
+			}
 				
-				&.list {
-					
-				}
-			
+			&.list {
 				.each-piece {
 					transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 					box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);

@@ -80,8 +80,12 @@
 </script>
 
 <style lang="scss">
+	@use '@/sass/responsive' as *;
 	
 	.category-list {
+		@include tablet {
+			margin-left: 200px;
+		}
 		
 		.category {
 			@include heading-font;

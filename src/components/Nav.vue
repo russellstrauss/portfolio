@@ -104,10 +104,6 @@
 		margin-bottom: 50px;
 		line-height: 1.25;
 		
-		@include mobile-only {
-			font-size: 24px;
-		}
-		
 		a {
 			text-decoration: none;
 		}
@@ -128,7 +124,7 @@
 				li {
 					@include heading-font;
 					margin-bottom: 20px;
-					line-height: 1;
+					margin-left: 0;
 					
 					a {
 						display: inline-block;

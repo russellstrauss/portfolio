@@ -88,10 +88,6 @@
 		a {
 			font-size: 40px;
 			color: black;
-			
-			@include mobile-only {
-				font-size: 32px;
-			}
 		
 			.text-wrapper {
 				position: relative;
