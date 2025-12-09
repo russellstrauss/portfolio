@@ -15,53 +15,8 @@ export async function onRequest(context) {
 	
 	// If it's a static file, we MUST intercept it to prevent the redirect from catching it
 	if (hasFileExtension) {
-		// Try to fetch from ASSETS binding first
-		if (env.ASSETS) {
-			try {
-				const assetResponse = await env.ASSETS.fetch(request);
-				
-				if (assetResponse.ok) {
-					// Determine content type based on file extension
-					let contentType = assetResponse.headers.get('Content-Type') || '';
-					
-					// Set proper content types for common file types
-					if (pathname.endsWith('.pdf')) {
-						contentType = 'application/pdf';
-					} else if (pathname.endsWith('.json')) {
-						contentType = 'application/json';
-					} else if (pathname.endsWith('.js')) {
-						contentType = 'application/javascript';
-					} else if (pathname.endsWith('.css')) {
-						contentType = 'text/css';
-					}
-					
-					// Return the file with proper headers
-					const headers = new Headers(assetResponse.headers);
-					headers.set('Content-Type', contentType);
-					
-					// Add CORS headers for JSON files (needed for axios requests)
-					if (pathname.endsWith('.json')) {
-						headers.set('Access-Control-Allow-Origin', '*');
-					}
-					
-					// Cache headers for static assets
-					if (pathname.endsWith('.pdf') || pathname.endsWith('.jpg') || pathname.endsWith('.png')) {
-						headers.set('Cache-Control', 'public, max-age=31536000');
-					}
-					
-					return new Response(assetResponse.body, {
-						status: assetResponse.status,
-						statusText: assetResponse.statusText,
-						headers: headers
-					});
-				}
-			} catch (error) {
-				console.error('Error fetching static file from ASSETS:', error);
-			}
-		}
-		
-		// If ASSETS binding failed or isn't available, try calling next()
-		// This should serve the static file if Cloudflare Pages handles it before redirects
+		// First, try calling next() to see if Cloudflare Pages serves the static file
+		// before the redirect processes it
 		const response = await next();
 		
 		// Check if we got the actual file or if it was redirected to index.html
@@ -69,14 +24,43 @@ export async function onRequest(context) {
 		
 		// If we got HTML but requested a static file, the redirect caught it
 		if (contentType.includes('text/html') && hasFileExtension) {
-			// The redirect intercepted the static file - return 404
-			return new Response(`Static file not found: ${pathname}\n\nThe catch-all redirect is intercepting static file requests.`, { 
+			// The redirect intercepted the static file
+			// Try using ASSETS binding as a fallback
+			if (env.ASSETS) {
+				try {
+					const assetResponse = await env.ASSETS.fetch(request);
+					
+					if (assetResponse.ok) {
+						// Return the asset response directly without modification
+						// This preserves the original body stream
+						return assetResponse;
+					}
+				} catch (error) {
+					console.error('Error fetching static file from ASSETS:', error);
+				}
+			}
+			
+			// If ASSETS also failed, return 404
+			return new Response(`Static file not found: ${pathname}`, { 
 				status: 404,
 				headers: { 'Content-Type': 'text/plain' }
 			});
 		}
 		
-		// We got the actual file, return it
+		// We got the actual file from next(), but we may need to add headers
+		// Only modify headers if needed, don't touch the body
+		if (pathname.endsWith('.json')) {
+			// Add CORS header for JSON files
+			const newHeaders = new Headers(response.headers);
+			newHeaders.set('Access-Control-Allow-Origin', '*');
+			return new Response(response.body, {
+				status: response.status,
+				statusText: response.statusText,
+				headers: newHeaders
+			});
+		}
+		
+		// For all other static files, return as-is (don't modify)
 		return response;
 	}
 
