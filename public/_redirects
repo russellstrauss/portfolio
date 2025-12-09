@@ -1,2 +1,4 @@
+# Catch-all for Vue Router routes (SPA)
+# Static files with extensions are handled by functions/_middleware.js
 /*    /index.html   200
 
