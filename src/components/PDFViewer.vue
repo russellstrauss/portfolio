@@ -47,7 +47,26 @@
 		},
 
 		mounted: function () {
-			PDFObject.embed(this.src, this.$refs.pdf);
+			// Ensure the PDF path is absolute
+			const pdfPath = this.src.startsWith('/') ? this.src : '/' + this.src;
+			
+			// Try to embed the PDF
+			const success = PDFObject.embed(pdfPath, this.$refs.pdf);
+			
+			if (!success) {
+				console.error('Failed to embed PDF:', pdfPath);
+				// Check if the PDF is accessible
+				fetch(pdfPath, { method: 'HEAD' })
+					.then(response => {
+						if (!response.ok) {
+							console.error(`PDF not found: ${pdfPath} (Status: ${response.status})`);
+						}
+					})
+					.catch(error => {
+						console.error(`Error loading PDF: ${pdfPath}`, error);
+					});
+			}
+			
 			this.setPDFRatio();
 		}
 	};
