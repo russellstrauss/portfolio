@@ -215,7 +215,7 @@
 
 	@mixin resume-heading {
 		@include ibm;
-		color: $link-color;
+		color: white;
 		font-size: 32px;
 		margin-bottom: 20px;
 		font-weight: 400;

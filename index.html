@@ -4,10 +4,28 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+		<!-- Preconnect to Google Fonts for faster loading -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<!-- Preload critical fonts -->
+		<link rel="preload" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=Merriweather:wght@400&family=Quicksand:wght@300&display=swap" as="style">
 		<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=Merriweather:wght@400&family=Quicksand:wght@300&display=swap" rel="stylesheet">
 		<link rel="icon" href="/favicon.ico">
 		<title>John Russell Strauss</title>
 		<link href="/vendors/prism.css" rel="stylesheet" />
+		<style>
+			/* Prevent flash of unstyled text by setting fallback fonts immediately */
+			html, body {
+				font-family: 'Merriweather', Georgia, serif;
+			}
+			h1, h2, h3, h4, h5, h6, .name, nav.main, nav.main ul li {
+				font-family: 'IBM Plex Mono', 'Courier New', monospace;
+			}
+			/* Ensure fonts are visible while loading */
+			* {
+				font-display: swap;
+			}
+		</style>
 	</head>
 
 	<body>

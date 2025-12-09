@@ -1,34 +1,19 @@
 <template>
-	<div class="work container-fluid">
-		
-		<Title></Title>
-		
-		<div class="layout-wrapper">
-			<Nav></Nav>
-			
-			<transition-group class="category-list" name="stagger-list" tag="ul"  v-on:enter="menuItemEnter" v-on:leave="menuItemLeave">
-				<li class="category" v-for="(category, index) in categories" :key="category.path" :data-index="index">
-					<a :href="$route.path + '/' + category.path" @click.prevent="navigateToCategory(category.path)">{{ category.title }}</a>
-				</li>
-			</transition-group>
-			
-		</div>
+	<div class="work">
+		<transition-group class="category-list" name="stagger-list" tag="ul"  v-on:enter="menuItemEnter" v-on:leave="menuItemLeave">
+			<li class="category" v-for="(category, index) in categories" :key="category.path" :data-index="index">
+				<a :href="$route.path + '/' + category.path" @click.prevent="navigateToCategory(category.path)">{{ category.title }}</a>
+			</li>
+		</transition-group>
 	</div>
 </template>
 
 <script>
 	import axios from 'axios';
 	import anime from 'animejs';
-	import Title from './components/Title.vue';
-	import Nav from './components/Nav.vue';
 	
 	export default {
 		name: 'Work',
-
-		components: {
-			Nav,
-			Title
-		},
 
 		data() {
 			return {
@@ -44,15 +29,46 @@
 				}
 			},
 			
+			loadCategories: function() {
+				let self = this;
+				let categoriesUrl = '/data/categories.json';
+
+				// Clear to force re-render and transition-group re-run
+				self.categories = [];
+
+				axios.get(categoriesUrl).then(function(response) {
+					
+					let categories = response.data.categories;
+					if (categories) categories.sort(function(a, b) {
+						return a.sortOrder - b.sortOrder;
+					});
+					self.categories = response.data.categories.filter(category => category.published === "true");
+					
+					// Reset animation state after data loads
+					self.$nextTick(() => {
+						const categoryElements = document.querySelectorAll('.category-list .category');
+						categoryElements.forEach(el => {
+							el.classList.remove('active');
+						});
+						categoryElements.forEach((el) => {
+							self.menuItemEnter(el);
+						});
+					});
+				})
+				.catch(function (error) {
+					console.log(error);
+				});
+			},
+			
 			menuItemEnter: function (element) {
-				
+				if (!element || !element.dataset) return;
 				var delay = element.dataset.index * 75;
 				setTimeout(function () {
 					element.classList.add('active');
 				}, delay);
 			},
 			menuItemLeave: function (element) {
-				
+				if (!element || !element.dataset) return;
 				var delay = element.dataset.index * 75;
 				setTimeout(function () {
 					element.classList.remove('active');
@@ -61,20 +77,19 @@
 		},
 
 		mounted: function () {
-			
-			let self = this;
-			let categories = '/data/categories.json';
-			axios.get(categories).then(function(response) {
-				
-				let categories = response.data.categories;
-				if (categories) categories.sort(function(a, b) {
-					return a.sortOrder - b.sortOrder;
-				});
-				self.categories = response.data.categories.filter(category => category.published === "true");
-			})
-			.catch(function (error) {
-				console.log(error);
-			});
+			this.loadCategories();
+		},
+		
+		activated: function() {
+			// Handle component reactivation (if using keep-alive)
+			this.loadCategories();
+		},
+		
+		beforeRouteUpdate(to, from, next) {
+			if (to.path === '/work') {
+				this.loadCategories();
+			}
+			next();
 		},
 	};
 </script>

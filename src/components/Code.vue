@@ -1,30 +1,22 @@
 <template>
-	<div class="code-page container-fluid">
-		
-		<Title></Title>
-		<div class="layout-wrapper">
-			<Nav></Nav>
-			
-			<div class="main-content">
-				<PageTitle v-if="details.title" :title="details.title"></PageTitle>
-				<div v-if="details.rawHTML" class="raw-html-container">
-					<div v-html="details.rawHTML"></div>
-				</div>
-				
-				<div v-if="details.codeBlocks">
-					<CodeBlock v-for="codeBlock in details.codeBlocks" :key="codeBlock.src" :src="codeBlock.src" :pretext="codeBlock.pretext" :posttext="codeBlock.posttext"></CodeBlock> 
-				</div>
-				
-				<!-- <canvas data-processing-sources="/code/interactive/cg/fermat.pde"></canvas> -->
+	<div class="code-page">
+		<div class="main-content">
+			<PageTitle v-if="details.title" :title="details.title"></PageTitle>
+			<div v-if="details.rawHTML" class="raw-html-container">
+				<div v-html="details.rawHTML"></div>
 			</div>
+			
+			<div v-if="details.codeBlocks">
+				<CodeBlock v-for="codeBlock in details.codeBlocks" :key="codeBlock.src" :src="codeBlock.src" :pretext="codeBlock.pretext" :posttext="codeBlock.posttext"></CodeBlock> 
+			</div>
+			
+			<!-- <canvas data-processing-sources="/code/interactive/cg/fermat.pde"></canvas> -->
 		</div>
 	</div>
 </template>
 
 <script>
 	
-	import Title from './Title.vue';
-	import Nav from './Nav.vue';
 	import CodeBlock from './CodeBlock.vue';
 	import PageTitle from './PageTitle.vue';
 	import axios from 'axios';
@@ -40,8 +32,6 @@
 		name: 'Code',
 
 		components: {
-			Title,
-			Nav,
 			CodeBlock,
 			PageTitle
 		},

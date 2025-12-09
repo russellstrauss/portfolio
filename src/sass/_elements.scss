@@ -2,6 +2,10 @@
 @use 'mixins' as *;
 @use 'vars' as *;
 
+html {
+	background-color: black;
+}
+
 body {
 	@include body;
 	padding: 20px 0 100px 0;
