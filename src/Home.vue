@@ -44,14 +44,22 @@
 			}
 		}
 		
-		.main a {
-			@include ibm;
-			color: white;
+		.main {
 			
-			&:hover {
-				color: #2592BE;
+			li {
+				
+				a {
+					@include ibm;
+					color: white;
+					
+					&:hover {
+						color: #2592BE;
+					}
+				}
 			}
 		}
+		
+		
 		
 	iframe {
 		display: none;
