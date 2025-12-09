@@ -2,9 +2,7 @@
 	<Layout>
 		<div class="main-content">
 			<div class="category-detail category-content" :class="category.path">
-					<header>
-						<h1>{{ category.title }}</h1>
-					</header>
+					<PageTitle v-if="category.title" :title="category.title"></PageTitle>
 					<div class="category-description" v-if="category.description">
 						<p>{{ category.description }}</p>
 					</div>
@@ -34,13 +32,15 @@
 	
 	import axios from 'axios';
 	import Layout from './Layout.vue';
+	import PageTitle from './PageTitle.vue';
 	
 	export default {
 		
 		name: 'CategoryDetail',
 
 		components: {
-			Layout
+			Layout,
+			PageTitle
 		},
 
 		data() {

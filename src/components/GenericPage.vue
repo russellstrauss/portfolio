@@ -7,9 +7,7 @@
 			<Nav></Nav>
 			
 			<div class="main-content">
-				<header>
-					<h1>{{details.title}}</h1>
-				</header>
+				<PageTitle v-if="details.title" :title="details.title"></PageTitle>
 				
 				<div v-if="details.rawHTML" class="raw-html-container">
 					<div v-html="details.rawHTML"></div>
@@ -38,6 +36,7 @@
 	import Title from '@/components/Title.vue';
 	import Nav from '@/components/Nav.vue';
 	import PDFViewer from '@/components/PDFViewer.vue';
+	import PageTitle from '@/components/PageTitle.vue';
 	
 	export default {
 		
@@ -46,7 +45,8 @@
 		components: {
 			Nav,
 			Title,
-			PDFViewer
+			PDFViewer,
+			PageTitle
 		},
 
 		data() {
@@ -80,10 +80,6 @@
 
 <style lang="scss">
 	.generic-page {
-		
-		h1 {
-			margin-bottom: 80px;
-		}
 		
 		.raw-html-container {
 			margin-bottom: 20px;

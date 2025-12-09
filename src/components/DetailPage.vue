@@ -10,9 +10,7 @@
 				{{ $route.params.path }}
 				{{ $route.params.id }}
 				
-				<header>
-					<h1>{{ details.title }}</h1>
-				</header>
+				<PageTitle v-if="details.title" :title="details.title"></PageTitle>
 				{{ details.description }}
 				
 			</div>
@@ -25,6 +23,7 @@
 	
 	import Title from './Title.vue';
 	import Nav from './Nav.vue';
+	import PageTitle from './PageTitle.vue';
 	import axios from 'axios';
 	
 	export default {
@@ -33,7 +32,8 @@
 
 		components: {
 			Nav,
-			Title
+			Title,
+			PageTitle
 		},
 
 		data() {

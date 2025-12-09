@@ -6,9 +6,7 @@
 			<Nav></Nav>
 			
 			<div class="main-content">
-				<header>
-					<h1>{{details.title}}</h1>
-				</header>
+				<PageTitle v-if="details.title" :title="details.title"></PageTitle>
 				<div v-if="details.rawHTML" class="raw-html-container">
 					<div v-html="details.rawHTML"></div>
 				</div>
@@ -28,6 +26,7 @@
 	import Title from './Title.vue';
 	import Nav from './Nav.vue';
 	import CodeBlock from './CodeBlock.vue';
+	import PageTitle from './PageTitle.vue';
 	import axios from 'axios';
 	
 	// Note: linear-algebra is imported but Vector/Matrix may not be used in this component
@@ -43,7 +42,8 @@
 		components: {
 			Title,
 			Nav,
-			CodeBlock
+			CodeBlock,
+			PageTitle
 		},
 
 		data() {
