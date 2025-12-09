@@ -1,5 +1,5 @@
 # Catch-all for Vue Router routes (SPA)
-# Note: Static files (with extensions) should be served automatically
-# This only matches routes without file extensions
+# Cloudflare Pages should serve static files (with extensions) automatically
+# before processing redirects, so this should only match Vue routes
 /*    /index.html   200
 
