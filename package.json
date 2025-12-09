@@ -25,6 +25,8 @@
     "vue-router": "^4.4.5"
   },
   "devDependencies": {
+    "@aws-sdk/client-s3": "^3.947.0",
+    "@aws-sdk/lib-storage": "^3.947.0",
     "@vitejs/plugin-vue": "^5.2.1",
     "cross-env": "^10.1.0",
     "sass": "^1.83.0",
