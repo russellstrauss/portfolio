@@ -1,6 +1,9 @@
 /**
- * Cloudflare Pages Function to ensure static files are served correctly
- * This middleware intercepts requests and ensures static files bypass the SPA redirect
+ * Cloudflare Pages Function middleware
+ * 
+ * This middleware intercepts ALL requests before the _redirects file is processed.
+ * For static files (with extensions), we return early to prevent the catch-all redirect.
+ * For routes without extensions, we let them pass through to be handled by _redirects.
  */
 export async function onRequest(context) {
 	const { request, env, next } = context;
@@ -8,39 +11,50 @@ export async function onRequest(context) {
 	const pathname = url.pathname;
 
 	// Check if this is a request for a static file (has a file extension)
-	// This regex matches paths ending with a dot followed by alphanumeric characters
 	const hasFileExtension = /\.\w+$/.test(pathname);
 	
-	// If it's a static file, try to fetch it directly from the asset manifest
+	// If it's a static file, we MUST handle it here and NOT call next()
+	// because next() will trigger the redirect which will catch everything
 	if (hasFileExtension) {
-		// Try to get the file from the Pages asset handler
-		// If the file exists, it will be served; if not, we'll get a 404
-		const response = await next();
-		
-		// If we got a 404 or the response was redirected to index.html, 
-		// the static file doesn't exist or wasn't found
-		if (response.status === 404 || response.status === 200 && pathname.endsWith('.pdf')) {
-			// For PDFs, ensure correct headers even if we got index.html
-			if (pathname.endsWith('.pdf')) {
-				// Check if the response is actually the PDF or if it's index.html
-				const contentType = response.headers.get('Content-Type');
-				if (contentType && contentType.includes('application/pdf')) {
-					// It's actually a PDF, just ensure headers are correct
-					const newResponse = new Response(response.body, response);
-					newResponse.headers.set('Content-Type', 'application/pdf');
-					newResponse.headers.set('Cache-Control', 'public, max-age=31536000');
-					return newResponse;
+		// For static files, we need to fetch them directly from the ASSETS
+		// The ASSETS binding gives us access to the static files
+		if (env.ASSETS) {
+			try {
+				// Fetch the file directly from the static assets
+				const assetResponse = await env.ASSETS.fetch(request);
+				
+				// If we got the file successfully
+				if (assetResponse.ok) {
+					// For PDFs, set proper headers
+					if (pathname.endsWith('.pdf')) {
+						return new Response(assetResponse.body, {
+							status: assetResponse.status,
+							statusText: assetResponse.statusText,
+							headers: {
+								'Content-Type': 'application/pdf',
+								'Cache-Control': 'public, max-age=31536000',
+								'Access-Control-Allow-Origin': '*',
+							}
+						});
+					}
+					
+					// For other static files, return as-is
+					return assetResponse;
 				}
-				// If we got index.html instead of the PDF, return 404
-				return new Response('PDF not found', { status: 404 });
+			} catch (error) {
+				console.error('Error fetching static file:', error);
 			}
 		}
 		
-		// For other static files, return the response as-is
-		return response;
+		// If ASSETS binding is not available or file not found, return 404
+		return new Response(`File not found: ${pathname}`, { 
+			status: 404,
+			headers: { 'Content-Type': 'text/plain' }
+		});
 	}
 
-	// For non-file requests (Vue Router routes), continue to next handler
+	// For routes without file extensions (Vue Router routes), 
+	// call next() to let the redirect handle it
 	return next();
 }
 
