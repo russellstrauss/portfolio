@@ -5,7 +5,7 @@
 			<div class="pdf" ref="pdf"></div>
 		</div>
 		
-		<a class="callout" :href="src">
+		<a class="callout" :href="getPdfUrl(src)">
 			View PDF
 			<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 108.42 1280 1063.16" xml:space="preserve">
 				<g>
@@ -40,6 +40,22 @@
 
 		methods: {
 			
+			getPdfUrl: function(pdfPath) {
+				if (!pdfPath) return '';
+				// If it's already a full URL (http:// or https://), return as is
+				if (pdfPath.startsWith('http://') || pdfPath.startsWith('https://')) {
+					return pdfPath;
+				}
+				// If it's an absolute path (starts with /), handle base URL like images do
+				const baseUrl = import.meta.env.BASE_URL || '/';
+				if (pdfPath.startsWith('/')) {
+					const normalizedBase = baseUrl.endsWith('/') ? baseUrl.slice(0, -1) : baseUrl;
+					return normalizedBase + pdfPath;
+				}
+				// Otherwise return as is (relative paths)
+				return pdfPath;
+			},
+			
 			setPDFRatio: function() {
 				let height = this.$refs.pdf.offsetWidth * 11 / 8.5 + 30;
 				this.$refs.pdf.style.height = +height + 'px';
@@ -47,23 +63,23 @@
 		},
 
 		mounted: function () {
-			// Ensure the PDF path is absolute
-			const pdfPath = this.src.startsWith('/') ? this.src : '/' + this.src;
+			// Get the properly formatted PDF URL (handles full URLs, absolute paths, and relative paths)
+			const pdfUrl = this.getPdfUrl(this.src);
 			
 			// Try to embed the PDF
-			const success = PDFObject.embed(pdfPath, this.$refs.pdf);
+			const success = PDFObject.embed(pdfUrl, this.$refs.pdf);
 			
 			if (!success) {
-				console.error('Failed to embed PDF:', pdfPath);
+				console.error('Failed to embed PDF:', pdfUrl);
 				// Check if the PDF is accessible
-				fetch(pdfPath, { method: 'HEAD' })
+				fetch(pdfUrl, { method: 'HEAD' })
 					.then(response => {
 						if (!response.ok) {
-							console.error(`PDF not found: ${pdfPath} (Status: ${response.status})`);
+							console.error(`PDF not found: ${pdfUrl} (Status: ${response.status})`);
 						}
 					})
 					.catch(error => {
-						console.error(`Error loading PDF: ${pdfPath}`, error);
+						console.error(`Error loading PDF: ${pdfUrl}`, error);
 					});
 			}
 			
