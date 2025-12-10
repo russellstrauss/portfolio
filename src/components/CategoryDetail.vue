@@ -162,7 +162,11 @@
 					transform: translate(0, 20px);
 					transition: opacity 400ms $ease-out-quadratic, transform 300ms $ease-out-quadratic, box-shadow 0.3s cubic-bezier(.25,.8,.25,1);
 					
-					@include mobile-only {
+					@include small-screen {
+						margin-bottom: 100px;
+					}
+					// Extend spacing up to 1200px viewport
+					@media (min-width: 992px) and (max-width: 1200px) {
 						margin-bottom: 100px;
 					}
 					

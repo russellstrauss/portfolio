@@ -177,9 +177,14 @@
 					margin-bottom: 20px;
 					margin-left: 0;
 					
+					
 					a {
 						display: inline-block;
 						text-decoration: none;
+						
+						&:hover {
+							color: $hover-color;
+						}
 					}
 
 					span {

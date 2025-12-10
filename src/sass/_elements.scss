@@ -15,12 +15,11 @@ body {
 
 a {
 	color: $link-color;
-	// text-decoration: none;
 	cursor: pointer;
 	word-wrap: break-word;
 	
 	&:hover {
-		color: white;
+		color: $hover-color;
 	}
 }
 

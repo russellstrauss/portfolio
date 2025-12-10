@@ -6,9 +6,18 @@
 	width: 100%;
 	position: relative;
 
+	@include tablet {
+		flex-direction: row;
+	}
+
 	nav.main {
 		width: 200px;
 		flex-shrink: 0;
+
+		@include tablet {
+			position: absolute;
+			left: 0;
+		}
 		
 		ul li {
 			line-height: 1.5;
@@ -16,6 +25,7 @@
 	}
 	
 	.category-list {
+
 		.category {
 			line-height: 1.5;
 		}
@@ -28,18 +38,9 @@
 		margin-right: auto;
 		
 		@include tablet {
-			width: 80%;
+			width: 70%;
 			margin-left: max(200px, calc(50vw - 600px));
 			margin-right: auto;
-		}
-	}
-	
-	@include tablet {
-		flex-direction: row;
-		
-		nav.main {
-			position: absolute;
-			left: 0;
 		}
 	}
 }

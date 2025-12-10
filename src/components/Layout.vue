@@ -10,3 +10,11 @@
 	}
 </script>
 
+<style scoped>
+/* Avoid affecting layout sizing */
+.layout-slot {
+	display: contents;
+	width: 100%;
+}
+</style>
+
