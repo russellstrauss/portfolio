@@ -173,6 +173,10 @@
 		margin-bottom: 50px;
 		line-height: 1.25;
 		
+		@include mobile-only {
+			font-size: 22px;
+		}
+
 		a {
 			text-decoration: none;
 		}
