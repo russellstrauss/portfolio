@@ -61,9 +61,21 @@
 					return; // Allow default behavior (opens in new tab)
 				}
 
-				// Define known Vue routes - all other routes should bypass the router
+				// Check if it's an external URL (starts with http:// or https://)
+				if (href && (href.startsWith('http://') || href.startsWith('https://'))) {
+					return; // Allow default behavior for external links
+				}
+
+				// Define known Vue routes - all routes starting with these should use router
 				const vueRoutes = ['/', '/work', '/about', '/resume'];
 				const isVueRoute = vueRoutes.some(route => href === route || href.startsWith(route + '/'));
+
+				// If it's a Vue route, use router navigation to preserve app state
+				if (href && isVueRoute && this.$router) {
+					event.preventDefault();
+					this.$router.push(href);
+					return;
+				}
 
 				// If it's not a Vue route (or is external), force full page navigation
 				// This allows static files in public/ to be served directly by Vite
