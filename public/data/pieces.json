@@ -174,7 +174,7 @@
 					"openInNewTab": "false",
 					"codeBlocks": [
 						{
-							"pretext": "<img class=\"limit-width-800 center\" src=\"/img/interactive/medial-axis.svgz\" alt=\"Medial axis\" /> <img class=\"center vertical-space\" src=\"/img/featured-images/medial-axis.jpg\" alt=\"Medial axis\" />",
+							"pretext": "<img class=\"limit-width-800 center\" style=\"background-color: rgba(255, 255, 255, .6); padding: 20px;\" src=\"/img/interactive/medial-axis.svgz\" alt=\"Medial axis\" /> <img class=\"center vertical-space\" src=\"/img/featured-images/medial-axis.jpg\" alt=\"Medial axis\" />",
 							"src": "/code/interactive/cg/medial-axis.java"
 						}
 					]
