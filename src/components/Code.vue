@@ -1,22 +1,25 @@
 <template>
-	<div class="code-page">
-		<div class="main-content">
-			<PageTitle v-if="details.title" :title="details.title"></PageTitle>
-			<div v-if="details.rawHTML" class="raw-html-container">
-				<div v-html="details.rawHTML"></div>
+	<Layout>
+		<div class="code-page">
+			<div class="main-content">
+				<PageTitle v-if="details.title" :title="details.title"></PageTitle>
+				<div v-if="details.rawHTML" class="raw-html-container">
+					<div v-html="details.rawHTML"></div>
+				</div>
+
+				<div v-if="details.codeBlocks">
+					<CodeBlock v-for="codeBlock in details.codeBlocks" :key="codeBlock.src" :src="codeBlock.src" :pretext="codeBlock.pretext" :posttext="codeBlock.posttext"></CodeBlock>
+				</div>
+
+				<!-- <canvas data-processing-sources="/code/interactive/cg/fermat.pde"></canvas> -->
 			</div>
-			
-			<div v-if="details.codeBlocks">
-				<CodeBlock v-for="codeBlock in details.codeBlocks" :key="codeBlock.src" :src="codeBlock.src" :pretext="codeBlock.pretext" :posttext="codeBlock.posttext"></CodeBlock> 
-			</div>
-			
-			<!-- <canvas data-processing-sources="/code/interactive/cg/fermat.pde"></canvas> -->
 		</div>
-	</div>
+	</Layout>
 </template>
 
 <script>
 	
+	import Layout from './Layout.vue';
 	import CodeBlock from './CodeBlock.vue';
 	import PageTitle from './PageTitle.vue';
 	import axios from 'axios';
@@ -32,6 +35,7 @@
 		name: 'Code',
 
 		components: {
+			Layout,
 			CodeBlock,
 			PageTitle
 		},
@@ -43,27 +47,46 @@
 		},
 
 		methods: {
+			loadDetails: function() {
+				let self = this;
+
+				let pieces = '/data/pieces.json';
+				axios.get(pieces).then(function(response) {
+
+					let categories = response.data.categories;
+					let category = categories.filter(category => category.path === self.$route.params.category);
+
+					if (category[0]) {
+						let newDetails = category[0].pieces.filter(details => details.href === self.$route.path)[0];
+						if (newDetails) {
+							self.details = newDetails;
+							// Re-run syntax highlighting and MathJax after content updates
+							self.$nextTick(() => {
+								Prism.highlightAll();
+								MathJax.typeset();
+							});
+						}
+					}
+				})
+				.catch(function (error) {
+					console.log(error);
+				});
+			}
 		},
 
 		mounted: function () {
-			
-			let self = this;
-			
-			let pieces = '/data/pieces.json';
-			axios.get(pieces).then(function(response) {
-				
-				let categories = response.data.categories;
-				let category = categories.filter(category => category.path === self.$route.params.category);
-				
-				if (category[0]) self.details = category[0].pieces.filter(details => details.href === self.$route.path)[0];
-			})
-			.catch(function (error) {
-				console.log(error);
-			})
-			.then(function() { // run syntax highlighter after code has been successfully loaded
-				Prism.highlightAll();
-				MathJax.typeset();
-			});
+			this.loadDetails();
+			Prism.highlightAll();
+			MathJax.typeset();
+		},
+
+		watch: {
+			'$route': function(to, from) {
+				// Reload data when route changes (different piece or category)
+				if (to.params.category !== from.params.category || to.params.id !== from.params.id) {
+					this.loadDetails();
+				}
+			}
 		}
 	};
 </script>

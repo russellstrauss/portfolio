@@ -7,7 +7,7 @@
 						<p>{{ category.description }}</p>
 					</div>
 					
-					<transition-group :class="viewType" name="stagger-grid" tag="ul"  v-on:enter="gridItemEnter" v-on:leave="gridItemLeave">
+					<transition-group :class="viewType" name="stagger-grid" tag="ul" appear :key="category.path" v-on:enter="gridItemEnter" v-on:leave="gridItemLeave">
 						<li v-for="(piece, index) in pieces" :key="piece.sortOrder" class="each-piece" :style="'background-image: url(' + piece.featuredImage + ');'" :data-index="index">
 							<a :href="piece.href" :target="JSON.parse(piece.openInNewTab) ? '_blank' : '_self'" @click="handleLinkClick($event, piece.href, piece.openInNewTab)">
 								<div class="piece-details">
@@ -47,23 +47,24 @@
 			return {
 				category: {},
 				pieces: [],
-				viewType: 'grid' // grid or list
+				viewType: 'grid', // grid or list
+				lastCategoryPath: null
 			};
 		},
 
 		methods: {
-			
+
 			handleLinkClick: function(event, href, openInNewTab) {
 				// If the link should open in a new tab, let the browser handle it
 				// The target="_blank" attribute will be respected
 				if (openInNewTab === "true") {
 					return; // Allow default behavior (opens in new tab)
 				}
-				
+
 				// Define known Vue routes - all other routes should bypass the router
 				const vueRoutes = ['/', '/work', '/about', '/resume'];
 				const isVueRoute = vueRoutes.some(route => href === route || href.startsWith(route + '/'));
-				
+
 				// If it's not a Vue route (or is external), force full page navigation
 				// This allows static files in public/ to be served directly by Vite
 				if (href && !isVueRoute) {
@@ -71,50 +72,66 @@
 					window.location.href = href;
 				}
 			},
-			
+
 			getCategories: function() {
-				
+
 				return axios.get('/data/categories.json');
 			},
-			
+
 			getPieces: function() {
-				
+
 				return axios.get('/data/pieces.json');
 			},
-			
+
+			loadCategoryData: function() {
+				const self = this;
+				const currentCategory = this.$route.params.category;
+
+				this.lastCategoryPath = currentCategory;
+
+				Promise.all([this.getCategories(), this.getPieces()])
+					.then(function (responses) {
+						const categories = responses[0].data;
+						const pieces = responses[1].data;
+						
+						const categoryResponse = categories.categories.filter(category => category.path === currentCategory)[0];
+						if (categoryResponse) self.category = categoryResponse;
+						
+						const piecesResponse = pieces.categories.filter(category => category.path === currentCategory)[0];
+						if (piecesResponse) self.pieces = piecesResponse.pieces.filter(piece => piece.published === "true");
+					})
+					.catch(function (error) {
+						console.log(error);
+					});
+			},
+
 			gridItemEnter: function (element) {
-				
 				var delay = element.dataset.index * 75;
 				setTimeout(function () {
 					element.classList.add('active');
 				}, delay);
 			},
-			
+
 			gridItemLeave: function (element) {
-				
 				var delay = element.dataset.index * 75;
 				setTimeout(function () {
 					element.classList.remove('active');
 				}, delay);
 			}
+
 		},
 
 		mounted: function () {
-			
-			let self = this;
-			
-			// console.log(self.$route.params);
-			
-			axios.all([self.getCategories(), self.getPieces()]).then(axios.spread(function (categories, pieces) {
+			this.loadCategoryData();
+		},
 
-				let categoryResponse = categories.data.categories.filter(category => category.path === self.$route.params.category)[0];
-				if (categoryResponse) self.category = categoryResponse;
-				let piecesResponse = pieces.data.categories.filter(category => category.path === self.$route.params.category)[0];
-				if (piecesResponse) self.pieces = piecesResponse.pieces.filter(piece => piece.published === "true");
-			}))
-			.catch(function (error) {
-				console.log(error);
-			});
+		watch: {
+			'$route.params.category': function(newCategory, oldCategory) {
+				// Only reload if it's actually a different category
+				if (newCategory !== oldCategory) {
+					this.loadCategoryData();
+				}
+			}
 		}
 	};
 </script>

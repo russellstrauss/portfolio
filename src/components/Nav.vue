@@ -32,6 +32,7 @@
 				// Total from animation start: 1000ms delay + 2680ms = 3680ms
 				titleFadeInLength: 3680,
 				menuFadeInDelay: 500,
+				previousRoute: null,
 				
 				nav: [
 					{
@@ -82,7 +83,20 @@
 			animateNav: function() {
 				let self = this;
 				
-				// Reset animation state
+				// Check if we're navigating between work-related routes
+				// If so, don't re-animate - just keep nav visible
+				const currentPath = this.$route.path;
+				const isWorkRoute = currentPath === '/work' || currentPath.startsWith('/work/');
+				const wasWorkRoute = this.previousRoute && (this.previousRoute === '/work' || this.previousRoute.startsWith('/work/'));
+				
+				// If navigating between work routes, don't re-animate - just ensure nav stays visible
+				if (isWorkRoute && wasWorkRoute) {
+					// Nav should already be visible, but ensure it stays that way without any style resets
+					// This prevents any flash during navigation
+					return;
+				}
+				
+				// Reset animation state only if needed (not a work route transition)
 				$('nav.main ul li a span').css({
 					'margin-left': '',
 					'opacity': '',
@@ -136,11 +150,15 @@
 		},
 		
 		mounted: function () {
+			// Set initial route
+			this.previousRoute = this.$route ? this.$route.path : null;
 			this.animateNav();
 		},
 		
 		watch: {
 			'$route'(to, from) {
+				// Store previous route before updating
+				this.previousRoute = from ? from.path : null;
 				this.animateNav();
 			}
 		},

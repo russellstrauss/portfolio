@@ -1,17 +1,20 @@
 <template>
-	<div class="detail-page">
-		<div class="main-content">
-			{{ $route.params.path }}
-			{{ $route.params.id }}
-			
-			<PageTitle v-if="details.title" :title="details.title"></PageTitle>
-			{{ details.description }}
+	<Layout>
+		<div class="detail-page">
+			<div class="main-content">
+				{{ $route.params.path }}
+				{{ $route.params.id }}
+
+				<PageTitle v-if="details.title" :title="details.title"></PageTitle>
+				{{ details.description }}
+			</div>
 		</div>
-	</div>
+	</Layout>
 </template>
 
 <script>
 	
+	import Layout from './Layout.vue';
 	import PageTitle from './PageTitle.vue';
 	import axios from 'axios';
 	
@@ -20,6 +23,7 @@
 		name: 'DetailPage',
 
 		components: {
+			Layout,
 			PageTitle
 		},
 

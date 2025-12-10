@@ -49,7 +49,6 @@
 		display: flex;
 		align-items: center;
 		gap: 16px;
-		flex-wrap: wrap;
 		
 		h1 {
 			@include heading-font;
