@@ -6,7 +6,9 @@
 			<div class="router-view-container">
 				<router-view v-slot="{ Component, route }">
 					<keep-alive include="Work,CategoryDetail,GenericPage,DetailPage,Code">
-						<component :is="Component" :key="route.fullPath" />
+						<transition name="fade">
+							<component :is="Component" :key="route.fullPath" />
+						</transition>
 					</keep-alive>
 				</router-view>
 			</div>
