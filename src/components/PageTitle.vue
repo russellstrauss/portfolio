@@ -45,14 +45,15 @@
 	@use '@/sass/mixins' as *;
 	
 	.page-title {
+		@include heading-font;
 		margin-bottom: 80px;
 		display: flex;
 		align-items: center;
 		gap: 16px;
+
 		
 		h1 {
 			@include heading-font;
-			font-size: 32px;
 			margin-bottom: 0;
 			flex: 1 1 auto;
 			min-width: 0; // allow text to wrap instead of forcing overflow

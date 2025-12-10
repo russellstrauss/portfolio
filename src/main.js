@@ -48,14 +48,6 @@ const router = createRouter({
 	]
 });
 
-// Global router guard to hide overflow when navigation starts
-// This prevents any scroll from being visible during transitions
-router.beforeEach((to, from, next) => {
-	// Hide overflow immediately to prevent any scroll from being visible
-	document.documentElement.style.overflow = 'hidden';
-	next();
-});
-
 const app = createApp(App);
 
 

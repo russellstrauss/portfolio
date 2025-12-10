@@ -230,6 +230,7 @@
 	}
 
 	.resume {
+		padding: 0;
 		margin: 100px auto;
 		line-height: 1.5;
 		

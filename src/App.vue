@@ -6,7 +6,7 @@
 			<div class="router-view-container">
 				<router-view v-slot="{ Component, route }">
 					<keep-alive include="Work,CategoryDetail,GenericPage,DetailPage,Code">
-						<transition name="fade" @before-leave="beforeLeave" @after-leave="scrollToTop" @after-enter="afterEnter">
+						<transition name="fade" @after-leave="scrollToTop">
 							<component :is="Component" :key="route.fullPath" />
 						</transition>
 					</keep-alive>
@@ -14,7 +14,7 @@
 			</div>
 		</div>
 		<router-view v-else v-slot="{ Component, route }">
-			<transition name="fade" @before-leave="beforeLeave" @after-leave="scrollToTop" @after-enter="afterEnter">
+			<transition name="fade" @after-leave="scrollToTop">
 				<component :is="Component" :key="route.fullPath" />
 			</transition>
 		</router-view>
@@ -35,19 +35,10 @@ export default {
 	},
 	
 	methods: {
-		beforeLeave: function() {
-			// Hide overflow to prevent scroll from being visible during transition
-			document.documentElement.style.overflow = 'hidden';
-		},
 		scrollToTop: function() {
 			// Scroll to top after old component has completely left
 			// after-leave fires when old page is completely gone but before new one is visible
-			// Overflow is hidden so this scroll won't be visible
 			window.scrollTo(0, 0);
-		},
-		afterEnter: function() {
-			// Restore overflow after transition completes
-			document.documentElement.style.overflow = '';
 		}
 	},
 	
