@@ -206,7 +206,6 @@
 		
 		
 		a {
-			font-size: 40px;
 			color: black;
 		
 			.text-wrapper {

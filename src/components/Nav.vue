@@ -171,11 +171,7 @@
 		@include heading-font;
 		margin-top: 20px;
 		margin-bottom: 50px;
-		line-height: 1.25;
-		
-		@include mobile-only {
-			font-size: 22px;
-		}
+		line-height: 1.25
 
 		a {
 			text-decoration: none;
