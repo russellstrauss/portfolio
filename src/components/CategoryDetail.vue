@@ -7,7 +7,7 @@
 						<p>{{ category.description }}</p>
 					</div>
 					
-					<transition-group :class="viewType" name="stagger-grid" tag="ul" appear :key="category.path" v-on:enter="gridItemEnter" v-on:leave="gridItemLeave">
+					<transition-group :class="viewType" name="stagger-grid" tag="ul" appear :key="category.path" v-on:enter="gridItemEnter" v-on:appear="gridItemEnter" v-on:leave="gridItemLeave">
 						<li v-for="(piece, index) in pieces" :key="piece.sortOrder" class="each-piece" :style="'background-image: url(' + piece.featuredImage + ');'" :data-index="index">
 							<a :href="piece.href" :target="JSON.parse(piece.openInNewTab) ? '_blank' : '_self'" @click="handleLinkClick($event, piece.href, piece.openInNewTab)">
 								<div class="piece-details">
@@ -99,20 +99,69 @@
 						
 						const piecesResponse = pieces.categories.filter(category => category.path === currentCategory)[0];
 						if (piecesResponse) self.pieces = piecesResponse.pieces.filter(piece => piece.published === "true");
+						
+						// Ensure all elements start hidden after they're rendered, then animate in
+						self.$nextTick(() => {
+							const gridElements = self.$el.querySelectorAll('.each-piece');
+							// First, explicitly remove active class to ensure hidden state
+							gridElements.forEach((element) => {
+								element.classList.remove('active');
+							});
+							// Force a reflow to ensure the hidden state is applied
+							void self.$el.offsetHeight;
+							// Then trigger the enter animation
+							gridElements.forEach((element) => {
+								const index = parseInt(element.dataset.index) || 0;
+								const delay = index * 75;
+								setTimeout(() => {
+									element.classList.add('active');
+								}, delay);
+							});
+						});
 					})
 					.catch(function (error) {
 						console.log(error);
 					});
 			},
 
-			gridItemEnter: function (element) {
+			animateGridItems: function() {
+				// Remove active class from all grid items first
+				const gridElements = this.$el.querySelectorAll('.each-piece');
+				gridElements.forEach((element) => {
+					element.classList.remove('active');
+				});
+				
+				// Force a reflow to ensure the hidden state is applied
+				void this.$el.offsetHeight;
+				
+				// Use requestAnimationFrame to ensure the browser has processed the CSS change
+				requestAnimationFrame(() => {
+					// Then re-trigger the enter animation
+					gridElements.forEach((element) => {
+						const index = parseInt(element.dataset.index) || 0;
+						const delay = index * 75;
+						setTimeout(() => {
+							element.classList.add('active');
+						}, delay);
+					});
+				});
+			},
+
+			gridItemEnter: function (element, done) {
+				if (!element || !element.dataset) return;
+				// Ensure element starts hidden (remove active class if present)
+				element.classList.remove('active');
+				// Force reflow to ensure the hidden state is applied
+				void element.offsetHeight;
 				var delay = element.dataset.index * 75;
 				setTimeout(function () {
 					element.classList.add('active');
+					if (done) done();
 				}, delay);
 			},
 
 			gridItemLeave: function (element) {
+				if (!element || !element.dataset) return;
 				var delay = element.dataset.index * 75;
 				setTimeout(function () {
 					element.classList.remove('active');
@@ -121,15 +170,70 @@
 
 		},
 
+		beforeRouteUpdate: function(to, from, next) {
+			// Immediately hide items when navigating to a different category
+			if (to.params.category !== from.params.category) {
+				if (this.$el) {
+					const gridElements = this.$el.querySelectorAll('.each-piece');
+					gridElements.forEach((element) => {
+						element.classList.remove('active');
+					});
+				}
+			}
+			next();
+		},
+
 		mounted: function () {
 			this.loadCategoryData();
+		},
+
+		activated: function() {
+			// This hook is called when a kept-alive component is activated
+			// Immediately hide items first
+			if (this.$el) {
+				const gridElements = this.$el.querySelectorAll('.each-piece');
+				gridElements.forEach((element) => {
+					element.classList.remove('active');
+				});
+			}
+			// Then re-trigger the animation when navigating back to this page
+			this.$nextTick(() => {
+				// Wait for DOM to be ready
+				requestAnimationFrame(() => {
+					this.animateGridItems();
+				});
+			});
 		},
 
 		watch: {
 			'$route.params.category': function(newCategory, oldCategory) {
 				// Only reload if it's actually a different category
 				if (newCategory !== oldCategory) {
+					// Immediately hide items first (synchronously)
+					if (this.$el) {
+						const gridElements = this.$el.querySelectorAll('.each-piece');
+						gridElements.forEach((element) => {
+							element.classList.remove('active');
+						});
+					}
+					// Then load new data
 					this.loadCategoryData();
+				} else if (newCategory === oldCategory) {
+					// Same category, just re-animate (e.g., navigating back)
+					// Immediately hide items first (synchronously)
+					if (this.$el) {
+						const gridElements = this.$el.querySelectorAll('.each-piece');
+						gridElements.forEach((element) => {
+							element.classList.remove('active');
+						});
+					}
+					// Then animate them in
+					this.$nextTick(() => {
+						// Wait for DOM to be ready
+						requestAnimationFrame(() => {
+							this.animateGridItems();
+						});
+					});
 				}
 			}
 		}
