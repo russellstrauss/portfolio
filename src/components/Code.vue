@@ -27,7 +27,7 @@
 	import Nav from './Nav.vue';
 	import CodeBlock from './CodeBlock.vue';
 	import PageTitle from './PageTitle.vue';
-	import axios from 'axios';
+	import piecesData from '@/data/pieces.js';
 	
 	// Note: linear-algebra is imported but Vector/Matrix may not be used in this component
 	// If needed, uncomment and use dynamic import:
@@ -59,21 +59,17 @@
 			
 			let self = this;
 			
-			let pieces = '/data/pieces.json';
-			axios.get(pieces).then(function(response) {
-				
-				let categories = response.data.categories;
-				let category = categories.filter(category => category.path === self.$route.params.category);
-				
-				if (category[0]) self.details = category[0].pieces.filter(details => details.href === self.$route.path)[0];
-			})
-			.catch(function (error) {
-				console.log(error);
-			})
-			.then(function() { // run syntax highlighter after code has been successfully loaded
-				Prism.highlightAll();
-				MathJax.typeset();
-			});
+			// Use imported pieces data instead of axios
+			let categories = piecesData.categories;
+			let category = categories.filter(category => category.path === self.$route.params.category);
+			
+			if (category[0]) {
+				self.details = category[0].pieces.filter(details => details.href === self.$route.path)[0];
+			}
+			
+			// Run syntax highlighter after code has been loaded
+			Prism.highlightAll();
+			MathJax.typeset();
 		}
 	};
 </script>

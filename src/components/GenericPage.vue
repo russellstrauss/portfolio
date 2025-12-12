@@ -32,7 +32,7 @@
 
 <script>
 	
-	import axios from 'axios';
+	import piecesData from '@/data/pieces.js';
 	import Title from '@/components/Title.vue';
 	import Nav from '@/components/Nav.vue';
 	import PDFViewer from '@/components/PDFViewer.vue';
@@ -61,17 +61,13 @@
 			
 			let self = this;
 			
-			let pieces = '/data/pieces.json';
-			axios.get(pieces).then(function(response) {
-				
-				let categories = response.data.categories;
-				let category = categories.filter(category => category.path === self.$route.params.category);
-				
-				if (category[0]) self.details = category[0].pieces.filter(details => details.href === self.$route.path)[0];
-			})
-			.catch(function (error) {
-				console.log(error);
-			});
+			// Use imported pieces data instead of axios
+			let categories = piecesData.categories;
+			let category = categories.filter(category => category.path === self.$route.params.category);
+			
+			if (category[0]) {
+				self.details = category[0].pieces.filter(details => details.href === self.$route.path)[0];
+			}
 			
 			MathJax.typeset();
 		}

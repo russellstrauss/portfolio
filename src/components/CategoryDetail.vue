@@ -31,6 +31,7 @@
 <script>
 	
 	import axios from 'axios';
+	import piecesData from '@/data/pieces.js';
 	import Layout from './Layout.vue';
 	import PageTitle from './PageTitle.vue';
 	
@@ -77,11 +78,6 @@
 				return axios.get('/data/categories.json');
 			},
 			
-			getPieces: function() {
-				
-				return axios.get('/data/pieces.json');
-			},
-			
 			gridItemEnter: function (element) {
 				
 				var delay = element.dataset.index * 75;
@@ -103,15 +99,16 @@
 			
 			let self = this;
 			
-			// console.log(self.$route.params);
-			
-			axios.all([self.getCategories(), self.getPieces()]).then(axios.spread(function (categories, pieces) {
-
+			// Use imported pieces data instead of axios for pieces
+			// Still fetch categories.json via axios since it's separate
+			self.getCategories().then(function(categories) {
 				let categoryResponse = categories.data.categories.filter(category => category.path === self.$route.params.category)[0];
 				if (categoryResponse) self.category = categoryResponse;
-				let piecesResponse = pieces.data.categories.filter(category => category.path === self.$route.params.category)[0];
+				
+				// Use imported pieces data
+				let piecesResponse = piecesData.categories.filter(category => category.path === self.$route.params.category)[0];
 				if (piecesResponse) self.pieces = piecesResponse.pieces.filter(piece => piece.published === "true");
-			}))
+			})
 			.catch(function (error) {
 				console.log(error);
 			});
