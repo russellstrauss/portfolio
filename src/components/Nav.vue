@@ -23,8 +23,16 @@
 
 		data() {
 			return {
-				titleFadeInLength: 1800,
+				// Updated to match actual title animation timing (from when animation starts):
+				// Line scale: delay 1000ms + duration 600ms = ends at 1600ms
+				// Line translate: starts at 1600ms, duration 800ms = ends at 2400ms  
+				// Letters start at 1900ms (2400 - 500), with staggered delays
+				// For "John Russell Strauss" (~20 chars): last letter starts at 1900 + (19 * 20) = 2280ms
+				// Last letter duration: 400ms, so letters finish at ~2680ms
+				// Total from animation start: 1000ms delay + 2680ms = 3680ms
+				titleFadeInLength: 3680,
 				menuFadeInDelay: 500,
+				previousRoute: null,
 				
 				nav: [
 					{
@@ -70,28 +78,89 @@
 				el.html(function(index, html) {
 					return html.replace(/\S/g, regExp);
 				});
+			},
+			
+			animateNav: function() {
+				let self = this;
+				
+				// Check if we're navigating between work-related routes
+				// If so, don't re-animate - just keep nav visible
+				const currentPath = this.$route.path;
+				const isWorkRoute = currentPath === '/work' || currentPath.startsWith('/work/');
+				const wasWorkRoute = this.previousRoute && (this.previousRoute === '/work' || this.previousRoute.startsWith('/work/'));
+				
+				// If navigating between work routes, don't re-animate - just ensure nav stays visible
+				if (isWorkRoute && wasWorkRoute) {
+					// Nav should already be visible, but ensure it stays that way without any style resets
+					// This prevents any flash during navigation
+					return;
+				}
+				
+				// Reset animation state only if needed (not a work route transition)
+				$('nav.main ul li a span').css({
+					'margin-left': '',
+					'opacity': '',
+					'transform': ''
+				});
+				
+				// Re-wrap characters if needed
+				$('nav.main ul li a').each(function() {
+					var $link = $(this);
+					if ($link.find('span').length === 0 || $link.text().trim() !== $link.find('span').text().replace(/\s/g, '')) {
+						self.wrapCharacters($link, 'span');
+					}
+				});
+
+				// Apply animation if on landing page
+				if (this.$route.path === '/') {
+					// Wait for fonts to load (same as Title component) before calculating delay
+					const calculateDelay = () => {
+						// Title animation timing (titleFadeInLength already includes the 1000ms delay):
+						// - Font loading: already waited
+						// - Title animation total: titleFadeInLength (3680ms, includes 1000ms delay + 2680ms animation)
+						// - Menu delay: 500ms
+						const totalDelay = self.titleFadeInLength + self.menuFadeInDelay;
+						
+						$('nav.main ul li a span').each(function(i) {
+							var $letter = $(this);
+							
+							setTimeout(function() {
+								$letter.css({'margin-left': 0, 'opacity': 1, 'transform': 'none'});
+							}, (i * 60) + totalDelay);
+						});
+					};
+					
+					// Wait for fonts to load if available (same as Title component)
+					if (document.fonts && document.fonts.ready) {
+						document.fonts.ready.then(() => {
+							requestAnimationFrame(() => {
+								setTimeout(calculateDelay, 50);
+							});
+						});
+					} else {
+						requestAnimationFrame(() => {
+							setTimeout(calculateDelay, 200);
+						});
+					}
+				} else {
+					// On other pages, show immediately
+					$('nav.main ul li a span').css({'margin-left': 0, 'opacity': 1, 'transform': 'none'});
+				}
 			}
 		},
-
+		
 		mounted: function () {
-			
-			let self = this;
-			
-			$('nav.main ul li a').each(function() {
-
-				var $link = $(this);
-
-				self.wrapCharacters($link, 'span');
-			});
-
-			$('nav.main ul li a span').each(function(i) {
-				var $letter = $(this);
-				
-				setTimeout(function() {
-					$letter.css({'margin-left': 0, 'opacity': 1, 'transform': 'none'});
-
-				}, (i * 60) + (self.titleFadeInLength + self.menuFadeInDelay));
-			});
+			// Set initial route
+			this.previousRoute = this.$route ? this.$route.path : null;
+			this.animateNav();
+		},
+		
+		watch: {
+			'$route'(to, from) {
+				// Store previous route before updating
+				this.previousRoute = from ? from.path : null;
+				this.animateNav();
+			}
 		},
 	};
 </script>
@@ -102,8 +171,8 @@
 		@include heading-font;
 		margin-top: 20px;
 		margin-bottom: 50px;
-		line-height: 1.25;
-		
+		line-height: 1.25
+
 		a {
 			text-decoration: none;
 		}
@@ -126,9 +195,14 @@
 					margin-bottom: 20px;
 					margin-left: 0;
 					
+					
 					a {
 						display: inline-block;
 						text-decoration: none;
+						
+						&:hover {
+							color: $hover-color;
+						}
 					}
 
 					span {

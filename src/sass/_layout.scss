@@ -5,6 +5,11 @@
 	flex-direction: column;
 	width: 100%;
 	position: relative;
+	align-items: stretch;
+
+	@include tablet {
+		flex-direction: row;
+	}
 
 	nav.main {
 		width: 200px;
@@ -16,30 +21,26 @@
 	}
 	
 	.category-list {
+
 		.category {
 			line-height: 1.5;
 		}
 	}
 	
 	.main-content {
-		width: 100%;
+		flex: 1 1 auto;
+		width: 80%;
 		max-width: 1200px;
 		margin-left: auto;
 		margin-right: auto;
-		
-		@include tablet {
-			width: 80%;
-			margin-left: max(200px, calc(50vw - 600px));
-			margin-right: auto;
+
+		@include mobile-only {
+			width: 100%;
 		}
-	}
-	
-	@include tablet {
-		flex-direction: row;
-		
-		nav.main {
-			position: absolute;
-			left: 0;
+
+		@include tablet {
+			width: 70%;
+			max-width: 1200px;
 		}
 	}
 }

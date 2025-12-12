@@ -1,18 +1,13 @@
 <template>
-	<div class="generic-page container-fluid">
-		
-		<Title></Title>
-		<div class="layout-wrapper">
-				
-			<Nav></Nav>
-			
+	<Layout>
+		<div class="generic-page">
 			<div class="main-content">
 				<PageTitle v-if="details.title" :title="details.title"></PageTitle>
-				
+
 				<div v-if="details.rawHTML" class="raw-html-container">
 					<div v-html="details.rawHTML"></div>
 				</div>
-				
+
 				<a class="callout" v-if="details.applicationLink" :href="details.applicationLink.href">
 					{{details.applicationLink.text}}
 					<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 108.42 1280 1063.16" xml:space="preserve">
@@ -21,20 +16,19 @@
 						</g>
 					</svg>
 				</a>
-				
+
 				<PDFViewer v-if="details.pdf" :src="details.pdf"></PDFViewer>
 			</div>
-			
+
 			<div class="spacer"></div>
 		</div>
-	</div>
+	</Layout>
 </template>
 
 <script>
 	
 	import piecesData from '@/data/pieces.js';
-	import Title from '@/components/Title.vue';
-	import Nav from '@/components/Nav.vue';
+	import Layout from './Layout.vue';
 	import PDFViewer from '@/components/PDFViewer.vue';
 	import PageTitle from '@/components/PageTitle.vue';
 	
@@ -43,8 +37,7 @@
 		name: 'GenericPage',
 
 		components: {
-			Nav,
-			Title,
+			Layout,
 			PDFViewer,
 			PageTitle
 		},
@@ -55,21 +48,39 @@
 			};
 		},
 
-		methods: {},
+		methods: {
+			loadDetails: function() {
+				let self = this;
+
+				// Use imported pieces data instead of axios
+				let categories = piecesData.categories;
+				let category = categories.filter(category => category.path === self.$route.params.category);
+
+				if (category[0]) {
+					let newDetails = category[0].pieces.filter(details => details.href === self.$route.path)[0];
+					if (newDetails) {
+						self.details = newDetails;
+						// Re-run MathJax after content updates
+						self.$nextTick(() => {
+							MathJax.typeset();
+						});
+					}
+				}
+			}
+		},
 
 		mounted: function () {
-			
-			let self = this;
-			
-			// Use imported pieces data instead of axios
-			let categories = piecesData.categories;
-			let category = categories.filter(category => category.path === self.$route.params.category);
-			
-			if (category[0]) {
-				self.details = category[0].pieces.filter(details => details.href === self.$route.path)[0];
-			}
-			
+			this.loadDetails();
 			MathJax.typeset();
+		},
+
+		watch: {
+			'$route': function(to, from) {
+				// Reload data when route changes (different piece or category)
+				if (to.params.category !== from.params.category || to.params.id !== from.params.id) {
+					this.loadDetails();
+				}
+			}
 		}
 	};
 </script>

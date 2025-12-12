@@ -7,7 +7,7 @@
 						<p>{{ category.description }}</p>
 					</div>
 					
-					<transition-group :class="viewType" name="stagger-grid" tag="ul"  v-on:enter="gridItemEnter" v-on:leave="gridItemLeave">
+					<transition-group :class="viewType" name="stagger-grid" tag="ul" appear :key="category.path" v-on:enter="gridItemEnter" v-on:appear="gridItemEnter" v-on:leave="gridItemLeave">
 						<li v-for="(piece, index) in pieces" :key="piece.sortOrder" class="each-piece" :style="'background-image: url(' + piece.featuredImage + ');'" :data-index="index">
 							<a :href="piece.href" :target="JSON.parse(piece.openInNewTab) ? '_blank' : '_self'" @click="handleLinkClick($event, piece.href, piece.openInNewTab)">
 								<div class="piece-details">
@@ -48,23 +48,36 @@
 			return {
 				category: {},
 				pieces: [],
-				viewType: 'grid' // grid or list
+				viewType: 'grid', // grid or list
+				lastCategoryPath: null
 			};
 		},
 
 		methods: {
-			
+
 			handleLinkClick: function(event, href, openInNewTab) {
 				// If the link should open in a new tab, let the browser handle it
 				// The target="_blank" attribute will be respected
 				if (openInNewTab === "true") {
 					return; // Allow default behavior (opens in new tab)
 				}
-				
-				// Define known Vue routes - all other routes should bypass the router
+
+				// Check if it's an external URL (starts with http:// or https://)
+				if (href && (href.startsWith('http://') || href.startsWith('https://'))) {
+					return; // Allow default behavior for external links
+				}
+
+				// Define known Vue routes - all routes starting with these should use router
 				const vueRoutes = ['/', '/work', '/about', '/resume'];
 				const isVueRoute = vueRoutes.some(route => href === route || href.startsWith(route + '/'));
-				
+
+				// If it's a Vue route, use router navigation to preserve app state
+				if (href && isVueRoute && this.$router) {
+					event.preventDefault();
+					this.$router.push(href);
+					return;
+				}
+
 				// If it's not a Vue route (or is external), force full page navigation
 				// This allows static files in public/ to be served directly by Vite
 				if (href && !isVueRoute) {
@@ -72,46 +85,166 @@
 					window.location.href = href;
 				}
 			},
-			
+
 			getCategories: function() {
-				
+
 				return axios.get('/data/categories.json');
 			},
-			
-			gridItemEnter: function (element) {
+
+			loadCategoryData: function() {
+				const self = this;
+				const currentCategory = this.$route.params.category;
+
+				this.lastCategoryPath = currentCategory;
+
+				// Use imported pieces data instead of axios for pieces
+				this.getCategories()
+					.then(function (categoriesResponse) {
+						const categories = categoriesResponse.data;
+						
+						const categoryResponse = categories.categories.filter(category => category.path === currentCategory)[0];
+						if (categoryResponse) self.category = categoryResponse;
+						
+						// Use imported pieces data
+						const piecesResponse = piecesData.categories.filter(category => category.path === currentCategory)[0];
+						if (piecesResponse) self.pieces = piecesResponse.pieces.filter(piece => piece.published === "true");
+						
+						// Ensure all elements start hidden after they're rendered, then animate in
+						self.$nextTick(() => {
+							const gridElements = self.$el.querySelectorAll('.each-piece');
+							// First, explicitly remove active class to ensure hidden state
+							gridElements.forEach((element) => {
+								element.classList.remove('active');
+							});
+							// Force a reflow to ensure the hidden state is applied
+							void self.$el.offsetHeight;
+							// Then trigger the enter animation
+							gridElements.forEach((element) => {
+								const index = parseInt(element.dataset.index) || 0;
+								const delay = index * 75;
+								setTimeout(() => {
+									element.classList.add('active');
+								}, delay);
+							});
+						});
+					})
+					.catch(function (error) {
+						console.log(error);
+					});
+			},
+
+			animateGridItems: function() {
+				// Remove active class from all grid items first
+				const gridElements = this.$el.querySelectorAll('.each-piece');
+				gridElements.forEach((element) => {
+					element.classList.remove('active');
+				});
 				
+				// Force a reflow to ensure the hidden state is applied
+				void this.$el.offsetHeight;
+				
+				// Use requestAnimationFrame to ensure the browser has processed the CSS change
+				requestAnimationFrame(() => {
+					// Then re-trigger the enter animation
+					gridElements.forEach((element) => {
+						const index = parseInt(element.dataset.index) || 0;
+						const delay = index * 75;
+						setTimeout(() => {
+							element.classList.add('active');
+						}, delay);
+					});
+				});
+			},
+
+			gridItemEnter: function (element, done) {
+				if (!element || !element.dataset) return;
+				// Ensure element starts hidden (remove active class if present)
+				element.classList.remove('active');
+				// Force reflow to ensure the hidden state is applied
+				void element.offsetHeight;
 				var delay = element.dataset.index * 75;
 				setTimeout(function () {
 					element.classList.add('active');
+					if (done) done();
 				}, delay);
 			},
-			
+
 			gridItemLeave: function (element) {
-				
+				if (!element || !element.dataset) return;
 				var delay = element.dataset.index * 75;
 				setTimeout(function () {
 					element.classList.remove('active');
 				}, delay);
 			}
+
+		},
+
+		beforeRouteUpdate: function(to, from, next) {
+			// Immediately hide items when navigating to a different category
+			if (to.params.category !== from.params.category) {
+				if (this.$el) {
+					const gridElements = this.$el.querySelectorAll('.each-piece');
+					gridElements.forEach((element) => {
+						element.classList.remove('active');
+					});
+				}
+			}
+			next();
 		},
 
 		mounted: function () {
-			
-			let self = this;
-			
-			// Use imported pieces data instead of axios for pieces
-			// Still fetch categories.json via axios since it's separate
-			self.getCategories().then(function(categories) {
-				let categoryResponse = categories.data.categories.filter(category => category.path === self.$route.params.category)[0];
-				if (categoryResponse) self.category = categoryResponse;
-				
-				// Use imported pieces data
-				let piecesResponse = piecesData.categories.filter(category => category.path === self.$route.params.category)[0];
-				if (piecesResponse) self.pieces = piecesResponse.pieces.filter(piece => piece.published === "true");
-			})
-			.catch(function (error) {
-				console.log(error);
+			this.loadCategoryData();
+		},
+
+		activated: function() {
+			// This hook is called when a kept-alive component is activated
+			// Immediately hide items first
+			if (this.$el) {
+				const gridElements = this.$el.querySelectorAll('.each-piece');
+				gridElements.forEach((element) => {
+					element.classList.remove('active');
+				});
+			}
+			// Then re-trigger the animation when navigating back to this page
+			this.$nextTick(() => {
+				// Wait for DOM to be ready
+				requestAnimationFrame(() => {
+					this.animateGridItems();
+				});
 			});
+		},
+
+		watch: {
+			'$route.params.category': function(newCategory, oldCategory) {
+				// Only reload if it's actually a different category
+				if (newCategory !== oldCategory) {
+					// Immediately hide items first (synchronously)
+					if (this.$el) {
+						const gridElements = this.$el.querySelectorAll('.each-piece');
+						gridElements.forEach((element) => {
+							element.classList.remove('active');
+						});
+					}
+					// Then load new data
+					this.loadCategoryData();
+				} else if (newCategory === oldCategory) {
+					// Same category, just re-animate (e.g., navigating back)
+					// Immediately hide items first (synchronously)
+					if (this.$el) {
+						const gridElements = this.$el.querySelectorAll('.each-piece');
+						gridElements.forEach((element) => {
+							element.classList.remove('active');
+						});
+					}
+					// Then animate them in
+					this.$nextTick(() => {
+						// Wait for DOM to be ready
+						requestAnimationFrame(() => {
+							this.animateGridItems();
+						});
+					});
+				}
+			}
 		}
 	};
 </script>
@@ -159,7 +292,11 @@
 					transform: translate(0, 20px);
 					transition: opacity 400ms $ease-out-quadratic, transform 300ms $ease-out-quadratic, box-shadow 0.3s cubic-bezier(.25,.8,.25,1);
 					
-					@include mobile-only {
+					@include small-screen {
+						margin-bottom: 100px;
+					}
+					// Extend spacing up to 1200px viewport
+					@media (min-width: 992px) and (max-width: 1200px) {
 						margin-bottom: 100px;
 					}
 					

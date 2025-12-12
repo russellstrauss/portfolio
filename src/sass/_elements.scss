@@ -2,6 +2,10 @@
 @use 'mixins' as *;
 @use 'vars' as *;
 
+html {
+	background-color: black;
+}
+
 body {
 	@include body;
 	padding: 20px 0 100px 0;
@@ -11,12 +15,11 @@ body {
 
 a {
 	color: $link-color;
-	// text-decoration: none;
 	cursor: pointer;
 	word-wrap: break-word;
 	
 	&:hover {
-		color: white;
+		color: $hover-color;
 	}
 }
 

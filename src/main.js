@@ -25,6 +25,11 @@ let baseUrl = import.meta.env.BASE_URL || '/';
 
 const router = createRouter({
 	history: createWebHistory(baseUrl),
+	scrollBehavior(to, from, savedPosition) {
+		// Always return false to prevent automatic scrolling
+		// We handle scrolling manually in transition hooks to prevent flicker
+		return false;
+	},
 	routes: [
 		{ path: '/', component: Home },
 		{ path: '/about', component: About },
@@ -44,6 +49,7 @@ const router = createRouter({
 });
 
 const app = createApp(App);
+
 
 // Error handling for debugging
 app.config.errorHandler = (err, instance, info) => {
