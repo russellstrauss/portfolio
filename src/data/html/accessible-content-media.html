@@ -1,0 +1,241 @@
+<h2>Accessible Content & Media</h2>
+
+<p>Creating accessible content and media ensures that all users can access and understand your information, regardless of how they consume it. This guide covers best practices for text, images, video, audio, and other media types.</p>
+
+<h3>Text Content</h3>
+
+<h4>Writing for Clarity</h4>
+<ul>
+	<li>Use plain, clear language appropriate for your audience</li>
+	<li>Avoid jargon and technical terms without explanation</li>
+	<li>Write in short, clear sentences</li>
+	<li>Use active voice when possible</li>
+	<li>Break up long paragraphs</li>
+	<li>Use headings to organize content</li>
+	<li>Provide summaries for complex topics</li>
+</ul>
+
+<h4>Link Text</h4>
+<ul>
+	<li>Write descriptive link text that makes sense out of context</li>
+	<li>Avoid generic phrases like "click here" or "read more"</li>
+	<li>Indicate when links open in new windows</li>
+	<li>Make link purpose clear from the link text alone</li>
+	<li>Example: "Download the accessibility guidelines (PDF)" instead of "Click here"</li>
+</ul>
+
+<h4>Abbreviations and Acronyms</h4>
+<ul>
+	<li>Spell out abbreviations and acronyms on first use</li>
+	<li>Use the &lt;abbr&gt; element with a title attribute</li>
+	<li>Provide explanations for technical terms</li>
+	<li>Example: &lt;abbr title="Web Content Accessibility Guidelines"&gt;WCAG&lt;/abbr&gt;</li>
+</ul>
+
+<h3>Images</h3>
+
+<h4>Alternative Text Guidelines</h4>
+<ul>
+	<li><strong>Decorative images:</strong> Use empty alt="" (alt attribute present but empty)</li>
+	<li><strong>Informative images:</strong> Describe the content and purpose</li>
+	<li><strong>Functional images:</strong> Describe the function (e.g., "Search" for search icon)</li>
+	<li><strong>Images of text:</strong> Include the text in alt attribute (avoid images of text when possible)</li>
+	<li><strong>Complex images:</strong> Provide brief alt text and detailed description nearby</li>
+</ul>
+
+<h4>Writing Good Alt Text</h4>
+<ul>
+	<li>Be specific and concise (aim for 125 characters or less)</li>
+	<li>Describe what's important about the image in context</li>
+	<li>Avoid redundant phrases like "image of" or "picture of"</li>
+	<li>Include text that appears in the image</li>
+	<li>Consider the image's purpose in the content</li>
+	<li>Example: "Bar chart showing 45% increase in accessibility compliance"</li>
+</ul>
+
+<h4>Complex Images</h4>
+<ul>
+	<li>Charts and graphs: Describe the data and trends</li>
+	<li>Maps: Describe locations and relationships</li>
+	<li>Diagrams: Explain the concept or process</li>
+	<li>Provide detailed descriptions in surrounding text or longdesc</li>
+	<li>Consider providing data in table format as alternative</li>
+</ul>
+
+<h3>Video Content</h3>
+
+<h4>Captions</h4>
+<ul>
+	<li>Provide captions for all video content</li>
+	<li>Captions should be accurate and synchronized</li>
+	<li>Include speaker identification when relevant</li>
+	<li>Include important sound effects and music descriptions</li>
+	<li>Ensure captions don't obscure important visual information</li>
+	<li>Provide option to turn captions on/off</li>
+</ul>
+
+<h4>Audio Descriptions</h4>
+<ul>
+	<li>Provide audio descriptions when visual information isn't described in audio</li>
+	<li>Describe important visual elements, actions, and scene changes</li>
+	<li>Integrate descriptions naturally into narration when possible</li>
+	<li>Consider extended audio descriptions for complex visuals</li>
+</ul>
+
+<h4>Transcripts</h4>
+<ul>
+	<li>Provide full transcripts for all video content</li>
+	<li>Include speaker names and timestamps</li>
+	<li>Describe important visual elements in transcripts</li>
+	<li>Make transcripts easy to find and download</li>
+</ul>
+
+<h4>Accessible Video Players</h4>
+<ul>
+	<li>Ensure players are keyboard accessible</li>
+	<li>Provide clear controls (play, pause, volume, captions)</li>
+	<li>Support standard keyboard shortcuts</li>
+	<li>Ensure controls have sufficient size and contrast</li>
+	<li>Provide accessible settings menus</li>
+</ul>
+
+<h3>Audio Content</h3>
+
+<h4>Podcasts and Audio Recordings</h4>
+<ul>
+	<li>Provide transcripts for all audio content</li>
+	<li>Include speaker identification</li>
+	<li>Describe important sound effects or music</li>
+	<li>Make transcripts easy to find and access</li>
+	<li>Consider providing chapter markers for long content</li>
+</ul>
+
+<h4>Audio Controls</h4>
+<ul>
+	<li>Don't auto-play audio</li>
+	<li>Provide clear play/pause controls</li>
+	<li>Allow users to adjust volume</li>
+	<li>Provide option to stop audio</li>
+	<li>Ensure controls are keyboard accessible</li>
+</ul>
+
+<h3>Documents (PDF, Word, etc.)</h3>
+
+<h4>Accessible PDFs</h4>
+<ul>
+	<li>Use proper heading structure</li>
+	<li>Add alt text to images</li>
+	<li>Ensure proper reading order</li>
+	<li>Use tags for structure</li>
+	<li>Provide bookmarks for navigation</li>
+	<li>Ensure text is selectable (not just images)</li>
+	<li>Test with screen readers</li>
+</ul>
+
+<h4>Word Documents</h4>
+<ul>
+	<li>Use built-in heading styles</li>
+	<li>Add alt text to images</li>
+	<li>Use proper list formatting</li>
+	<li>Ensure proper table structure</li>
+	<li>Use descriptive hyperlink text</li>
+	<li>Check accessibility with built-in checker</li>
+</ul>
+
+<h3>Data Tables</h3>
+
+<h4>Simple Tables</h4>
+<ul>
+	<li>Use proper table structure (table, thead, tbody, th, td)</li>
+	<li>Use scope attribute for header cells</li>
+	<li>Provide table captions for context</li>
+	<li>Ensure tables are responsive on mobile</li>
+</ul>
+
+<h4>Complex Tables</h4>
+<ul>
+	<li>Use headers and id attributes to associate cells</li>
+	<li>Provide clear table summaries</li>
+	<li>Break complex tables into simpler tables when possible</li>
+	<li>Consider alternative presentation methods</li>
+</ul>
+
+<h3>Forms and Interactive Content</h3>
+
+<h4>Form Labels and Instructions</h4>
+<ul>
+	<li>Provide clear, descriptive labels</li>
+	<li>Include helpful instructions</li>
+	<li>Show required field indicators</li>
+	<li>Provide examples for complex inputs</li>
+	<li>Group related fields visually and semantically</li>
+</ul>
+
+<h4>Error Messages</h4>
+<ul>
+	<li>Write clear, specific error messages</li>
+	<li>Explain what went wrong</li>
+	<li>Provide suggestions for correction</li>
+	<li>Associate errors with form fields</li>
+	<li>Allow users to review and correct before submission</li>
+</ul>
+
+<h3>Dynamic Content</h3>
+
+<h4>Content Updates</h4>
+<ul>
+	<li>Announce important content changes to screen readers</li>
+	<li>Use ARIA live regions appropriately</li>
+	<li>Provide status updates for long operations</li>
+	<li>Ensure users can access updated content</li>
+</ul>
+
+<h4>Time-Sensitive Content</h4>
+<ul>
+	<li>Avoid time limits when possible</li>
+	<li>Provide option to extend or disable time limits</li>
+	<li>Warn users before time expires</li>
+	<li>Allow users to save progress</li>
+</ul>
+
+<h3>Content Organization</h3>
+
+<h4>Headings</h4>
+<ul>
+	<li>Use proper heading hierarchy (h1, h2, h3, etc.)</li>
+	<li>Don't skip heading levels</li>
+	<li>Use one h1 per page</li>
+	<li>Use headings to organize content, not for styling</li>
+</ul>
+
+<h4>Lists</h4>
+<ul>
+	<li>Use lists for list content</li>
+	<li>Use ordered lists (ol) for sequential items</li>
+	<li>Use unordered lists (ul) for non-sequential items</li>
+	<li>Nest lists properly when needed</li>
+</ul>
+
+<h3>Language and Localization</h3>
+
+<h4>Language Declaration</h4>
+<ul>
+	<li>Declare the primary language of the page</li>
+	<li>Indicate language changes within content</li>
+	<li>Use lang attribute on html element and content elements</li>
+	<li>Example: &lt;html lang="en"&gt; or &lt;p lang="es"&gt;Spanish text&lt;/p&gt;</li>
+</ul>
+
+<h3>Content Review Checklist</h3>
+<ul>
+	<li>All images have appropriate alt text</li>
+	<li>Videos have captions and transcripts</li>
+	<li>Audio has transcripts</li>
+	<li>Links are descriptive and meaningful</li>
+	<li>Headings are used properly</li>
+	<li>Content is written clearly</li>
+	<li>Abbreviations are explained</li>
+	<li>Tables are properly structured</li>
+	<li>Forms have clear labels and instructions</li>
+	<li>Language is declared</li>
+</ul>

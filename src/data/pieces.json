@@ -675,7 +675,89 @@
 		},
 		{
 			"path": "web-accessibility",
-			"pieces": []
+			"pieces": [
+				{
+					"sortOrder": "10",
+					"published": "true",
+					"title": "Accessibility Principles",
+					"description": "",
+					"featuredImage": "",
+					"href": "/work/web-accessibility/accessibility-principles",
+					"openInNewTab": "false"
+				},
+				{
+					"sortOrder": "20",
+					"published": "true",
+					"title": "Standards & Compliance",
+					"description": "",
+					"featuredImage": "",
+					"href": "/work/web-accessibility/accessibility-standards-compliance",
+					"openInNewTab": "false"
+				},
+				{
+					"sortOrder": "30",
+					"published": "true",
+					"title": "Accessibility Practices",
+					"description": "",
+					"featuredImage": "",
+					"href": "/work/web-accessibility/fundamental-accessibility-practices",
+					"openInNewTab": "false"
+				},
+				{
+					"sortOrder": "40",
+					"published": "true",
+					"title": "Testing & Evaluation",
+					"description": "",
+					"featuredImage": "",
+					"href": "/work/web-accessibility/accessibility-testing-evaluation",
+					"openInNewTab": "false"
+				},
+				{
+					"sortOrder": "50",
+					"published": "true",
+					"title": "Accessible UI Patterns",
+					"description": "",
+					"featuredImage": "",
+					"href": "/work/web-accessibility/accessible-ui-patterns",
+					"openInNewTab": "false"
+				},
+				{
+					"sortOrder": "60",
+					"published": "true",
+					"title": "Accessibility for Developers",
+					"description": "",
+					"featuredImage": "",
+					"href": "/work/web-accessibility/accessibility-for-developers",
+					"openInNewTab": "false"
+				},
+				{
+					"sortOrder": "70",
+					"published": "true",
+					"title": "Accessibility in Design & UX",
+					"description": "",
+					"featuredImage": "",
+					"href": "/work/web-accessibility/accessibility-in-design-ux",
+					"openInNewTab": "false"
+				},
+				{
+					"sortOrder": "80",
+					"published": "true",
+					"title": "Accessible Content & Media",
+					"description": "",
+					"featuredImage": "",
+					"href": "/work/web-accessibility/accessible-content-media",
+					"openInNewTab": "false"
+				},
+				{
+					"sortOrder": "90",
+					"published": "true",
+					"title": "Accessibility Checklists",
+					"description": "",
+					"featuredImage": "",
+					"href": "/work/web-accessibility/accessibility-checklists",
+					"openInNewTab": "false"
+				}
+			]
 		}
 	]
 }

@@ -1,0 +1,174 @@
+<h2>Accessible UI Patterns</h2>
+
+<p>Reusable, accessible UI patterns ensure consistency and reduce development time while maintaining high accessibility standards. These patterns have been tested and validated for accessibility compliance.</p>
+
+<h3>Navigation Patterns</h3>
+
+<h4>Main Navigation</h4>
+<ul>
+	<li>Use semantic &lt;nav&gt; element</li>
+	<li>Provide skip links to main content</li>
+	<li>Ensure keyboard navigation works logically</li>
+	<li>Use ARIA labels for landmark regions</li>
+	<li>Provide breadcrumbs for deep hierarchies</li>
+	<li>Ensure mobile menu is keyboard accessible</li>
+</ul>
+
+<h4>Breadcrumbs</h4>
+<ul>
+	<li>Use ordered list structure</li>
+	<li>Provide "You are here" context</li>
+	<li>Make current page clear (not a link)</li>
+	<li>Use proper separators (visually and in markup)</li>
+</ul>
+
+<h3>Form Patterns</h3>
+
+<h4>Text Input</h4>
+<ul>
+	<li>Always associate labels with inputs</li>
+	<li>Place labels above or to the left of inputs</li>
+	<li>Provide helpful placeholder text (but don't rely on it alone)</li>
+	<li>Show required field indicators</li>
+	<li>Provide inline validation feedback</li>
+	<li>Group related fields with fieldset/legend</li>
+</ul>
+
+<h4>Error Handling</h4>
+<ul>
+	<li>Identify errors clearly (not just with color)</li>
+	<li>Describe errors specifically</li>
+	<li>Provide suggestions for correction</li>
+	<li>Associate error messages with form fields using aria-describedby</li>
+	<li>Allow users to review and correct before submission</li>
+</ul>
+
+<h4>Select/Dropdown</h4>
+<ul>
+	<li>Use native select when possible</li>
+	<li>For custom selects, ensure full keyboard support</li>
+	<li>Provide clear labels</li>
+	<li>Support type-ahead functionality</li>
+	<li>Ensure options are announced by screen readers</li>
+</ul>
+
+<h3>Modal/Dialog Patterns</h3>
+<ul>
+	<li>Use proper dialog/role="dialog"</li>
+	<li>Set initial focus to first focusable element</li>
+	<li>Trap focus within modal</li>
+	<li>Provide close button (X) and Escape key support</li>
+	<li>Use aria-modal="true"</li>
+	<li>Provide aria-label or aria-labelledby</li>
+	<li>Return focus to trigger element when closed</li>
+	<li>Prevent background scrolling</li>
+</ul>
+
+<h3>Tab Patterns</h3>
+<ul>
+	<li>Use proper ARIA roles (tablist, tab, tabpanel)</li>
+	<li>Manage focus appropriately</li>
+	<li>Support arrow key navigation</li>
+	<li>Use aria-selected to indicate active tab</li>
+	<li>Associate tabs with panels using aria-controls</li>
+	<li>Ensure all content is keyboard accessible</li>
+</ul>
+
+<h3>Accordion Patterns</h3>
+<ul>
+	<li>Use proper heading structure</li>
+	<li>Use button elements for triggers</li>
+	<li>Indicate expanded/collapsed state with aria-expanded</li>
+	<li>Associate content with trigger using aria-controls</li>
+	<li>Support keyboard navigation (Enter/Space to toggle)</li>
+	<li>Allow all to be expanded simultaneously (unless mutually exclusive)</li>
+</ul>
+
+<h3>Data Table Patterns</h3>
+<ul>
+	<li>Use proper table structure (table, thead, tbody, th, td)</li>
+	<li>Associate header cells with data cells</li>
+	<li>Use scope attribute for simple tables</li>
+	<li>Use headers/id for complex tables</li>
+	<li>Provide table captions for context</li>
+	<li>Make tables responsive (consider mobile alternatives)</li>
+	<li>Ensure keyboard navigation works</li>
+</ul>
+
+<h3>Button Patterns</h3>
+
+<h4>Primary Actions</h4>
+<ul>
+	<li>Use semantic &lt;button&gt; element</li>
+	<li>Provide clear, descriptive labels</li>
+	<li>Indicate button state (disabled, loading, etc.)</li>
+	<li>Ensure sufficient size for touch targets (44x44px minimum)</li>
+	<li>Provide visual and non-visual feedback</li>
+</ul>
+
+<h4>Icon Buttons</h4>
+<ul>
+	<li>Always provide text label (visually hidden if needed)</li>
+	<li>Use aria-label for icon-only buttons</li>
+	<li>Ensure icons are recognizable and consistent</li>
+	<li>Provide tooltips for additional context</li>
+</ul>
+
+<h3>Loading States</h3>
+<ul>
+	<li>Announce loading state to screen readers</li>
+	<li>Use aria-live regions for dynamic content</li>
+	<li>Provide progress indicators</li>
+	<li>Ensure loading doesn't trap keyboard focus</li>
+	<li>Allow users to cancel long operations</li>
+</ul>
+
+<h3>Search Patterns</h3>
+<ul>
+	<li>Provide clear search label</li>
+	<li>Include search button with descriptive text</li>
+	<li>Announce search results to screen readers</li>
+	<li>Provide clear "no results" messaging</li>
+	<li>Support keyboard navigation of results</li>
+	<li>Allow users to clear search easily</li>
+</ul>
+
+<h3>Pagination Patterns</h3>
+<ul>
+	<li>Use proper link structure</li>
+	<li>Provide "Previous" and "Next" labels</li>
+	<li>Indicate current page clearly</li>
+	<li>Provide page number information</li>
+	<li>Support keyboard navigation</li>
+	<li>Consider "Jump to page" functionality for many pages</li>
+</ul>
+
+<h3>Carousel/Slider Patterns</h3>
+<ul>
+	<li>Provide previous/next controls</li>
+	<li>Indicate current slide position</li>
+	<li>Allow users to pause auto-advance</li>
+	<li>Support keyboard navigation</li>
+	<li>Ensure all content is accessible (not just visible slide)</li>
+	<li>Provide alternative navigation method</li>
+</ul>
+
+<h3>Tooltip Patterns</h3>
+<ul>
+	<li>Use aria-describedby to associate tooltip with element</li>
+	<li>Ensure tooltip is keyboard accessible</li>
+	<li>Don't rely on hover alone (provide click/tap alternative)</li>
+	<li>Keep tooltip text concise</li>
+	<li>Ensure tooltip doesn't obscure important content</li>
+</ul>
+
+<h3>Best Practices for All Patterns</h3>
+<ul>
+	<li>Test with keyboard-only navigation</li>
+	<li>Test with screen readers</li>
+	<li>Ensure proper focus management</li>
+	<li>Provide clear visual and non-visual feedback</li>
+	<li>Document keyboard shortcuts</li>
+	<li>Maintain consistency across the application</li>
+	<li>Follow WCAG 2.1 Level AA standards</li>
+</ul>

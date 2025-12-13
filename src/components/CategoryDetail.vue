@@ -300,10 +300,6 @@
 					@include small-screen {
 						margin-bottom: 100px;
 					}
-					// Extend spacing up to 1200px viewport
-					// @media (min-width: 992px) and (max-width: 1200px) {
-					// 	margin-bottom: 100px;
-					// }
 					
 					@include desktop {
 						@include grid(2, 40);
@@ -368,14 +364,7 @@
 							
 							h2 {
 								color: black;
-								
-								@include mobile-only {
-									font-size: 22px;
-								}
-								
-								@include tablet-only {
-									font-size: 24px;
-								}
+								font-size: 22px;
 								
 								span {
 									@include square-shadow;

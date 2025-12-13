@@ -1,0 +1,210 @@
+<h2>Accessibility in Design & UX</h2>
+
+<p>Accessibility should be considered from the earliest stages of design. Inclusive design benefits all users and creates better user experiences. This guide covers accessibility considerations for designers and UX professionals.</p>
+
+<h3>Designing for All Users</h3>
+
+<h4>Universal Design Principles</h4>
+<ul>
+	<li><strong>Equitable Use:</strong> Design is useful to people with diverse abilities</li>
+	<li><strong>Flexibility in Use:</strong> Accommodates a wide range of preferences and abilities</li>
+	<li><strong>Simple and Intuitive:</strong> Easy to understand regardless of experience or language</li>
+	<li><strong>Perceptible Information:</strong> Communicates effectively regardless of ambient conditions or user abilities</li>
+	<li><strong>Tolerance for Error:</strong> Minimizes hazards and adverse consequences of accidental actions</li>
+	<li><strong>Low Physical Effort:</strong> Can be used efficiently and comfortably</li>
+	<li><strong>Size and Space for Approach and Use:</strong> Appropriate size and space for approach and use</li>
+</ul>
+
+<h3>Visual Design Considerations</h3>
+
+<h4>Color and Contrast</h4>
+<ul>
+	<li>Maintain WCAG AA contrast ratios (4.5:1 for normal text, 3:1 for large text)</li>
+	<li>Never rely on color alone to convey information</li>
+	<li>Test designs with color blindness simulators</li>
+	<li>Provide alternative indicators (icons, patterns, text labels)</li>
+	<li>Ensure focus indicators are visible against all backgrounds</li>
+	<li>Consider dark mode and high contrast mode compatibility</li>
+</ul>
+
+<h4>Typography</h4>
+<ul>
+	<li>Choose readable fonts (avoid overly decorative fonts for body text)</li>
+	<li>Ensure sufficient font size (minimum 16px for body text)</li>
+	<li>Maintain adequate line height (1.5x font size minimum)</li>
+	<li>Limit line length (50-75 characters ideal)</li>
+	<li>Use proper heading hierarchy visually</li>
+	<li>Ensure text can be resized up to 200% without breaking layout</li>
+</ul>
+
+<h4>Spacing and Layout</h4>
+<ul>
+	<li>Provide adequate white space for clarity</li>
+	<li>Ensure touch targets are at least 44x44 pixels</li>
+	<li>Maintain consistent spacing patterns</li>
+	<li>Design for content reflow at different screen sizes</li>
+	<li>Avoid fixed-width layouts that break at zoom</li>
+	<li>Ensure interactive elements have sufficient spacing</li>
+</ul>
+
+<h3>Information Architecture</h3>
+
+<h4>Clear Navigation</h4>
+<ul>
+	<li>Provide multiple ways to find content (navigation, search, sitemap)</li>
+	<li>Use consistent navigation patterns</li>
+	<li>Provide clear labels and descriptions</li>
+	<li>Indicate current location (breadcrumbs, active states)</li>
+	<li>Limit navigation depth when possible</li>
+	<li>Ensure navigation is keyboard accessible</li>
+</ul>
+
+<h4>Content Organization</h4>
+<ul>
+	<li>Use clear, descriptive headings</li>
+	<li>Group related content together</li>
+	<li>Provide clear page structure</li>
+	<li>Use lists for list content</li>
+	<li>Break up long content with headings</li>
+	<li>Provide summaries or overviews for complex content</li>
+</ul>
+
+<h3>Interaction Design</h3>
+
+<h4>Form Design</h4>
+<ul>
+	<li>Place labels above or to the left of inputs</li>
+	<li>Group related fields visually and semantically</li>
+	<li>Provide clear required field indicators</li>
+	<li>Show helpful placeholder text (but don't rely on it)</li>
+	<li>Design clear error states</li>
+	<li>Provide inline validation feedback</li>
+	<li>Ensure forms are logical and not overwhelming</li>
+</ul>
+
+<h4>Feedback and States</h4>
+<ul>
+	<li>Provide clear visual feedback for all interactions</li>
+	<li>Design distinct states (default, hover, focus, active, disabled)</li>
+	<li>Ensure focus indicators are highly visible</li>
+	<li>Provide loading states for async operations</li>
+	<li>Design clear success and error messages</li>
+	<li>Use animations purposefully and allow users to disable</li>
+</ul>
+
+<h4>Error Prevention and Recovery</h4>
+<ul>
+	<li>Design to prevent errors before they occur</li>
+	<li>Provide clear confirmation for destructive actions</li>
+	<li>Allow users to undo actions when possible</li>
+	<li>Design clear, helpful error messages</li>
+	<li>Provide suggestions for error correction</li>
+	<li>Ensure users can easily recover from mistakes</li>
+</ul>
+
+<h3>Content Design</h3>
+
+<h4>Writing for Accessibility</h4>
+<ul>
+	<li>Use clear, simple language</li>
+	<li>Write descriptive link text (avoid "click here")</li>
+	<li>Provide context for abbreviations and acronyms</li>
+	<li>Use plain language for instructions</li>
+	<li>Break up long paragraphs</li>
+	<li>Use lists for sequential or related items</li>
+	<li>Provide summaries for complex content</li>
+</ul>
+
+<h4>Alternative Text Strategy</h4>
+<ul>
+	<li>Work with content creators to write meaningful alt text</li>
+	<li>Provide guidelines for when images are decorative vs. informative</li>
+	<li>Consider context when writing alt text</li>
+	<li>Ensure alt text conveys the same information as the image</li>
+	<li>Keep alt text concise but descriptive</li>
+</ul>
+
+<h3>Responsive and Flexible Design</h3>
+
+<h4>Mobile-First Accessibility</h4>
+<ul>
+	<li>Design for touch targets (44x44px minimum)</li>
+	<li>Ensure content is accessible on small screens</li>
+	<li>Test navigation patterns on mobile</li>
+	<li>Consider thumb-friendly interaction zones</li>
+	<li>Ensure forms work well on mobile devices</li>
+</ul>
+
+<h4>Scalable Design</h4>
+<ul>
+	<li>Design with relative units (em, rem, %) in mind</li>
+	<li>Ensure layouts work at 200% zoom</li>
+	<li>Test designs at different font sizes</li>
+	<li>Avoid fixed pixel dimensions for text</li>
+	<li>Design flexible, fluid layouts</li>
+</ul>
+
+<h3>Multimedia Design</h3>
+
+<h4>Video and Audio</h4>
+<ul>
+	<li>Plan for captions in video designs</li>
+	<li>Ensure captions don't obscure important visual information</li>
+	<li>Design accessible media players</li>
+	<li>Provide transcripts for audio content</li>
+	<li>Consider audio descriptions for video</li>
+	<li>Don't auto-play audio or video</li>
+</ul>
+
+<h3>Design Systems and Component Libraries</h3>
+
+<h4>Accessible Design Tokens</h4>
+<ul>
+	<li>Define color contrast ratios in design tokens</li>
+	<li>Establish spacing scales that work for accessibility</li>
+	<li>Define typography scales with accessibility in mind</li>
+	<li>Document focus indicator styles</li>
+	<li>Create accessible component patterns</li>
+</ul>
+
+<h4>Component Documentation</h4>
+<ul>
+	<li>Document accessibility features of each component</li>
+	<li>Provide keyboard interaction patterns</li>
+	<li>Include ARIA usage guidelines</li>
+	<li>Show examples of proper implementation</li>
+	<li>Document known limitations</li>
+</ul>
+
+<h3>Design Review Checklist</h3>
+<ul>
+	<li>Color contrast meets WCAG AA standards</li>
+	<li>Information is not conveyed by color alone</li>
+	<li>Focus indicators are visible and clear</li>
+	<li>Touch targets are at least 44x44 pixels</li>
+	<li>Text is readable and can be resized</li>
+	<li>Navigation is clear and consistent</li>
+	<li>Forms are well-organized and labeled</li>
+	<li>Error states are clear and helpful</li>
+	<li>Content structure is logical</li>
+	<li>Design works at different zoom levels</li>
+</ul>
+
+<h3>Collaboration with Developers</h3>
+<ul>
+	<li>Provide design specifications that include accessibility requirements</li>
+	<li>Communicate interaction patterns clearly</li>
+	<li>Discuss focus management for complex components</li>
+	<li>Share design rationale for accessibility decisions</li>
+	<li>Review implemented designs for accessibility</li>
+	<li>Work together to solve accessibility challenges</li>
+</ul>
+
+<h3>User Research and Testing</h3>
+<ul>
+	<li>Include people with disabilities in user research</li>
+	<li>Test designs with assistive technologies</li>
+	<li>Gather feedback on accessibility barriers</li>
+	<li>Iterate based on accessibility findings</li>
+	<li>Document accessibility insights</li>
+</ul>

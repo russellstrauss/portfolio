@@ -1,0 +1,106 @@
+<h2>Fundamental Accessibility Practices</h2>
+
+<p>These core practices form the foundation of accessible web development. Implementing these from the start of a project is more effective and cost-efficient than retrofitting accessibility later.</p>
+
+<h3>Semantic HTML</h3>
+<p>Use HTML elements for their intended purpose. Semantic HTML provides meaning and structure that assistive technologies can interpret.</p>
+<ul>
+	<li>Use heading tags (h1-h6) in proper hierarchy to structure content</li>
+	<li>Use lists (ul, ol) for list content, not just styling</li>
+	<li>Use proper form elements (input, label, fieldset, legend)</li>
+	<li>Use landmark elements (header, nav, main, aside, footer)</li>
+	<li>Avoid using divs and spans when semantic elements exist</li>
+</ul>
+
+<h3>Alternative Text for Images</h3>
+<p>All images must have appropriate alt text that conveys the same information or function as the image.</p>
+<ul>
+	<li><strong>Decorative images:</strong> Use empty alt="" to indicate the image is decorative</li>
+	<li><strong>Informative images:</strong> Provide concise, descriptive alt text</li>
+	<li><strong>Functional images:</strong> Describe the function (e.g., "Search" for a search icon button)</li>
+	<li><strong>Complex images:</strong> Provide detailed descriptions in surrounding text or longdesc</li>
+	<li>Avoid redundant phrases like "image of" or "picture of"</li>
+</ul>
+
+<h3>Keyboard Navigation</h3>
+<p>Ensure all interactive elements are accessible via keyboard alone.</p>
+<ul>
+	<li>All links, buttons, and form controls must be keyboard accessible</li>
+	<li>Provide visible focus indicators (outline or border changes)</li>
+	<li>Ensure logical tab order matches visual order</li>
+	<li>Implement skip links for main content</li>
+	<li>Avoid keyboard traps where users cannot escape</li>
+	<li>Support standard keyboard shortcuts (Enter, Space, Arrow keys)</li>
+</ul>
+
+<h3>Color and Contrast</h3>
+<p>Don't rely solely on color to convey information, and ensure sufficient contrast.</p>
+<ul>
+	<li>Maintain contrast ratio of at least 4.5:1 for normal text (Level AA)</li>
+	<li>Maintain contrast ratio of at least 3:1 for large text (18pt+ or 14pt+ bold)</li>
+	<li>Use icons, text, or patterns in addition to color</li>
+	<li>Test with color blindness simulators</li>
+	<li>Ensure focus indicators are visible regardless of color</li>
+</ul>
+
+<h3>Form Accessibility</h3>
+<p>Forms must be properly labeled and provide clear error messaging.</p>
+<ul>
+	<li>Associate labels with form controls using the "for" attribute or implicit labeling</li>
+	<li>Use fieldset and legend for related form groups</li>
+	<li>Provide clear, specific error messages</li>
+	<li>Indicate required fields clearly</li>
+	<li>Provide helpful instructions and examples</li>
+	<li>Allow users to review and correct errors before submission</li>
+</ul>
+
+<h3>Content Structure</h3>
+<p>Well-structured content is easier to navigate and understand.</p>
+<ul>
+	<li>Use a single h1 per page</li>
+	<li>Maintain proper heading hierarchy (don't skip levels)</li>
+	<li>Use lists for list content</li>
+	<li>Break up long content with headings and sections</li>
+	<li>Use paragraphs for text blocks</li>
+	<li>Provide clear, descriptive link text (avoid "click here")</li>
+</ul>
+
+<h3>Multimedia Accessibility</h3>
+<p>Audio and video content must be accessible to all users.</p>
+<ul>
+	<li>Provide captions for all video content</li>
+	<li>Provide transcripts for audio content</li>
+	<li>Provide audio descriptions for video when visual information isn't described in audio</li>
+	<li>Ensure media players are keyboard accessible</li>
+	<li>Allow users to control playback (play, pause, stop)</li>
+</ul>
+
+<h3>Responsive and Flexible Design</h3>
+<p>Content should work across different devices and screen sizes.</p>
+<ul>
+	<li>Use relative units (em, rem, %) instead of fixed pixels</li>
+	<li>Ensure content reflows properly at different zoom levels</li>
+	<li>Test at 200% zoom level</li>
+	<li>Avoid horizontal scrolling</li>
+	<li>Ensure touch targets are at least 44x44 pixels</li>
+</ul>
+
+<h3>ARIA When Necessary</h3>
+<p>Use ARIA (Accessible Rich Internet Applications) to enhance accessibility when HTML alone isn't sufficient.</p>
+<ul>
+	<li>Use ARIA labels and descriptions when native HTML isn't enough</li>
+	<li>Use ARIA roles for custom components</li>
+	<li>Use ARIA states and properties to communicate dynamic content</li>
+	<li>Don't use ARIA when native HTML provides the same functionality</li>
+	<li>Test with screen readers to ensure ARIA is working correctly</li>
+</ul>
+
+<h3>Performance and Accessibility</h3>
+<p>Fast-loading pages benefit all users, especially those with slower connections or assistive technologies.</p>
+<ul>
+	<li>Optimize images and media files</li>
+	<li>Minimize JavaScript and CSS</li>
+	<li>Use lazy loading appropriately</li>
+	<li>Ensure critical content loads first</li>
+	<li>Test on slower connections and devices</li>
+</ul>

@@ -1,0 +1,222 @@
+<h2>Accessibility Checklists</h2>
+
+<p>Use these checklists to ensure your web projects meet accessibility standards. These can be integrated into your development workflow, design reviews, and quality assurance processes.</p>
+
+<h3>Pre-Development Checklist</h3>
+<ul>
+	<li>Accessibility requirements defined in project scope</li>
+	<li>Target conformance level established (WCAG 2.1 AA recommended)</li>
+	<li>Accessibility testing tools selected</li>
+	<li>Team members trained on accessibility basics</li>
+	<li>Accessibility included in design system/component library</li>
+	<li>Accessibility review process defined</li>
+</ul>
+
+<h3>Design Checklist</h3>
+
+<h4>Visual Design</h4>
+<ul>
+	<li>Color contrast meets WCAG AA (4.5:1 for normal text, 3:1 for large text)</li>
+	<li>Information not conveyed by color alone</li>
+	<li>Focus indicators are visible and clear</li>
+	<li>Touch targets are at least 44x44 pixels</li>
+	<li>Text is readable (minimum 16px, appropriate font choice)</li>
+	<li>Design works at 200% zoom</li>
+	<li>Design compatible with high contrast mode</li>
+</ul>
+
+<h4>Content Design</h4>
+<ul>
+	<li>Clear heading hierarchy planned</li>
+	<li>Navigation structure is logical</li>
+	<li>Form labels and instructions planned</li>
+	<li>Error states designed</li>
+	<li>Alternative text strategy defined</li>
+	<li>Multimedia accessibility planned (captions, transcripts)</li>
+</ul>
+
+<h3>Development Checklist</h3>
+
+<h4>HTML Structure</h4>
+<ul>
+	<li>Semantic HTML elements used appropriately</li>
+	<li>Single h1 per page</li>
+	<li>Proper heading hierarchy (no skipped levels)</li>
+	<li>Landmark regions used (header, nav, main, aside, footer)</li>
+	<li>Lists used for list content</li>
+	<li>Language declared on html element</li>
+</ul>
+
+<h4>Images</h4>
+<ul>
+	<li>All images have alt attributes</li>
+	<li>Decorative images have empty alt=""</li>
+	<li>Alt text is descriptive and contextual</li>
+	<li>Complex images have detailed descriptions</li>
+	<li>Images of text are avoided when possible</li>
+</ul>
+
+<h4>Forms</h4>
+<ul>
+	<li>All inputs have associated labels</li>
+	<li>Required fields are clearly indicated</li>
+	<li>Fieldset/legend used for related fields</li>
+	<li>Error messages are clear and specific</li>
+	<li>Errors are associated with form fields</li>
+	<li>Form validation is accessible</li>
+</ul>
+
+<h4>Links and Buttons</h4>
+<ul>
+	<li>Link text is descriptive and meaningful</li>
+	<li>Buttons have clear labels</li>
+	<li>All interactive elements are keyboard accessible</li>
+	<li>Focus indicators are visible</li>
+	<li>No keyboard traps</li>
+	<li>Skip links provided for main content</li>
+</ul>
+
+<h4>Keyboard Navigation</h4>
+<ul>
+	<li>All functionality available via keyboard</li>
+	<li>Logical tab order matches visual order</li>
+	<li>Focus management implemented for dynamic content</li>
+	<li>Standard keyboard shortcuts supported</li>
+	<li>Custom components support keyboard interaction</li>
+</ul>
+
+<h4>ARIA</h4>
+<ul>
+	<li>ARIA used only when HTML isn't sufficient</li>
+	<li>ARIA labels and descriptions provided where needed</li>
+	<li>ARIA roles used for custom components</li>
+	<li>ARIA states updated dynamically</li>
+	<li>ARIA tested with screen readers</li>
+</ul>
+
+<h3>Content Checklist</h3>
+<ul>
+	<li>Content is written clearly and simply</li>
+	<li>Headings organize content logically</li>
+	<li>Lists used for sequential or related items</li>
+	<li>Links are descriptive (not "click here")</li>
+	<li>Abbreviations explained on first use</li>
+	<li>Language changes indicated</li>
+	<li>Videos have captions</li>
+	<li>Audio has transcripts</li>
+	<li>Documents are accessible (PDFs, Word docs)</li>
+</ul>
+
+<h3>Testing Checklist</h3>
+
+<h4>Automated Testing</h4>
+<ul>
+	<li>Lighthouse accessibility audit run</li>
+	<li>axe DevTools scan completed</li>
+	<li>WAVE evaluation performed</li>
+	<li>HTML validation passed</li>
+	<li>No critical automated errors</li>
+</ul>
+
+<h4>Manual Testing</h4>
+<ul>
+	<li>Full keyboard navigation tested</li>
+	<li>Screen reader tested (at least one)</li>
+	<li>Tested at 200% browser zoom</li>
+	<li>Tested with browser default font sizes</li>
+	<li>High contrast mode tested</li>
+	<li>Color blindness simulator used</li>
+	<li>Mobile device tested</li>
+</ul>
+
+<h4>User Testing</h4>
+<ul>
+	<li>People with disabilities included in testing</li>
+	<li>Core user journeys tested</li>
+	<li>Feedback collected and addressed</li>
+	<li>Multiple assistive technologies tested</li>
+</ul>
+
+<h3>WCAG 2.1 Level AA Quick Checklist</h3>
+
+<h4>Perceivable</h4>
+<ul>
+	<li>Text alternatives for non-text content</li>
+	<li>Captions for prerecorded video</li>
+	<li>Audio description or media alternative for video</li>
+	<li>Information and structure not conveyed by presentation alone</li>
+	<li>Contrast ratio of at least 4.5:1 for normal text</li>
+	<li>Text can be resized up to 200%</li>
+	<li>Images of text avoided (except for logos)</li>
+</ul>
+
+<h4>Operable</h4>
+<ul>
+	<li>All functionality available via keyboard</li>
+	<li>No keyboard traps</li>
+	<li>Timing adjustable (where applicable)</li>
+	<li>Pause, stop, hide for moving/blinking content</li>
+	<li>No content that flashes more than 3 times per second</li>
+	<li>Skip links or mechanisms to bypass blocks</li>
+	<li>Page titles are descriptive</li>
+	<li>Focus order is logical</li>
+	<li>Link purpose clear from link text</li>
+	<li>Multiple ways to find pages</li>
+	<li>Headings and labels are descriptive</li>
+	<li>Focus indicators are visible</li>
+</ul>
+
+<h4>Understandable</h4>
+<ul>
+	<li>Language of page is identified</li>
+	<li>Language changes are identified</li>
+	<li>Navigation is consistent</li>
+	<li>Components with same functionality are identified consistently</li>
+	<li>Changes of context are not triggered automatically</li>
+	<li>Labels or instructions provided when content requires input</li>
+	<li>Error identification provided</li>
+	<li>Labels or instructions provided for errors</li>
+	<li>Error suggestions provided</li>
+	<li>Error prevention for legal/financial transactions</li>
+</ul>
+
+<h4>Robust</h4>
+<ul>
+	<li>Valid markup</li>
+	<li>Name, role, value for all UI components</li>
+</ul>
+
+<h3>Pre-Launch Checklist</h3>
+<ul>
+	<li>All automated tests passing</li>
+	<li>Manual testing completed</li>
+	<li>User testing with people with disabilities completed</li>
+	<li>Known issues documented with remediation plan</li>
+	<li>Accessibility statement prepared</li>
+	<li>Team trained on accessibility maintenance</li>
+	<li>Monitoring process established</li>
+</ul>
+
+<h3>Ongoing Maintenance Checklist</h3>
+<ul>
+	<li>Regular accessibility audits scheduled</li>
+	<li>New features tested for accessibility</li>
+	<li>User feedback monitored and addressed</li>
+	<li>Accessibility included in code reviews</li>
+	<li>Team kept updated on accessibility best practices</li>
+	<li>Accessibility metrics tracked</li>
+	<li>Documentation maintained</li>
+</ul>
+
+<h3>Accessibility Statement Template</h3>
+<p>Your accessibility statement should include:</p>
+<ul>
+	<li>Commitment to accessibility</li>
+	<li>Standards followed (WCAG 2.1 Level AA)</li>
+	<li>Current accessibility status</li>
+	<li>Known limitations</li>
+	<li>Feedback and contact information</li>
+	<li>Date of last review</li>
+</ul>
+
+<p>Use these checklists throughout your project lifecycle to ensure accessibility is built in from the start and maintained over time.</p>

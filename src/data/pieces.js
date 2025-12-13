@@ -16,6 +16,15 @@ import htmlArapahoe from './html/arapahoe.html?raw';
 import htmlMtHood from './html/mt-hood.html?raw';
 import htmlStarOfWonder from './html/star-of-wonder.html?raw';
 import htmlMarkovChains from './html/markov-chains.html?raw';
+import htmlAccessibilityPrinciples from './html/accessibility-principles.html?raw';
+import htmlAccessibilityStandardsCompliance from './html/accessibility-standards-compliance.html?raw';
+import htmlFundamentalAccessibilityPractices from './html/fundamental-accessibility-practices.html?raw';
+import htmlAccessibilityTestingEvaluation from './html/accessibility-testing-evaluation.html?raw';
+import htmlAccessibleUiPatterns from './html/accessible-ui-patterns.html?raw';
+import htmlAccessibilityForDevelopers from './html/accessibility-for-developers.html?raw';
+import htmlAccessibilityInDesignUx from './html/accessibility-in-design-ux.html?raw';
+import htmlAccessibleContentMedia from './html/accessible-content-media.html?raw';
+import htmlAccessibilityChecklists from './html/accessibility-checklists.html?raw';
 
 // HOW MATCHING WORKS:
 // The system matches HTML files to pieces based on the last segment of the piece's `href` path.
@@ -56,7 +65,16 @@ const htmlMap = {
 	'arapahoe': htmlArapahoe,
 	'mt-hood': htmlMtHood,
 	'star-of-wonder': htmlStarOfWonder,
-	'markov-chains': htmlMarkovChains
+	'markov-chains': htmlMarkovChains,
+	'accessibility-principles': htmlAccessibilityPrinciples,
+	'accessibility-standards-compliance': htmlAccessibilityStandardsCompliance,
+	'fundamental-accessibility-practices': htmlFundamentalAccessibilityPractices,
+	'accessibility-testing-evaluation': htmlAccessibilityTestingEvaluation,
+	'accessible-ui-patterns': htmlAccessibleUiPatterns,
+	'accessibility-for-developers': htmlAccessibilityForDevelopers,
+	'accessibility-in-design-ux': htmlAccessibilityInDesignUx,
+	'accessible-content-media': htmlAccessibleContentMedia,
+	'accessibility-checklists': htmlAccessibilityChecklists
 };
 
 // Function to merge HTML content into pieces

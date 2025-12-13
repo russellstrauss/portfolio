@@ -1,0 +1,158 @@
+<h2>Accessibility Testing & Evaluation</h2>
+
+<p>Comprehensive accessibility testing combines automated tools, manual testing, and user testing with people who have disabilities. A multi-layered approach ensures the most thorough evaluation of your digital products.</p>
+
+<h3>Automated Testing Tools</h3>
+<p>Automated tools can quickly identify many accessibility issues, but they cannot catch everything. Use them as part of a comprehensive testing strategy.</p>
+
+<h4>Browser Extensions</h4>
+<ul>
+	<li><strong>WAVE (Web Accessibility Evaluation Tool):</strong> Visual feedback on accessibility issues</li>
+	<li><strong>axe DevTools:</strong> Comprehensive automated testing with detailed reporting</li>
+	<li><strong>Lighthouse:</strong> Built into Chrome DevTools, includes accessibility audits</li>
+	<li><strong>Pa11y:</strong> Command-line tool for automated accessibility testing</li>
+	<li><strong>Accessibility Insights:</strong> Microsoft's tool for web and Windows apps</li>
+</ul>
+
+<h4>What Automated Tools Catch</h4>
+<ul>
+	<li>Missing alt text on images</li>
+	<li>Color contrast issues</li>
+	<li>Missing form labels</li>
+	<li>Missing heading structure</li>
+	<li>ARIA misuse</li>
+	<li>Keyboard navigation issues (some)</li>
+</ul>
+
+<h4>What Automated Tools Miss</h4>
+<ul>
+	<li>Meaningful alt text quality</li>
+	<li>Logical content flow</li>
+	<li>Context-dependent issues</li>
+	<li>Complex interaction patterns</li>
+	<li>User experience barriers</li>
+</ul>
+
+<h3>Manual Testing</h3>
+<p>Manual testing is essential for catching issues that automated tools cannot detect.</p>
+
+<h4>Keyboard-Only Navigation</h4>
+<ul>
+	<li>Navigate the entire site using only the keyboard (Tab, Shift+Tab, Enter, Space, Arrow keys)</li>
+	<li>Verify all interactive elements are reachable</li>
+	<li>Check for keyboard traps</li>
+	<li>Verify focus indicators are visible</li>
+	<li>Test custom components and widgets</li>
+</ul>
+
+<h4>Screen Reader Testing</h4>
+<p>Test with at least one screen reader to understand the experience for blind and low-vision users.</p>
+<ul>
+	<li><strong>NVDA (Windows, free):</strong> Popular open-source screen reader</li>
+	<li><strong>JAWS (Windows, paid):</strong> Most widely used screen reader</li>
+	<li><strong>VoiceOver (macOS/iOS, free):</strong> Built-in Apple screen reader</li>
+	<li><strong>TalkBack (Android, free):</strong> Built-in Android screen reader</li>
+</ul>
+
+<h4>Visual Testing</h4>
+<ul>
+	<li>Test at 200% browser zoom</li>
+	<li>Test with browser default font sizes</li>
+	<li>Test with high contrast mode enabled</li>
+	<li>Test with color blindness simulators</li>
+	<li>Test on different screen sizes and resolutions</li>
+</ul>
+
+<h3>User Testing with People with Disabilities</h3>
+<p>Nothing replaces testing with actual users who have disabilities. They can identify issues that automated tools and manual testing miss.</p>
+
+<h4>Recruiting Testers</h4>
+<ul>
+	<li>Work with disability advocacy organizations</li>
+	<li>Use accessibility testing services</li>
+	<li>Include people with disabilities in your regular user research</li>
+	<li>Ensure diverse representation (different disabilities, assistive technologies, experience levels)</li>
+</ul>
+
+<h4>What to Test</h4>
+<ul>
+	<li>Core user journeys and tasks</li>
+	<li>Form completion</li>
+	<li>Navigation and wayfinding</li>
+	<li>Content comprehension</li>
+	<li>Error recovery</li>
+	<li>Custom interactions and widgets</li>
+</ul>
+
+<h3>Testing Checklist</h3>
+
+<h4>Page Structure</h4>
+<ul>
+	<li>Single h1 per page</li>
+	<li>Proper heading hierarchy</li>
+	<li>Landmark regions present (header, nav, main, etc.)</li>
+	<li>Skip links functional</li>
+	<li>Page title is descriptive and unique</li>
+</ul>
+
+<h4>Images</h4>
+<ul>
+	<li>All images have appropriate alt text</li>
+	<li>Decorative images have empty alt=""</li>
+	<li>Complex images have detailed descriptions</li>
+	<li>Images of text are avoided when possible</li>
+</ul>
+
+<h4>Forms</h4>
+<ul>
+	<li>All inputs have associated labels</li>
+	<li>Required fields are clearly indicated</li>
+	<li>Error messages are clear and helpful</li>
+	<li>Form validation is accessible</li>
+	<li>Form can be completed with keyboard alone</li>
+</ul>
+
+<h4>Links and Buttons</h4>
+<ul>
+	<li>Link text is descriptive and meaningful out of context</li>
+	<li>Buttons have clear labels</li>
+	<li>All links and buttons are keyboard accessible</li>
+	<li>Focus indicators are visible</li>
+	<li>No keyboard traps</li>
+</ul>
+
+<h4>Color and Contrast</h4>
+<ul>
+	<li>Text meets contrast requirements (4.5:1 for normal text)</li>
+	<li>Information is not conveyed by color alone</li>
+	<li>Focus indicators are visible</li>
+	<li>Works in high contrast mode</li>
+</ul>
+
+<h4>Multimedia</h4>
+<ul>
+	<li>Videos have captions</li>
+	<li>Audio has transcripts</li>
+	<li>Media players are keyboard accessible</li>
+	<li>No auto-playing audio</li>
+</ul>
+
+<h3>Continuous Testing</h3>
+<p>Accessibility testing should be integrated into your development workflow, not just done at the end.</p>
+<ul>
+	<li>Run automated tests in CI/CD pipeline</li>
+	<li>Include accessibility in code review checklists</li>
+	<li>Test new features before release</li>
+	<li>Regular comprehensive audits (quarterly or bi-annually)</li>
+	<li>Monitor and fix issues found by users</li>
+</ul>
+
+<h3>Documentation and Reporting</h3>
+<p>Maintain documentation of your testing process and findings.</p>
+<ul>
+	<li>Keep records of accessibility audits</li>
+	<li>Document known issues and remediation plans</li>
+	<li>Maintain an accessibility statement</li>
+	<li>Track accessibility metrics over time</li>
+	<li>Share findings with the development team</li>
+</ul>

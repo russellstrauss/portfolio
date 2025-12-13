@@ -1,12 +1,12 @@
 	{
 		"categories": [
-			{
-				"sortOrder": "3",
-				"published": "true",
-				"title": "3D & Interactive",
-				"path": "interactive",
-				"description": ""
-			},
+		{
+			"sortOrder": "2",
+			"published": "true",
+			"title": "3D & Interactive",
+			"path": "interactive",
+			"description": ""
+		},
 			{
 				"sortOrder": "1",
 				"published": "true",
@@ -14,13 +14,13 @@
 				"path": "web-application-development",
 				"description": ""
 			},
-			{
-				"sortOrder": "4",
-				"published": "true",
-				"title": "Data Visualization",
-				"path": "data-visualization",
-				"description": ""
-			},
+		{
+			"sortOrder": "3",
+			"published": "true",
+			"title": "Data Visualization",
+			"path": "data-visualization",
+			"description": ""
+		},
 			{
 				"sortOrder": "5",
 				"published": "false",
@@ -63,12 +63,12 @@
 				"path": "mathematics",
 				"description": ""
 			},
-			{
-				"sortOrder": "2",
-				"published": "true",
-				"title": "Web Accessibility",
-				"path": "web-accessibility",
-				"description": ""
-			}
+		{
+			"sortOrder": "4",
+			"published": "false",
+			"title": "Web Accessibility",
+			"path": "web-accessibility",
+			"description": ""
+		}
 		]
 	}
