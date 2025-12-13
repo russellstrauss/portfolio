@@ -274,6 +274,11 @@
 			
 			&.grid {
 					
+				@include desktop {
+					display: flex;
+					flex-wrap: wrap;
+				}
+				
 				@include desktop-large {
 					display: flex;
 					flex-wrap: wrap;
@@ -296,8 +301,12 @@
 						margin-bottom: 100px;
 					}
 					// Extend spacing up to 1200px viewport
-					@media (min-width: 992px) and (max-width: 1200px) {
-						margin-bottom: 100px;
+					// @media (min-width: 992px) and (max-width: 1200px) {
+					// 	margin-bottom: 100px;
+					// }
+					
+					@include desktop {
+						@include grid(2, 40);
 					}
 					
 					@include desktop-large {

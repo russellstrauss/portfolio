@@ -682,6 +682,10 @@
 					]
 				}
 			]
+		},
+		{
+			"path": "web-accessibility",
+			"pieces": []
 		}
 	]
 }
