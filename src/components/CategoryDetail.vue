@@ -7,22 +7,27 @@
 						<p>{{ category.description }}</p>
 					</div>
 					
-					<transition-group :class="viewType" name="stagger-grid" tag="ul" appear :key="category.path" v-on:enter="gridItemEnter" v-on:appear="gridItemEnter" v-on:leave="gridItemLeave">
-						<li v-for="(piece, index) in pieces" :key="piece.sortOrder" class="each-piece" :style="'background-image: url(' + piece.featuredImage + ');'" :data-index="index">
-							<a :href="piece.href" :target="JSON.parse(piece.openInNewTab) ? '_blank' : '_self'" @click="handleLinkClick($event, piece.href, piece.openInNewTab)">
-								<div class="piece-details">
-									<div class="row">
-										<h2><span>{{ piece.title }}</span></h2>
-										<div class="year" v-if="piece.year">{{piece.year}}</div>
-									</div>
-									<div class="text-block" v-if="piece.description !== ''">
-										<p class="description">{{ piece.description }}</p>
-										<p class="nature-of-contributions" v-if="piece.natureOfContributions">Nature of contributions: {{ piece.natureOfContributions }}</p>
-									</div>
+				<transition-group v-if="allPiecesLackFeaturedImages" :class="'category-list'" name="stagger-list" tag="ul" appear :key="category.path" v-on:enter="menuItemEnter" v-on:leave="menuItemLeave">
+					<li v-for="(piece, index) in pieces" :key="piece.sortOrder" class="category" :data-index="index">
+						<a :href="piece.href" :target="JSON.parse(piece.openInNewTab) ? '_blank' : '_self'" @click="handleLinkClick($event, piece.href, piece.openInNewTab)">{{ piece.title }}</a>
+					</li>
+				</transition-group>
+				<transition-group v-else :class="viewType" name="stagger-grid" tag="ul" appear :key="category.path" v-on:enter="gridItemEnter" v-on:appear="gridItemEnter" v-on:leave="gridItemLeave">
+					<li v-for="(piece, index) in pieces" :key="piece.sortOrder" class="each-piece" :style="'background-image: url(' + piece.featuredImage + ');'" :data-index="index">
+						<a :href="piece.href" :target="JSON.parse(piece.openInNewTab) ? '_blank' : '_self'" @click="handleLinkClick($event, piece.href, piece.openInNewTab)">
+							<div class="piece-details">
+								<div class="row">
+									<h2><span>{{ piece.title }}</span></h2>
+									<div class="year" v-if="piece.year">{{piece.year}}</div>
 								</div>
-							</a>
-						</li>
-					</transition-group>
+								<div class="text-block" v-if="piece.description !== ''">
+									<p class="description">{{ piece.description }}</p>
+									<p class="nature-of-contributions" v-if="piece.natureOfContributions">Nature of contributions: {{ piece.natureOfContributions }}</p>
+								</div>
+							</div>
+						</a>
+					</li>
+				</transition-group>
 			</div>
 		</div>
 	</Layout>
@@ -51,6 +56,13 @@
 				viewType: 'grid', // grid or list
 				lastCategoryPath: null
 			};
+		},
+
+		computed: {
+			allPiecesLackFeaturedImages: function() {
+				if (!this.pieces || this.pieces.length === 0) return false;
+				return this.pieces.every(piece => !piece.featuredImage || piece.featuredImage === '' || piece.featuredImage === null || piece.featuredImage === undefined);
+			}
 		},
 
 		methods: {
@@ -111,21 +123,41 @@
 						
 						// Ensure all elements start hidden after they're rendered, then animate in
 						self.$nextTick(() => {
-							const gridElements = self.$el.querySelectorAll('.each-piece');
-							// First, explicitly remove active class to ensure hidden state
-							gridElements.forEach((element) => {
-								element.classList.remove('active');
-							});
-							// Force a reflow to ensure the hidden state is applied
-							void self.$el.offsetHeight;
-							// Then trigger the enter animation
-							gridElements.forEach((element) => {
-								const index = parseInt(element.dataset.index) || 0;
-								const delay = index * 75;
-								setTimeout(() => {
-									element.classList.add('active');
-								}, delay);
-							});
+							if (self.allPiecesLackFeaturedImages) {
+								const categoryElements = self.$el.querySelectorAll('.category');
+								categoryElements.forEach((element) => {
+									element.classList.remove('active');
+									element.style.opacity = '0';
+									element.style.marginLeft = '20px';
+								});
+								void self.$el.offsetHeight;
+								requestAnimationFrame(() => {
+									categoryElements.forEach((element) => {
+										element.style.opacity = '';
+										element.style.marginLeft = '';
+									});
+									categoryElements.forEach((element) => {
+										const index = parseInt(element.dataset.index) || 0;
+										const delay = index * 75;
+										setTimeout(() => {
+											element.classList.add('active');
+										}, delay);
+									});
+								});
+							} else {
+								const gridElements = self.$el.querySelectorAll('.each-piece');
+								gridElements.forEach((element) => {
+									element.classList.remove('active');
+								});
+								void self.$el.offsetHeight;
+								gridElements.forEach((element) => {
+									const index = parseInt(element.dataset.index) || 0;
+									const delay = index * 75;
+									setTimeout(() => {
+										element.classList.add('active');
+									}, delay);
+								});
+							}
 						});
 					})
 					.catch(function (error) {
@@ -134,26 +166,43 @@
 			},
 
 			animateGridItems: function() {
-				// Remove active class from all grid items first
-				const gridElements = this.$el.querySelectorAll('.each-piece');
-				gridElements.forEach((element) => {
-					element.classList.remove('active');
-				});
-				
-				// Force a reflow to ensure the hidden state is applied
-				void this.$el.offsetHeight;
-				
-				// Use requestAnimationFrame to ensure the browser has processed the CSS change
-				requestAnimationFrame(() => {
-					// Then re-trigger the enter animation
-					gridElements.forEach((element) => {
-						const index = parseInt(element.dataset.index) || 0;
-						const delay = index * 75;
-						setTimeout(() => {
-							element.classList.add('active');
-						}, delay);
+				if (this.allPiecesLackFeaturedImages) {
+					const categoryElements = this.$el.querySelectorAll('.category');
+					categoryElements.forEach((element) => {
+						element.classList.remove('active');
+						element.style.opacity = '0';
+						element.style.marginLeft = '20px';
 					});
-				});
+					void this.$el.offsetHeight;
+					requestAnimationFrame(() => {
+						categoryElements.forEach((element) => {
+							element.style.opacity = '';
+							element.style.marginLeft = '';
+						});
+						categoryElements.forEach((element) => {
+							const index = parseInt(element.dataset.index) || 0;
+							const delay = index * 75;
+							setTimeout(() => {
+								element.classList.add('active');
+							}, delay);
+						});
+					});
+				} else {
+					const gridElements = this.$el.querySelectorAll('.each-piece');
+					gridElements.forEach((element) => {
+						element.classList.remove('active');
+					});
+					void this.$el.offsetHeight;
+					requestAnimationFrame(() => {
+						gridElements.forEach((element) => {
+							const index = parseInt(element.dataset.index) || 0;
+							const delay = index * 75;
+							setTimeout(() => {
+								element.classList.add('active');
+							}, delay);
+						});
+					});
+				}
 			},
 
 			gridItemEnter: function (element, done) {
@@ -175,6 +224,31 @@
 				setTimeout(function () {
 					element.classList.remove('active');
 				}, delay);
+			},
+
+			menuItemEnter: function (element, done) {
+				if (!element || !element.dataset) return;
+				element.classList.remove('active');
+				element.style.opacity = '0';
+				element.style.marginLeft = '20px';
+				void element.offsetHeight;
+				var delay = element.dataset.index * 75;
+				setTimeout(function () {
+					element.style.opacity = '';
+					element.style.marginLeft = '';
+					element.classList.add('active');
+					if (done) done();
+				}, delay);
+			},
+
+			menuItemLeave: function (element) {
+				if (!element || !element.dataset) return;
+				var delay = element.dataset.index * 75;
+				setTimeout(function () {
+					element.classList.remove('active');
+					element.style.opacity = '0';
+					element.style.marginLeft = '20px';
+				}, delay);
 			}
 
 		},
@@ -183,7 +257,7 @@
 			// Immediately hide items when navigating to a different category
 			if (to.params.category !== from.params.category) {
 				if (this.$el) {
-					const gridElements = this.$el.querySelectorAll('.each-piece');
+					const gridElements = this.$el.querySelectorAll('.each-piece, .category');
 					gridElements.forEach((element) => {
 						element.classList.remove('active');
 					});
@@ -200,7 +274,7 @@
 			// This hook is called when a kept-alive component is activated
 			// Immediately hide items first
 			if (this.$el) {
-				const gridElements = this.$el.querySelectorAll('.each-piece');
+				const gridElements = this.$el.querySelectorAll('.each-piece, .category');
 				gridElements.forEach((element) => {
 					element.classList.remove('active');
 				});
@@ -220,7 +294,7 @@
 				if (newCategory !== oldCategory) {
 					// Immediately hide items first (synchronously)
 					if (this.$el) {
-						const gridElements = this.$el.querySelectorAll('.each-piece');
+						const gridElements = this.$el.querySelectorAll('.each-piece, .category');
 						gridElements.forEach((element) => {
 							element.classList.remove('active');
 						});
@@ -231,7 +305,7 @@
 					// Same category, just re-animate (e.g., navigating back)
 					// Immediately hide items first (synchronously)
 					if (this.$el) {
-						const gridElements = this.$el.querySelectorAll('.each-piece');
+						const gridElements = this.$el.querySelectorAll('.each-piece, .category');
 						gridElements.forEach((element) => {
 							element.classList.remove('active');
 						});
@@ -266,6 +340,30 @@
 		
 		.category-description {
 			margin-bottom: 50px;
+		}
+		
+		.category-list {
+			.category {
+				@include heading-font;
+				margin-bottom: 20px;
+				opacity: 0;
+				margin-left: 20px;
+				transition: opacity 600ms ease, margin-left 400ms ease;
+				list-style-type: none;
+
+				&.active {
+					opacity: 1;
+					margin-left: 0;
+				}
+
+				a {
+					text-decoration: none;
+					
+					&:hover {
+						color: $hover-color;
+					}
+				}
+			}
 		}
 		
 		ul {

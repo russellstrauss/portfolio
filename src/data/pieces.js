@@ -18,6 +18,7 @@ import htmlStarOfWonder from './html/star-of-wonder.html?raw';
 import htmlMarkovChains from './html/markov-chains.html?raw';
 import htmlAccessibilityPrinciples from './html/accessibility-principles.html?raw';
 import htmlAccessibilityStandardsCompliance from './html/accessibility-standards-compliance.html?raw';
+import htmlLegalRequirements from './html/legal-requirements.html?raw';
 import htmlFundamentalAccessibilityPractices from './html/fundamental-accessibility-practices.html?raw';
 import htmlAccessibilityTestingEvaluation from './html/accessibility-testing-evaluation.html?raw';
 import htmlAccessibleUiPatterns from './html/accessible-ui-patterns.html?raw';
@@ -50,6 +51,32 @@ function getHtmlKeyFromHref(href) {
 	return lastSegment.toLowerCase();
 }
 
+// Function to process code blocks in HTML content
+// Converts <!--CODE:language-->...code...<!--/CODE--> patterns into Prism.js code blocks
+function processCodeBlocks(htmlContent) {
+	if (!htmlContent) return htmlContent;
+	
+	// Pattern to match: <!--CODE:language-->...code...<!--/CODE-->
+	// Uses non-greedy matching ([\s\S]*?) to match across multiple lines
+	const codeBlockPattern = /<!--CODE:(\w+)-->([\s\S]*?)<!--\/CODE-->/g;
+	
+	return htmlContent.replace(codeBlockPattern, (match, language, code) => {
+		// Trim leading/trailing whitespace from the code
+		const trimmedCode = code.trim();
+		
+		// Escape HTML entities in the code
+		const escapedCode = trimmedCode
+			.replace(/&/g, '&amp;')
+			.replace(/</g, '&lt;')
+			.replace(/>/g, '&gt;')
+			.replace(/"/g, '&quot;')
+			.replace(/'/g, '&#39;');
+		
+		// Return Prism.js formatted code block
+		return `<pre><code class="language-${language}">${escapedCode}</code></pre>`;
+	});
+}
+
 // Map of href keys to HTML content
 const htmlMap = {
 	'3dj': html3dj,
@@ -68,6 +95,7 @@ const htmlMap = {
 	'markov-chains': htmlMarkovChains,
 	'accessibility-principles': htmlAccessibilityPrinciples,
 	'accessibility-standards-compliance': htmlAccessibilityStandardsCompliance,
+	'legal-requirements': htmlLegalRequirements,
 	'fundamental-accessibility-practices': htmlFundamentalAccessibilityPractices,
 	'accessibility-testing-evaluation': htmlAccessibilityTestingEvaluation,
 	'accessible-ui-patterns': htmlAccessibleUiPatterns,
@@ -85,10 +113,13 @@ function mergeHtmlIntoPieces(categories) {
 			const htmlKey = getHtmlKeyFromHref(piece.href);
 			const htmlContent = htmlKey && htmlMap[htmlKey];
 			
-			// Always set rawHTML: use HTML file if it exists, otherwise use empty string
+			// Process code blocks in the HTML content before setting rawHTML
+			const processedHtml = htmlContent ? processCodeBlocks(htmlContent) : '';
+			
+			// Always set rawHTML: use processed HTML file if it exists, otherwise use empty string
 			return {
 				...piece,
-				rawHTML: htmlContent || ''
+				rawHTML: processedHtml || ''
 			};
 		})
 	}));

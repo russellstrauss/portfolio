@@ -10,8 +10,6 @@
 				<div v-if="details.codeBlocks">
 					<CodeBlock v-for="codeBlock in details.codeBlocks" :key="codeBlock.src" :src="codeBlock.src" :pretext="codeBlock.pretext" :posttext="codeBlock.posttext"></CodeBlock>
 				</div>
-
-				<!-- <canvas data-processing-sources="/code/interactive/cg/fermat.pde"></canvas> -->
 			</div>
 		</div>
 	</Layout>
@@ -23,12 +21,6 @@
 	import CodeBlock from './CodeBlock.vue';
 	import PageTitle from './PageTitle.vue';
 	import piecesData from '@/data/pieces.js';
-	
-	// Note: linear-algebra is imported but Vector/Matrix may not be used in this component
-	// If needed, uncomment and use dynamic import:
-	// const linearAlgebra = (await import('linear-algebra')).default();
-	// const Vector = linearAlgebra.Vector;
-	// const Matrix = linearAlgebra.Matrix;
 	
 	export default {
 		

@@ -1,42 +1,224 @@
-<h2>Core Principles of Web Accessibility</h2>
+<p>
+	Web accessibility is guided by four foundational principles defined by the
+	Web Content Accessibility Guidelines (WCAG): Perceivable, Operable,
+	Understandable, and Robust (POUR).
+</p>
 
-<p>Web accessibility is built on four foundational principles established by the Web Content Accessibility Guidelines (WCAG). These principles ensure that digital content is perceivable, operable, understandable, and robust for all users, regardless of their abilities or the technologies they use.</p>
 
-<h3>Perceivable</h3>
-<p>Information and user interface components must be presentable to users in ways they can perceive. This means content cannot be invisible to all of their senses. Key considerations include:</p>
-<ul>
-	<li>Providing text alternatives for non-text content (images, audio, video)</li>
-	<li>Creating content that can be presented in different ways without losing information or structure</li>
-	<li>Making it easier for users to see and hear content, including separating foreground from background</li>
-	<li>Ensuring sufficient color contrast and not relying solely on color to convey information</li>
-</ul>
+<section>
+	<h2>Perceivable</h2>
 
-<h3>Operable</h3>
-<p>User interface components and navigation must be operable. Users must be able to interact with all interface elements, regardless of their input method. This includes:</p>
-<ul>
-	<li>Making all functionality available from a keyboard</li>
-	<li>Providing users enough time to read and use content</li>
-	<li>Not designing content in a way that is known to cause seizures or physical reactions</li>
-	<li>Providing ways to help users navigate, find content, and determine where they are</li>
-</ul>
+	<p>
+		Users must be able to perceive the information being presented. Content
+		cannot be invisible to all of a user’s senses and must not rely on a single
+		sensory method such as sight or hearing.
+	</p>
 
-<h3>Understandable</h3>
-<p>Information and the operation of user interface must be understandable. Content and interface must be clear and predictable. This involves:</p>
-<ul>
-	<li>Making text content readable and understandable</li>
-	<li>Making web pages appear and operate in predictable ways</li>
-	<li>Helping users avoid and correct mistakes</li>
-	<li>Using clear language and providing explanations for complex content</li>
-</ul>
+	<section>
+		<h3>WCAG Conformance Levels</h3>
+		<ul>
+			<li>Level A: Text alternatives, adaptable content</li>
+			<li>Level AA: Color contrast, text resizing</li>
+			<li>Level AAA: Enhanced contrast, sign language interpretation</li>
+		</ul>
+	</section>
 
-<h3>Robust</h3>
-<p>Content must be robust enough that it can be interpreted reliably by a wide variety of user agents, including assistive technologies. This means:</p>
-<ul>
-	<li>Maximizing compatibility with current and future user tools</li>
-	<li>Using valid, semantic HTML</li>
-	<li>Ensuring proper markup and structure</li>
-	<li>Following web standards and best practices</li>
-</ul>
+	<section>
+		<h3>Real-World Examples</h3>
+		<ul>
+			<li>A screen reader announces meaningful descriptions for images</li>
+			<li>A color-blind user understands errors without relying on color</li>
+			<li>A low-vision user zooms text without layout breaking</li>
+		</ul>
+	</section>
 
-<h2>Why These Principles Matter</h2>
-<p>These principles form the foundation of inclusive design, ensuring that digital experiences are accessible to people with disabilities, including those who use assistive technologies like screen readers, voice recognition software, or alternative input devices. By following these principles, we create products that are not only legally compliant but also more usable for everyone.</p>
+	<section>
+		<h3>Code Examples</h3>
+
+		<!--CODE:markup-->
+		<img src="submit-icon.png" alt="Submit form">
+		<!--/CODE-->
+
+		<!--CODE:markup-->
+		<img src="divider.png" alt="">
+		<!--/CODE-->
+
+		<!--CODE:markup-->
+		<p><strong>Error:</strong> Your password must be at least 8 characters long.</p>
+		<!--/CODE-->
+
+	</section>
+</section>
+
+<section>
+	<h2>Operable</h2>
+
+	<p>
+		User interface components and navigation must be operable. Users must be
+		able to interact with the interface regardless of input method.
+	</p>
+
+	<section>
+		<h3>WCAG Conformance Levels</h3>
+		<ul>
+			<li>Level A: Keyboard access, no keyboard traps</li>
+			<li>Level AA: Visible focus, consistent navigation</li>
+			<li>Level AAA: No time limits, enhanced navigation</li>
+		</ul>
+	</section>
+
+	<section>
+		<h3>Real-World Examples</h3>
+		<ul>
+			<li>A keyboard-only user navigates all controls</li>
+			<li>A user skips repetitive navigation with a skip link</li>
+			<li>A motor-impaired user avoids time-sensitive interactions</li>
+		</ul>
+	</section>
+
+	<section>
+		<h3>Code Examples</h3>
+
+		<!--CODE:markup-->
+		<a href="#main-content">Skip to main content</a>
+		<!--/CODE-->
+
+		<!--CODE:markup-->
+		<button type="button">Save changes</button>
+		<!--/CODE-->
+
+		<!--CODE:markup-->
+		<header>
+			<nav>
+				<ul>
+					<li><a href="/about">About</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<main id="main-content">
+			<h1>Page Title</h1>
+		</main>
+		<!--/CODE-->
+
+	</section>
+</section>
+
+<section>
+	<h2>Understandable</h2>
+
+	<p>
+		Information and the operation of the interface must be understandable.
+		Content should be clear, predictable, and supported with helpful feedback.
+	</p>
+
+	<section>
+		<h3>WCAG Conformance Levels</h3>
+		<ul>
+			<li>Level A: Language identification, clear labels</li>
+			<li>Level AA: Consistent navigation, error identification</li>
+			<li>Level AAA: Simplified language, extended help</li>
+		</ul>
+	</section>
+
+	<section>
+		<h3>Real-World Examples</h3>
+		<ul>
+			<li>Users understand form instructions easily</li>
+			<li>Error messages explain what went wrong</li>
+			<li>Navigation behaves consistently across pages</li>
+		</ul>
+	</section>
+
+	<section>
+		<h3>Code Examples</h3>
+
+		<!--CODE:markup-->
+		<html lang="en">
+		<!--/CODE-->
+
+		<!--CODE:markup-->
+		<label for="email">Email address</label>
+		<input type="email" id="email" name="email">
+		<!--/CODE-->
+
+		<!--CODE:markup-->
+		<p>
+			Error: Please enter a valid email address (example: name@example.com).
+		</p>
+		<!--/CODE-->
+
+	</section>
+</section>
+
+<section>
+	<h2>Robust</h2>
+
+	<p>
+		Content must be robust enough to be interpreted reliably by a wide range of
+		user agents, including assistive technologies, now and in the future.
+	</p>
+
+	<section>
+		<h3>WCAG Conformance Levels</h3>
+		<ul>
+			<li>Level A: Compatibility with assistive technologies</li>
+			<li>Level AA: Proper parsing and structure</li>
+			<li>Level AAA: Limited enhanced compatibility criteria</li>
+		</ul>
+	</section>
+
+	<section>
+		<h3>Real-World Examples</h3>
+		<ul>
+			<li>Screen readers announce headings and landmarks correctly</li>
+			<li>Voice control activates buttons reliably</li>
+			<li>Future browsers interpret content without breaking</li>
+		</ul>
+	</section>
+
+	<section>
+		<h3>Code Examples</h3>
+
+		<!--CODE:markup-->
+		<article>
+			<h2>Accessibility Overview</h2>
+			<p>This section explains the fundamentals of accessibility.</p>
+		</article>
+		<!--/CODE-->
+
+		<!--CODE:markup-->
+		<button type="submit">Submit</button>
+		<!--/CODE-->
+
+		<!--CODE:markup-->
+		<nav aria-label="Primary navigation">
+			<ul>
+				<li><a href="/">Home</a></li>
+			</ul>
+		</nav>
+		<!--/CODE-->
+
+		<!--CODE:markup-->
+		<!-- ❌ Avoid -->
+		<div role="button">Click me</div>
+
+		<!-- ✅ Prefer -->
+		<button>Click me</button>
+		<!--/CODE-->
+
+	</section>
+</section>
+
+<section>
+	<h2>Why These Principles Matter</h2>
+	<p>
+		The POUR principles form the foundation of inclusive design. They help
+		ensure that digital experiences are accessible, usable, and resilient for
+		people with disabilities and for all users in varied contexts.
+	</p>
+	<p>
+		Applying these principles improves usability, reduces legal risk, and
+		results in cleaner, more maintainable code.
+	</p>
+</section>

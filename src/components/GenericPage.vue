@@ -60,8 +60,9 @@
 					let newDetails = category[0].pieces.filter(details => details.href === self.$route.path)[0];
 					if (newDetails) {
 						self.details = newDetails;
-						// Re-run MathJax after content updates
+						// Re-run syntax highlighting and MathJax after content updates
 						self.$nextTick(() => {
+							Prism.highlightAll();
 							MathJax.typeset();
 						});
 					}
@@ -71,6 +72,7 @@
 
 		mounted: function () {
 			this.loadDetails();
+			Prism.highlightAll();
 			MathJax.typeset();
 		},
 
