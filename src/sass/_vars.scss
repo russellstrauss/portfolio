@@ -2,6 +2,18 @@ $img-path: "";
 $link-color: #777;
 $hover-color: #26ADE4;
 
+// Typography scale (modular scale with 1.25 ratio - Major Third)
+// Base font size: 1rem = 16px (browser default)
+$font-size-base: 1rem; // 16px
+$font-size-xs: 0.625rem; // 10px
+$font-size-sm: 0.875rem; // 14px
+$font-size-md: 1rem; // 16px
+$font-size-lg: 1.125rem; // 18px
+$font-size-xl: 1.375rem; // 22px
+$font-size-2xl: 1.75rem; // 28px
+$font-size-3xl: 1.875rem; // 30px
+$font-size-4xl: 2rem; // 32px
+
 // transition easing
 $ease-in-out-sine: cubic-bezier(0.445, 0.05, 0.55, 0.95);
 $ease-in-out-quadratic: cubic-bezier(0.455, 0.03, 0.515, 0.955);

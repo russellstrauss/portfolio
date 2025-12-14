@@ -299,6 +299,7 @@
 	
 	.category-list {
 		
+		
 		.category {
 			@include heading-font;
 			margin-bottom: 20px;

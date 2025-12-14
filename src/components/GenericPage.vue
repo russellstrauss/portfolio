@@ -27,7 +27,7 @@
 
 <script>
 	
-	import piecesData from '@/data/pieces.js';
+	import piecesData from '@/data/data_preprocessing.js';
 	import Layout from './Layout.vue';
 	import PDFViewer from '@/components/PDFViewer.vue';
 	import PageTitle from '@/components/PageTitle.vue';
@@ -95,6 +95,78 @@
 			
 			div *:last-child {
 				margin-bottom: 0;
+			}
+
+			h2 {
+				margin-top: 20px;
+			}
+
+			ul, ol {
+				margin: 20px 0 20px 20px;
+
+				li {
+					padding-left: 5px;
+					margin-bottom: 5px;
+				}
+			}
+
+			ol {
+				&.horizontal {
+					display: flex;
+					justify-content: space-between;
+					padding: 0;
+
+					li {
+						margin: 0;
+					}
+				}
+
+				li {
+					list-style-type: decimal;
+				}
+			}
+
+			ul {
+				&.no-bullets {
+
+					li {
+						list-style-type: none;
+					}
+				}
+
+				&.horizontal {
+					display: flex;
+					justify-content: space-between;
+					
+
+					li {
+						margin: 0;
+					}
+				}
+			}
+
+			hr {
+				border: 0;
+				background-color: white;
+				height: 1px;
+				margin: 50px 0;
+			}
+
+			table {
+				width: 100%;
+				margin-bottom: 20px;
+				
+				tr {
+					td {
+						font-size: .75rem;
+						border: 1px solid white;
+						padding: 5px;
+
+						ul {
+							margin: 0 0 20px 0;
+						}
+					}
+				}
 			}
 		}
 	}

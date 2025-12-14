@@ -1,224 +1,315 @@
-<p>
-	Web accessibility is guided by four foundational principles defined by the
-	Web Content Accessibility Guidelines (WCAG): Perceivable, Operable,
-	Understandable, and Robust (POUR).
-</p>
-
-
 <section>
-	<h2>Perceivable</h2>
-
+	<h2>General Principles of Web Accessibility</h2>
 	<p>
-		Users must be able to perceive the information being presented. Content
-		cannot be invisible to all of a user’s senses and must not rely on a single
-		sensory method such as sight or hearing.
+		Web accessibility is the practice of ensuring that our content and applications contain no barriers across the web 
+		and across all members of our society. Web accessibility generally aims to provide accomodations for humans with disabilities, 
+		medical considerations, or lack of access to socioeconomic status. If our society is to demand that these technologies are 
+		required by all for everyday participation, it's only fair that we provide ways for everyone to access it.
 	</p>
 
-	<section>
-		<h3>WCAG Conformance Levels</h3>
-		<ul>
-			<li>Level A: Text alternatives, adaptable content</li>
-			<li>Level AA: Color contrast, text resizing</li>
-			<li>Level AAA: Enhanced contrast, sign language interpretation</li>
-		</ul>
-	</section>
+	<h3>WCAG: Web Content Accessibility Guidelines</h3>
+	<p>
+		The World Wide Web Consortium (W3C) is the primary international standards organization that drafts and expands technical
+		speciications for the World Wide Web. The W3C was founded in 1994 by Time Berners-Lee. The W3C serves as an open forum for 
+		developing and maintaining standards across the web. 
+	</p>
+	<p>
+		The W3C maintains many open standards including <strong>Web Content Accessibility Guidelines (WCAG)</strong>. The WCAG is 
+		a set of recommendations for improving web accessibility. <strong>WCAG 2.0</strong> was released in December 2008 and became
+		an international standard in October 2012.  <strong>WCAG 2.2</strong> was released in October 2023. WCAG Version 3 is currently
+		under development.
+	</p>
 
-	<section>
-		<h3>Real-World Examples</h3>
-		<ul>
-			<li>A screen reader announces meaningful descriptions for images</li>
-			<li>A color-blind user understands errors without relying on color</li>
-			<li>A low-vision user zooms text without layout breaking</li>
-		</ul>
-	</section>
+	<h3>WCAG Conformance Levels</h3>
+	<table>
+		<tr>
+			<td>Level A</td>
+			<td>Level AA</td>
+			<td>Level AAA</td>
+		</tr>
+		<tr>
+			<td>The basic level, satisfying essential accessibility needs.</td>
+			<td>The most common standard, which includes addressing common barriers like color contrast and resizable text.</td>
+			<td>The highest standard, criteria for the most advanced accessibility, including sign language interpretation and higher contrast ratios.</td>
+		</tr>
+	</table>
 
-	<section>
-		<h3>Code Examples</h3>
-
-		<!--CODE:markup-->
-		<img src="submit-icon.png" alt="Submit form">
-		<!--/CODE-->
-
-		<!--CODE:markup-->
-		<img src="divider.png" alt="">
-		<!--/CODE-->
-
-		<!--CODE:markup-->
-		<p><strong>Error:</strong> Your password must be at least 8 characters long.</p>
-		<!--/CODE-->
-
-	</section>
+	<h3>POUR</h3>
+	<p>	
+		Web accessibility is guided by four foundational principles defined by the
+		Web Content Accessibility Guidelines:
+	</p>
+	<ol class="horizontal">
+		<li>Perceivable</li>
+		<li>Operable</li>
+		<li>Understandable</li>
+		<li>Robust</li>
+	</ol>
 </section>
 
-<section>
-	<h2>Operable</h2>
+<hr>
 
+<section>
+	<h3>Perceivable: Easy to Perceive</h3>
 	<p>
-		User interface components and navigation must be operable. Users must be
-		able to interact with the interface regardless of input method.
+		Perceivable means accessible across differences in human senses.Users must be able to perceive the information 
+		being presented. Content cannot be invisible to all of a user's senses and must not rely on a single
+		sensory method such as sight or hearing. Perceivable includes requirements for audio/video captions, text description 
+		for images, and levels of contrast.
 	</p>
 
-	<section>
-		<h3>WCAG Conformance Levels</h3>
-		<ul>
-			<li>Level A: Keyboard access, no keyboard traps</li>
-			<li>Level AA: Visible focus, consistent navigation</li>
-			<li>Level AAA: No time limits, enhanced navigation</li>
-		</ul>
-	</section>
+	<h4>WCAG Conformance Levels for Perceivability</h4>
 
-	<section>
-		<h3>Real-World Examples</h3>
-		<ul>
-			<li>A keyboard-only user navigates all controls</li>
-			<li>A user skips repetitive navigation with a skip link</li>
-			<li>A motor-impaired user avoids time-sensitive interactions</li>
-		</ul>
-	</section>
-
-	<section>
-		<h3>Code Examples</h3>
-
-		<!--CODE:markup-->
-		<a href="#main-content">Skip to main content</a>
-		<!--/CODE-->
-
-		<!--CODE:markup-->
-		<button type="button">Save changes</button>
-		<!--/CODE-->
-
-		<!--CODE:markup-->
-		<header>
-			<nav>
+	<table>
+		<tr>
+			<td>Level A</td>
+			<td>Level AA</td>
+			<td>Level AAA</td>
+		</tr>
+		<tr>
+			<td>
 				<ul>
-					<li><a href="/about">About</a></li>
+					<li>text alternatives</li>
+					<li>adaptable content</li>
 				</ul>
-			</nav>
-		</header>
+			</td>
+			<td>
+				<ul>
+					<li>color contrast</li>
+					<li>text resizing</li>
+				</ul>
+			</td>
+			<td>
+				<ul>
+					<li>enhanced contrast</li>
+					<li>sign language interpretation</li>
+				</ul>
+			</td>
+		</tr>
+	</table>
 
-		<main id="main-content">
-			<h1>Page Title</h1>
-		</main>
-		<!--/CODE-->
+	<h3>Real World Examples</h3>
+	<ul>
+		<li>A screen reader announces meaningful descriptions for images</li>
+		<li>A color-blind user understands errors without relying on color</li>
+		<li>A low-vision user zooms text without breaking the layout</li>
+	</ul>
 
-	</section>
+	<h3>Code Examples</h3>
+
+	<!--CODE:markup-->
+	<img src="submit-icon.png" alt="Submit form">
+	<!--/CODE-->
+	<p>An icon describes the function it visually represents through alternative text.</p>
+	<!--CODE:markup-->
+	<img src="divider.png" alt="">
+	<!--/CODE-->
+	<p>This image uses an empty alt attribute to indicate that the image is decorative and does not convey meaningful content. When alt="" is present, screen readers skip the image entirely, allowing users to move through the page without hearing unnecessary or distracting information.</p>
+	<!--CODE:markup-->
+	<p><strong>Error:</strong> Your password must be at least 8 characters long.</p>
+	<!--/CODE-->
+	<p>This form error message provides a description of the problem instead of relying on a red color. The descriptive message can be read by a screen reader.</p>
+
+	<hr>
+
+	<h3>Operable: Easy to Operate</h3>
+
+	<p>
+		User interface components and navigation should be able to be controlled. Users must be
+		able to interact with the interface regardless of input method or device.
+	</p>
+
+
+	<h4>WCAG Conformance Levels for Operability</h4>
+
+	<table>
+		<tr>
+			<td>Level A</td>
+			<td>Level AA</td>
+			<td>Level AAA</td>
+		</tr>
+		<tr>
+			<td>
+				<ul>
+					<li>keyboard access</li>
+					<li>no keyboard traps</li>
+				</ul>
+			</td>
+			<td>
+				<ul>
+					<li>visible focus state</li>
+					<li>consistent navigation</li>
+				</ul>
+			</td>
+			<td>
+				<ul>
+					<li>no time limits</li>
+					<li>enhanced navigation</li>
+				</ul>
+			</td>
+		</tr>
+	</table>
+
+	<h3>Real World Examples</h3>
+	<ul>
+		<li>A keyboard-only user navigates all controls</li>
+		<li>A user skips repetitive navigation with a skip link</li>
+		<li>A motor-impaired user avoids time-sensitive interactions</li>
+	</ul>
+
+	<h3>Code Examples</h3>
+
+	<!--CODE:markup-->
+	<a href="#main-content">Skip to main content</a>
+	<!--/CODE-->
+	<p>The Skip to Main Content function allows users to bypass intricate navigations for tab structure and pass straight to the page's main content. This prevents them from getting trapped deep in menus at the top of the page every time a new page loads.</p>
+	<!--CODE:markup-->
+	<button type="button">Save changes</button>
+	<!--/CODE-->
+	<p>The button element and its text use semantic markup. This markup describes itself clearly without using generic HTML elements. The button element signifies an action and the description of that action is contained within the button's text. Button actions can be triggered by the keyboard with Tab and Enter or Space. The type="button" attribute prevents the button from submitting a form by default since its purpose it to save instead. </p>
+	<!--CODE:markup-->
+	<main id="main-content">
+		<h1>Page Title</h1>
+	</main>
+	<!--/CODE-->
+	<p>Semantic markup: the Main element defines the primary content region of the page. This provides navigation for assistive technologies and users.</p>
 </section>
 
+<hr>
+
 <section>
-	<h2>Understandable</h2>
+	<h3>Understandable: Easy to Understand</h3>
 
 	<p>
-		Information and the operation of the interface must be understandable.
-		Content should be clear, predictable, and supported with helpful feedback.
+		It should be easy for people to complete tasks and understand the information presented. This can be done with consistent design, understandble language, and a tolerance for human error.
 	</p>
 
-	<section>
-		<h3>WCAG Conformance Levels</h3>
-		<ul>
-			<li>Level A: Language identification, clear labels</li>
-			<li>Level AA: Consistent navigation, error identification</li>
-			<li>Level AAA: Simplified language, extended help</li>
-		</ul>
-	</section>
+	<h4>WCAG Conformance Levels for Understandability</h4>
+	<table>
+		<tr>
+			<td>Level A</td>
+			<td>Level AA</td>
+			<td>Level AAA</td>
+		</tr>
+		<tr>
+			<td>
+				<ul>
+					<li>language identification</li>
+					<li>clear labels</li>
+				</ul>
+			</td>
+			<td>
+				<ul>
+					<li>consistent navigation</li>
+					<li>error identification</li>
+				</ul>
+			</td>
+			<td>
+				<ul>
+					<li>simplified language</li>
+					<li>extended help</li>
+				</ul>
+			</td>
+		</tr>
+	</table>
 
-	<section>
-		<h3>Real-World Examples</h3>
-		<ul>
-			<li>Users understand form instructions easily</li>
-			<li>Error messages explain what went wrong</li>
-			<li>Navigation behaves consistently across pages</li>
-		</ul>
-	</section>
+	<h3>Real World Examples</h3>
+	<ul>
+		<li>Users understand form instructions easily</li>
+		<li>Error messages explain what went wrong</li>
+		<li>Navigation behaves consistently across pages</li>
+	</ul>
 
-	<section>
-		<h3>Code Examples</h3>
+	<h3>Code Examples</h3>
 
-		<!--CODE:markup-->
-		<html lang="en">
-		<!--/CODE-->
-
-		<!--CODE:markup-->
-		<label for="email">Email address</label>
-		<input type="email" id="email" name="email">
-		<!--/CODE-->
-
-		<!--CODE:markup-->
-		<p>
-			Error: Please enter a valid email address (example: name@example.com).
-		</p>
-		<!--/CODE-->
-
-	</section>
+	<!--CODE:markup-->
+	<html lang="en">
+	<!--/CODE-->
+	<p>The lang attribute identifies the primary language of the document, allowing user agents and assistive technologies to correctly interpret and present the page’s content.</p>
+	<!--CODE:markup-->
+	<label for="email">Email address</label>
+	<input type="email" id="email" name="email">
+	<!--/CODE-->
+	<p>The markup describes a form input field for email and an associated label that describes its purpose. The label element is explicitly associated with the input using the for attribute, creating a strong semantic link.</p>
+	<!--CODE:markup-->
+	<p>
+		Error: Please enter a valid email address (example: name@example.com).
+	</p>
+	<!--/CODE-->
+	<p>This paragraph communicates an input validation error in a clear, semantic, and accessible way. It provides guidance to the user on what went wrong and how to correct it.</p>
 </section>
 
-<section>
-	<h2>Robust</h2>
-
-	<p>
-		Content must be robust enough to be interpreted reliably by a wide range of
-		user agents, including assistive technologies, now and in the future.
-	</p>
-
-	<section>
-		<h3>WCAG Conformance Levels</h3>
-		<ul>
-			<li>Level A: Compatibility with assistive technologies</li>
-			<li>Level AA: Proper parsing and structure</li>
-			<li>Level AAA: Limited enhanced compatibility criteria</li>
-		</ul>
-	</section>
-
-	<section>
-		<h3>Real-World Examples</h3>
-		<ul>
-			<li>Screen readers announce headings and landmarks correctly</li>
-			<li>Voice control activates buttons reliably</li>
-			<li>Future browsers interpret content without breaking</li>
-		</ul>
-	</section>
-
-	<section>
-		<h3>Code Examples</h3>
-
-		<!--CODE:markup-->
-		<article>
-			<h2>Accessibility Overview</h2>
-			<p>This section explains the fundamentals of accessibility.</p>
-		</article>
-		<!--/CODE-->
-
-		<!--CODE:markup-->
-		<button type="submit">Submit</button>
-		<!--/CODE-->
-
-		<!--CODE:markup-->
-		<nav aria-label="Primary navigation">
-			<ul>
-				<li><a href="/">Home</a></li>
-			</ul>
-		</nav>
-		<!--/CODE-->
-
-		<!--CODE:markup-->
-		<!-- ❌ Avoid -->
-		<div role="button">Click me</div>
-
-		<!-- ✅ Prefer -->
-		<button>Click me</button>
-		<!--/CODE-->
-
-	</section>
-</section>
+<hr>
 
 <section>
-	<h2>Why These Principles Matter</h2>
+	<h3>Robust: Compatible Across Device-Types and Technologies</h3>
+
 	<p>
-		The POUR principles form the foundation of inclusive design. They help
-		ensure that digital experiences are accessible, usable, and resilient for
-		people with disabilities and for all users in varied contexts.
+		Content and applications should be compatible with a wide array of web browsers, assistive technologies, operating systems, and versions.
+		Standards in code & content structure and universal formats help to successfully build across device types.
 	</p>
 	<p>
-		Applying these principles improves usability, reduces legal risk, and
-		results in cleaner, more maintainable code.
+		Robustness includes: 
+		<ul>
+			<li>Be programmatically determinable (HTML elements and attributes are correct)</li>
+			<li>Follow standards (HTML, CSS, ARIA)</li>
+			<li>Avoid patterns that are technically correct but break assistive tools</li>
+		</ul>
 	</p>
+
+	<h4>WCAG Conformance Levels for Robustness</h4>
+	<table>
+		<tr>
+			<td>Level A</td>
+			<td>Level AA</td>
+			<td>Level AAA</td>
+		</tr>
+		<tr>
+			<td>
+				compatibility with assistive technologies
+			</td>
+			<td>
+				proper parsing and structure
+			</td>
+			<td>
+				advanced techniques that improve assistive technology support
+			</td>
+		</tr>
+	</table>
+
+	<h3>Real World Examples</h3>
+	<ul>
+		<li>Screen readers announce headings and landmarks correctly</li>
+		<li>Voice control activates buttons reliably</li>
+		<li>Future browsers interpret content without breaking</li>
+	</ul>
+
+	<h3>Code Examples</h3>
+
+	<!--CODE:markup-->
+	<article>
+		<h3>Accessibility Overview</h3>
+		<p>This section explains the fundamentals of accessibility.</p>
+	</article>
+	<!--/CODE-->
+	<p>This markup represents a self-contained, thematic piece of content on the page. Assistive technologies can identify it clearly and effectively.</p>
+	<!--CODE:markup-->
+	<button type="submit">Submit</button>
+	<!--/CODE-->
+	<p>The type="submit" attribute represents a native form submission control which allows devices to interpret it correctly.</p>
+	<!--CODE:markup-->
+	<nav aria-label="Primary navigation">
+		<ul>
+			<li><a href="/">Home</a></li>
+		</ul>
+	</nav>
+	<!--/CODE-->
+	<p>The markup describes a semantic represention of a primary site navigation menu. The aria-label enhances robustness by making the navigation programmatically identifiable to assistive technologies.</p>
+	<!--CODE:markup-->
+	<!-- Avoid -->
+	<div role="button">Click me</div>
+	<!-- Prefer -->
+	<button>Click me</button>
+	<!--/CODE-->
+	<p>Using a button element is better than using a generic element with custom attributes.</p>
 </section>

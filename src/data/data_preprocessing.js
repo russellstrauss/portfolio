@@ -51,6 +51,79 @@ function getHtmlKeyFromHref(href) {
 	return lastSegment.toLowerCase();
 }
 
+// Function to remove common leading indentation from code blocks
+// Preserves relative indentation while removing the base indentation level
+function dedentCode(code) {
+	if (!code) return code;
+	
+	const lines = code.split('\n');
+	
+	// Find the minimum indentation (excluding empty lines)
+	// Convert tabs to spaces for consistent calculation (1 tab = 4 spaces)
+	let minIndent = Infinity;
+	
+	for (const line of lines) {
+		// Skip empty lines when calculating minimum indent
+		if (line.trim().length === 0) continue;
+		
+		// Get leading whitespace
+		const indentMatch = line.match(/^(\s*)/);
+		if (indentMatch) {
+			const indent = indentMatch[1];
+			// Convert tabs to spaces for consistent calculation
+			const indentLength = indent.replace(/\t/g, '    ').length;
+			minIndent = Math.min(minIndent, indentLength);
+		}
+	}
+	
+	// If no indentation found or all lines are empty, return trimmed code
+	if (minIndent === Infinity || minIndent === 0) {
+		return code.trim();
+	}
+	
+	// Remove the minimum indentation from each line
+	const dedentedLines = lines.map(line => {
+		// Preserve empty lines as-is
+		if (line.trim().length === 0) return line;
+		
+		// Get the leading whitespace for this line
+		const indentMatch = line.match(/^(\s*)/);
+		if (!indentMatch) return line;
+		
+		const lineIndent = indentMatch[1];
+		const lineIndentLength = lineIndent.replace(/\t/g, '    ').length;
+		
+		// If this line has less indent than minimum, leave it as-is
+		if (lineIndentLength < minIndent) return line;
+		
+		// Remove minIndent worth of whitespace
+		let removed = 0;
+		for (let i = 0; i < line.length && removed < minIndent; i++) {
+			const char = line[i];
+			if (char === '\t') {
+				removed += 4; // Tab = 4 spaces
+				if (removed >= minIndent) {
+					return line.slice(i + 1);
+				}
+			} else if (char === ' ') {
+				removed++;
+				if (removed >= minIndent) {
+					return line.slice(i + 1);
+				}
+			} else {
+				// Non-whitespace character encountered before removing enough
+				// This shouldn't happen, but return the line as-is
+				return line;
+			}
+		}
+		
+		return line;
+	});
+	
+	// Join lines and trim leading/trailing whitespace
+	return dedentedLines.join('\n').trim();
+}
+
 // Function to process code blocks in HTML content
 // Converts <!--CODE:language-->...code...<!--/CODE--> patterns into Prism.js code blocks
 function processCodeBlocks(htmlContent) {
@@ -61,11 +134,11 @@ function processCodeBlocks(htmlContent) {
 	const codeBlockPattern = /<!--CODE:(\w+)-->([\s\S]*?)<!--\/CODE-->/g;
 	
 	return htmlContent.replace(codeBlockPattern, (match, language, code) => {
-		// Trim leading/trailing whitespace from the code
-		const trimmedCode = code.trim();
+		// Remove common indentation from the code block
+		const dedentedCode = dedentCode(code);
 		
 		// Escape HTML entities in the code
-		const escapedCode = trimmedCode
+		const escapedCode = dedentedCode
 			.replace(/&/g, '&amp;')
 			.replace(/</g, '&lt;')
 			.replace(/>/g, '&gt;')

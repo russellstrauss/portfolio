@@ -36,7 +36,7 @@
 <script>
 	
 	import axios from 'axios';
-	import piecesData from '@/data/pieces.js';
+	import piecesData from '@/data/data_preprocessing.js';
 	import Layout from './Layout.vue';
 	import PageTitle from './PageTitle.vue';
 	
@@ -396,15 +396,15 @@
 					transition: opacity 400ms $ease-out-quadratic, transform 300ms $ease-out-quadratic, box-shadow 0.3s cubic-bezier(.25,.8,.25,1);
 					
 					@include small-screen {
-						margin-bottom: 100px;
+						margin-bottom: 80px;
 					}
 					
-					@include desktop {
-						@include grid(2, 40);
+					@include desktop-small-only {
+						@include grid(1, 80);
 					}
 					
 					@include desktop-large {
-						@include grid(2, 100);
+						@include grid(2, 80);
 					}
 					
 					&.active {
@@ -449,11 +449,6 @@
 						bottom: 0;
 						padding: 20px;
 						
-						@include tablet-only {
-							font-size: 0.875em;
-							padding: 15px;
-						}
-						
 						.row {
 							display: flex;
 							justify-content: space-between;
@@ -462,7 +457,7 @@
 							
 							h2 {
 								color: black;
-								font-size: 22px;
+								font-size: 1.5rem;
 								
 								span {
 									@include square-shadow;
@@ -511,13 +506,24 @@
 							
 							@include tablet-only {
 								padding: 15px;
-								font-size: 0.9em;
 							}
 							
 							@include desktop {
 								padding: 20px;
 							}
 							
+							.description {
+								font-size: .75rem;
+
+								@include desktop-large {
+									font-size: .5rem;
+								}
+							}
+
+							.nature-of-contributions {
+								font-size: .5rem;
+							}
+
 							*:last-child {
 								margin-bottom: 0;
 							}
@@ -587,15 +593,11 @@
 						}
 						
 						h2 {
-							@include portfolio-piece-title;
+							
 						}
 
 						.description {
 							margin-bottom: 10px;
-						}
-
-						.nature-of-contributions {
-							font-size: 12px;
 						}
 					}
 				}
