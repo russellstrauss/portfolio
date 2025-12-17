@@ -95,7 +95,7 @@
 					<li>Interaction & Visualization: VR, 3D experiences, data visualization, animation</li>
 					<li>Back end: C#, Node, .Net, Python</li>
 					<li>DevOps: CI/CD, Azure, AWS, CloudFlare</li>
-					<li>CMS: SiteCore, WordPress</li>
+					<li>CMS: SiteCore, WordPress, Drupal</li>
 				</ul>
 			</section>
 			<section class="experience">
@@ -103,11 +103,11 @@
 				<div class="employment">
 					<div class="duration left desktop">2018-Present</div>
 					<div class="summary right">
-						<div class="company">Farmer John's Botanicals</div>
+						<div class="company">Farmer John Technologies</div>
 						<div class="position">Frontend Software Architect / Creative Director</div>
 						<div class="duration mobile">2018 - Present</div>
 						<div class="job-description">
-							AI tooling automated code development, designing and producing beautiful, natural-fiber watercolor fashion lines and textiles and online store. <br />
+							AI tooling automated code development, ecommerce online store development, designing and producing beautiful, natural-fiber watercolor fashion lines and textiles. <br />
 						</div>
 					</div>
 					<div class="clearfix"> </div>
