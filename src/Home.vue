@@ -22,12 +22,9 @@
 	.landing {
 		
 		.name {
+			@include ibm;
 			
 			a {
-				@include ibm;
-				@include mobile-only {	
-					font-size: 28px;
-				}
 				color: white;
 			}
 		}
