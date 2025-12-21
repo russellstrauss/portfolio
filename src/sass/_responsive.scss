@@ -37,6 +37,13 @@ $desktop-large-width: 1200px;
 	}
 }
 
+// Target desktop and above (992px+)
+@mixin desktop-small-only {
+	@media (min-width: #{$desktop-width}) and (max-width: #{$desktop-large-width - 1px}) {
+		@content;
+	}
+}
+
 // Target desktop-large and above (1200px+)
 @mixin desktop-large {
 	@media (min-width: #{$desktop-large-width}) {

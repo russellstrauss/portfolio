@@ -20,7 +20,7 @@
 	import Layout from './Layout.vue';
 	import CodeBlock from './CodeBlock.vue';
 	import PageTitle from './PageTitle.vue';
-	import piecesData from '@/data/pieces.js';
+	import piecesData from '@/data/data_preprocessing.js';
 	
 	export default {
 		

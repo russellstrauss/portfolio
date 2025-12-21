@@ -4,6 +4,7 @@
 
 html {
 	background-color: black;
+	font-size: 16px;
 }
 
 body {
@@ -44,34 +45,39 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-	font-size: 32px;
+	font-size: 2rem;
 	margin-bottom: 20px;
 }
 
 h2 {
-	font-size: 30px;
-	margin-bottom: 10px;
+	font-size: 1.75rem;
+	margin-bottom: 30px;
 }
 
 h3 {
-	font-size: 28px;
-	margin-bottom: 10px;
+	font-size: 1.5rem;
+	margin-bottom: 20px;
 	margin-top: 25px;
 }
 
 h4 {
-	font-size: 22px;
+	font-size: 1.25rem;
 	margin-bottom: 10px;
 }
 
 h5 {
-	font-size: 18px;
+	font-size: 1rem;
 	margin-bottom: 10px;
 }
 
 h6 {
-	font-size: 16px;
+	font-size: .75rem;
 	margin-bottom: 10px;
+}
+
+p {
+	@include body;
+	margin-bottom: 20px;
 }
 
 hr {
@@ -85,7 +91,6 @@ strong {
 }
 
 ol {
-	@include body;
 	list-style-type: decimal;
 	padding-left: 40px;
 	
@@ -95,14 +100,8 @@ ol {
 	}
 }
 
-p {
-	@include body;
-	margin-bottom: 20px;
-}
-
 ul, ol {
 	li {
-		@include body;
 		list-style-type: disc;
 		margin-left: 20px;
 	}

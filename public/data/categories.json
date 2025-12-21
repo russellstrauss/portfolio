@@ -65,7 +65,7 @@
 			},
 		{
 			"sortOrder": "4",
-			"published": "false",
+			"published": "true",
 			"title": "Web Accessibility",
 			"path": "web-accessibility",
 			"description": ""

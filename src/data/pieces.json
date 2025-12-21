@@ -204,7 +204,7 @@
 					"published": "true",
 					"title": "Dollywood",
 					"description": "New site build of large scale e-commerce and marketing site for Herschend Family Entertainment. Site includes multiple theme park properties designed to use the same platform and code base.",
-					"natureOfContributions": "Designed and built initial front-end site; designed the site architecture to support many sites being built on the same platform while maintaining unique branding needs for each independent site; built interactive and animated components; maintained automated build taskrunners; worked directly with client representative to ensure their needs and satisfaction were met; collaborated with UX and design team mates to improve site usability and overall quality; worked with team in India to integrate front-end build into Sitecore CMS.",
+					"natureOfContributions": "Designed and built the front end code and site architecture, created a scalable multi-site architecture for theme park properties. Developed interactive animations, maintained build automation, collaborated with UX/design teams and offshore developers, integrated with Sitecore CMS.",
 					"featuredImage": "/img/featured-images/dollywood.jpg",
 					"href": "https://www.dollywood.com",
 					"openInNewTab": "true"
@@ -687,7 +687,7 @@
 				},
 				{
 					"sortOrder": "20",
-					"published": "true",
+					"published": "false",
 					"title": "Standards & Compliance",
 					"description": "",
 					"featuredImage": "",
@@ -696,7 +696,7 @@
 				},
 				{
 					"sortOrder": "25",
-					"published": "true",
+					"published": "false",
 					"title": "Legal Requirements",
 					"description": "",
 					"featuredImage": "",
@@ -705,7 +705,7 @@
 				},
 				{
 					"sortOrder": "30",
-					"published": "true",
+					"published": "false",
 					"title": "Practical Application",
 					"description": "",
 					"featuredImage": "",
@@ -714,7 +714,7 @@
 				},
 				{
 					"sortOrder": "32",
-					"published": "true",
+					"published": "false",
 					"title": "UI Patterns",
 					"description": "",
 					"featuredImage": "",
@@ -723,7 +723,7 @@
 				},
 				{
 					"sortOrder": "34",
-					"published": "true",
+					"published": "false",
 					"title": "Content & Media",
 					"description": "",
 					"featuredImage": "",
@@ -732,7 +732,7 @@
 				},
 				{
 					"sortOrder": "35",
-					"published": "true",
+					"published": "false",
 					"title": "Accessibility for Developers",
 					"description": "",
 					"featuredImage": "",
@@ -741,7 +741,7 @@
 				},
 				{
 					"sortOrder": "37",
-					"published": "true",
+					"published": "false",
 					"title": "Accessibility for Designers",
 					"description": "",
 					"featuredImage": "",
@@ -750,7 +750,7 @@
 				},
 				{
 					"sortOrder": "40",
-					"published": "true",
+					"published": "false",
 					"title": "Testing & Evaluation",
 					"description": "",
 					"featuredImage": "",
@@ -759,7 +759,7 @@
 				},
 				{
 					"sortOrder": "90",
-					"published": "true",
+					"published": "false",
 					"title": "Completion Checklists",
 					"description": "",
 					"featuredImage": "",

@@ -46,7 +46,7 @@
 	
 	.page-title {
 		@include heading-font;
-		margin-bottom: 80px;
+		margin-bottom: 50px;
 		display: flex;
 		align-items: center;
 		gap: 16px;

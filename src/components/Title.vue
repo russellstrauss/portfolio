@@ -3,7 +3,7 @@
 		<a href="/" @click.prevent="navigateHome">
 			<span class="text-wrapper">
 				<span class="line line1"></span>
-				<span class="letters">John Russell Strauss</span>
+				<span class="letters">Farmer John Technologies</span>
 			</span>
 		</a>
 	</h1>
