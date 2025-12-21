@@ -39,6 +39,7 @@
 	import piecesData from '@/data/pieces.js';
 	import Layout from './Layout.vue';
 	import PageTitle from './PageTitle.vue';
+	import { isPublished } from '@/utils/publishing.js';
 	
 	export default {
 		
@@ -119,7 +120,7 @@
 						
 						// Use imported pieces data
 						const piecesResponse = piecesData.categories.filter(category => category.path === currentCategory)[0];
-						if (piecesResponse) self.pieces = piecesResponse.pieces.filter(piece => piece.published === "true");
+						if (piecesResponse) self.pieces = piecesResponse.pieces.filter(piece => isPublished(piece.published));
 						
 						// Ensure all elements start hidden after they're rendered, then animate in
 						self.$nextTick(() => {

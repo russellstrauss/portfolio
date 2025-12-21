@@ -11,6 +11,7 @@
 <script>
 	import axios from 'axios';
 	import anime from 'animejs';
+	import { isPublished } from '@/utils/publishing.js';
 	
 	export default {
 		name: 'Work',
@@ -82,7 +83,7 @@
 					if (categories) categories.sort(function(a, b) {
 						return a.sortOrder - b.sortOrder;
 					});
-					self.categories = response.data.categories.filter(category => category.published === "true");
+					self.categories = response.data.categories.filter(category => isPublished(category.published));
 					// Ensure all elements start hidden after they're rendered, then animate in
 					self.$nextTick(() => {
 						const categoryElements = self.$el.querySelectorAll('.category');
