@@ -1,66 +1,229 @@
-<h2>Accessibility Standards & Compliance</h2>
+<p>This section explains the major standards, how they map together, and what compliance actually means in practice:</p>
 
-<p>Understanding and adhering to established accessibility standards is crucial for creating inclusive digital experiences and ensuring legal compliance. This guide covers the primary standards and regulations that govern web accessibility.</p>
-
-<h3>WCAG (Web Content Accessibility Guidelines)</h3>
-<p>The WCAG, developed by the World Wide Web Consortium (W3C), is the internationally recognized standard for web accessibility. The current version, WCAG 2.1, provides guidelines organized into three conformance levels:</p>
-
-<h4>Level A (Minimum)</h4>
-<p>The most basic level of accessibility. Meeting Level A ensures that the most fundamental accessibility features are present. Examples include:</p>
 <ul>
-	<li>Providing alt text for images</li>
-	<li>Ensuring keyboard navigation is possible</li>
-	<li>Using proper heading structure</li>
-	<li>Providing labels for form inputs</li>
+	<li>How WCAG, laws, and standards relate</li>
+	<li>Why WCAG 2.1 AA is the practical target</li>
+	<li>The difference between legal compliance and usable accessibility</li>
+	<li>How testing works in real projects</li>
+	<li>Why robustness and semantics matter long-term</li>
+</ul>
+<p>Web accessibility is mandated by laws such as the Americans with Disabilities Act of 1990 which aim to prevent discrimination and provide equal experience, requiring audits and remediation for conformance. Web accessibility is guided by a combination of <strong>international standards</strong>, <strong>technical guidelines</strong>, and <strong>legal requirements</strong>.</p>
+<p>WCAG defines <strong>testable success criteria</strong> for making web content accessible to people with disabilities. WCAG is the <strong>technical foundation</strong> for nearly all accessibility laws and policies worldwide.</p>
+<h3>Implementation and Enforcement</h3>
+<p>Web accessibility is <strong>mandatory</strong> for state governments through ADA Title II, private businesses through ADA Title III, and employers. Accessibility audits are used to find existing issues, make plans for gaining conformance, and form a continuous commitment to fixing existing issues in a digital product's accessibility.</p>
+<p>
+	<strong>Legal risk</strong>: the increasing volume of lawsuits involving web accessibility and the ADA push businesses toward a more deliberate and  proactive compliance, often using WCAG 2.1 AA or 2.2 conformance.
+</p>
+
+<h3>WCAG Standards Versioning</h3>
+<ul>
+	<li><strong>WCAG 2.0</strong> (2008) - Lower baseline for most legal requirements in the US.</li>
+	<li><strong>WCAG 2.1</strong> (2018) - Adds mobile, low-vision, and cognitive guideline improvements.</li>
+	<li><strong>WCAG 2.2</strong> (2023) - Adds focus, input, and navigation guideline improvements.</li>
+	<li><strong>WCAG 3.0</strong> (in progress) - Future, outcome-based model (not yet a legal standard)</li>
+</ul>
+<p>Most current compliance objectives reference <strong>WCAG 2.1 or 2.2</strong>.</p>
+
+<h3>WCAG Conformance Levels</h3>
+<p>WCAG success criteria are organized into three levels:</p>
+<table>
+	<thead>
+		<tr>
+			<td>Level</td>
+			<td>Meaning</td>
+			<td>Practical Use</td>
+		</tr>
+	</thead>
+	<tr>
+		<td><strong>A</strong></td>
+		<td>Minimum accessibility</td>
+		<td>Required baseline</td>
+	</tr>
+	<tr>
+		<td><strong>AA</strong></td>
+		<td>Industry standard</td>
+		<td>Legal & contractual target</td>
+	</tr>
+	<tr>
+		<td><strong>AAA</strong></td>
+		<td>Enhanced accessibility</td>
+		<td>Optional, not legally required</td>
+	</tr>
+</table>
+<p><strong>WCAG 2.1 AA</strong> is the most commonly required standard for legal compliance.</p>
+
+<h2>Legal and Regulatory Standards</h2>
+<p>WCAG itself is a guideline, <strong>not a law</strong>. However, these are the guidelines that are referenced by laws and policies around the world.</p>
+
+<h3>Why WCAG 2.1 AA?</h3>
+<p><strong>WCAG 2.1 AA</strong> is the go-to standard for legal compliance because it's the de facto legal benchmark that has been officially adopted by regulations such as the ADA Title II update and balances strong inclusivity with practicality. This covers modern web needs for mobile and desktop, making it the most recognized and defensible standard against lawsuits. It provides a concrete target for the otherwise vague ADA, it is referenced in existing settlements, and it is the foundation for global law.</p>
+<ul>
+	<li><strong>Legal adoption</strong>:  The US Department of Justice and updates to the ADA Title II have explicitly named WCAG 2.1 Level AA as the technical benchmark for digital accessibility.</li>
+	<li><strong>Broad legal basis</strong>: It has also been accepted around the world, like the <strong>European Accessibility Act of 2025</strong> and <strong>Accessibility for Ontarians with Disabilities Act of 2005</strong>.</li>
+	<li><strong>Practical</strong>: WCAG 2.1 Level AA provides a balance between accessible features and difficulty of implementation, where it provides more accessible experiences than Level A but less technical difficulty than Level AAA.</li>
+	<li><strong>Futureproof</strong>: The principles are foundational which pave the road for a digital product to stay accessible as the product evolves and technology advances.</li>
+	<li><strong>Network support</strong>: Because major legal bodies and companies rely on it, it has become the expected standard which reduces risk and simplifies procurement.</li>
 </ul>
 
-<h4>Level AA (Recommended)</h4>
-<p>This is the standard most organizations aim for, as it addresses the major barriers for users with disabilities. Level AA requirements include:</p>
+
+
+<p><strong>WCAG 2.0 AA</strong>: WCAG 2.0 is older&mdash;introduced in 2008&mdash;and lacks specific criteria for mobile, which is no longer usable with current device standards.</p>
+<p><strong>WCAG 2.1 AAA</strong>: WCAG 2.1 AAA is an extremely high standard, which is often impractical and overly burdensome for general compliance or large-scale implementation, although it offers the most inclusive experience.</p>
+
+<h3>What is Section 508?</h3>
+<p>Section 508 is a U.S. federal law, part of the <strong>Rehabilitation Act</strong>, requiring federal agencies to make their electronic and information technology (EIT) accessible to people with disabilities, ensuring equal access to digital information and services, covering things like websites, software, videos, and documents through specific accessibility standards developed by the US Access Board. The US Access Board is a federal agency that advances accessible design standards and guidelines in alignment with the <strong>Americans with Disabilities Act</strong>, the <strong>Architectural Barriers Act</strong>, and any other relevant federal laws. It mandates that government technology be useable by individuals with physical, sensory, or cognitive disabilities, just as those without disabilities.</p>
+
+<table>
+	<thead>
+		<tr>
+			<td><strong>United States</strong></td>
+			<td><strong>International Standards</strong></td>
+		</tr>
+	</thead>
+	<tr>
+		<td>
+			<h5>Americans with Disabilities Act (Federal)</h5>
+			<ul>
+				<li>Applies to public-facing websites and digital services</li>
+				<li>Does not name WCAG explicitly (predates WCAG)</li>
+				<li>Courts and settlements consistently reference <strong>WCAG 2.1 AA</strong></li>
+			</ul>
+			<h5>Section 508 (Federal)</h5>
+			<ul>
+				<li>Applies to U.S. federal agencies and contractors</li>
+				<li>Explicitly requires <strong>WCAG 2.0 / 2.1 AA</strong></li>
+				<li>Enforced through procurement (intentional purchasing) and audits</li>
+			</ul>
+		</td>
+		<td>
+			<h5>EN 301 549 (EU)</h5>
+			<ul>
+				<li>Accessibility standard for public sector and procurement</li>
+				<li>Based directly on WCAG</li>
+				<li>Used across the European Union</li>
+			</ul>
+			<h5>Accessibility for Ontarians with Disabilities Act (AODA)</h5>
+			<ul>
+				<li>Canadian accessibility law</li>
+				<li>References <strong>WCAG 2.0 / 2.1 AA</strong></li>
+			</ul>
+		</td>
+	</tr>
+</table>
+
+
+<h2>Compliance vs. Accessibility </h2>
+<p>Although the terms compliance and accessibility are often used interchangeably, they are not the same thing. Understanding the distinction is critical for building digital products that are both <strong>legally defensible</strong> and <strong>genuinely usable</strong>. Compliance represents legality while accessible represents usability.</p>
+
+<h3>Compliance</h3>
+<p>Compliance is the creation of experiences in accordance with a set of formal requirements, such as one of the levels of the WCAG:</p>
 <ul>
-	<li>Color contrast ratio of at least 4.5:1 for normal text</li>
-	<li>Text can be resized up to 200% without loss of functionality</li>
-	<li>Multiple ways to find pages (navigation, search, sitemap)</li>
-	<li>Consistent navigation and identification</li>
-	<li>Error identification and suggestions for correction</li>
+	<li>Meeting specific WCAG success criteria</li>
+	<li>Passing audits and automated tests</li>
+	<li>Satisfying legal or contractual requirements</li>
+</ul>
+<p>The benefit of compliance testing allows us to evaluate applications on a concrete set of success or failure criteria. This allows us to formulate pass/fail states, automated testing, and documented evidence of the accessibility levels of an application.</p>
+
+<h3>Accessibility</h3>
+<p>Accessibility is all about enabling real users. While compliant experiences can be fully accessible, compliance does not necessarily guarantee usability. The fundamental purpose of accessibility is usability for everyone, and this should not be forgotten when evaluating for legal compliance.</p>
+<ul>
+	<li>Ensuring real users can successfully achieve goals</li>
+	<li>Addressing edge cases for devices and assistive technology behavior</li>
+	<li>Going beyond minimum compliance when needed</li>
+</ul>
+<p>A site can be WCAG compliant and still be frustrating to use. It is imperative to focus on <strong>practical accessibility</strong>, not just checklists.</p>
+
+<h2>Manual vs. Automated Testing</h2>
+<h3>Automated Testing</h3>
+<p>Manual and automated testing are both essential for managing the efficacy of accessible applications, but they serve different purposes with different sets of strengths and weaknesses. Automated testing excels with clear criteria of violation with deterministic pass/fail results. Automated testing is good for establishing baselines.</p>
+
+<table>
+	<thead>
+		<tr>
+			<td>Automated testing is:</td>
+			<td>Automated testing cannot:</td>
+		</tr>
+	</thead>
+	<tr>
+		<td>
+			<ul>
+				<li>Fast and repeatable</li>
+				<li>Easy to integrate into CI/CD pipelines</li>
+				<li>Can be applied across large applications</li>
+				<li>Prevents regressions</li>
+				<li>Provides objective, testable results</li>
+				<li>Asserts consistency</li>
+			</ul>
+		</td>
+		<td>
+			<ul>
+				<li>Determine if content is understandable</li>
+				<li>Judge whether descriptions are meaningful</li>
+				<li>Evaluate keyboard focus order and layout</li>
+				<li>Assess helpfulness of application messaging</li>
+				<li>Validate usability</li>
+			</ul>
+		</td>
+	</tr>
+</table>
+
+<h4>Tooling</h4>
+<p>Some common tools for automated web accessibility testing include:</p>
+<ul>
+	<li>axe - <a target="_blank" href="https://www.deque.com/axe/">https://www.deque.com/axe/</a> - Axe (by Deque Systems) is a powerful suite of accessibility testing tools, built around the open-source axe-core engine, that helps developers and testers find and fix issues like missing alt text, color contrast problems, and incorrect ARIA usage in web and mobile apps.</li>
+	<li>Lighthouse - <a target="_blank" href="https://developer.chrome.com/docs/lighthouse/overview">https://developer.chrome.com/docs/lighthouse/overview</a> - Google Lighthouse is a free, open-source, automated tool for auditing the quality of web pages, including a dedicated accessibility tool that scans sites for common issues and provides a detailed report and score. It uses the axe-core library to power its accessibility audits.</li>
+	<li>WAVE: Web Accessibility Evaluation Tools - <a target="_blank" href="https://wave.webaim.org/">https://wave.webaim.org/</a> - WAVE is a free tool from <a target="_blank" href="https://webaim.org/">WebAIM (Web Accessibility In Mind)</a> that provides visual feedback to help website creators make their content accessible for people with disabilities, identifying errors, alerts, and structural issues for screen readers and other assistive technologies.</li>
 </ul>
 
-<h4>Level AAA (Enhanced)</h4>
-<p>The highest level of accessibility, often difficult to achieve for entire sites but valuable for specific content. Includes:</p>
+<h3>Manual Testing</h3>
+<p>Manual testing involves human evaluation. Manual testing goes above code correctness in order to evaluate human usability. Manual testing can identify real usability barriers like layout problems or logical navigation issues and can reflect actual user experience.</p>
+<p>Common manual testing verification:</p>
 <ul>
-	<li>Sign language interpretation for audio content</li>
-	<li>Extended audio descriptions</li>
-	<li>No timing constraints</li>
-	<li>Enhanced color contrast (7:1 for normal text)</li>
+	<li>Keyboard-only navigation</li>
+	<li>Screen reader testing</li>
+	<li>Focus order and visibility checks</li>
+	<li>Error recovery validation: understand the error, locate the error, correct the error, and continue.</li>
 </ul>
-
-<h3>Legal Requirements</h3>
-
-<h4>Americans with Disabilities Act (ADA)</h4>
-<p>In the United States, the ADA requires that public accommodations, including websites, be accessible to people with disabilities. While the ADA doesn't specify technical standards, courts have consistently referenced WCAG 2.0 Level AA as the benchmark for compliance.</p>
-
-<h4>Section 508</h4>
-<p>Federal agencies and organizations receiving federal funding must comply with Section 508 of the Rehabilitation Act, which requires adherence to WCAG 2.0 Level AA standards.</p>
-
-<h4>European Accessibility Act (EAA)</h4>
-<p>EU member states require certain products and services, including websites and mobile applications, to meet accessibility requirements based on EN 301 549, which aligns with WCAG 2.1 Level AA.</p>
-
-<h3>Compliance Best Practices</h3>
+<p>Manual testing is <strong>required</strong> to verify true compliance. Manual testing is required for compliance because most WCAG success criteria involve human judgement, using qualities such as “clear”, “descriptive”, “predictable”, or “sufficient”. The downsides to manual testing are that it is time-intensive, requires specialized knowledge, is difficult to scale for large applications, and results may vary from tester subjectivity.</p>
+<p>Because testing assistive technology involves evaluating real user interaction, most assistive technologies must be verified manually, such as:</p>
 <ul>
-	<li><strong>Regular Audits:</strong> Conduct accessibility audits using automated tools and manual testing</li>
-	<li><strong>User Testing:</strong> Include people with disabilities in your testing process</li>
-	<li><strong>Documentation:</strong> Maintain an accessibility statement and documentation of compliance efforts</li>
-	<li><strong>Training:</strong> Ensure development and design teams are trained on accessibility standards</li>
-	<li><strong>Continuous Monitoring:</strong> Implement accessibility checks in your development workflow</li>
+	<li>Screen magnifiers</li>
+	<li>Voice control software</li>
+	<li>Alternative input devices</li>
 </ul>
+<p>Automated and manual testing should be used in conjunction to ensure usability. Automated testing can usually assess about 40% of accessibility issues, so it's important to implement manual testing in order to confirm true usability and compliance.</p>
+<p>A strong workflow involves integrating automated testing early in project implementation in order to identify low-effort high-impact areas and preventing regression throughout the application's development. Manual testing can then check the application before release and at regular intervals throughout the development in order to identify issues as they arise. Both forms of testing should be used as updates are made in order to ensure changes have not affected previously verified attributes of the application.</p>
+<p>Remember: when it comes to accessibility, automated testing alone is not enough. True accessibility requires both automated and manual verification.</p>
 
-<h3>WCAG 2.2 Updates</h3>
-<p>WCAG 2.2, released in 2023, adds new success criteria while maintaining backward compatibility with WCAG 2.1. New requirements focus on:</p>
+<h2>ARIA: Accessible Rich Internet Applications</h2>
+<p>ARIA is a set of attributes defined by the W3C that enhance the accessibility of dynamic and complex user interfaces. It is used when building custom components like tabs, dialogs, accordions, and sliders. ARIA is designed to <strong>enhance accessibility when native HTML is insufficient</strong> by providing additional information to assistive technologies. ARIA exists to fill technical gaps. ARIA is a way to expose roles, states, and properties to assistive technologies, describe dynamic changes in the interface, and provide a bridge between UI patterns and assistive technology.</p>
+<p>ARIA cannot improve poorly designed user experience.Semantic HTML will replace ARIA attributes as web technology progresses.</p>
+
+<h3>Roles</h3>
+<p>Roles define <strong>what an element is</strong>. Examples include dialogs, buttons, or navigation.</p>
+
+<h3>States</h3>
+<p>States describe the current condition of UI in the application. Examples of ARIA state properties include:</p>
+<ul class="horizontal">
+	<li>aria-expanded</li>
+	<li>aria-selected</li>
+	<li>aria-disabled</li>
+	<li>aria-labelledby</li>
+	<li>aria-describedby</li>
+</ul>
+<p>These values are designed to change dynamically as state changes occur and describe those changes in state to the user through assistive technologies. This allows the user to understand the interaction with the application when other information is unavailable, like the visual application state. The <strong>ARIA label</strong> attribute is used by screen readers to announce UI elements and their states.</p>
+<p>Key rule: <strong>Do not use ARIA when native HTML already provides the semantics.</strong></p>
+<p>Misuse of ARIA can <strong>reduce robustness and break assistive technology compatibility</strong>.</p>
+
+<h2>Robust Compliance</h2>
+<p>Robust compliance focuses on interoperability, compatibility, and correctness:</p>
 <ul>
-	<li>Focus not obscured (minimum)</li>
-	<li>Dragging movements</li>
-	<li>Target size (minimum)</li>
-	<li>Fixed reference points</li>
-	<li>Accessible authentication</li>
+	<li>Valid HTML</li>
+	<li>Correct semantics</li>
+	<li>Predictable behavior</li>
+	<li>Assistive technology compatibility</li>
+	<li>Forward compatibility with future tools</li>
 </ul>
-
-<p>Organizations should plan to meet WCAG 2.2 Level AA standards to ensure future compliance and improved accessibility.</p>
+<p>Robustness includes testing across <strong>multiple browsers, multiple screen readers, different operating systems, and different input methods</strong>. This is why this documentation emphasizes <strong>native HTML patterns first</strong>, with ARIA used sparingly and intentionally.</p>
+<p>Robust compliance reduces accessibility regressions, maintenance costs, legal risk, and technical debt. This is because well structured semantic code is easier to refactor, extend, debug, and audit.</p>
+<p>Robust systems can survive redesigns, remain accessible over time, and adapt to new assistive technologies. Accessibility is not about passing audits; it is about building durable and inclusive systems.</p>

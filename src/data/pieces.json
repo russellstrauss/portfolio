@@ -687,25 +687,16 @@
 				},
 				{
 					"sortOrder": "20",
-					"published": "false",
-					"title": "Standards & Compliance",
+					"published": "true",
+					"title": "Standards, Compliance, and Legal Requirements",
 					"description": "",
 					"featuredImage": "",
 					"href": "/work/web-accessibility/accessibility-standards-compliance",
 					"openInNewTab": "false"
 				},
 				{
-					"sortOrder": "25",
-					"published": "false",
-					"title": "Legal Requirements",
-					"description": "",
-					"featuredImage": "",
-					"href": "/work/web-accessibility/legal-requirements",
-					"openInNewTab": "false"
-				},
-				{
 					"sortOrder": "30",
-					"published": "false",
+					"published": "dev",
 					"title": "Practical Application",
 					"description": "",
 					"featuredImage": "",
@@ -714,7 +705,7 @@
 				},
 				{
 					"sortOrder": "32",
-					"published": "false",
+					"published": "dev",
 					"title": "UI Patterns",
 					"description": "",
 					"featuredImage": "",
@@ -723,7 +714,7 @@
 				},
 				{
 					"sortOrder": "34",
-					"published": "false",
+					"published": "dev",
 					"title": "Content & Media",
 					"description": "",
 					"featuredImage": "",
@@ -732,7 +723,7 @@
 				},
 				{
 					"sortOrder": "35",
-					"published": "false",
+					"published": "dev",
 					"title": "Accessibility for Developers",
 					"description": "",
 					"featuredImage": "",
@@ -741,7 +732,7 @@
 				},
 				{
 					"sortOrder": "37",
-					"published": "false",
+					"published": "dev",
 					"title": "Accessibility for Designers",
 					"description": "",
 					"featuredImage": "",
@@ -750,7 +741,7 @@
 				},
 				{
 					"sortOrder": "40",
-					"published": "false",
+					"published": "dev",
 					"title": "Testing & Evaluation",
 					"description": "",
 					"featuredImage": "",
@@ -759,7 +750,7 @@
 				},
 				{
 					"sortOrder": "90",
-					"published": "false",
+					"published": "dev",
 					"title": "Completion Checklists",
 					"description": "",
 					"featuredImage": "",

@@ -98,7 +98,7 @@
 			}
 
 			h2 {
-				margin-top: 20px;
+				margin-top: 100px;
 			}
 
 			ul, ol {
@@ -106,7 +106,7 @@
 
 				li {
 					padding-left: 5px;
-					margin-bottom: 5px;
+					margin-bottom: 10px;
 				}
 			}
 
@@ -135,9 +135,10 @@
 				}
 
 				&.horizontal {
-					display: flex;
-					justify-content: space-between;
-					
+					@include tablet {
+						display: flex;
+						justify-content: space-between;
+					}
 
 					li {
 						margin: 0;
@@ -156,15 +157,22 @@
 				width: 100%;
 				margin-bottom: 20px;
 				
-				tr {
-					td {
-						font-size: .75rem;
-						border: 1px solid white;
-						padding: 5px;
+				thead {
+					border-bottom: 3px solid white;
+					
+					tr td {
+						font-size: 1rem;
+						font-weight: bold;
+					}
+				}
+				
+				tr td {
+					font-size: .75rem;
+					border: 1px solid white;
+					padding: 10px;
 
-						ul {
-							margin: 0 0 20px 0;
-						}
+					ul {
+						margin: 0 0 20px 0;
 					}
 				}
 			}
