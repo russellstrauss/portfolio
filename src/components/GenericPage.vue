@@ -63,9 +63,77 @@
 						// Re-run syntax highlighting and MathJax after content updates
 						self.$nextTick(() => {
 							Prism.highlightAll();
-							MathJax.typeset();
+							self.typesetMath();
 						});
 					}
+				}
+			},
+			
+			typesetMath: function() {
+				const self = this;
+				// Get the container element that holds the raw HTML
+				const container = this.$el ? this.$el.querySelector('.raw-html-container') : null;
+				
+				// Function to actually typeset the math
+				const doTypeset = function() {
+					if (window.MathJax && window.MathJax.typesetPromise) {
+						// MathJax 4 uses promises - can target specific elements
+						const elements = container ? [container] : undefined;
+						window.MathJax.typesetPromise(elements).catch(function (err) {
+							console.error('MathJax typeset error:', err);
+						});
+					} else if (window.MathJax && window.MathJax.typeset) {
+						// Fallback for older MathJax versions
+						if (container) {
+							window.MathJax.typeset([container]);
+						} else {
+							window.MathJax.typeset();
+						}
+					}
+				};
+				
+				// Wait for MathJax to be fully initialized
+				if (window.MathJax) {
+					// MathJax 4 has a startup promise we should wait for
+					if (window.MathJax.startup && window.MathJax.startup.promise) {
+						window.MathJax.startup.promise.then(function() {
+							setTimeout(doTypeset, 100);
+						}).catch(function(err) {
+							console.error('MathJax startup error:', err);
+							// Try anyway after a delay
+							setTimeout(doTypeset, 200);
+						});
+					} else if (window.MathJax.typesetPromise || window.MathJax.typeset) {
+						// MathJax is loaded, just wait a bit for DOM
+						setTimeout(doTypeset, 100);
+					} else {
+						// MathJax not fully loaded, wait for it
+						const checkMathJax = setInterval(() => {
+							if (window.MathJax && (window.MathJax.typesetPromise || window.MathJax.typeset)) {
+								clearInterval(checkMathJax);
+								if (window.MathJax.startup && window.MathJax.startup.promise) {
+									window.MathJax.startup.promise.then(function() {
+										setTimeout(doTypeset, 100);
+									});
+								} else {
+									setTimeout(doTypeset, 100);
+								}
+							}
+						}, 100);
+						// Stop checking after 5 seconds
+						setTimeout(() => clearInterval(checkMathJax), 5000);
+					}
+				} else {
+					// MathJax script not loaded yet, wait for it
+					const checkMathJax = setInterval(() => {
+						if (window.MathJax) {
+							clearInterval(checkMathJax);
+							// Recursively call to handle startup promise
+							self.typesetMath();
+						}
+					}, 100);
+					// Stop checking after 5 seconds
+					setTimeout(() => clearInterval(checkMathJax), 5000);
 				}
 			}
 		},
@@ -73,7 +141,7 @@
 		mounted: function () {
 			this.loadDetails();
 			Prism.highlightAll();
-			MathJax.typeset();
+			this.typesetMath();
 		},
 
 		watch: {
