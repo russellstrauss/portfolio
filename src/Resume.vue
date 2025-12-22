@@ -91,7 +91,7 @@
 			<section class="skills">
 				<h2>Skills</h2>
 				<ul class="plus">
-					<li><strong>Front end</strong>: JavaScript, React, Vue, Angular, UI/UX, NPM, SASS, Three.js, D3.js, responsive, accessibility (WCAG)</li>
+					<li><strong>Front end</strong>: JavaScript, React, Vue, Angular, UI/UX, npm, SASS, three.js, D3.js, responsive, web accessibility (WCAG)</li>
 					<li><strong>Interactive & Visualization</strong>: VR, 3D, data visualization, animation</li>
 					<li><strong>Back end</strong>: C#, Node, .Net, Python</li>
 					<li><strong>DevOps</strong>: CI/CD, Azure, Google Cloud, AWS, CloudFlare</li>
