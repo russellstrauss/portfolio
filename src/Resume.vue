@@ -91,11 +91,11 @@
 			<section class="skills">
 				<h2>Skills</h2>
 				<ul class="plus">
-					<li>Front end: JavaScript, React, Vue, Angular, UI/UX, NPM, SASS, Three.js, D3.js, responsive, accessibility (WCAG)</li>
-					<li>Interactive & Visualization: VR, 3D experiences, data visualization, animation</li>
-					<li>Back end: C#, Node, .Net, Python</li>
-					<li>DevOps: CI/CD, Azure, Google Cloud, AWS, CloudFlare</li>
-					<li>CMS: SiteCore, WordPress, Drupal</li>
+					<li><strong>Front end</strong>: JavaScript, React, Vue, Angular, UI/UX, NPM, SASS, Three.js, D3.js, responsive, accessibility (WCAG)</li>
+					<li><strong>Interactive & Visualization</strong>: VR, 3D experiences, data visualization, animation</li>
+					<li><strong>Back end</strong>: C#, Node, .Net, Python</li>
+					<li><strong>DevOps</strong>: CI/CD, Azure, Google Cloud, AWS, CloudFlare</li>
+					<li><strong>CMS</strong>: SiteCore, WordPress, Drupal</li>
 				</ul>
 			</section>
 			<section class="experience">
