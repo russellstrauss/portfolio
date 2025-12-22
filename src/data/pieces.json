@@ -199,6 +199,15 @@
 				{
 					"sortOrder": "5",
 					"published": "true",
+					"title": "Pokedex",
+					"description": "Simple demo of strong UI and UX practices.",					"featuredImage": "/img/featured-images/pokedex.jpg",
+					"featuredImage": "/img/featured-images/pokedex.jpg",
+					"href": "/apps/pokedex/",
+					"openInNewTab": "false"
+				},
+				{
+					"sortOrder": "6",
+					"published": "true",
 					"title": "Rightpoint.com",
 					"description": "Added multiple features and pages to Rightpoint agency web site including news filtering pages, portfolio piece filtering pages, careers landing page, animations, and others",
 					"natureOfContributions": "Iterated with designers to improve existing pages and collaborated with marketing team to add new features.",
@@ -207,7 +216,7 @@
 					"openInNewTab": "true"
 				},
 				{
-					"sortOrder": "6",
+					"sortOrder": "7",
 					"published": "true",
 					"title": "ICF International ",
 					"description": "New site build for international consulting company.",
@@ -217,7 +226,7 @@
 					"openInNewTab": "true"
 				},
 				{
-					"sortOrder": "7",
+					"sortOrder": "8",
 					"published": "true",
 					"title": "Pariveda Solutions",
 					"description": "New site build for software company.",
@@ -227,7 +236,7 @@
 					"openInNewTab": "true"
 				},
 				{
-					"sortOrder": "8",
+					"sortOrder": "9",
 					"published": "true",
 					"title": "Brother USA",
 					"description": "Public facing site build for printer and sewing machine manufacturer.",
@@ -237,7 +246,7 @@
 					"openInNewTab": "true"
 				},
 				{
-					"sortOrder": "9",
+					"sortOrder": "10",
 					"published": "true",
 					"title": "Hilton Grand Vacations",
 					"description": "This project involved building an internal intranet site for Hilton Grand Vacations using Microsoft SharePoint. The site has a user base of 8000 users and is used to distribute information to employees, provide links and bookmarks to benefits, communicate news & company announcements, and allow Hilton to set up pages for its internal departments. Since the site is not publicly available, I have documented small pieces of the work here on my own site.",
@@ -248,7 +257,7 @@
 					"openInNewTab": "false"
 				},
 				{
-					"sortOrder": "10",
+					"sortOrder": "11",
 					"published": "true",
 					"title": "Atrium Health",
 					"description": "Re-platform of previous site and ongoing maintenance.",
@@ -258,7 +267,7 @@
 					"openInNewTab": "true"
 				},
 				{
-					"sortOrder": "11",
+					"sortOrder": "12",
 					"published": "true",
 					"title": "Broward Health",
 					"description": "Broward Health is a hospital system in Fort Lauderdale, Florida. I am proud of this project as it was a big success since our 3-person team delivered a quality product on time and under-budget. I also learned a ton over the 3-month project dealing with frontend JavaScript architecture, writing modular and maintainable web components, and writing backend code in C# to create enterprise web apps.",
@@ -268,7 +277,7 @@
 					"openInNewTab": "true"
 				},
 				{
-					"sortOrder": "12",
+					"sortOrder": "13",
 					"published": "true",
 					"title": "Heartland Payments Systems",
 					"description": "New multi-site integration build for financial tech company.",
@@ -278,7 +287,7 @@
 					"openInNewTab": "true"
 				},
 				{
-					"sortOrder": "13",
+					"sortOrder": "14",
 					"published": "true",
 					"title": "Bay Area Air Quality Management District",
 					"description": "Maintenance on existing site for air quality regulating body of San Francisco Bay area.",
@@ -288,7 +297,7 @@
 					"openInNewTab": "true"
 				},
 				{
-					"sortOrder": "14",
+					"sortOrder": "15",
 					"published": "true",
 					"title": "El Jimador",
 					"year": "2013",
@@ -299,7 +308,7 @@
 					"openInNewTab": "true"
 				},
 				{
-					"sortOrder": "15",
+					"sortOrder": "16",
 					"published": "true",
 					"title": "Verizon Wireless",
 					"year": "2014",
@@ -310,7 +319,7 @@
 					"openInNewTab": "true"
 				},
 				{
-					"sortOrder": "16",
+					"sortOrder": "17",
 					"published": "true",
 					"title": "Food Lion",
 					"year": "2014",
@@ -321,7 +330,7 @@
 					"openInNewTab": "true"
 				},
 				{
-					"sortOrder": "17",
+					"sortOrder": "18",
 					"published": "true",
 					"title": "Cisco's Mobility Your Way",
 					"year": "2013",
@@ -332,7 +341,7 @@
 					"openInNewTab": "true"
 				},
 				{
-					"sortOrder": "18",
+					"sortOrder": "19",
 					"published": "true",
 					"title": "Callaway Gardens",
 					"year": "2012",

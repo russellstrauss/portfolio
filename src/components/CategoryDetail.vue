@@ -517,12 +517,16 @@
 								font-size: .75rem;
 
 								@include desktop-large {
-									font-size: .5rem;
+									font-size: 1rem;
 								}
 							}
 
 							.nature-of-contributions {
 								font-size: .5rem;
+								
+								@include desktop-large {
+									font-size: .75rem;
+								}
 							}
 
 							*:last-child {
