@@ -59,7 +59,7 @@
 				<h2>Education</h2>
 				<ul>
 					<li>MS Computer Science 2020</li>
-					<li>Specialized in Computer Graphics</li>
+					<li>Specialized in 3D Computer Graphics</li>
 					<li>
 						<span 
 							class="gt-rankings" 
@@ -92,7 +92,7 @@
 				<h2>Skills</h2>
 				<ul class="plus">
 					<li><strong>Front end</strong>: JavaScript, React, Vue, Angular, UI/UX, NPM, SASS, Three.js, D3.js, responsive, accessibility (WCAG)</li>
-					<li><strong>Interactive & Visualization</strong>: VR, 3D experiences, data visualization, animation</li>
+					<li><strong>Interactive & Visualization</strong>: VR, 3D, data visualization, animation</li>
 					<li><strong>Back end</strong>: C#, Node, .Net, Python</li>
 					<li><strong>DevOps</strong>: CI/CD, Azure, Google Cloud, AWS, CloudFlare</li>
 					<li><strong>CMS</strong>: SiteCore, WordPress, Drupal</li>
