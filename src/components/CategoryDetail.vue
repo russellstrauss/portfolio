@@ -22,7 +22,7 @@
 								</div>
 								<div class="text-block" v-if="piece.description !== ''">
 									<p class="description">{{ piece.description }}</p>
-									<p class="nature-of-contributions" v-if="piece.natureOfContributions">Nature of contributions: {{ piece.natureOfContributions }}</p>
+									<!-- <p class="nature-of-contributions" v-if="piece.natureOfContributions">Nature of contributions: {{ piece.natureOfContributions }}</p> -->
 								</div>
 							</div>
 						</a>

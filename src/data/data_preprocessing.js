@@ -11,6 +11,7 @@ import htmlLogarithmicSpiral from './html/logarithmic-spiral-camera-motion.html?
 import htmlPaintingNature from './html/painting-nature.html?raw';
 import htmlGrowasis from './html/growasis.html?raw';
 import htmlHiltonGrandVacations from './html/hilton-grand-vacations.html?raw';
+import htmlHammerheadSilver from './html/hammerhead-silver.html?raw';
 import htmlWhiskeys from './html/whiskeys.html?raw';
 import htmlArapahoe from './html/arapahoe.html?raw';
 import htmlMtHood from './html/mt-hood.html?raw';
@@ -161,6 +162,7 @@ const htmlMap = {
 	'painting-nature': htmlPaintingNature,
 	'growasis': htmlGrowasis,
 	'hilton-grand-vacations': htmlHiltonGrandVacations,
+	'hammerhead-silver': htmlHammerheadSilver,
 	'whiskeys': htmlWhiskeys,
 	'arapahoe': htmlArapahoe,
 	'mt-hood': htmlMtHood,
