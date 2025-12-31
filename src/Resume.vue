@@ -94,7 +94,7 @@
 					<li><strong>Front end</strong>: JavaScript, React, Vue, Angular, UI/UX, npm, SASS, three.js, D3.js, responsive, web accessibility (WCAG)</li>
 					<li><strong>Interactive & Visualization</strong>: VR, 3D, data visualization, animation</li>
 					<li><strong>Back end</strong>: C#, Node, SQL, .Net, Python</li>
-					<li><strong>DevOps</strong>: CI/CD, CloudFlare, Azure, Google Cloud, AWS</li>
+					<li><strong>DevOps</strong>: CI/CD, CloudFlare, Docker, Azure, Google Cloud, AWS</li>
 					<li><strong>CMS</strong>: SiteCore, WordPress</li>
 				</ul>
 			</section>
