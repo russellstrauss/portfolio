@@ -3,7 +3,6 @@ $tablet-width: 768px;
 $desktop-width: 992px;
 $desktop-large-width: 1200px;
 
-// Target mobile-only (767px and below)
 @mixin mobile-only {
 	@media (max-width: #{$mobile-width}) {
 		@content;
@@ -37,7 +36,6 @@ $desktop-large-width: 1200px;
 	}
 }
 
-// Target desktop and above (992px+)
 @mixin desktop-small-only {
 	@media (min-width: #{$desktop-width}) and (max-width: #{$desktop-large-width - 1px}) {
 		@content;

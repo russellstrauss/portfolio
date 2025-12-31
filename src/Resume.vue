@@ -6,12 +6,12 @@
 		</div>
 		
 		<div class="resume container">
-			<!-- <section class="skills">
-				<h2>Objective</h2>
+			<section class="skills">
+				<h2>Summary</h2>
 				<p>
-					In search of a full-time position in Colorado utilizing my experience on the web platform to explore software engineering interests such as application development, UI/UX, 3D, visualization, computer graphics, and virtual reality.
+					Frontend and UI engineer specializing in responsive interactive interfaces, dashboards, and ecommerce applications. Expert in React, Vue, Angular, UI/UX, web accessibility (WCAG), and interactive data visualization. Experienced with backend integration (C#, Node.js, .NET) and AI automated code development to deliver high-quality, user-focused solutions. 
 				</p>
-			</section> -->
+			</section>
 			<section class="contact left">
 				<h2>Contact</h2>
 				<div>
@@ -84,7 +84,7 @@
 						> Georgia Institute of Technology
 						</span>
 					</li>
-					<li>GPA 3.5</li>
+					<li>GPA 3.7</li>
 				</ul>
 			</section>
 			<div class="clearfix"> </div>
@@ -93,9 +93,9 @@
 				<ul class="plus">
 					<li><strong>Front end</strong>: JavaScript, React, Vue, Angular, UI/UX, npm, SASS, three.js, D3.js, responsive, web accessibility (WCAG)</li>
 					<li><strong>Interactive & Visualization</strong>: VR, 3D, data visualization, animation</li>
-					<li><strong>Back end</strong>: C#, Node, .Net, Python</li>
-					<li><strong>DevOps</strong>: CI/CD, Azure, Google Cloud, AWS, CloudFlare</li>
-					<li><strong>CMS</strong>: SiteCore, WordPress, Drupal</li>
+					<li><strong>Back end</strong>: C#, Node, SQL, .Net, Python</li>
+					<li><strong>DevOps</strong>: CI/CD, CloudFlare, Azure, Google Cloud, AWS</li>
+					<li><strong>CMS</strong>: SiteCore, WordPress</li>
 				</ul>
 			</section>
 			<section class="experience">
@@ -107,7 +107,7 @@
 						<div class="position">Frontend Software Architect / Creative Director</div>
 						<div class="duration mobile">2018 - Present</div>
 						<div class="job-description">
-							AI tooling automated code development, ecommerce online store development, designing and producing beautiful, natural-fiber watercolor fashion lines and textiles. <br />
+							Designed and built CMS-driven websites and ecommerce online stores, built AI automated code development and workflow automation, converted real business requirements into app development integrations, expanding business capabilities, defined visual and technical standards for multiple clients, and worked directly with clients to ensure requirements were met and expectations exceeded.
 						</div>
 					</div>
 					<div class="clearfix"> </div>
@@ -257,6 +257,15 @@
 		}
 
 		ul {
+
+			&.bullets {
+				padding-left: 20px;
+				
+				li {
+					list-style-type: disc;
+					margin: 0;
+				}
+			}
 			
 			li {
 				margin-left: 0;
@@ -440,7 +449,8 @@
 					.left {
 						padding-left: 60px;
 
-						ul { padding-left: 0;
+						ul {
+						padding-left: 0;
 						}
 					}
 				}
@@ -510,7 +520,6 @@
 						margin-bottom: 0;
 					}
 				}
-				
 			}
 		}
 	}
