@@ -1,44 +1,51 @@
 <h2>Accessibility for Developers</h2>
 
-<p>Developers play a crucial role in implementing accessible web experiences. This guide provides practical, code-level guidance for building accessible applications.</p>
+<p>Developers play a crucial role in implementing accessible web experiences. This guide provides practical, code-level
+	guidance for building accessible applications.</p>
 
 <h3>HTML Best Practices</h3>
 
 <h4>Semantic HTML</h4>
-<pre><code>&lt;!-- Good: Semantic structure --&gt;
-&lt;header&gt;
-  &lt;nav&gt;
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href="/"&gt;Home&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/nav&gt;
-&lt;/header&gt;
-&lt;main&gt;
-  &lt;article&gt;
-    &lt;h1&gt;Article Title&lt;/h1&gt;
-    &lt;p&gt;Content...&lt;/p&gt;
-  &lt;/article&gt;
-&lt;/main&gt;
-&lt;footer&gt;Footer content&lt;/footer&gt;
+<!--CODE:markup-->
+<!-- Good: Semantic structure -->
+<header>
+	<nav>
+		<ul>
+			<li><a href="/">Home</a></li>
+		</ul>
+	</nav>
+</header>
+<main>
+	<article>
+		<h1>Article Title</h1>
+		<p>Content...</p>
+	</article>
+</main>
+<footer>Footer content</footer>
+<!--/CODE-->
 
-&lt;!-- Bad: Div soup --&gt;
-&lt;div class="header"&gt;
-  &lt;div class="nav"&gt;
-    &lt;div class="link"&gt;Home&lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</code></pre>
+<!--CODE:markup-->
+<!-- Bad: Div soup -->
+<div class="header">
+	<div class="nav">
+		<div class="link">Home</div>
+	</div>
+</div>
+<!--/CODE-->
 
 <h4>Form Implementation</h4>
-<pre><code>&lt;!-- Good: Properly labeled form --&gt;
-&lt;form&gt;
-  &lt;fieldset&gt;
-    &lt;legend&gt;Contact Information&lt;/legend&gt;
-    &lt;label for="email"&gt;Email Address &lt;span aria-label="required"&gt;*&lt;/span&gt;&lt;/label&gt;
-    &lt;input type="email" id="email" name="email" required aria-required="true"&gt;
-    &lt;span id="email-error" class="error" role="alert" aria-live="polite"&gt;&lt;/span&gt;
-  &lt;/fieldset&gt;
-  &lt;button type="submit"&gt;Submit&lt;/button&gt;
-&lt;/form&gt;</code></pre>
+<!--CODE:markup-->
+<!-- Good: Properly labeled form -->
+<form>
+	<fieldset>
+		<legend>Contact Information</legend>
+		<label for="email">Email Address <span aria-label="required">*</span></label>
+		<input type="email" id="email" name="email" required aria-required="true">
+		<span id="email-error" class="error" role="alert" aria-live="polite"></span>
+	</fieldset>
+	<button type="submit">Submit</button>
+</form>
+<!--/CODE-->
 
 <h3>ARIA Implementation</h3>
 
@@ -51,180 +58,200 @@
 </ul>
 
 <h4>Common ARIA Patterns</h4>
-<pre><code>&lt;!-- Button with loading state --&gt;
-&lt;button aria-busy="true" aria-label="Loading, please wait"&gt;
-  Submit
-&lt;/button&gt;
+<!--CODE:markup-->
+<!-- Button with loading state -->
+<button aria-busy="true" aria-label="Loading, please wait">Submit</button>
+<!--/CODE-->
 
-&lt;!-- Custom checkbox --&gt;
-&lt;div role="checkbox" aria-checked="false" tabindex="0"&gt;
-  I agree to the terms
-&lt;/div&gt;
+<!--CODE:markup-->
 
-&lt;!-- Live region for dynamic content --&gt;
-&lt;div aria-live="polite" aria-atomic="true" class="sr-only"&gt;
-  &lt;span id="status-message"&gt;&lt;/span&gt;
-&lt;/div&gt;
+<!-- Custom checkbox -->
+<div role="checkbox" aria-checked="false" tabindex="0">I agree to the terms</div>
+<!--/CODE-->
 
-&lt;!-- Modal dialog --&gt;
-&lt;div role="dialog" aria-modal="true" aria-labelledby="dialog-title"&gt;
-  &lt;h2 id="dialog-title"&gt;Confirm Action&lt;/h2&gt;
-  &lt;p&gt;Are you sure?&lt;/p&gt;
-  &lt;button&gt;Cancel&lt;/button&gt;
-  &lt;button&gt;Confirm&lt;/button&gt;
-&lt;/div&gt;</code></pre>
+<!--CODE:markup-->
+<!-- Live region for dynamic content -->
+<div aria-live="polite" aria-atomic="true" class="sr-only">
+	<span id="status-message"></span>
+</div>
+<!--/CODE-->
+
+<!--CODE:markup-->
+<!-- Modal dialog -->
+<div role="dialog" aria-modal="true" aria-labelledby="dialog-title">
+	<h2 id="dialog-title">Confirm Action</h2>
+	<p>Are you sure?</p>
+	<button>Cancel</button>
+	<button>Confirm</button>
+</div>
+<!--/CODE-->
 
 <h3>Keyboard Navigation</h3>
 
 <h4>Focus Management</h4>
-<pre><code>// Trap focus in modal
+<!--CODE:javascript-->
+// Trap focus in modal
 function trapFocus(container) {
-  const focusableElements = container.querySelectorAll(
-    'a[href], button:not([disabled]), textarea, input:not([disabled]), select, [tabindex]:not([tabindex="-1"])'
-  );
-  const firstElement = focusableElements[0];
-  const lastElement = focusableElements[focusableElements.length - 1];
+	
+	const focusableElements = container.querySelectorAll(
+		'a[href], button:not([disabled]), textarea, input:not([disabled]), select, [tabindex]:not([tabindex="-1"])'
+	);
+	const firstElement = focusableElements[0];
+	const lastElement = focusableElements[focusableElements.length - 1];
 
-  container.addEventListener('keydown', (e) => {
-    if (e.key === 'Tab') {
-      if (e.shiftKey) {
-        if (document.activeElement === firstElement) {
-          e.preventDefault();
-          lastElement.focus();
-        }
-      } else {
-        if (document.activeElement === lastElement) {
-          e.preventDefault();
-          firstElement.focus();
-        }
-      }
-    }
-  });
+	container.addEventListener('keydown', (e) => {
+		if (e.key === 'Tab') {
+			if (e.shiftKey) {
+				if (document.activeElement === firstElement) {
+					e.preventDefault();
+					lastElement.focus();
+				}
+			} else {
+				if (document.activeElement === lastElement) {
+					e.preventDefault();
+					firstElement.focus();
+				}
+			}
+		}
+	});
 }
 
 // Return focus to trigger element
 function openModal(trigger, modal) {
-  trigger.setAttribute('data-previous-focus', document.activeElement.id);
-  modal.show();
-  const firstFocusable = modal.querySelector('[tabindex="0"], button, a, input');
-  firstFocusable?.focus();
+	trigger.setAttribute('data-previous-focus', document.activeElement.id);
+
+	modal.show();
+	const firstFocusable = modal.querySelector('[tabindex="0"], button, a, input');
+	firstFocusable?.focus();
 }
 
 function closeModal(modal) {
-  const triggerId = modal.getAttribute('data-previous-focus');
-  const trigger = document.getElementById(triggerId);
-  modal.hide();
-  trigger?.focus();
-}</code></pre>
+	const triggerId = modal.getAttribute('data-previous-focus');
+	const trigger = document.getElementById(triggerId);
+	modal.hide();
+	trigger?.focus();
+}
+<!--/CODE-->
 
 <h3>Dynamic Content Updates</h3>
 
 <h4>ARIA Live Regions</h4>
-<pre><code>// Announce content changes to screen readers
+<!--CODE:javascript-->
+// Announce content changes to screen readers
 function announceToScreenReader(message, priority = 'polite') {
-  const liveRegion = document.getElementById('live-region') || createLiveRegion(priority);
-  liveRegion.textContent = message;
-  // Clear after announcement
-  setTimeout(() => {
-    liveRegion.textContent = '';
-  }, 1000);
+	const liveRegion = document.getElementById('live-region') || createLiveRegion(priority);
+	liveRegion.textContent = message;
+	
+	setTimeout(() => { // Clear after announcement
+		liveRegion.textContent = '';
+	}, 1000);
 }
 
 function createLiveRegion(priority) {
-  const region = document.createElement('div');
-  region.id = 'live-region';
-  region.setAttribute('role', 'status');
-  region.setAttribute('aria-live', priority);
-  region.setAttribute('aria-atomic', 'true');
-  region.className = 'sr-only';
-  document.body.appendChild(region);
-  return region;
-}</code></pre>
+	const region = document.createElement('div');
+	region.id = 'live-region';
+	region.setAttribute('role', 'status');
+	region.setAttribute('aria-live', priority);
+	region.setAttribute('aria-atomic', 'true');
+	region.className = 'sr-only';
+	document.body.appendChild(region);
+	return region;
+}
+<!--/CODE-->
 
 <h3>Form Validation</h3>
 
 <h4>Accessible Error Handling</h4>
-<pre><code>function validateForm(form) {
-  const errors = [];
-  const inputs = form.querySelectorAll('input, textarea, select');
-  
-  inputs.forEach(input => {
-    const errorId = input.id + '-error';
-    let errorElement = document.getElementById(errorId);
-    
-    if (!input.validity.valid) {
-      if (!errorElement) {
-        errorElement = document.createElement('span');
-        errorElement.id = errorId;
-        errorElement.className = 'error';
-        errorElement.setAttribute('role', 'alert');
-        errorElement.setAttribute('aria-live', 'polite');
-        input.parentNode.appendChild(errorElement);
-      }
-      
-      input.setAttribute('aria-invalid', 'true');
-      input.setAttribute('aria-describedby', errorId);
-      errorElement.textContent = getErrorMessage(input);
-      errors.push(input);
-    } else {
-      input.removeAttribute('aria-invalid');
-      input.removeAttribute('aria-describedby');
-      if (errorElement) {
-        errorElement.remove();
-      }
-    }
-  });
-  
-  if (errors.length > 0) {
-    errors[0].focus();
-    announceToScreenReader('Form has errors. Please review and correct.');
-  }
-  
-  return errors.length === 0;
-}</code></pre>
+<!--CODE:javascript-->
+function validateForm(form) {
+	const errors = [];
+	const inputs = form.querySelectorAll('input, textarea, select');
+
+	inputs.forEach(input => {
+		const errorId = input.id + '-error';
+		let errorElement = document.getElementById(errorId);
+
+		if (!input.validity.valid) {
+			if (!errorElement) {
+				errorElement = document.createElement('span');
+				errorElement.id = errorId;
+				errorElement.className = 'error';
+				errorElement.setAttribute('role', 'alert');
+				errorElement.setAttribute('aria-live', 'polite');
+				input.parentNode.appendChild(errorElement);
+			}
+
+			input.setAttribute('aria-invalid', 'true');
+			input.setAttribute('aria-describedby', errorId);
+			errorElement.textContent = getErrorMessage(input);
+			errors.push(input);
+		} else {
+			input.removeAttribute('aria-invalid');
+			input.removeAttribute('aria-describedby');
+			
+			if (errorElement) {
+				errorElement.remove();
+			}
+		}
+	});
+
+	if (errors.length > 0) {
+		errors[0].focus();
+		announceToScreenReader('Form has errors. Please review and correct.');
+	}
+
+	return errors.length === 0;
+}
+<!--/CODE-->
 
 <h3>Skip Links</h3>
-<pre><code>&lt;style&gt;
-.skip-link {
-  position: absolute;
-  top: -40px;
-  left: 0;
-  background: #000;
-  color: #fff;
-  padding: 8px;
-  text-decoration: none;
-  z-index: 100;
-}
+<!--CODE:markup-->
+<style>
+	.skip-link {
+		position: absolute;
+		top: -40px;
+		left: 0;
+		background: #000;
+		color: #fff;
+		padding: 8px;
+		text-decoration: none;
+		z-index: 100;
+	}
 
-.skip-link:focus {
-  top: 0;
-}
-&lt;/style&gt;
+	.skip-link:focus {
+		top: 0;
+	}
+</style>
 
-&lt;a href="#main-content" class="skip-link"&gt;Skip to main content&lt;/a&gt;
-&lt;main id="main-content"&gt;
-  &lt;!-- Main content --&gt;
-&lt;/main&gt;</code></pre>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<main id="main-content">
+	<!-- Main content -->
+</main>
+<!--/CODE-->
 
 <h3>Screen Reader Only Content</h3>
-<pre><code>&lt;style&gt;
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
-}
-&lt;/style&gt;
+<!--CODE:markup-->
+<style>
+	.sr-only {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		padding: 0;
+		margin: -1px;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		white-space: nowrap;
+		border-width: 0;
+	}
+</style>
 
-&lt;button&gt;
-  &lt;span class="sr-only"&gt;Add to favorites&lt;/span&gt;
-  &lt;svg aria-hidden="true"&gt;&lt;use href="#heart-icon"&gt;&lt;/use&gt;&lt;/svg&gt;
-&lt;/button&gt;</code></pre>
+<button>
+	<span class="sr-only">Add to favorites</span>
+	<svg aria-hidden="true">
+		<use href="#heart-icon"></use>
+	</svg>
+</button>
+<!--/CODE-->
 
 <h3>Testing in Development</h3>
 

@@ -7,12 +7,6 @@ html {
 	font-size: 16px;
 }
 
-body {
-	@include body;
-	padding: 20px 0 100px 0;
-	line-height: normal;
-	color: white;
-}
 
 a {
 	color: $link-color;
@@ -21,6 +15,28 @@ a {
 	
 	&:hover {
 		color: $hover-color;
+	}
+}
+
+body {
+	@include body;
+	padding: 20px 0 100px 0;
+	line-height: normal;
+	color: white;
+}
+
+code {
+	
+	&.html-tag {
+		border: 1px solid rgba(255, 255, 255, .5);
+		border-radius: 4px;
+		padding: 1px 3px;
+		margin: 0 2px;
+		color: #f08d49;
+		
+		.bracket {
+			color: #ccc;
+		}
 	}
 }
 
@@ -88,6 +104,10 @@ hr {
 
 strong {
 	font-weight: bold;
+	
+	&.accent {
+		color: #00ff00;
+	}
 }
 
 ol {
