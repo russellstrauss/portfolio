@@ -23,13 +23,6 @@
 
 		data() {
 			return {
-				// Updated to match actual title animation timing (from when animation starts):
-				// Line scale: delay 1000ms + duration 600ms = ends at 1600ms
-				// Line translate: starts at 1600ms, duration 800ms = ends at 2400ms  
-				// Letters start at 1900ms (2400 - 500), with staggered delays
-				// For "John Russell Strauss" (~20 chars): last letter starts at 1900 + (19 * 20) = 2280ms
-				// Last letter duration: 400ms, so letters finish at ~2680ms
-				// Total from animation start: 1000ms delay + 2680ms = 3680ms
 				titleFadeInLength: 3680,
 				menuFadeInDelay: 500,
 				previousRoute: null,
@@ -42,11 +35,11 @@
 					{
 						title: 'Work',
 						path: '/work'
-					},
-					{
-						title: 'Resume',
-						path: '/resume'
-					}
+					}//,
+					// {
+					// 	title: 'Resume',
+					// 	path: '/resume'
+					// }
 				]
 			};
 		},
@@ -130,7 +123,6 @@
 						});
 					};
 					
-					// Wait for fonts to load if available (same as Title component)
 					if (document.fonts && document.fonts.ready) {
 						document.fonts.ready.then(() => {
 							requestAnimationFrame(() => {
@@ -143,21 +135,18 @@
 						});
 					}
 				} else {
-					// On other pages, show immediately
 					$('nav.main ul li a span').css({'margin-left': 0, 'opacity': 1, 'transform': 'none'});
 				}
 			}
 		},
 		
 		mounted: function () {
-			// Set initial route
 			this.previousRoute = this.$route ? this.$route.path : null;
 			this.animateNav();
 		},
 		
 		watch: {
 			'$route'(to, from) {
-				// Store previous route before updating
 				this.previousRoute = from ? from.path : null;
 				this.animateNav();
 			}

@@ -93,7 +93,7 @@
 </ul>
 
 <h3>Form Accessibility</h3>
-<p>Forms are one of the most important elements to check for accessibility issues as they can be surprisingly complex and are typically a main point of entry for interaction with your organization. Forms must be properly labeled and provide clear error messaging.</p>
+<p>Forms are one of the most important elements to check for accessibility issues, as they can be surprisingly complex and are typically a main point of entry for interaction with your organization. Forms must be properly labeled and provide clear error messaging.</p>
 <ul>
 	<li>Associate labels with form controls using the <code class="html-tag">for</code> attribute or implicit labeling</li>
 	<li>Use <code class="html-tag"><span class="bracket">&lt;</span>fieldset<span class="bracket">&gt;</span></code> and <code class="html-tag"><span class="bracket">&lt;</span>legend<span class="bracket">&gt;</span></code> for related form groups</li>
@@ -113,7 +113,7 @@
 	<li>Use paragraphs for text blocks</li>
 	<li>Provide clear, descriptive link text (avoid "click here")</li>
 </ul>
-
+ 
 <h3>Multimedia Accessibility</h3>
 <p>Audio and video content must be accessible to all users.</p>
 <ul>
@@ -149,7 +149,9 @@
 <ul>
 	<li>Optimize images and media files</li>
 	<li>Minimize JavaScript and CSS</li>
-	<li>Use lazy loading appropriately</li>
 	<li>Ensure critical content loads first</li>
 	<li>Test on slower connections and devices</li>
+	
+	<h4>Lazy Loading</h4>
+	<p>While lazy loading has become increasingly popular over the last decade, it can create <strong>very poor</strong> usability. Try navigating to the very last item in a list of thousands or tens of thousands of lazy loaded items and you will quickly understand why. I would STRONGLY recommend against using lazy loading for this reason. Any performance gains brought by lazy loading are outweighed by performance losses in latency and an endlessly (pun intended) frustrating experience for the user, especially on a slow connection. These issues are only exacerbated when considering user accessibility. If it is difficult for a typical user to navigate, you can assume it will be even more difficult for users with mobility issues to use. Anything that can be lazy loaded can be paginated. Get creative and come up with an alterative interaction.</p>
 </ul>
