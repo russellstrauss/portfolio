@@ -156,6 +156,11 @@
 </script>
 
 <style lang="scss">
+	@use '@/sass/vars' as *;
+	@use '@/sass/responsive' as *;
+	@use '@/sass/mixins' as *;
+
+
 	.generic-page {
 		
 		.raw-html-container {
@@ -244,6 +249,31 @@
 					}
 				}
 			}
+		}
+	}
+
+	.key-point {
+		border-left: 4px solid $accent-color;
+		padding: 20px 20px 20px 60px;
+		margin: 0 0  20px 40px;
+		position: relative;
+		background-color: rgba(255, 255, 255, .1);
+
+		.quote {
+			font-family: 'Courier New', monospace;
+			font-size: 3rem;
+			position: absolute;
+			left: 1rem;
+			top: 1rem;
+		}
+
+		h6 {
+			font-size: 1.15rem;
+			margin-bottom: 5px;
+		}
+		p {
+			font-style: italic;
+			color: $accent-color;
 		}
 	}
 </style>

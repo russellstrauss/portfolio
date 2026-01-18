@@ -703,7 +703,7 @@
 				},
 				{
 					"sortOrder": "30",
-					"published": "dev",
+					"published": "true",
 					"title": "Practical Application",
 					"description": "",
 					"featuredImage": "",
@@ -712,7 +712,7 @@
 				},
 				{
 					"sortOrder": "32",
-					"published": "dev",
+					"published": "true",
 					"title": "UI Patterns",
 					"description": "",
 					"featuredImage": "",
@@ -721,7 +721,7 @@
 				},
 				{
 					"sortOrder": "34",
-					"published": "dev",
+					"published": "true",
 					"title": "Content & Media",
 					"description": "",
 					"featuredImage": "",
@@ -730,7 +730,7 @@
 				},
 				{
 					"sortOrder": "35",
-					"published": "dev",
+					"published": "true",
 					"title": "Accessibility for Developers",
 					"description": "",
 					"featuredImage": "",
@@ -739,7 +739,7 @@
 				},
 				{
 					"sortOrder": "37",
-					"published": "dev",
+					"published": "true",
 					"title": "Accessibility for Designers",
 					"description": "",
 					"featuredImage": "",
@@ -748,7 +748,7 @@
 				},
 				{
 					"sortOrder": "40",
-					"published": "dev",
+					"published": "true",
 					"title": "Testing & Evaluation",
 					"description": "",
 					"featuredImage": "",
@@ -757,7 +757,7 @@
 				},
 				{
 					"sortOrder": "90",
-					"published": "dev",
+					"published": "true",
 					"title": "Completion Checklists",
 					"description": "",
 					"featuredImage": "",

@@ -1,53 +1,102 @@
 <h2>Fundamental Accessibility Practices</h2>
 
-<p>These core practices form the foundation of accessible web development. Implementing these from the start of a project is more effective and cost-efficient than retrofitting accessibility later.</p>
+<p>These core practices form the foundation of accessible web development. Implementing these from the start of a project is much more effective and cost-efficient than retrofitting accessibility later.</p>
 
-<h3>Semantic HTML</h3>
-<p>Use HTML elements for their intended purpose. Semantic HTML provides meaning and structure that assistive technologies can interpret.</p>
+<div class="key-point">
+	<div class="quote">"</div>
+	<h6>Key Point:</h6>
+	<p>Implementing accessibility from the start of a project is much more effective and cost-efficient than retrofitting accessibility later.</p>
+</div>
+
+<p>This is a very important point to bring up with business stakeholders when advocating for accessibility practices.</p>
+
+<h3>What is Semantic HTML?</h3>
+
+<p>Semantic HTML is the practice of using tags that accurately describe the <i>structure</i> of the content being displayed. Use HTML elements for their intended purpose. Semantic HTML is crucial for the correct interpretation and navigation of content by assistive technologies.</p>
+<p>For example, <code class="html-tag"><span class="bracket">&lt;</span>div<span class="bracket">&gt;</span></code>'s and <code class="html-tag"><span class="bracket">&lt;</span>span<span class="bracket">&gt;</span></code>'s do not carry any semantic meaning. <code class="html-tag"><span class="bracket">&lt;</span>div<span class="bracket">&gt;</span></code> generically stands for "divide". <code class="html-tag"><span class="bracket">&lt;</span>div<span class="bracket">&gt;</span></code> is a generic block-level element and <code class="html-tag"><span class="bracket">&lt;</span>span<span class="bracket">&gt;</span></code> is a generic inline-level element.</p>
 <ul>
-	<li>Use heading tags (h1-h6) in proper hierarchy to structure content</li>
-	<li>Use lists (ul, ol) for list content, not just styling</li>
-	<li>Use proper form elements (input, label, fieldset, legend)</li>
-	<li>Use landmark elements (header, nav, main, aside, footer)</li>
-	<li>Avoid using divs and spans when semantic elements exist</li>
+	<li>Use heading tags (<code class="html-tag"><span class="bracket">&lt;</span>h1<span class="bracket">&gt;</span></code> through <code class="html-tag"><span class="bracket">&lt;</span>h6<span class="bracket">&gt;</span></code>) in proper hierarchy to structure content</li>
+	<li>Use lists (<code class="html-tag"><span class="bracket">&lt;</span>ul<span class="bracket">&gt;</span></code>, <code class="html-tag"><span class="bracket">&lt;</span>ol<span class="bracket">&gt;</span></code>) for list content, not just styling</li>
+	<li>Use proper form elements (<code class="html-tag"><span class="bracket">&lt;</span>input<span class="bracket">&gt;</span></code>, <code class="html-tag"><span class="bracket">&lt;</span>label<span class="bracket">&gt;</span></code>, <code class="html-tag"><span class="bracket">&lt;</span>fieldset<span class="bracket">&gt;</span></code>, <code class="html-tag"><span class="bracket">&lt;</span>legend<span class="bracket">&gt;</span></code>)</li>
+	<li>Use landmark elements (<code class="html-tag"><span class="bracket">&lt;</span>header<span class="bracket">&gt;</span></code>, <code class="html-tag"><span class="bracket">&lt;</span>nav<span class="bracket">&gt;</span></code>, <code class="html-tag"><span class="bracket">&lt;</span>main<span class="bracket">&gt;</span></code>, <code class="html-tag"><span class="bracket">&lt;</span>aside<span class="bracket">&gt;</span></code>, <code class="html-tag"><span class="bracket">&lt;</span>footer<span class="bracket">&gt;</span></code>)</li>
+	<li>Avoid using <code class="html-tag"><span class="bracket">&lt;</span>div<span class="bracket">&gt;</span></code>s and <code class="html-tag"><span class="bracket">&lt;</span>span<span class="bracket">&gt;</span></code>s when semantic elements exist</li>
 </ul>
 
 <h3>Alternative Text for Images</h3>
-<p>All images must have appropriate alt text that conveys the same information or function as the image.</p>
+<p>All images must have appropriate alt text that conveys the same information or function as the image. The alternative text is an <em>"alternative"</em> to the visual content of the image. <code class="html-tag">alt</code> is an attribute applied to the <code class="html-tag"><span class="bracket">&lt;</span>img<span class="bracket">&gt;</span></code> tag. The alt text should describe the visual content of the image for someone who cannot process the image visually. Screen readers commonly read the alt text aloud to describe the image. For example, a picture of a dog in a field may read, "A large brown dog sniffs dafodils in a sunny park."</p>
+<p>A blank <code class="html-tag">alt</code> attribute instructs the screen reader to ignore the image. If the <code class="html-tag">alt</code> attribute is left blank on an important image, the user will not even know that it is present on the page at all. However, for decorative elements that do not carry any meaning, specifying a blank <code class="html-tag">alt</code> attribute is an appropriate way to tell a screen reader to ignore it, when that is the intended use-case.</p>
 <ul>
-	<li><strong>Decorative images:</strong> Use empty alt="" to indicate the image is decorative</li>
-	<li><strong>Informative images:</strong> Provide concise, descriptive alt text</li>
-	<li><strong>Functional images:</strong> Describe the function (e.g., "Search" for a search icon button)</li>
-	<li><strong>Complex images:</strong> Provide detailed descriptions in surrounding text or longdesc</li>
-	<li>Avoid redundant phrases like "image of" or "picture of"</li>
+	<li><strong>Informative images:</strong> Provide concise, descriptive alt text.</li>
+	<li><strong>Functional images:</strong> Describe the function (e.g., "Search" for a search icon button).</li>
+	<li><strong>Complex images:</strong> Provide detailed descriptions in surrounding text.</li>
+	<li>Avoid redundant phrases like "image of" or "picture of".</li>
 </ul>
 
 <h3>Keyboard Navigation</h3>
-<p>Ensure all interactive elements are accessible via keyboard alone.</p>
+<p>Keyboard navigation is one of the most important aspects of web accessibility, and it should be one of the first aspects of your app that you audit and test. We must ensure all interactive elements are accessible via keyboard alone. Why? Because many people cannot use a mouse. This feature is most important for those with motor disabilities. Some people do not have arms, some people have vision that makes it impossible to see the cursor, some people have neuropathy (like me), some people have carpal tunnel in their wrists, and many others have reasons that make it difficult or impossible to interact with their system using the mouse. Many superusers who do not have a disability prefer to use the keyboard for speed and efficiency. Some just find it easier to use the keyboard. There are times when we simply do not have a mouse and want to interact through the keyboard, so it is imperative that we include this functionality built into our applications. This is typically the first and most basic aspect of accessibility that will be tested. So keyboard controls are important for all of your users!</p>
+<p>All links, buttons, and form controls must be keyboard accessible. If it is part of your application, it should be accessible by keyboard control.</p>
+
+<h4>Focus Indicators</h4>
+<p>The focus indicator is the visual feedback system that is built into the browser for navigating the page with the keyboard. It is typically represented by a border or dotted line surrounding the currently selected element.</p>
+<div class="key-point">
+	<div class="quote">"</div>
+	<h6>Key Point:</h6>
+	<p>Avoid using css properties <code class="language-css">outline: 0;</code> or <code class="language-css">outline: none;</code>, as this breaks focus indicators. The <code class="language-css">outline</code> property <strong>IS</strong> the focus indicator.</p>
+</div>
+<p><strong class="accent">Tip:</strong> If you need to change the outline style, you can update it to reflect your brand identity and design system, but make sure that you test your updates do not break its functionality.</p>
+
+<h4>Tab Order</h4>
+<p>It is crucial for usability to ensure that your keyboard controls follow a logical tab order that matches the visual ordering of your application's UI. Your controls should support the standard keyboard shortcuts such as Enter, Space, Tab, Shift+Tab (backwards), and the Arrow keys.</p>
+<h4>tabindex</h4>
 <ul>
-	<li>All links, buttons, and form controls must be keyboard accessible</li>
-	<li>Provide visible focus indicators (outline or border changes)</li>
-	<li>Ensure logical tab order matches visual order</li>
-	<li>Implement skip links for main content</li>
-	<li>Avoid keyboard traps where users cannot escape</li>
-	<li>Support standard keyboard shortcuts (Enter, Space, Arrow keys)</li>
+	<li><code class="language-html">tabindex=0</code></li>
+	<li><code class="language-html">tabindex=1</code></li>
+	<li><code class="language-html">tabindex=-1</code></li>
 </ul>
 
+<h4>Skip to Main Content</h4>
+<p>The Skip to Main Content feature of keyboard navigation is the most important aspect of keyboard controls and the first feature that you should check or implement. Many app's main navigation areas can have huge numbers of links and sub-navs or hierarchies. Don't forget that because the HTTP web protocol is stateless, every time the user navigates to a new page in your app, the tab location is reset. So if your main nav has hundreds of links in it, the user will have to press tab hundreds of times every time a new page is opened. This is the purpose of the Skip to Main Content control. The user should be able to skip to the main content of the page with a single interaction instead of traversing through complex navigations on every new page reload. The nav is generally the first element on the page, but the main content area of the site is where the page's meaningful substance begins.</p>
+<p>To implement this feature, you can add a "Skip to Main Content" button which is displayed on the first Tab press. By selecting this button when it appears, the user's tab focus skips all navigation or other unrelated elements between the top of the page and the main content area and travels straight to the main content, allowing the user to interact with the page's true substance right away.</p>
+
+<h4>Keyboard Traps</h4>
+<p>Without a conscientious effort to check and control the flow of the keyboard controls, it's not uncommon for there to be a sink in interaction flow.</p>
+<p>In computing, a sink is a destination in data flow where flow terminates and contains no outgoing paths leading out from it, acting as a final collection point for data flow. In other words, a sink is like quicksand where you cannot return once you have entered. These are unintentional traps from which the user cannot escape. It is crucial to test for these sinks because they break the user's ability to navigate your app. In web accessibility, these are called <strong>keyboard traps.</strong></p>
+<p>A few common causes for keyboard traps can include:</p>
+<ul>
+	<li><strong>Modals & Dialogs</strong>: A pop-up UI takes focus without providing a keyboard control to close it.</li>
+	<li><strong>Advanced Widgets</strong>: Calendars, datepickers, video players, or custom components that improperly handle keyboard focus can suck in the user flow, especially those with large amounts of sub-elements like a calendar.</li>
+	<li><strong>Incorrect Event Handling or JavaScript Logic</strong>: Poorly-designed or incorrect use of <code class="language-javascript">onBlur</code>, <code class="language-javascript">onChange</code>, or <code class="language-javascript">onFocus</code> can break your apps navigation flow and cause unintended consequences for keyboard navigation.</li>
+</ul>
+<p>Avoid using custom logic wherever possible and rely on built-in structure and methods for navigation. When adding custom logic, be <strong>extremely careful</strong> and test <strong>thoroughly</strong>.</p>
+
 <h3>Color and Contrast</h3>
-<p>Don't rely solely on color to convey information, and ensure sufficient contrast.</p>
+<p>Don't rely solely on color to convey information and ensure sufficient contrasting colors between text and background or foreground elements so that anyone who is visually impaired can successfully see and differentiate parts of your application.</p>
+<div class="key-point">
+	<div class="quote">"</div>
+	<h6>Key Point:</h6>
+	<p>Do not rely on color alone to signify meaning.</p>
+</div>
+<h4>Colors in UI</h4>
+<p>Many people are colorblind, and specifically, many people are <span class="red">red</span>-<span class="green">green</span> colorblind. So when relying on color alone to convey meaning, such as confirm/continue (<span class="green">green</span>) and cancel/stop (<span class="red">red</span>), you are leaving these users in darkness. When using red, green, or other colors in manners like this, be sure to supply icons, words, description, patterns, or other visual indicators to support these meanings. This way, colorblind users can still participate in the app without being misled, misinformed, or left behind. No colorblind left behind!</p>
+<p>In addition to these considerations, you should also check to make sure that your <strong>focus state</strong> relies on more than color alone to stand out. A common industry standard for focus state is often a <code class="outline">dotted outline</code> .</p>
+<p>There are colorblindness simulator tools that you can use to test for color accessibility compliance:</p>
+<ul>
+	<li><a href="https://www.color-blindness.com/coblis-color-blindness-simulator/">Coblis — Color Blindness Simulator</a></li>
+	<li><a href="https://www.skynettechnologies.com/color-blindness-simulator">Skynet Technologies Colorblindness Simulator</a></li>
+	<li><a href="https://www.whocanuse.com/">Whocanuse Colorblindness and Contrast Assessment</a></li>
+</ul>
+<h4>Contrast in UI</h4>
+<p>The purpose of using color contrast ratios in web accessibility is simply to make sure your content is legible by those who have visual impairments and those who do not have visual impairments. All users can benefits from using sufficient color contrast between the background, foreground, and text, especially as we use devices with small screens so heavily in everyday life.</p>
 <ul>
 	<li>Maintain contrast ratio of at least 4.5:1 for normal text (Level AA)</li>
 	<li>Maintain contrast ratio of at least 3:1 for large text (18pt+ or 14pt+ bold)</li>
-	<li>Use icons, text, or patterns in addition to color</li>
-	<li>Test with color blindness simulators</li>
-	<li>Ensure focus indicators are visible regardless of color</li>
 </ul>
 
 <h3>Form Accessibility</h3>
-<p>Forms must be properly labeled and provide clear error messaging.</p>
+<p>Forms are one of the most important elements to check for accessibility issues, as they can be surprisingly complex and are typically a main point of entry for interaction with your organization. Forms must be properly labeled and provide clear error messaging.</p>
 <ul>
-	<li>Associate labels with form controls using the "for" attribute or implicit labeling</li>
-	<li>Use fieldset and legend for related form groups</li>
+	<li>Associate labels with form controls using the <code class="html-tag">for</code> attribute or implicit labeling</li>
+	<li>Use <code class="html-tag"><span class="bracket">&lt;</span>fieldset<span class="bracket">&gt;</span></code> and <code class="html-tag"><span class="bracket">&lt;</span>legend<span class="bracket">&gt;</span></code> for related form groups</li>
 	<li>Provide clear, specific error messages</li>
 	<li>Indicate required fields clearly</li>
 	<li>Provide helpful instructions and examples</li>
@@ -57,14 +106,14 @@
 <h3>Content Structure</h3>
 <p>Well-structured content is easier to navigate and understand.</p>
 <ul>
-	<li>Use a single h1 per page</li>
+	<li>Use a single <code class="html-tag"><span class="bracket">&lt;</span>h1<span class="bracket">&gt;</span></code> per page</li>
 	<li>Maintain proper heading hierarchy (don't skip levels)</li>
 	<li>Use lists for list content</li>
 	<li>Break up long content with headings and sections</li>
 	<li>Use paragraphs for text blocks</li>
 	<li>Provide clear, descriptive link text (avoid "click here")</li>
 </ul>
-
+ 
 <h3>Multimedia Accessibility</h3>
 <p>Audio and video content must be accessible to all users.</p>
 <ul>
@@ -100,7 +149,9 @@
 <ul>
 	<li>Optimize images and media files</li>
 	<li>Minimize JavaScript and CSS</li>
-	<li>Use lazy loading appropriately</li>
 	<li>Ensure critical content loads first</li>
 	<li>Test on slower connections and devices</li>
+	
+	<h4>Lazy Loading</h4>
+	<p>While lazy loading has become increasingly popular over the last decade, it can create <strong>very poor</strong> usability. Try navigating to the very last item in a list of thousands or tens of thousands of lazy loaded items and you will quickly understand why. I would STRONGLY recommend against using lazy loading for this reason. Any performance gains brought by lazy loading are outweighed by performance losses in latency and an endlessly (pun intended) frustrating experience for the user, especially on a slow connection. These issues are only exacerbated when considering user accessibility. If it is difficult for a typical user to navigate, you can assume it will be even more difficult for users with mobility issues to use. Anything that can be lazy loaded can be paginated. Get creative and come up with an alterative interaction.</p>
 </ul>
