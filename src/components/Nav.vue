@@ -83,37 +83,26 @@
 			animateNav: function() {
 				let self = this;
 				
-				// Check if we're navigating between work-related routes
-				// If so, don't re-animate - just keep nav visible
 				const currentPath = this.$route.path;
 				const isWorkRoute = currentPath === '/work' || currentPath.startsWith('/work/');
 				const wasWorkRoute = this.previousRoute && (this.previousRoute === '/work' || this.previousRoute.startsWith('/work/'));
 				
-				// If navigating between work routes, don't re-animate - just ensure nav stays visible
-				if (isWorkRoute && wasWorkRoute) {
-					// Nav should already be visible, but ensure it stays that way without any style resets
-					// This prevents any flash during navigation
-					return;
-				}
+				if (isWorkRoute && wasWorkRoute) return; // If navigating between work routes, don't re-animate - just ensure nav stays visible
 				
-				// Reset animation state only if needed (not a work route transition)
 				$('nav.main ul li a span').css({
 					'margin-left': '',
 					'opacity': '',
 					'transform': ''
 				});
 				
-				// Re-wrap characters if needed
-				$('nav.main ul li a').each(function() {
+				$('nav.main ul li a').each(function() { // Re-wrap characters if needed
 					var $link = $(this);
 					if ($link.find('span').length === 0 || $link.text().trim() !== $link.find('span').text().replace(/\s/g, '')) {
 						self.wrapCharacters($link, 'span');
 					}
 				});
 
-				// Apply animation if on landing page
 				if (this.$route.path === '/') {
-					// Wait for fonts to load (same as Title component) before calculating delay
 					const calculateDelay = () => {
 						// Title animation timing (titleFadeInLength already includes the 1000ms delay):
 						// - Font loading: already waited
@@ -126,7 +115,7 @@
 							
 							setTimeout(function() {
 								$letter.css({'margin-left': 0, 'opacity': 1, 'transform': 'none'});
-							}, (i * 60) + totalDelay);
+							}, (i * 30) + totalDelay);
 						});
 					};
 					
@@ -219,9 +208,9 @@
 			ul {
 				li {
 					span {
-						transform: translate(150px, 0) scale(0) rotate(60deg);
+						transform: translate(100px, 100px) scale(0) rotate(0deg);
 						opacity: 0;
-						transition: transform 500ms ease-in-out, opacity 50ms ease-out;
+						transition: transform 250ms ease-in-out, opacity 50ms ease-out;
 					}
 				}
 			}
