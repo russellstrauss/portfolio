@@ -108,7 +108,7 @@
 							
 							setTimeout(function() {
 								$letter.css({'margin-left': 0, 'opacity': 1, 'transform': 'none'});
-							}, (i * 30) + totalDelay);
+							}, (i * 75) + totalDelay);
 						});
 					};
 					
@@ -197,9 +197,9 @@
 			ul {
 				li {
 					span {
-						transform: translate(100px, 100px) scale(0) rotate(0deg);
+						transform: translate(50px, 50px) scale(0) rotate(0deg);
 						opacity: 0;
-						transition: transform 250ms ease-in-out, opacity 50ms ease-out;
+						transition: transform 500ms cubic-bezier(0.645, 0.045, 0.355, 1), opacity 250ms ease-out;
 					}
 				}
 			}
