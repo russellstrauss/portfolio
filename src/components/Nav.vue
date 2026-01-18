@@ -108,7 +108,7 @@
 							
 							setTimeout(function() {
 								$letter.css({'margin-left': 0, 'opacity': 1, 'transform': 'none'});
-							}, (i * 75) + totalDelay);
+							}, (i * 60) + totalDelay);
 						});
 					};
 					
