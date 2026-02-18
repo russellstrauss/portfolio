@@ -127,10 +127,6 @@ function dedentCode(code) {
 }
 
 // Format id as display title (e.g. "get-schedule" -> "Get schedule")
-function formatIdAsTitle(id) {
-	return id.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
-}
-
 // Function to process code blocks in HTML content
 // Patterns:
 //   <!--CODE:language--> - inline code block
@@ -158,11 +154,9 @@ function processCodeBlocks(htmlContent) {
 		const codeBlock = `<pre><code class="language-${language}">${escapedCode}</code></pre>`;
 		const isLightbox = match.includes(':lightbox');
 		
+		// Lightbox: output hidden block (only shown in lightbox); use anchor tags in HTML (e.g. <a href="#id" data-code-lightbox="...">)
 		if (isLightbox && id) {
-			// Hidden block + link - use custom text (description, filename, or main method), or fall back to formatted id
-			const linkText = (customText && customText.trim()) || formatIdAsTitle(id);
-			const escapedLinkText = linkText.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-			return `<div id="${id}" data-code-lightbox-source class="code-lightbox-source code-lightbox-source--hidden" style="display:none">${codeBlock}</div><p class="code-lightbox-link"><a href="#${id}" data-code-lightbox="${escapedLinkText}">${escapedLinkText}</a></p>`;
+			return `<div id="${id}" data-code-lightbox-source class="code-lightbox-source code-lightbox-source--hidden" style="display:none">${codeBlock}</div>`;
 		}
 		
 		// Wrap in identifiable div when id is provided (for same-page lightbox references)

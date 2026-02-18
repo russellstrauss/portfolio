@@ -8,8 +8,8 @@
 			@keydown.esc="close"
 		>
 			<div class="code-lightbox__backdrop" aria-hidden="true" @click="close"></div>
-			<!-- Inline content from same-page code block reference -->
-			<div v-if="inline?.html" class="code-lightbox__code" v-html="inline.html"></div>
+			<!-- Inline content: clone of same-page code block (anchor by elementId) -->
+			<div v-if="inline?.elementId" ref="inlineCodeContainer" class="code-lightbox__code"></div>
 			<!-- Piece content (codeBlocks from pieces.json) -->
 			<template v-else>
 				<div
@@ -52,11 +52,24 @@ export default {
 			if (newVal) {
 				document.body.style.overflow = 'hidden';
 				this.$nextTick(() => {
+					this.renderInlineFromAnchor();
 					Prism.highlightAll();
 				});
 			} else {
+				this.clearInlineContainer();
 				document.body.style.overflow = '';
 			}
+		},
+		inline: {
+			handler(newVal) {
+				if (newVal?.elementId && this.open && this.$refs.inlineCodeContainer) {
+					this.$nextTick(() => {
+						this.renderInlineFromAnchor();
+						Prism.highlightAll();
+					});
+				}
+			},
+			deep: true
 		},
 		piece: {
 			handler(newVal) {
@@ -71,12 +84,28 @@ export default {
 	},
 
 	beforeUnmount() {
+		this.clearInlineContainer();
 		document.body.style.overflow = '';
 	},
 
 	methods: {
 		close() {
 			this.$emit('close');
+		},
+		renderInlineFromAnchor() {
+			if (!this.inline?.elementId || !this.$refs.inlineCodeContainer) return;
+			const sourceEl = document.getElementById(this.inline.elementId);
+			if (!sourceEl?.hasAttribute('data-code-lightbox-source')) return;
+			const preEl = sourceEl.querySelector('pre');
+			if (!preEl) return;
+			this.clearInlineContainer();
+			this.$refs.inlineCodeContainer.appendChild(preEl.cloneNode(true));
+		},
+		clearInlineContainer() {
+			const container = this.$refs?.inlineCodeContainer;
+			if (container) {
+				while (container.firstChild) container.removeChild(container.firstChild);
+			}
 		}
 	}
 };

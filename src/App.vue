@@ -75,7 +75,7 @@ export default {
 			
 			const hrefAttr = link.getAttribute('href') || '';
 			
-			// Same-page reference: href="#code-block-id" - show inline code from the page
+			// Same-page reference: href="#code-block-id" - show code in lightbox via anchor (clone DOM node)
 			if (hrefAttr.startsWith('#')) {
 				const id = hrefAttr.slice(1).trim();
 				if (!id) return;
@@ -85,15 +85,9 @@ export default {
 				
 				event.preventDefault();
 				
-				// Find the pre/code block inside (already syntax-highlighted by Prism)
-				const preEl = sourceEl.querySelector('pre');
-				if (!preEl) return;
-				
 				const title = link.getAttribute('data-code-lightbox') || link.textContent.trim() || 'Code';
-				const html = preEl.outerHTML;
-				
 				this.codeLightbox.piece = null;
-				this.codeLightbox.inline = { title, html };
+				this.codeLightbox.inline = { title, elementId: id };
 				this.codeLightbox.open = true;
 				return;
 			}

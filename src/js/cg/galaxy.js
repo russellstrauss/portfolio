@@ -31,7 +31,7 @@ var galaxy = (function() {
 	var clusterGeometry, initialized = false, frameCount = 0;
 	var renderer, scene, camera, controls;
 	let interps = [d3.interpolateRainbow, d3.interpolateRgb('#450F66', '#B36002'), d3.interpolateRgb('white', 'red'), d3.interpolateSinebow, d3.interpolateYlOrRd, d3.interpolateYlGnBu,d3.interpolateRdPu, d3.interpolatePuBu, d3.interpolateGnBu, d3.interpolateBuPu, d3.interpolateCubehelixDefault, d3.interpolateCool, d3.interpolateWarm, d3.interpolateCividis, d3.interpolatePlasma, d3.interpolateMagma, d3.interpolateInferno, d3.interpolateViridis, d3.interpolateTurbo, d3.interpolatePurples, d3.interpolateReds, d3.interpolateOranges, d3.interpolateGreys, d3.interpolateGreens, d3.interpolateBlues, d3.interpolateSpectral, d3.interpolateRdYlBu, d3.interpolateRdBu, d3.interpolatePuOr, d3.interpolatePiYG, d3.interpolatePRGn];
-	let curve = [], progress = 0, default_camera_speed = .0005, camera_speed = default_camera_speed, curve_index = 0, clock, dt, curveObject, catmullRomCurve;
+	let curve = [], progress = 0, default_camera_speed = .0005, curve_index = 0, clock, curveObject, catmullRomCurve, firstCameraFrame = true;
 	let cameraFocalPoint = new THREE.Vector3(0, 0, 0), origin = new THREE.Vector3(0, 0, 0), particles, particleCount = 60000, particleSpread = 500, positions, trajectory_iteration_count = 40, trajectoryReverse = false;
 	
 	return {
@@ -40,12 +40,15 @@ var galaxy = (function() {
 		},
 		
 		begin: function() {
-			
+			progress = 0;
+			firstCameraFrame = true;
+
 			scene = gfx.setUpScene();
 			renderer = gfx.setUpRenderer(renderer);
 			camera = gfx.setUpCamera(camera);
 			scene.background = settings.colors.worldColor;
 			controls = gfx.enableControls(controls, renderer, camera);
+			controls.enableDamping = false; // camera is driven by curve; no smoothing so it truly jumps to current time when tab returns
 			gfx.resizeRendererOnWindowResize(renderer, camera);
 			gfx.setUpLights();
 			gfx.setCameraLocation(camera, settings.defaultCameraLocation);
@@ -57,8 +60,8 @@ var galaxy = (function() {
 			
 			var animate = () => {
 				requestAnimationFrame(animate);
-				controls.update();
-				this.everyFrame();
+				this.everyFrame(); // update camera to curve position first (wall-clock)
+				controls.update(); // sync controls to camera so no catch-up
 				renderer.render(scene, camera);
 			};
 			animate(); 
@@ -116,19 +119,22 @@ var galaxy = (function() {
 		},
 		
 		updateCamera: function() {
-			dt = clock.getDelta();
+			let dt = clock.getDelta();
+			const maxDt = 0.1; // if we fall behind (e.g. tab backgrounded), jump to current time instead of catching up
+			if (firstCameraFrame) {
+				dt = Math.min(dt, maxDt);
+				firstCameraFrame = false;
+			}
+			if (dt > maxDt) {
+				progress = (Date.now() / 1000 * default_camera_speed) % 1;
+			} else {
+				progress += dt * default_camera_speed;
+				if (progress >= 1) progress = progress % 1;
+			}
 
-			let cameraPosition = catmullRomCurve.getPointAt(progress);
+			const cameraPosition = catmullRomCurve.getPointAt(progress);
 			camera.position.set(cameraPosition.x, cameraPosition.y, cameraPosition.z);
 			camera.lookAt(cameraFocalPoint);
-			
-			if (camera.position.distanceTo(origin) < 505) camera_speed = default_camera_speed * (camera.position.distanceTo(origin) - 500) * 100; // prevent spin out at center of log spiral
-			else {
-				camera_speed = default_camera_speed;
-			}
-		
-			progress += dt * camera_speed;
-			if (progress > (1-(dt * camera_speed))) progress = 0;
 		},
 		
 		addStars: function() {
