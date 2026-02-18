@@ -1,5 +1,11 @@
+@use 'mixins' as *;
+
 .add-border {
 	border: 1px solid black;
+}
+
+.white-border {
+	border: 1px solid rgba(255, 255, 255, .5);
 }
 
 .margin-bottom-extra-small {
@@ -53,4 +59,17 @@
 	padding: 2px 4px;
 	border-radius: 5px;
 	line-height: 2;
+}
+
+.two-column {
+	display: flex;
+	justify-content: space-between;
+	
+	&.center {
+		justify-content: center;
+	}
+	
+	img {
+		width: calc(50% - 30px);
+	}
 }

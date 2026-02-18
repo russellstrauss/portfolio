@@ -1,0 +1,910 @@
+<p>Visit <a href="https://github.com/russellstrauss/schedule-export">https://github.com/russellstrauss/schedule-export</a> to download or fork all code for your own use.</p>
+<p>
+	In <em>The Art of Doing Science and Engineering</em>, Richard Hamming argues that computers are superior to humans in the following areas:
+</p>
+<ol>
+	<li><strong>Economics</strong>: Computers are far cheaper than human beings, and they get cheaper by the year, while human labor becomes more expensive.</li>
+	<li><strong>Speed</strong>: Computers operate far faster than human brains can process information.</li>
+	<li><strong>Accuracy and Reliability</strong>: Computers are much more reliable and precise, capable of performing complex arithmetic and managing massive amounts of data without the errors common to humans.</li>
+	<li><strong>Rapidity of Control</strong>: Computers can provide instantaneous, millisecond-by-millisecond corrections to unstable systems (like airplanes), which humans cannot physically do.</li>
+	<li><strong>Bandwidth</strong>: In rapidly changing situations, computers can process thousands of bits of information per second, whereas humans can only process roughly 50 to 60 bits per second.</li>
+	<li><strong>Freedom from Boredom</strong>: Machines do not get bored, tired, or distracted, making them ideal for repetitive or dull, routine tasks.</li>
+	<li><strong>Hostile Environments</strong>: Computers can operate in environments that are dangerous or impossible for humans, such as underwater, outer space, or high-radiation fields.</li>
+	<li><strong>Flexibility</strong>: When equipment or processes change, computers can be reprogrammed easily, whereas retraining humans is often slow and difficult.</li>
+	<li><strong>Absence of Personal Problems</strong>: Machines do not have egos, they do not hold grudges, they do not need to take personal leave, and they do not have personal, emotional, or social issues</li>
+</ol>
+
+<p>So today, let us harness some of these superpowers to directly and substantially benefit our personal lives by improving efficiency on nature's most precious asset: time. Today we will take a slow, tedious, and repetitive process and remove it from our daily workflow completely. It not only takes valuable time from your day, but continues to do so day after day. By automating this process, we not only free time for today, but continually from tomorrow and into the future, providing us with compounding gains as time progresses.</p>
+
+<h2>Automating Your Work Schedule</h2>
+<p>Schedules get crazy. Some people work nights and weekends. Some people have constantly changing schedules while they adapt to work related constraints and unexpected turns. Today I am going to show you how to automate your own professional schedule into calendar events that update nightly at midnight so that you never have to wonder what's next or waste cognitive load over when or where your next event might be.</p>
+
+<img class="frame" src="/img/automation/scheduler-system-diagram.png" alt="System diagram" />
+
+<p>The get-schedule task functions as the interface layer between getting your schedule, syncing it to your calendar, and triggering the synchronization. The synchronization is built locally for manual trigger and automated remotely through a Google Cloud function. This provides the power of never having to wonder if there are any events missing because they are pulled in and updated automatically every night.</p>
+
+<h2>Puppeteer</h2>
+<p>Puppeteer acts as the automation layer between the browser and your potentially obscured and legacied source of scheduling data. The scheduler built in this process originated as HTML data. Your schedule may format differently, but the concepts will be the same.</p>
+
+<p>Puppeteer opens the browser in order to log in to your account and get the schedule data. By default, it does this behind the scenes ("headless"), but I recommend that you temporarily disable headless mode so that you can watch the browser open and watch what occurs so that you can identify issues while working to pull your schedule data. You made need to add an automated click command on a button to open your schedule. </p>
+
+<!--CODE:js-->
+const browser = await puppeteer.launch({ headless: false });
+<!--/CODE-->
+
+<p>The log in to your employee account is stored in the environment variable in order to retain security for your private logins.</p>
+
+<!--CODE:js-->
+dotenv.config();
+
+export default async function getSchedule() {
+	const email = process.env.COMPANY_EMAIL;
+	const password = process.env.COMPANY_PASSWORD;
+
+	if (!email || !password) {
+		throw new Error("Missing COMPANY_EMAIL or COMPANY_PASSWORD in environment.");
+	}
+
+	const puppeteer = await getPuppeteer();
+	const browser = await puppeteer.launch({ headless: "new" });
+	const page = await browser.newPage();
+
+	const url = "https://company.com/employee/login";
+	await page.goto(url, { waitUntil: "networkidle2" });
+	
+	// Your log in form, check dev tools to match
+	await page.type("#emailaddress", email);
+	await page.type("#mypassword", password);
+	// You log in Submit button
+	await page.click("#btnNewLogin");
+	
+	// Waiting for page to load so the page scraper doesn't fire when nothing is ready
+	await page.waitForFunction(() => document.readyState === "complete", { timeout: 5000 });
+	await page.waitForSelector("#btnSchedule", { visible: true, timeout: 5000 });
+	await page.click("#btnSchedule");
+	await page.waitForSelector("table#dgResults");
+
+	const events = await page.evaluate(() => {
+		
+		// Pull the data from your schedule
+		const table = document.querySelector("table#dgResults");
+		if (!table) return [];
+		const rows = Array.from(table.querySelectorAll("tbody tr")).slice(1, -1);
+		
+		return rows.map(row => {
+			const cells = Array.from(row.querySelectorAll("td"));
+
+			// Put any formatting logic that is custom to your schedule data here
+
+			return {
+				date: cells[0].textContent.trim(),
+				callTime: cells[1].textContent.trim(),
+				show: cells[3].textContent.trim(),
+				venue: cells[4],
+				location: cells[5].textContent.trim(),
+				client: cells[6].textContent.trim(),
+				type: cells[7].textContent.trim(),
+				position: cells[8].textContent.trim(),
+				details: cells[9].textContent.trim(),
+				status: cells[10].textContent.trim(),
+				notes: cells[11].textContent.trim(),
+				isCallCancelled: isCallCancelled
+			};
+		}).filter(Boolean);
+	});
+}
+<!--/CODE-->
+
+<h2>Synchronization Trigger</h2>
+
+<p>To run the schedule synchronization, set up a command in the terminal to run getSchedule(). While testing the retrieval of your schedule data, you can run this command at any time. Soon, we will trigger this command in the Google Cloud environment to keep the calendar in sync at all times.
+
+<img class="frame" src="/img/automation/console-sync.jpg" alt="Schedule synchronize console" />
+	
+<h2>Google Calendar API</h2>
+<p>In order to synchronize your digital calendar events, Google Calendar will act as the consolidator. If you prefer a different type of calendar, work with that API in order to format and sync your event data. </p>
+
+<h3>OAuth2</h3>
+<p>Begin by configuring your Google Calendar account log in to talk to your app</p>
+<ol>
+	<li> In your Google account, navigate to your <a href="https://console.cloud.google.com">Google Cloud Console</a>.</li>
+	<li>Create a project and enable the Google Calendar API on your new Google Cloud project.</li>
+	<li>Create new OAuth2 credentials for your app. This allows your app to access your Google account in order to create events in your calendar.</li>
+	<li>Write down you app ID and secret and add these to your environment variables.</li>
+	<li>Add your Google email address to be a test user under your cloud project.</li>
+	<li>Write the code to add events into your Google calendar. You will be prompted in the browser with an authorization to your Google account.</li>
+</ol>
+
+<p>Visit <a href="https://developers.google.com/identity/protocols/oauth2">https://developers.google.com/identity/protocols/oauth2</a> for detail on authenticating Google accounts for your app.</p>
+
+<p>Visit <a href="https://developers.google.com/workspace/guides/configure-oauth-consent">https://developers.google.com/workspace/guides/configure-oauth-consent</a> for setting up your email as a test account.</p>
+
+<!--CODE:js-->
+import fs from "fs";
+import path from "path";
+import http from "http";
+import destroyer from "server-destroy";
+import { google } from "googleapis";
+import open from "open";
+import { fileURLToPath } from "url";
+import { dirname } from "path";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+const TOKEN_PATH = path.join(__dirname, "token.json");
+const CREDENTIALS_PATH = path.join(__dirname, "credentials.json");
+
+async function listenForCode(oAuth2Client, authUrl, redirectUri) {
+	return new Promise((resolve, reject) => {
+		const urlObj = new URL(redirectUri);
+		const port = urlObj.port || (urlObj.protocol === "https:" ? 443 : 80);
+		const host = urlObj.hostname || "localhost";
+		
+		const server = http.createServer(async (req, res) => {
+			const url = new URL(req.url, redirectUri);
+			const code = url.searchParams.get("code");
+			res.end("Authentication successful! You can close this tab.");
+			server.destroy();
+			resolve(code);
+		}).listen(port, host, () => {
+			console.log(`Listening for OAuth callback on ${redirectUri}`);
+			open(authUrl);
+		});
+		destroyer(server);
+	});
+}
+
+export async function authorize() {
+	const isCloudFunction = !!(
+		process.env.GOOGLE_CLOUD_PROJECT ||
+		process.env.FUNCTION_TARGET ||
+		process.env.K_SERVICE ||
+		process.env.FUNCTION_NAME ||
+		process.env.K_REVISION ||
+		(process.env.HOME && process.env.HOME.includes('www-data-home')) ||
+		(process.env.PWD && process.env.PWD.includes('www-data-home')) ||
+		(process.env.PWD && process.env.PWD.includes('/workspace'))
+	);
+	
+	const isLocal = !isCloudFunction;
+	
+	let client_id, client_secret, redirect_uri, tokens;
+
+	if (isLocal) {
+		if (!fs.existsSync(CREDENTIALS_PATH)) {
+			throw new Error(`Credentials file not found at ${CREDENTIALS_PATH}`);
+		}
+		const credentials = JSON.parse(fs.readFileSync(CREDENTIALS_PATH));
+		({ client_secret, client_id } = credentials.installed);
+		redirect_uri = credentials.installed.redirect_uris[0];
+
+		if (fs.existsSync(TOKEN_PATH)) {
+			tokens = JSON.parse(fs.readFileSync(TOKEN_PATH));
+		}
+	} else {
+		// Cloud Functions: read from environment variables
+		client_id = process.env.GOOGLE_CLIENT_ID;
+		client_secret = process.env.GOOGLE_CLIENT_SECRET;
+		redirect_uri = process.env.GOOGLE_REDIRECT_URI;
+
+		if (!client_id || !client_secret || !redirect_uri) {
+			throw new Error("Missing Google OAuth credentials in environment variables. Set GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, and GOOGLE_REDIRECT_URI.");
+		}
+
+		// Read token from environment variable (JSON string)
+		if (process.env.GOOGLE_TOKEN) {
+			try {
+				tokens = JSON.parse(process.env.GOOGLE_TOKEN);
+			} catch (err) {
+				throw new Error("Invalid GOOGLE_TOKEN environment variable. Expected JSON string.");
+			}
+		}
+	}
+
+	const oAuth2Client = new google.auth.OAuth2(client_id, client_secret, redirect_uri);
+
+	if (tokens) {
+		oAuth2Client.setCredentials(tokens);
+
+		oAuth2Client.on('tokens', (newTokens) => {
+			if (newTokens.refresh_token) {
+				tokens.refresh_token = newTokens.refresh_token;
+				console.log('🔄 New refresh token received');
+			}
+			tokens.access_token = newTokens.access_token;
+			tokens.expiry_date = newTokens.expiry_date;
+			
+			if (isCloudFunction) {
+				console.log('🔄 Access token refreshed automatically (expires in ~1 hour)');
+			} else {
+				// In local development, save to file to persist the updated token
+				try {
+					fs.writeFileSync(TOKEN_PATH, JSON.stringify(tokens, null, 2));
+					console.log('💾 Token saved to file');
+				} catch (err) {
+					console.error('⚠️  Failed to save updated token:', err.message);
+				}
+			}
+		});
+		
+		oAuth2Client.on('error', (error) => {
+			console.error('❌ OAuth token error:', error.message);
+		});
+		
+		return oAuth2Client;
+	}
+
+	if (isLocal) {
+		const authUrl = oAuth2Client.generateAuthUrl({
+			access_type: "offline", // Required for refresh tokens (long-lived)
+			prompt: "consent", // Force consent screen to ensure refresh token is issued
+			scope: ["https://www.googleapis.com/auth/calendar"],
+			include_granted_scopes: true, // Include previously granted scopes
+		});
+		console.log("Authorize this app by visiting this URL:", authUrl);
+		const code = await listenForCode(oAuth2Client, authUrl, redirect_uri);
+		const { tokens: newTokens } = await oAuth2Client.getToken(code);
+		oAuth2Client.setCredentials(newTokens);
+		fs.writeFileSync(TOKEN_PATH, JSON.stringify(newTokens));
+		return oAuth2Client;
+	} else {
+		throw new Error("Missing GOOGLE_TOKEN environment variable. Run locally to authorize first and then set GOOGLE_TOKEN to the token JSON string.");
+	}
+}
+<!--/CODE-->
+
+<h2>Clear Events</h2>
+<p>First, in order to make sure that duplicate events do not pile up every time the scheduler is synced, we need to clear all events each time the sync is triggered. Then we will add back all current event data in order to ensure that the event is up to date. Events will often change start time, location, or other details, so this ensures that you have always have the most recent information that has been released or updated. We create a deterministic ID attached to each event so that we can select them for deletion without touching other outside calendar events.</p>
+
+<!--CODE:js-->
+export async function purgeRhinoEvents(auth) {
+	const calendar = google.calendar({ version: "v3", auth });
+	const now = new Date().toISOString();
+	const res = await calendar.events.list({
+		calendarId: "primary",
+		timeMin: now,
+		singleEvents: true,
+		orderBy: "startTime",
+		maxResults: 2500
+	});
+
+	const items = res.data.items || [];
+	const rhinoEvents = items.filter(e => e.extendedProperties?.private?.rhinoRowId);
+
+	for (const ev of rhinoEvents) {
+		const rowId = ev.extendedProperties.private.rhinoRowId;
+		const expectedId = deterministicIdFor(rowId);
+		try {
+			await calendar.events.delete({ calendarId: "primary", eventId: expectedId });
+
+		} catch (err) {
+			// fallback to deleting the existing event id if deterministic id not present
+			const notFound = err?.code === 404 || (err?.response?.status === 404);
+			if (notFound) {
+				try {
+					await calendar.events.delete({ calendarId: "primary", eventId: ev.id });
+				} catch (err2) {
+					throw err2;
+				}
+			} else {
+				console.error(`purgeRhinoEvents: delete failed for ${expectedId}`, err);
+				throw err;
+			}
+		}
+	}
+}
+<!--/CODE-->
+
+<h2>Add events</h2>
+<p>Use the Google Calendar API to decode the parameters from your schedule data. Be sure to set your correct timezone so that storing your events does not get converted into an incorrect time. By clearing out events before adding them in, we will always get the latest event information, crucial when data is TBA or updated in real time.</p>
+	
+<p>By setting a location, you can open directly from the calendar into your maps for navigation. If your schedule is set up in an un-readable legacy HTML table like mine is, you will instantly be able to view perfectly human readable information and structure right in your calendar, skipping the process of having to open your browser or log in completely, creating huge time gains. YOLO. Automate repetitive behavior processes.</p>
+
+<!--CODE:js-->
+import crypto from "crypto";
+import { google } from "googleapis";
+
+const DEFAULT_TIMEZONE = "America/New_York";
+const ID_LENGTH = 40;
+
+function deterministicIdFor(rowId) { // create a selector to prevent deletion of unrelated events
+	if (rowId == null) rowId = "";
+	const hash = crypto.createHash("sha256").update(String(rowId)).digest("hex").slice(0, ID_LENGTH);
+	return hash;
+}
+
+/** Normalize an event into the shape Google expects */
+function normalizeEventBody(event) {
+	return {
+		summary: event.summary || "",
+		location: event.location || "",
+		description: event.description || "",
+		start: {
+			dateTime: event.start,
+			timeZone: DEFAULT_TIMEZONE
+		},
+		end: {
+			dateTime: event.end,
+			timeZone: DEFAULT_TIMEZONE
+		},
+		status: event.status || "confirmed",
+		extendedProperties: {
+			private: { // mark row location for query
+				rhinoRowId: String(event.rowId || "")
+			}
+		}
+	};
+}
+
+/**
+ * @param {OAuth2Client} auth
+ * @param {Object} event - { summary, location, description, start, end, status, rowId }
+ */
+export async function syncEvent(auth, event) {
+	const calendar = google.calendar({ version: "v3", auth });
+	const eventId = deterministicIdFor(event.rowId);
+	const requestBody = normalizeEventBody(event);
+
+	try { // set events on the calendar
+		await calendar.events.get({ calendarId: "primary", eventId });
+		const res = await calendar.events.update({
+			calendarId: "primary",
+			eventId,
+			requestBody
+		});
+
+		return { action: "updated", event: res.data };
+	} catch (err) {
+		const notFound = err?.code === 404 || (err?.response?.status === 404);
+		if (!notFound) {
+			console.error("syncEvent: error during get:", err);
+			return { action: "error", error: err };
+		}
+		try {
+			const insertBody = { ...requestBody, id: eventId };
+			const res = await calendar.events.insert({
+				calendarId: "primary",
+				requestBody: insertBody
+			});
+			return { action: "created", event: res.data };
+		} catch (insertErr) {
+			console.error("syncEvent: insert error:", insertErr);
+			if (insertErr.response?.data?.error) {
+				console.error("Error details:", JSON.stringify(insertErr.response.data.error, null, 2));
+			}
+			return { action: "error", error: insertErr };
+		}
+	}
+}
+ 
+export async function addEvent(auth, event) {
+	return syncEvent(auth, event);
+}
+<!--/CODE-->
+
+
+<!--CODE:js-->
+/**
+ * Transform a schedule entry to a Google Calendar event using custom logic here for your needs
+ */
+export const toGoogleEvent = (entry) => {
+	const [month, day, year] = entry.date.split("/").map(Number);
+	const [hours, minutes] = entry.callTime.split(":").map(Number);
+
+	// Create a Date object for the call time (in America/New_York timezone)
+	// Note: JavaScript Date uses local timezone, but we'll format it correctly for Google Calendar
+	const callTimeDate = new Date(year, month - 1, day, hours, minutes);
+
+	// Calculate start time: 30 minutes before call time
+	const startDate = new Date(callTimeDate);
+	startDate.setMinutes(startDate.getMinutes() - 30);
+
+	// Calculate end time: 5 hours after the call time (not including the 30-minute buffer)
+	const endDate = new Date(callTimeDate);
+	endDate.setHours(endDate.getHours() + 5);
+
+	// Format dates as strings in the correct timezone format
+	// Google Calendar API will interpret these with the timeZone we specify
+	const startStr = formatDateTimeForTimezone(
+		startDate.getFullYear(),
+		startDate.getMonth() + 1,
+		startDate.getDate(),
+		startDate.getHours(),
+		startDate.getMinutes()
+	);
+	const endStr = formatDateTimeForTimezone(
+		endDate.getFullYear(),
+		endDate.getMonth() + 1,
+		endDate.getDate(),
+		endDate.getHours(),
+		endDate.getMinutes()
+	);
+
+	const rowId = [
+		entry.date,
+		entry.callTime,
+		entry.show,
+		entry.venue,
+		entry.position,
+		entry.type
+	].join(" | ");
+
+	// Check if status is "called" to prepend "UNCONFIRMED" to the title
+	const isCalled = entry.status?.toLowerCase() === "called";
+	const showTitle = isCalled ? `UNCONFIRMED => ${entry.show}` : entry.show;
+	// Prepend start time to the event title (but not for unconfirmed events)
+	const startTimeStr = `${pad(startDate.getHours())}:${pad(startDate.getMinutes())}`;
+	const formattedTime = formatTimeForTitle(startTimeStr);
+	const summary = isCalled ? showTitle : `${formattedTime} ${showTitle}`;
+
+	return {
+		summary: summary,
+		location: [entry.venue, entry.location].filter(Boolean).join(" - "),
+		description: [entry.details, entry.notes].filter(Boolean).join(" | "),
+		start: startStr,
+		end: endStr,
+		status: normalizeStatus(entry.status),
+		rowId
+	};
+};
+<!--/CODE-->
+
+<div class="two-column">
+	<img class="white-border" src="/img/automation/3817.png" alt="Phone Calendar screenshot" />
+	<img class="white-border" src="/img/automation/3819.png" alt="Phone Calendar screenshot" />
+</div>
+
+<h2>Deployment and Remote Synchronization</h2>
+<p>Deploy your cloud to a remote endpoint that can be scheduled to run at midnight each night. This also provides you with a URL or bookmark that you can use when you don't have access to your command line but still want an instant update.</p>
+
+<h4>Prerequisites</h4>
+<div style="margin: 20px 0 20px 50px;">
+	<p>1. <strong>Google Cloud Project</strong>: You need a Google Cloud project with billing enabled</p>
+	<p>2. <strong>gcloud CLI</strong>: Install the [Google Cloud SDK](<a href="https://cloud.google.com/sdk/docs/install">https://cloud.google.com/sdk/docs/install</a>)</p>
+	<p>3. <strong>Authentication</strong>: Run "gcloud auth login" and "gcloud auth application-default login"</p>
+	<p>4. <strong>APIs Enabled</strong>: Enable the following APIs:</p>
+	<ol>
+		<li>Cloud Functions API</li>
+		<li>Cloud Scheduler API</li>
+		<li>Cloud Build API</li>
+	</ol>
+</div>
+
+<h4>Enable Required APIs</h4>
+
+<!--CODE:bash-->
+gcloud services enable cloudfunctions.googleapis.com
+gcloud services enable cloudscheduler.googleapis.com
+gcloud services enable cloudbuild.googleapis.com
+<!--/CODE-->
+
+<h4>Set Up Google OAuth Credentials</h4>
+<p>Your script uses Google OAuth for calendar access. You'll need to:</p>
+
+<div style="margin: 20px 0 20px 50px;">
+	<p>1. <strong>Create OAuth Credentials</strong></p>
+	<ul>
+		<li>Go to [Google Cloud Console](<a href="https://console.cloud.google.com/apis/credentials">https://console.cloud.google.com/apis/credentials</a>)</li>
+		<li>Create OAuth 2.0 Client ID credentials</li>
+		<li>Download the credentials as "credentials.json" and place it in "get-schedule/google-calendar/"</li>
+	</ul>
+	<p>2. <strong>Authorize the Application Locally</strong>. This will create "token.json" with your refresh token:</p>
+	<!--CODE:bash-->
+	node sync.js
+	<!--/CODE-->
+	<p>3. <strong>Upload Credentials to Secret Manager</strong>:</p>
+	<!--CODE:bash-->
+	# Extract values from credentials.json
+	# Then create secrets:
+	echo -n "YOUR_CLIENT_ID" | gcloud secrets create google-oauth-client-id --data-file=-
+	echo -n "YOUR_CLIENT_SECRET" | gcloud secrets create google-oauth-client-secret --data-file=-
+	echo -n "YOUR_REDIRECT_URI" | gcloud secrets create google-oauth-redirect-uri --data-file=-
+	
+	# Upload token.json
+	gcloud secrets create google-oauth-token --data-file=get-schedule/google-calendar/token.json
+	<!--/CODE-->
+</div>
+
+
+<h3>Prepare OAuth Environment Variables</h3>   
+
+<p>The "auth.js" file has been updated to read credentials from environment variables when running in Cloud Functions. You need to extract these from your local files:</p>
+
+<!--CODE:powershell-->
+.\deployment\prepare-oauth-env.ps1
+<!--/CODE-->
+
+<p>This script reads your "credentials.json" and "token.json" files and sets the required environment variables:</p>
+<ul>
+	<li>"GOOGLE_CLIENT_ID"</li>
+	<li>"GOOGLE_CLIENT_SECRET"</li>
+	<li>"GOOGLE_REDIRECT_URI"</li>
+	<li>"GOOGLE_TOKEN" (JSON string)</li>
+</ul>
+
+<h3>Set Rhino Credentials</h3>
+<p>Set your Rhino credentials as environment variables:</p>
+
+<!--CODE:powershell-->
+$env:RHINO_EMAIL = "your-email@example.com"
+$env:RHINO_PASSWORD = "your-password"
+<!--/CODE-->
+
+<p><strong>Note</strong>: If you ran "deployment\prepare-oauth-env.ps1" or "deployment/prepare-oauth-env.sh" in Step 3, the Google OAuth variables are already set. Make sure both Rhino and Google OAuth variables are set before deploying.</p>
+
+<h2>Deploy the Cloud Function</h2>
+<!--CODE:powershell-->
+.\deployment\deploy-function.ps1
+<!--/CODE-->
+
+<strong>Note</strong>: For Puppeteer to work in Cloud Functions, you may need to:
+<ul>
+	<li>Use "@sparticuz/chromium" instead of regular puppeteer, or</li>
+	<li>Configure puppeteer to use the bundled Chromium</li>
+</ul>
+
+<h3>Set Up Cloud Scheduler</h3>
+
+<!--CODE:powershell-->
+.\deployment\setup-scheduler.ps1
+<!--/CODE-->
+
+<p>
+	This creates a job that runs at midnight (00:00) daily in your specified timezone (default: America/New_York).
+</p>
+
+<h3>Test the Setup</h3>
+<p>Test the Cloud Function manually</strong>:</p>
+
+<!--CODE:bash-->
+# Get the function URL
+gcloud functions describe sync-schedule --gen2 --region=us-central1 --format="value(serviceConfig.uri)"
+
+# Call it
+curl <FUNCTION_URL>
+<!--/CODE-->
+<p><strong>Test the Scheduler job manually</strong>:</p>
+<!--CODE:bash-->
+gcloud scheduler jobs run sync-schedule-midnight --location=us-central1
+<!--/CODE-->
+
+<h2>Troubleshooting</h2>
+
+<h4>Puppeteer Issues</h4>
+<p>If Puppeteer fails in Cloud Functions, consider:</p>
+<ol>
+	<li>Using "@sparticuz/chromium" package</li>
+	<li>Setting "PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true" and using bundled Chromium</li>
+	<li>Increasing memory allocation</li>
+</ol>
+<h4>Authentication Errors</h4>
+<ul>
+	<li>Ensure "token.json" is properly uploaded to Secret Manager</li>
+	<li>Verify OAuth credentials are correctly set as secrets</li>
+	<li>Check that the refresh token hasn't expired</li>
+</ul>
+
+<h2>Updating the Schedule</h2>
+<p>To change the schedule time:</p>
+<!--CODE:bash-->
+gcloud scheduler jobs update http sync-schedule-midnight \
+  --location=us-central1 \
+  --schedule="0 0 * * *"  # Change cron expression as needed
+<!--/CODE-->
+
+<!--CODE:powershell-->
+# Set up Cloud Scheduler to run the function at midnight
+# Make sure the Cloud Function is deployed first
+
+param(
+    [string]$ProjectId = (gcloud config get-value project),
+    [string]$Region = "us-central1",
+    [string]$FunctionName = "sync-schedule",
+    [string]$SchedulerJobName = "sync-schedule-midnight",
+    [string]$Timezone = "America/New_York"
+)
+
+Write-Host "Setting up Cloud Scheduler job: $SchedulerJobName" -ForegroundColor Cyan
+Write-Host "Project: $ProjectId" -ForegroundColor Cyan
+Write-Host "Region: $Region" -ForegroundColor Cyan
+Write-Host "Schedule: 0 0 * * * (midnight daily)" -ForegroundColor Cyan
+Write-Host "Timezone: $Timezone" -ForegroundColor Cyan
+
+# First, check if the function exists
+Write-Host "Checking if function '$FunctionName' exists..." -ForegroundColor Gray
+$functionCheck = gcloud functions describe $FunctionName `
+    --gen2 `
+    --region=$Region `
+    --format="value(name)" 2>&1
+
+if ($LASTEXITCODE -ne 0) {
+    Write-Host "Error: Could not find Cloud Function '$FunctionName'." -ForegroundColor Red
+    Write-Host ""
+    Write-Host "Troubleshooting:" -ForegroundColor Yellow
+    Write-Host "1. Make sure the function is deployed first by running: .\deployment\deploy-function.ps1" -ForegroundColor Yellow
+    Write-Host "2. Check if the function name is correct. Listing available functions..." -ForegroundColor Yellow
+    Write-Host ""
+    
+    # List available gen2 functions (gen2 functions are Cloud Run services)
+    Write-Host "Gen2 Functions (Cloud Run services in region $Region):" -ForegroundColor Cyan
+    gcloud run services list --region=$Region --format="table(metadata.name,status.url)" 2>&1
+    
+    Write-Host ""
+    # Also try listing all functions (gen1 and gen2) - this lists across all regions
+    Write-Host "All Functions (all regions):" -ForegroundColor Cyan
+    gcloud functions list --format="table(name,state,updateTime)" 2>&1
+    
+    Write-Host ""
+    Write-Host "If your function has a different name, run:" -ForegroundColor Yellow
+    Write-Host "   .\setup-scheduler.ps1 -FunctionName <actual-function-name>" -ForegroundColor Cyan
+    exit 1
+}
+
+# Get the function URL - try multiple format options for gen2 functions
+Write-Host "Getting function URL..." -ForegroundColor Gray
+$functionUrlOutput = gcloud functions describe $FunctionName `
+    --gen2 `
+    --region=$Region `
+    --format="value(serviceConfig.uri)" 2>&1
+
+# If that doesn't work, try alternative format
+if ($LASTEXITCODE -ne 0 -or [string]::IsNullOrWhiteSpace($functionUrlOutput)) {
+    Write-Host "Trying alternative method to get function URL..." -ForegroundColor Gray
+    $functionUrlOutput = gcloud functions describe $FunctionName `
+        --gen2 `
+        --region=$Region `
+        --format="get(serviceConfig.uri)" 2>&1
+}
+
+# If still no URL, try getting the full function description
+if ($LASTEXITCODE -ne 0 -or [string]::IsNullOrWhiteSpace($functionUrlOutput)) {
+    Write-Host "Getting full function details..." -ForegroundColor Gray
+    $fullDetails = gcloud functions describe $FunctionName `
+        --gen2 `
+        --region=$Region 2>&1
+    
+    # Try to extract URL from full output
+    if ($fullDetails -match 'uri:\s*(https://[^\s]+)') {
+        $functionUrlOutput = $matches[1]
+    } elseif ($fullDetails -match 'https://[^\s]+cloudfunctions\.net/[^\s]+') {
+        $functionUrlOutput = $matches[0]
+    }
+}
+
+$FunctionUrl = $functionUrlOutput.Trim()
+
+if ([string]::IsNullOrWhiteSpace($FunctionUrl) -or $FunctionUrl -match "ERROR|error|not found") {
+    Write-Host "Error: Could not retrieve Cloud Function URL." -ForegroundColor Red
+    Write-Host "Function details:" -ForegroundColor Yellow
+    gcloud functions describe $FunctionName --gen2 --region=$Region
+    Write-Host ""
+    Write-Host "You may need to manually get the URL and create the scheduler job." -ForegroundColor Yellow
+    exit 1
+}
+
+Write-Host "Function URL: $FunctionUrl" -ForegroundColor Green
+
+# Create the scheduler job
+gcloud scheduler jobs create http $SchedulerJobName `
+    --location=$Region `
+    --schedule="0 0 * * *" `
+    --uri="$FunctionUrl" `
+    --http-method=GET `
+    --time-zone="$Timezone" `
+    --description="Run schedule sync at midnight daily" `
+    --attempt-deadline=600s
+
+if ($LASTEXITCODE -eq 0) {
+    Write-Host "Cloud Scheduler job created successfully!" -ForegroundColor Green
+    Write-Host ""
+    Write-Host "Job details:" -ForegroundColor Yellow
+    gcloud scheduler jobs describe $SchedulerJobName --location=$Region
+    Write-Host ""
+    Write-Host "Test the job manually:" -ForegroundColor Yellow
+    Write-Host "   gcloud scheduler jobs run $SchedulerJobName --location=$Region"
+} else {
+    Write-Host "Job might already exist. To update it, run:" -ForegroundColor Yellow
+    Write-Host "   gcloud scheduler jobs update http $SchedulerJobName --location=$Region --schedule=`"0 0 * * *`""
+}
+<!--/CODE-->
+
+<h4>Common cron schedules:</h4>
+<ul>
+	<li>"0 0 * * *" - Midnight daily</li>
+	<li>"0 2 * * *" - 2 AM daily</li>
+	<li>"0 0 * * 1" - Midnight every Monday</li>
+	<li>"*/30 * * * *" - Every 30 minutes</li>
+</ul>
+
+<h2>Cost Considerations</h2>
+<ul>
+	<li>Cloud Functions: Free tier includes 2 million invocations/month</li>
+	<li>Cloud Scheduler: Free tier includes 3 jobs</li>
+	<li>Cloud Build: Free tier includes 120 build-minutes/day</li>
+</ul>
+
+<h2>prepare-oauth-env.ps1</h2>
+<p>The following script sets your environment variables for deployment.</p>
+<!--CODE:powershell-->
+# Helper script to prepare Google OAuth environment variables from local files
+# Run this before deploying to extract credentials and token
+
+param(
+	[string]$CredentialsPath = "get-schedule\google-calendar\credentials.json",
+	[string]$TokenPath = "get-schedule\google-calendar\token.json"
+)
+
+Write-Host "Preparing Google OAuth environment variables..." -ForegroundColor Cyan
+
+# Check if files exist
+if (-not (Test-Path $CredentialsPath)) {
+	Write-Host "Error: credentials.json not found at $CredentialsPath" -ForegroundColor Red
+	exit 1
+}
+
+if (-not (Test-Path $TokenPath)) {
+	Write-Host "Warning: token.json not found at $TokenPath" -ForegroundColor Yellow
+	Write-Host "   Run 'node sync.js' locally first to generate token.json" -ForegroundColor Yellow
+	exit 1
+}
+
+# Read and parse credentials.json
+$credentials = Get-Content $CredentialsPath | ConvertFrom-Json
+$clientId = $credentials.installed.client_id
+$clientSecret = $credentials.installed.client_secret
+$redirectUri = $credentials.installed.redirect_uris[0]
+
+# Read token.json
+$tokenContent = Get-Content $TokenPath -Raw
+$tokenJson = $tokenContent | ConvertFrom-Json | ConvertTo-Json -Compress
+
+# Set environment variables
+$env:GOOGLE_CLIENT_ID = $clientId
+$env:GOOGLE_CLIENT_SECRET = $clientSecret
+$env:GOOGLE_REDIRECT_URI = $redirectUri
+$env:GOOGLE_TOKEN = $tokenJson
+
+Write-Host "Environment variables set:" -ForegroundColor Green
+Write-Host "   GOOGLE_CLIENT_ID = $clientId" -ForegroundColor Gray
+Write-Host "   GOOGLE_CLIENT_SECRET = [hidden]" -ForegroundColor Gray
+Write-Host "   GOOGLE_REDIRECT_URI = $redirectUri" -ForegroundColor Gray
+Write-Host "   GOOGLE_TOKEN = [set]" -ForegroundColor Gray
+Write-Host ""
+Write-Host "Next step: Run .\deployment\deploy-function.ps1 to deploy" -ForegroundColor Yellow
+<!--/CODE-->
+
+<h2>deploy-function.ps1</h2>
+<p>This script will deploy all updated code for the scheduled nightly sync:</p>
+<!--CODE:powershell-->
+# Deploy Cloud Function for schedule sync
+# Make sure you're authenticated: gcloud auth login
+# Set your project: gcloud config set project YOUR_PROJECT_ID
+# This script automatically checks and renews tokens if needed before deploying
+
+param(
+	[string]$ProjectId = (gcloud config get-value project),
+	[string]$Region = "us-central1",
+	[string]$FunctionName = "sync-schedule",
+	[switch]$SkipTokenCheck = $false
+)
+
+Write-Host "Deploying Cloud Function: $FunctionName" -ForegroundColor Cyan
+Write-Host "Project: $ProjectId" -ForegroundColor Cyan
+Write-Host "Region: $Region" -ForegroundColor Cyan
+Write-Host ""
+
+# Step 1: Check and renew token if needed (unless skipped)
+if (-not $SkipTokenCheck) {
+	Write-Host "Step 1: Checking token status and renewing if needed..." -ForegroundColor Yellow
+	Write-Host ""
+    
+	# Check if renew-auth.ps1 exists
+	$renewAuthScript = Join-Path $PSScriptRoot "..\renew-auth.ps1"
+	if (Test-Path $renewAuthScript) {
+		# Run renew-auth.ps1 with SkipUpdate flag (we'll update env vars during deployment)
+		& $renewAuthScript -Region $Region -FunctionName $FunctionName -SkipUpdate
+		if ($LASTEXITCODE -ne 0) {
+			Write-Host "Warning: Token renewal check failed, but continuing with deployment..." -ForegroundColor Yellow
+		}
+		Write-Host ""
+	}
+ else {
+		Write-Host "Warning: renew-auth.ps1 not found. Skipping token check." -ForegroundColor Yellow
+		Write-Host ""
+	}
+}
+
+# Step 2: Prepare environment variables
+Write-Host "Step 2: Preparing environment variables..." -ForegroundColor Yellow
+Write-Host "   (Make sure RHINO_EMAIL, RHINO_PASSWORD, and Google OAuth vars are set)" -ForegroundColor Gray
+
+# Create a temporary YAML file for environment variables
+$envVarsFile = [System.IO.Path]::GetTempFileName() -replace '\.tmp$', '.yaml'
+$yamlContent = @()
+
+# Add required environment variables
+if ($env:RHINO_EMAIL) { $yamlContent += "RHINO_EMAIL: `"$($env:RHINO_EMAIL -replace '"', '\"')`"" }
+if ($env:RHINO_PASSWORD) { $yamlContent += "RHINO_PASSWORD: `"$($env:RHINO_PASSWORD -replace '"', '\"')`"" }
+if ($env:GOOGLE_CLIENT_ID) { $yamlContent += "GOOGLE_CLIENT_ID: `"$($env:GOOGLE_CLIENT_ID -replace '"', '\"')`"" }
+if ($env:GOOGLE_CLIENT_SECRET) { $yamlContent += "GOOGLE_CLIENT_SECRET: `"$($env:GOOGLE_CLIENT_SECRET -replace '"', '\"')`"" }
+if ($env:GOOGLE_REDIRECT_URI) { $yamlContent += "GOOGLE_REDIRECT_URI: `"$($env:GOOGLE_REDIRECT_URI -replace '"', '\"')`"" }
+if ($env:GOOGLE_TOKEN) { 
+	# For JSON token, we need to escape it properly - use single quotes in YAML or escape
+	$tokenEscaped = $env:GOOGLE_TOKEN -replace '"', '\"' -replace '\$', '\$'
+	$yamlContent += "GOOGLE_TOKEN: `"$tokenEscaped`""
+}
+
+# Write YAML file with proper format
+if ($yamlContent.Count -eq 0) {
+	Write-Host "Warning: No environment variables set. Function may not work correctly." -ForegroundColor Yellow
+	# Create empty YAML file
+	"" | Out-File -FilePath $envVarsFile -Encoding utf8
+}
+else {
+	$yamlContent -join "`n" | Out-File -FilePath $envVarsFile -Encoding utf8 -NoNewline
+}
+
+# Step 3: Deploy the function with env vars file
+Write-Host ""
+Write-Host "Step 3: Deploying Cloud Function..." -ForegroundColor Yellow
+gcloud functions deploy $FunctionName `
+	--gen2 `
+	--runtime=nodejs20 `
+	--region=$Region `
+	--source=. `
+	--entry-point=syncSchedule `
+	--trigger-http `
+	--allow-unauthenticated `
+	--memory=1GB `
+	--timeout=540s `
+	--max-instances=1 `
+	--env-vars-file=$envVarsFile
+
+# Clean up temp file
+Remove-Item $envVarsFile -ErrorAction SilentlyContinue
+
+if ($LASTEXITCODE -eq 0) {
+	Write-Host ""
+	Write-Host "Deployment complete!" -ForegroundColor Green
+    
+	# Step 4: Ensure token is up to date (in case renew-auth updated it)
+	if (-not $SkipTokenCheck) {
+		Write-Host ""
+		Write-Host "Step 4: Ensuring token is up to date..." -ForegroundColor Yellow
+		$renewAuthScript = Join-Path $PSScriptRoot "..\renew-auth.ps1"
+		if (Test-Path $renewAuthScript) {
+			# Run renew-auth with SkipUpdate=false to update env vars if token was renewed
+			& $renewAuthScript -Region $Region -FunctionName $FunctionName
+			if ($LASTEXITCODE -ne 0) {
+				Write-Host "Warning: Token update failed, but deployment succeeded." -ForegroundColor Yellow
+			}
+		}
+	}
+    
+	Write-Host ""
+	Write-Host "Next steps:" -ForegroundColor Yellow
+	Write-Host "1. Run .\setup-scheduler.ps1 to create the Cloud Scheduler job"
+	Write-Host "2. The function URL will be displayed above"
+}
+else {
+	Write-Host ""
+	Write-Host "Deployment failed!" -ForegroundColor Red
+	exit 1
+}
+<!--/CODE-->
+
+<h2>Remote Endpoint</h2>
+<p>To query your remote endpoint for the Cloud function, you can run the following command:</p>
+
+<!--CODE:powershell-->
+gcloud functions describe sync-schedule --gen2 --region=us-central1 --format="value(serviceConfig.uri)"
+<!--/CODE-->
+
+<p>This provides you with a bookmark that you can use to remotely trigger your sync whenever you need it to run, such as shortly after adding a new even while away from home.</p>
+
+<div class="two-column center">
+	<img class="white-border" src="/img/automation/3818.png" alt="Phone Calendar screenshot" />
+</div>
+
+<p style="margin-top: 100px;">What are you going to do with all this new time?</p>

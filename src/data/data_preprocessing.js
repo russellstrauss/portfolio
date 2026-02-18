@@ -27,6 +27,7 @@ import htmlAccessibilityForDevelopers from './html/accessibility-for-developers.
 import htmlAccessibilityInDesignUx from './html/accessibility-in-design-ux.html?raw';
 import htmlAccessibleContentMedia from './html/accessible-content-media.html?raw';
 import htmlAccessibilityChecklists from './html/accessibility-checklists.html?raw';
+import htmlHowToUseAiToAutomateYourSchedule from './html/how-to-use-ai-to-automate-your-schedule.html?raw';
 
 // HOW MATCHING WORKS:
 // The system matches HTML files to pieces based on the last segment of the piece's `href` path.
@@ -177,7 +178,8 @@ const htmlMap = {
 	'accessibility-for-developers': htmlAccessibilityForDevelopers,
 	'accessibility-in-design-ux': htmlAccessibilityInDesignUx,
 	'accessible-content-media': htmlAccessibleContentMedia,
-	'accessibility-checklists': htmlAccessibilityChecklists
+	'accessibility-checklists': htmlAccessibilityChecklists,
+	'how-to-use-ai-to-automate-your-schedule': htmlHowToUseAiToAutomateYourSchedule
 };
 
 // Function to merge HTML content into pieces

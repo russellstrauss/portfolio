@@ -96,6 +96,13 @@ p {
 	margin-bottom: 20px;
 }
 
+pre[class*="language-"] {
+	margin: 40px auto;
+	display: block;
+	background-color: rgba(0, 0, 0, .7);
+	border: 1px solid rgba(255, 255, 255, .5);
+}
+
 hr {
 	border: 0;
 	border-top: 1px solid black;

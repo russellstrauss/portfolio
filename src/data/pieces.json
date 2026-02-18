@@ -765,6 +765,20 @@
 					"openInNewTab": "false"
 				}
 			]
+		},
+		{
+			"path": "automation",
+			"pieces": [
+				{
+					"sortOrder": "1",
+					"published": "true",
+					"title": "Using AI to Automate Your Schedule",
+					"description": "",
+					"featuredImage": "",
+					"href": "/work/automation/how-to-use-AI-to-automate-your-schedule",
+					"openInNewTab": "false"
+				}
+			]
 		}
 	]
 }
