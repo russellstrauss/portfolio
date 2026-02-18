@@ -63,7 +63,7 @@
 <p>In computing, a sink is a destination in data flow where flow terminates and contains no outgoing paths leading out from it, acting as a final collection point for data flow. In other words, a sink is like quicksand where you cannot return once you have entered. These are unintentional traps from which the user cannot escape. It is crucial to test for these sinks because they break the user's ability to navigate your app. In web accessibility, these are called <strong>keyboard traps.</strong></p>
 <p>A few common causes for keyboard traps can include:</p>
 <ul>
-	<li><strong>Modals & Dialogs</strong>: A pop-up UI takes focus without providing a keyboard control to close it.</li>
+	<li><strong>Modals & Dialogs</strong>: A pop-up UI takes focus without providing a keyboard control to close it. (This site includes a code lightbox—<a href="/work/mathematics/code/givens" data-code-lightbox>try viewing code in a modal</a>.)</li>
 	<li><strong>Advanced Widgets</strong>: Calendars, datepickers, video players, or custom components that improperly handle keyboard focus can suck in the user flow, especially those with large amounts of sub-elements like a calendar.</li>
 	<li><strong>Incorrect Event Handling or JavaScript Logic</strong>: Poorly-designed or incorrect use of <code class="language-javascript">onBlur</code>, <code class="language-javascript">onChange</code>, or <code class="language-javascript">onFocus</code> can break your apps navigation flow and cause unintended consequences for keyboard navigation.</li>
 </ul>

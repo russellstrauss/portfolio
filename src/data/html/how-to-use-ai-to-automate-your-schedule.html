@@ -28,15 +28,15 @@
 <h2>Puppeteer</h2>
 <p>Puppeteer acts as the automation layer between the browser and your potentially obscured and legacied source of scheduling data. The scheduler built in this process originated as HTML data. Your schedule may format differently, but the concepts will be the same.</p>
 
-<p>Puppeteer opens the browser in order to log in to your account and get the schedule data. By default, it does this behind the scenes ("headless"), but I recommend that you temporarily disable headless mode so that you can watch the browser open and watch what occurs so that you can identify issues while working to pull your schedule data. You made need to add an automated click command on a button to open your schedule. </p>
+<p>Puppeteer opens the browser in order to log in to your account and get the schedule data. By default, it does this behind the scenes ("headless"), but I recommend that you temporarily disable headless mode so that you can watch the browser open and watch what occurs so that you can identify issues while working to pull your schedule data. You made need to add an automated click command on a button to open your schedule. <a href="#puppeteer-launch" data-code-lightbox="Puppeteer launch">View code in lightbox</a></p>
 
-<!--CODE:js-->
+<!--CODE:js:puppeteer-launch-->
 const browser = await puppeteer.launch({ headless: false });
 <!--/CODE-->
 
 <p>The log in to your employee account is stored in the environment variable in order to retain security for your private logins.</p>
 
-<!--CODE:js-->
+<!--CODE:js:get-schedule:lightbox:getSchedule()-->
 dotenv.config();
 
 export default async function getSchedule() {
@@ -121,7 +121,7 @@ export default async function getSchedule() {
 
 <p>Visit <a href="https://developers.google.com/workspace/guides/configure-oauth-consent">https://developers.google.com/workspace/guides/configure-oauth-consent</a> for setting up your email as a test account.</p>
 
-<!--CODE:js-->
+<!--CODE:js:oauth-authorize:lightbox:authorize()-->
 import fs from "fs";
 import path from "path";
 import http from "http";
@@ -259,7 +259,7 @@ export async function authorize() {
 <h2>Clear Events</h2>
 <p>First, in order to make sure that duplicate events do not pile up every time the scheduler is synced, we need to clear all events each time the sync is triggered. Then we will add back all current event data in order to ensure that the event is up to date. Events will often change start time, location, or other details, so this ensures that you have always have the most recent information that has been released or updated. We create a deterministic ID attached to each event so that we can select them for deletion without touching other outside calendar events.</p>
 
-<!--CODE:js-->
+<!--CODE:js:purge-events:lightbox:purgeRhinoEvents()-->
 export async function purgeRhinoEvents(auth) {
 	const calendar = google.calendar({ version: "v3", auth });
 	const now = new Date().toISOString();
@@ -303,7 +303,7 @@ export async function purgeRhinoEvents(auth) {
 	
 <p>By setting a location, you can open directly from the calendar into your maps for navigation. If your schedule is set up in an un-readable legacy HTML table like mine is, you will instantly be able to view perfectly human readable information and structure right in your calendar, skipping the process of having to open your browser or log in completely, creating huge time gains. YOLO. Automate repetitive behavior processes.</p>
 
-<!--CODE:js-->
+<!--CODE:js:sync-event:lightbox:syncEvent() / addEvent()-->
 import crypto from "crypto";
 import { google } from "googleapis";
 
@@ -386,7 +386,7 @@ export async function addEvent(auth, event) {
 <!--/CODE-->
 
 
-<!--CODE:js-->
+<!--CODE:js:to-google-event:lightbox:toGoogleEvent()-->
 /**
  * Transform a schedule entry to a Google Calendar event using custom logic here for your needs
  */
@@ -548,7 +548,7 @@ $env:RHINO_PASSWORD = "your-password"
 
 <h3>Set Up Cloud Scheduler</h3>
 
-<!--CODE:powershell-->
+<!--CODE:powershell:setup-scheduler:lightbox:setup-scheduler.ps1-->
 .\deployment\setup-scheduler.ps1
 <!--/CODE-->
 
@@ -728,7 +728,7 @@ if ($LASTEXITCODE -eq 0) {
 
 <h2>prepare-oauth-env.ps1</h2>
 <p>The following script sets your environment variables for deployment.</p>
-<!--CODE:powershell-->
+<!--CODE:powershell:prepare-oauth-env:lightbox:prepare-oauth-env.ps1-->
 # Helper script to prepare Google OAuth environment variables from local files
 # Run this before deploying to extract credentials and token
 
@@ -778,7 +778,7 @@ Write-Host "Next step: Run .\deployment\deploy-function.ps1 to deploy" -Foregrou
 
 <h2>deploy-function.ps1</h2>
 <p>This script will deploy all updated code for the scheduled nightly sync:</p>
-<!--CODE:powershell-->
+<!--CODE:powershell:deploy-function:lightbox:deploy-function.ps1-->
 # Deploy Cloud Function for schedule sync
 # Make sure you're authenticated: gcloud auth login
 # Set your project: gcloud config set project YOUR_PROJECT_ID

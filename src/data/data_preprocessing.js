@@ -126,16 +126,24 @@ function dedentCode(code) {
 	return dedentedLines.join('\n').trim();
 }
 
+// Format id as display title (e.g. "get-schedule" -> "Get schedule")
+function formatIdAsTitle(id) {
+	return id.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+}
+
 // Function to process code blocks in HTML content
-// Converts <!--CODE:language-->...code...<!--/CODE--> patterns into Prism.js code blocks
+// Patterns:
+//   <!--CODE:language--> - inline code block
+//   <!--CODE:language:id--> - inline block with id (for lightbox links)
+//   <!--CODE:language:id:lightbox--> - hidden block + link (uses formatted id as link text)
+//   <!--CODE:language:id:lightbox:contextual text--> - hidden block + link (uses custom link text)
 function processCodeBlocks(htmlContent) {
 	if (!htmlContent) return htmlContent;
 	
-	// Pattern to match: <!--CODE:language-->...code...<!--/CODE-->
-	// Uses non-greedy matching ([\s\S]*?) to match across multiple lines
-	const codeBlockPattern = /<!--CODE:(\w+)-->([\s\S]*?)<!--\/CODE-->/g;
+	// Pattern: language, optional id, optional :lightbox with optional :customText
+	const codeBlockPattern = /<!--CODE:(\w+)(?::([\w-]+))?(?::lightbox(?::([^>]*))?)?-->([\s\S]*?)<!--\/CODE-->/g;
 	
-	return htmlContent.replace(codeBlockPattern, (match, language, code) => {
+	return htmlContent.replace(codeBlockPattern, (match, language, id, customText, code) => {
 		// Remove common indentation from the code block
 		const dedentedCode = dedentCode(code);
 		
@@ -147,8 +155,20 @@ function processCodeBlocks(htmlContent) {
 			.replace(/"/g, '&quot;')
 			.replace(/'/g, '&#39;');
 		
-		// Return Prism.js formatted code block
-		return `<pre><code class="language-${language}">${escapedCode}</code></pre>`;
+		const codeBlock = `<pre><code class="language-${language}">${escapedCode}</code></pre>`;
+		const isLightbox = match.includes(':lightbox');
+		
+		if (isLightbox && id) {
+			// Hidden block + link - use custom text (description, filename, or main method), or fall back to formatted id
+			const linkText = (customText && customText.trim()) || formatIdAsTitle(id);
+			const escapedLinkText = linkText.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+			return `<div id="${id}" data-code-lightbox-source class="code-lightbox-source code-lightbox-source--hidden" style="display:none">${codeBlock}</div><p class="code-lightbox-link"><a href="#${id}" data-code-lightbox="${escapedLinkText}">${escapedLinkText}</a></p>`;
+		}
+		
+		// Wrap in identifiable div when id is provided (for same-page lightbox references)
+		return id
+			? `<div id="${id}" data-code-lightbox-source class="code-lightbox-source">${codeBlock}</div>`
+			: codeBlock;
 	});
 }
 
