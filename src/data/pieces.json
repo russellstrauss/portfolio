@@ -4,6 +4,15 @@
 			"path": "interactive",
 			"pieces": [
 				{
+					"sortOrder": "1",
+					"published": "true",
+					"title": "Shortest Path on a Triangle Mesh",
+					"description": "Computing geodesic shortest paths on 3D triangle mesh surfaces",
+					"featuredImage": "/img/featured-images/triangle-mesh-path.jpg",
+					"href": "/apps/shortest-path-on-a-triangle-mesh/",
+					"openInNewTab": "false"
+				},
+				{
 					"sortOrder": "10",
 					"published": "true",
 					"title": "3DJ",

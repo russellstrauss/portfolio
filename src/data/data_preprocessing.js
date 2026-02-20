@@ -8,6 +8,7 @@ import htmlColorspace from './html/colorspace.html?raw';
 import htmlAlgorhythm from './html/algorhythm.html?raw';
 import htmlZoomEternal from './html/zoom-eternal.html?raw';
 import htmlLogarithmicSpiral from './html/logarithmic-spiral-camera-motion.html?raw';
+import htmlShortestPathTriangleMesh from './html/shortest-path-triangle-mesh.html?raw';
 import htmlPaintingNature from './html/painting-nature.html?raw';
 import htmlGrowasis from './html/growasis.html?raw';
 import htmlHiltonGrandVacations from './html/hilton-grand-vacations.html?raw';
@@ -174,6 +175,7 @@ const htmlMap = {
 	'algorhythm': htmlAlgorhythm,
 	'zoom-eternal': htmlZoomEternal,
 	'logarithmic-spiral-camera-motion': htmlLogarithmicSpiral,
+	'shortest-path-triangle-mesh': htmlShortestPathTriangleMesh,
 	'painting-nature': htmlPaintingNature,
 	'growasis': htmlGrowasis,
 	'hilton-grand-vacations': htmlHiltonGrandVacations,
