@@ -1,8 +1,31 @@
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import { fileURLToPath, URL } from 'node:url';
-import { existsSync, readFileSync, watch } from 'fs';
+import { existsSync, readdirSync, readFileSync, watch, writeFileSync } from 'fs';
 import { join, resolve } from 'path';
+
+const PLACEHOLDER = '__VITE_GEMINI_API_KEY__';
+
+// Plugin to inject VITE_GEMINI_API_KEY into metaprompt-studio assets at build time (dist only)
+function injectMetapromptEnvPlugin() {
+	return {
+		name: 'inject-metaprompt-env',
+		closeBundle() {
+			const assetsDir = resolve(process.cwd(), 'dist', 'apps', 'metaprompt-studio', 'assets');
+			if (!existsSync(assetsDir)) return;
+			const value = process.env.VITE_GEMINI_API_KEY || '';
+			for (const name of readdirSync(assetsDir)) {
+				if (!name.endsWith('.js')) continue;
+				const filePath = join(assetsDir, name);
+				let content = readFileSync(filePath, 'utf-8');
+				if (content.includes(PLACEHOLDER)) {
+					content = content.split(PLACEHOLDER).join(value);
+					writeFileSync(filePath, content);
+				}
+			}
+		}
+	};
+}
 
 // Plugin to serve static index.html files from public subdirectories
 // This runs early in the middleware chain to serve static files before Vue Router
@@ -153,7 +176,7 @@ function rewriteCssUrlsPlugin() {
 
 // https://vite.dev/config/
 export default defineConfig({
-	plugins: [vue(), serveStaticIndexPlugin(), watchDataFilesPlugin(), rewriteCssUrlsPlugin()],
+	plugins: [vue(), serveStaticIndexPlugin(), watchDataFilesPlugin(), rewriteCssUrlsPlugin(), injectMetapromptEnvPlugin()],
 	resolve: {
 		alias: {
 			'@': fileURLToPath(new URL('./src', import.meta.url))
