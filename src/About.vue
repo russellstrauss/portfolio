@@ -3,14 +3,19 @@
 		<div class="main-content">
 			<div class="entry-content">
 				<p>
-					I'm a UI-loving and designed-focused software and product engineer with over a decade of experience building production-grade web applications that are fast, accessible, professional, beautiful, and effective. 
-					My specialization is turning complex product requirements and detailed design systems into clean, maintainable interfaces that are insanely great for users, customers, and humans.
+					I'm a senior software engineer and interactive systems developer with experience building everything from large-scale enterprise web platforms to immersive real-time applications and creative tools.
 				</p>
 				<p>
-					I love prototyping applications and building production-grade apps on the web using JavaScript and web technologies of all sorts. I bring capabilities and expertise in AI automated coding along with classical training in design, engineering, and Computer Science, along with a decade of professional working experience in the industry.
+					My background combines front-end engineering, UI architecture, graphics programming, accessibility, and interactive design. I've led and contributed to projects for healthcare systems, government organizations, e-commerce brands, and enterprise platforms, while also independently developing experimental applications involving WebXR, procedural visualization, audio interaction, and 3D systems.
 				</p>
-				<p>	
-					If you need a highly capable UI/UX, product, and full stack web engineer who can ship high-quality apps, I look forward to connecting with you soon!
+				<p>
+					What drives me most is solving difficult problems at the intersection of technology and human experience—building software that is not only technically strong, but intuitive, engaging, and useful to the people using it.
+				</p>
+				<p>
+					I work comfortably across the stack of modern interactive applications: architecting scalable front-end systems, developing complex user interfaces, integrating APIs and CMS platforms, creating real-time visualizations, and translating abstract ideas into polished products.
+				</p>
+				<p>
+					Whether the challenge is enterprise application development, advanced UI engineering, immersive experiences, or interactive visualization, I bring a combination of technical depth, systems thinking, creativity, and adaptability that allows me to contribute quickly and solve problems effectively.
 				</p>
 			</div>
 		</div>
