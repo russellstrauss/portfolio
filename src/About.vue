@@ -6,16 +6,16 @@
 					I'm a senior software engineer and interactive systems developer with experience building everything from large-scale enterprise web platforms to immersive real-time applications and creative tools.
 				</p>
 				<p>
-					My background combines front-end engineering, UI architecture, graphics programming, accessibility, and interactive design. I've led and contributed to projects for healthcare systems, government organizations, e-commerce brands, and enterprise platforms, while also independently developing experimental applications involving WebXR, procedural visualization, audio interaction, and 3D systems.
+					My background combines front-end engineering, UI architecture, graphics programming, accessibility, and interactive design. I've led and contributed to projects for healthcare systems, government institutions, e-commerce brands, and enterprise platforms. I've built experimental virtual reality applications involving WebXR, procedural visualization, audio interaction, and 3D systems.
 				</p>
 				<p>
-					What drives me most is solving difficult problems at the intersection of technology and human experience—building software that is not only technically strong, but intuitive, engaging, and useful to the people using it.
+					I love solving difficult problems where technology and human experience meet: building software that is technically strong, intuitive, and naturally engaging.
 				</p>
 				<p>
-					I work comfortably across the stack of modern interactive applications: architecting scalable front-end systems, developing complex user interfaces, integrating APIs and CMS platforms, creating real-time visualizations, and translating abstract ideas into polished products.
+					I work comfortably in modern interactive applications: designing scalable front-end systems, developing complex user interfaces, integrating APIs and CMS platforms, creating real-time visualizations, and translating abstract ideas into polished products.
 				</p>
 				<p>
-					Whether the challenge is enterprise application development, advanced UI engineering, immersive experiences, or interactive visualization, I bring a combination of technical depth, systems thinking, creativity, and adaptability that allows me to contribute quickly and solve problems effectively.
+					Whether the challenge is enterprise application development, advanced UI engineering, immersive experiences, or interactive visualization, I bring a combination of technical depth, systems thinking, creativity, and adaptability that allows me to contribute quickly and solve problems effectively that make a difference.
 				</p>
 			</div>
 		</div>
@@ -38,8 +38,8 @@
 
 <style lang="scss">
 	
-	.about {
-
+	.about .main-content {
+		max-width: 650px;
 	}
 	
 </style>

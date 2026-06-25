@@ -15,6 +15,7 @@
     "axios": "^1.7.9",
     "floating-vue": "^5.2.2",
     "jquery": "^3.7.1",
+    "leaflet": "^1.9.4",
     "linear-algebra": "^3.1.4",
     "pdfobject": "^2.3.1",
     "prismjs": "^1.29.0",
