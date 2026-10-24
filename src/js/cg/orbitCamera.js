@@ -30,7 +30,9 @@ export function advanceOrbitAngle(angle, dtSeconds, options = {}) {
 	const frameCap = options.frameCap ?? ORBIT_FRAME_CAP_SECONDS;
 	const step = Math.min(Math.max(Number(dtSeconds) || 0, 0), frameCap);
 	if (!motionEnabled) return angle;
-	return angle + step * angularSpeed;
+	// Positive angle is counterclockwise around Y. Subtract so the camera
+	// turns the other way at the same speed.
+	return angle - step * angularSpeed;
 }
 
 export function orbitPosition(angle, options = {}) {

@@ -13,20 +13,20 @@ test('angular speed stays constant across a long session', () => {
 	const frames = 60 * 60 * 20;
 	let angle = 0;
 	for (let i = 0; i < frames; i++) angle = advanceOrbitAngle(angle, dt);
-	const expected = frames * dt * ORBIT.angularSpeed;
+	const expected = -(frames * dt * ORBIT.angularSpeed);
 	assert.ok(Math.abs(angle - expected) < 1e-6, `angle drifted: ${angle} vs ${expected}`);
 });
 
 test('a stalled frame cannot fast-forward the orbit', () => {
 	const advanced = advanceOrbitAngle(0, 30);
-	const cap = ORBIT_FRAME_CAP_SECONDS * ORBIT.angularSpeed;
+	const cap = -(ORBIT_FRAME_CAP_SECONDS * ORBIT.angularSpeed);
 	assert.ok(Math.abs(advanced - cap) < 1e-12);
 });
 
 test('repeated hitches do not accumulate extra speed', () => {
 	let angle = 0;
 	for (let i = 0; i < 100; i++) angle = advanceOrbitAngle(angle, 5);
-	const expected = 100 * ORBIT_FRAME_CAP_SECONDS * ORBIT.angularSpeed;
+	const expected = -(100 * ORBIT_FRAME_CAP_SECONDS * ORBIT.angularSpeed);
 	assert.ok(Math.abs(angle - expected) < 1e-9);
 });
 
@@ -48,7 +48,15 @@ test('reduced motion holds the camera still without forgetting later frames', ()
 	const held = advanceOrbitAngle(1.25, 2, { motionEnabled: false });
 	assert.equal(held, 1.25);
 	const resumed = advanceOrbitAngle(held, 1 / 60, { motionEnabled: true });
-	assert.ok(Math.abs(resumed - (1.25 + (1 / 60) * ORBIT.angularSpeed)) < 1e-12);
+	assert.ok(Math.abs(resumed - (1.25 - (1 / 60) * ORBIT.angularSpeed)) < 1e-12);
+});
+
+test('the camera turns clockwise around the origin', () => {
+	const start = orbitPosition(0);
+	const next = orbitPosition(advanceOrbitAngle(0, 1));
+	// Clockwise when looking down the Y axis: z decreases as the angle leaves 0.
+	assert.ok(next.z < start.z);
+	assert.ok(Math.abs(next.x - start.x) < 1);
 });
 
 test('rotation is a little slower than the old spiral opening rate', () => {
