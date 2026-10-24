@@ -18,7 +18,7 @@
 					I work comfortably in modern interactive applications: designing scalable front-end systems, developing complex user interfaces, integrating APIs and CMS platforms, creating real-time visualizations, and translating abstract ideas into polished products.
 				</p>
 				<p>
-					Whether the challenge is enterprise application development, advanced UI engineering, immersive experiences, or interactive visualization, I bring a combination of technical depth, systems thinking, creativity, and adaptability that allows me to contribute quickly and solve problems effectively that make a difference.
+					Whether the challenge is enterprise application development, advanced UI engineering, immersive experiences, or interactive visualization, I bring a combination of technical depth, systems thinking, creativity, and adaptability that allows me to contribute quickly and solve problems effectively to create experiences built to last.
 				</p>
 			</div>
 		</div>
