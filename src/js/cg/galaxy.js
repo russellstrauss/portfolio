@@ -279,4 +279,8 @@ var galaxy = (function() {
 	}
 })();
 
+if (import.meta.hot) {
+	import.meta.hot.dispose(() => galaxy.destroy());
+}
+
 export default galaxy
