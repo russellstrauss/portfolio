@@ -3,7 +3,7 @@
 		<div class="main-content">
 			<div class="entry-content">
 				<p>
-					I'm an experienced software engineer and interactive systems developer with experience building everything from large-scale enterprise web platforms to immersive real-time applications and creative tools.
+					I'm an experienced software engineer and interactive systems developer with a history of building everything from large-scale enterprise web platforms to immersive real-time applications and creative tools.
 				</p>
 				<p>
 					My background combines front-end engineering, UI architecture, graphics programming, accessibility, and interaction design. I've led and contributed to projects for healthcare systems, government institutions, e-commerce brands, and enterprise platforms. I've built experimental virtual reality applications involving WebXR, procedural visualization, audio interaction, and 3D systems.
