@@ -31,50 +31,76 @@ var galaxy = (function() {
 	var clusterGeometry, initialized = false, frameCount = 0;
 	var renderer, scene, camera, controls;
 	let interps = [d3.interpolateRainbow, d3.interpolateRgb('#450F66', '#B36002'), d3.interpolateRgb('white', 'red'), d3.interpolateSinebow, d3.interpolateYlOrRd, d3.interpolateYlGnBu,d3.interpolateRdPu, d3.interpolatePuBu, d3.interpolateGnBu, d3.interpolateBuPu, d3.interpolateCubehelixDefault, d3.interpolateCool, d3.interpolateWarm, d3.interpolateCividis, d3.interpolatePlasma, d3.interpolateMagma, d3.interpolateInferno, d3.interpolateViridis, d3.interpolateTurbo, d3.interpolatePurples, d3.interpolateReds, d3.interpolateOranges, d3.interpolateGreys, d3.interpolateGreens, d3.interpolateBlues, d3.interpolateSpectral, d3.interpolateRdYlBu, d3.interpolateRdBu, d3.interpolatePuOr, d3.interpolatePiYG, d3.interpolatePRGn];
-	let curve = [], progress = 0, default_camera_speed = .0005, curve_index = 0, clock, curveObject, catmullRomCurve, firstCameraFrame = true;
+	let curve = [], progress = 0, cameraSpeed = .0004, curveObject, catmullRomCurve;
 	let cameraFocalPoint = new THREE.Vector3(0, 0, 0), origin = new THREE.Vector3(0, 0, 0), particles, particleCount = 60000, particleSpread = 500, positions, trajectory_iteration_count = 40, trajectoryReverse = false;
+	let animationFrameId = null, previousFrameTime = null, resizeHandler = null, visibilityHandler = null, running = false;
+	const instanceKey = '__portfolioGalaxyAnimation';
+	const maxFrameDelta = 0.1;
 	
 	return {
 		init: function() {
+			if (running) return;
+
+			// Only one Galaxy instance may own the canvas and animation loop. This
+			// also disposes the previous module instance after a hot reload.
+			const existingInstance = window[instanceKey];
+			if (existingInstance && existingInstance !== this && typeof existingInstance.destroy === 'function') {
+				existingInstance.destroy();
+			}
+			window[instanceKey] = this;
 			this.begin();
 		},
 		
 		begin: function() {
 			progress = 0;
-			firstCameraFrame = true;
+			curve = [];
+			previousFrameTime = null;
+			running = true;
 
 			scene = gfx.setUpScene();
 			renderer = gfx.setUpRenderer(renderer);
+			renderer.domElement.setAttribute('aria-hidden', 'true');
 			camera = gfx.setUpCamera(camera);
 			scene.background = settings.colors.worldColor;
 			controls = gfx.enableControls(controls, renderer, camera);
-			controls.enableDamping = false; // camera is driven by curve; no smoothing so it truly jumps to current time when tab returns
-			gfx.resizeRendererOnWindowResize(renderer, camera);
+			controls.enableDamping = false;
+			resizeHandler = () => {
+				camera.aspect = window.innerWidth / window.innerHeight;
+				camera.updateProjectionMatrix();
+				renderer.setSize(window.innerWidth, window.innerHeight);
+			};
+			window.addEventListener('resize', resizeHandler);
+			visibilityHandler = () => {
+				// Ignore time spent in a background tab instead of applying it as
+				// one large camera movement when requestAnimationFrame resumes.
+				previousFrameTime = null;
+			};
+			document.addEventListener('visibilitychange', visibilityHandler);
 			gfx.setUpLights();
 			gfx.setCameraLocation(camera, settings.defaultCameraLocation);
-			clock = new THREE.Clock(); clock.start();
 			this.addStars();
 			//this.addCluster();
 			this.createCameraTrajectory();
 			this.firstFrame();
 			
-			var animate = () => {
-				requestAnimationFrame(animate);
-				this.everyFrame(); // update camera to curve position first (wall-clock)
-				controls.update(); // sync controls to camera so no catch-up
+			const animate = (frameTime) => {
+				if (!running) return;
+				animationFrameId = requestAnimationFrame(animate);
+				this.everyFrame(frameTime);
+				controls.update();
 				renderer.render(scene, camera);
 			};
-			animate(); 
+			animationFrameId = requestAnimationFrame(animate);
 		},
 		
 		firstFrame: function() {
 			camera.lookAt(cameraFocalPoint);
 		},
 		
-		everyFrame: function() {
+		everyFrame: function(frameTime) {
 			
 			if (!initialized) this.firstFrame();
-			this.updateCamera();
+			this.updateCamera(frameTime);
 			this.updateParticles();
 			frameCount++;
 		},
@@ -118,23 +144,45 @@ var galaxy = (function() {
 			// scene.add(curveObject);
 		},
 		
-		updateCamera: function() {
-			let dt = clock.getDelta();
-			const maxDt = 0.1; // if we fall behind (e.g. tab backgrounded), jump to current time instead of catching up
-			if (firstCameraFrame) {
-				dt = Math.min(dt, maxDt);
-				firstCameraFrame = false;
+		updateCamera: function(frameTime) {
+			if (previousFrameTime !== null) {
+				const elapsedSeconds = Math.min(Math.max((frameTime - previousFrameTime) / 1000, 0), maxFrameDelta);
+				progress = (progress + elapsedSeconds * cameraSpeed) % 1;
 			}
-			if (dt > maxDt) {
-				progress = (Date.now() / 1000 * default_camera_speed) % 1;
-			} else {
-				progress += dt * default_camera_speed;
-				if (progress >= 1) progress = progress % 1;
-			}
+			previousFrameTime = frameTime;
 
 			const cameraPosition = catmullRomCurve.getPointAt(progress);
 			camera.position.set(cameraPosition.x, cameraPosition.y, cameraPosition.z);
 			camera.lookAt(cameraFocalPoint);
+		},
+
+		destroy: function() {
+			running = false;
+			if (animationFrameId !== null) {
+				cancelAnimationFrame(animationFrameId);
+				animationFrameId = null;
+			}
+			if (resizeHandler) window.removeEventListener('resize', resizeHandler);
+			if (visibilityHandler) document.removeEventListener('visibilitychange', visibilityHandler);
+			resizeHandler = null;
+			visibilityHandler = null;
+			previousFrameTime = null;
+
+			if (controls) controls.dispose();
+			if (scene) {
+				scene.traverse((object) => {
+					if (object.geometry) object.geometry.dispose();
+					if (object.material) {
+						const materials = Array.isArray(object.material) ? object.material : [object.material];
+						materials.forEach((material) => material.dispose());
+					}
+				});
+			}
+			if (renderer) {
+				renderer.dispose();
+				renderer.domElement.remove();
+			}
+			if (window[instanceKey] === this) delete window[instanceKey];
 		},
 		
 		addStars: function() {
