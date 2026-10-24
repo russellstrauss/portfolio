@@ -330,7 +330,7 @@ var gfx = (function() {
 
 		resizeRendererOnWindowResize: function(renderer, camera) {
 
-			window.addEventListener('resize', utils.debounce(function() {
+			const onResize = utils.debounce(function() {
 				
 				if (renderer) {
 	
@@ -338,7 +338,9 @@ var gfx = (function() {
 					camera.updateProjectionMatrix();
 					renderer.setSize(window.innerWidth, window.innerHeight);
 				}
-			}, 250));
+			}, 250);
+			window.addEventListener('resize', onResize);
+			return function() { window.removeEventListener('resize', onResize); };
 		},
 
 		resetScene: function(scope) {

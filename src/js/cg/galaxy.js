@@ -1,5 +1,4 @@
 import * as THREE from '@/js/vendors/three.js/build/three.module.js';
-import { OrbitControls } from '@/js/vendors/three.js/examples/jsm/controls/OrbitControls.js';
 import * as graphics from '@/js/cg/graphics.js'; var gfx = graphics.default;
 import * as Utils from '@/js/utils.js';import { Color, Vector2 } from 'three';
  let utils = Utils.default;
@@ -24,6 +23,14 @@ var galaxy = (function() {
 		iOS: {
 			particleSize: 8,
 			starSize: 3
+		},
+		camera: {
+			height: 500,
+			orbitDegreesPerSecond: 0.18, // constant azimuth rate; never depends on position along the path
+			maxRadius: 1700,
+			minRadius: 1000,
+			breathePeriodSeconds: 1800, // time for radius to go out -> in -> out
+			maxFrameDelta: 0.1 // seconds; longer frames (hitches, hidden tab) are clamped so time never "catches up"
 		}
 		
 	};
@@ -31,7 +38,7 @@ var galaxy = (function() {
 	var clusterGeometry, initialized = false, frameCount = 0;
 	var renderer, scene, camera, controls;
 	let interps = [d3.interpolateRainbow, d3.interpolateRgb('#450F66', '#B36002'), d3.interpolateRgb('white', 'red'), d3.interpolateSinebow, d3.interpolateYlOrRd, d3.interpolateYlGnBu,d3.interpolateRdPu, d3.interpolatePuBu, d3.interpolateGnBu, d3.interpolateBuPu, d3.interpolateCubehelixDefault, d3.interpolateCool, d3.interpolateWarm, d3.interpolateCividis, d3.interpolatePlasma, d3.interpolateMagma, d3.interpolateInferno, d3.interpolateViridis, d3.interpolateTurbo, d3.interpolatePurples, d3.interpolateReds, d3.interpolateOranges, d3.interpolateGreys, d3.interpolateGreens, d3.interpolateBlues, d3.interpolateSpectral, d3.interpolateRdYlBu, d3.interpolateRdBu, d3.interpolatePuOr, d3.interpolatePiYG, d3.interpolatePRGn];
-	let curve = [], progress = 0, default_camera_speed = .0005, curve_index = 0, clock, curveObject, catmullRomCurve, firstCameraFrame = true;
+	let elapsed = 0, clock, animationFrameId = null;
 	let cameraFocalPoint = new THREE.Vector3(0, 0, 0), origin = new THREE.Vector3(0, 0, 0), particles, particleCount = 60000, particleSpread = 500, positions, trajectory_iteration_count = 40, trajectoryReverse = false;
 	
 	return {
@@ -40,31 +47,39 @@ var galaxy = (function() {
 		},
 		
 		begin: function() {
-			progress = 0;
-			firstCameraFrame = true;
+			// Only one render loop / canvas may ever exist (HMR or a remount would otherwise stack loops).
+			if (typeof window !== 'undefined' && typeof window.__galaxyTeardown === 'function') window.__galaxyTeardown();
+
+			elapsed = 0;
 
 			scene = gfx.setUpScene();
 			renderer = gfx.setUpRenderer(renderer);
 			camera = gfx.setUpCamera(camera);
 			scene.background = settings.colors.worldColor;
-			controls = gfx.enableControls(controls, renderer, camera);
-			controls.enableDamping = false; // camera is driven by curve; no smoothing so it truly jumps to current time when tab returns
-			gfx.resizeRendererOnWindowResize(renderer, camera);
+			const removeResizeListener = gfx.resizeRendererOnWindowResize(renderer, camera);
 			gfx.setUpLights();
 			gfx.setCameraLocation(camera, settings.defaultCameraLocation);
 			clock = new THREE.Clock(); clock.start();
 			this.addStars();
-			//this.addCluster();
-			this.createCameraTrajectory();
 			this.firstFrame();
 			
 			var animate = () => {
-				requestAnimationFrame(animate);
-				this.everyFrame(); // update camera to curve position first (wall-clock)
-				controls.update(); // sync controls to camera so no catch-up
+				animationFrameId = requestAnimationFrame(animate);
+				this.everyFrame();
 				renderer.render(scene, camera);
 			};
-			animate(); 
+			animate();
+
+			window.__galaxyTeardown = () => {
+				cancelAnimationFrame(animationFrameId);
+				animationFrameId = null;
+				if (typeof removeResizeListener === 'function') removeResizeListener();
+				if (renderer) {
+					if (renderer.domElement && renderer.domElement.parentNode) renderer.domElement.parentNode.removeChild(renderer.domElement);
+					renderer.dispose();
+				}
+				window.__galaxyTeardown = null;
+			};
 		},
 		
 		firstFrame: function() {
@@ -79,61 +94,17 @@ var galaxy = (function() {
 			frameCount++;
 		},
 		
-		createCameraTrajectory: function() {
-			
-			let prevPt = null;
-			
-			let truncateSpiral = 0;
-			for (let i = truncateSpiral; i < trajectory_iteration_count - 1; i += 2 * Math.PI / trajectory_iteration_count) {
-				
-				// # Calculate curve point position
-				let radius_scale = 1000;
-				let a = .0001;
-				let k = .25;
-				let spiral_x = radius_scale * a * Math.pow(Math.E, k * i) * Math.cos(i);
-				let spiral_y = 500;
-				let spiral_z = radius_scale * a * Math.pow(Math.E, k * i) * Math.sin(i);
-				let spiralPt = new THREE.Vector3(spiral_x, spiral_y, spiral_z);
-				
-				if (prevPt !== null) {
-					let showLine = false;
-					if (showLine === true && prevPt != new THREE.Vector3(0, 0, 0)) gfx.drawLineFromPoints(prevPt, spiralPt);
-					curve.push(spiralPt);
-				}
-				prevPt = spiralPt
-			}
-			curve.reverse();
-			for (let j = curve.length - 1; j >= 0; j--) { // mirror and append the curve
-				curve.push(curve[j]);
-			}
-			this.catmullRomSpline(curve);
-		},
-		
-		catmullRomSpline: function(curveArray) {
-			catmullRomCurve = new THREE.CatmullRomCurve3(curveArray);
-			const points = catmullRomCurve.getPoints(curveArray.length);
-			const geometry = new THREE.BufferGeometry().setFromPoints( points );
-			const material = new THREE.LineBasicMaterial( { color : 0xff0000 } );
-			curveObject = new THREE.Line( geometry, material );
-			// scene.add(curveObject);
-		},
-		
 		updateCamera: function() {
-			let dt = clock.getDelta();
-			const maxDt = 0.1; // if we fall behind (e.g. tab backgrounded), jump to current time instead of catching up
-			if (firstCameraFrame) {
-				dt = Math.min(dt, maxDt);
-				firstCameraFrame = false;
-			}
-			if (dt > maxDt) {
-				progress = (Date.now() / 1000 * default_camera_speed) % 1;
-			} else {
-				progress += dt * default_camera_speed;
-				if (progress >= 1) progress = progress % 1;
-			}
+			const cam = settings.camera;
+			// Clamp so a long frame never turns into a jump or a burst of speed.
+			elapsed += Math.min(clock.getDelta(), cam.maxFrameDelta);
 
-			const cameraPosition = catmullRomCurve.getPointAt(progress);
-			camera.position.set(cameraPosition.x, cameraPosition.y, cameraPosition.z);
+			const angle = THREE.MathUtils.degToRad(cam.orbitDegreesPerSecond) * elapsed;
+			const mid = (cam.maxRadius + cam.minRadius) / 2;
+			const amp = (cam.maxRadius - cam.minRadius) / 2;
+			const radius = mid + amp * Math.cos(2 * Math.PI * elapsed / cam.breathePeriodSeconds);
+
+			camera.position.set(radius * Math.cos(angle), cam.height, radius * Math.sin(angle));
 			camera.lookAt(cameraFocalPoint);
 		},
 		
