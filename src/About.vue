@@ -6,7 +6,7 @@
 					I'm a senior software engineer and interactive systems developer with experience building everything from large-scale enterprise web platforms to immersive real-time applications and creative tools.
 				</p>
 				<p>
-					My background combines front-end engineering, UI architecture, graphics programming, accessibility, and interaction design. I've led and contributed to projects for healthcare systems, government institutions, e-commerce brands, and enterprise platforms. I've built experimental virtual reality applications involving WebXR, procedural visualization, audio interaction, and 3D systems. I've built automation that takes repetitive work out of the day, from nightly schedule syncing to workflow and front-end build processes that keep running on their own.
+					My background combines front-end engineering, UI architecture, graphics programming, accessibility, and interaction design. I've led and contributed to projects for healthcare systems, government institutions, e-commerce brands, and enterprise platforms. I've built experimental virtual reality applications involving WebXR, procedural visualization, audio interaction, and 3D systems. I create intelligent automations that bring together AI, code, and creative problem-solving to transform repetitive processes into fluid, intuitive workflows and open up new possibilities for how we build.
 				</p>
 				<p>
 					I love solving difficult problems where technology and human experience meet: building software that is technically strong, intuitive, and naturally engaging.
